@@ -35,6 +35,21 @@ sudo dnf install qt5pas
 sudo apt install libqt5pas-dev
 ```
 
+Usage
+-----
+
+Unpack to any directory and run (the program is native):
+
+```
+./gcencryptor
+```
+
+Configuration stored in:
+
+```
+~/.config/gcencryptor/
+```
+
 Build from source
 -----------------
 
