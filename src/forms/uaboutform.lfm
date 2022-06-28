@@ -1,0 +1,103 @@
+object frmAbout: TfrmAbout
+  Left = 995
+  Height = 337
+  Top = 318
+  Width = 499
+  AutoSize = True
+  Caption = 'About'
+  ClientHeight = 337
+  ClientWidth = 499
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object memAbout: TMemo
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 138
+    Top = 24
+    Width = 451
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 24
+    BorderSpacing.Bottom = 12
+    BorderSpacing.InnerBorder = 12
+    BorderStyle = bsNone
+    Color = clForm
+    Lines.Strings = (
+      'gcencryptor'
+      ''
+      'Version: 1.0'
+      'License: MIT (see. ./LICENSE)'
+    )
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 0
+  end
+  object lblHomepage: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = memAbout
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 19
+    Top = 174
+    Width = 451
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 24
+    BorderSpacing.Right = 24
+    BorderSpacing.Bottom = 12
+    Caption = 'https://helltar.com'
+    Font.Color = 16742179
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblHomepageClick
+  end
+  object lblGithub: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = lblHomepage
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 19
+    Top = 205
+    Width = 451
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 24
+    BorderSpacing.Right = 24
+    BorderSpacing.Bottom = 12
+    Caption = 'https://github.com/helltar/gcencryptor'
+    Font.Color = 16742179
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblGithubClick
+  end
+  object lblGocryptfs: TLabel
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = lblGithub
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 19
+    Top = 236
+    Width = 451
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Left = 24
+    BorderSpacing.Right = 24
+    BorderSpacing.Bottom = 64
+    Caption = 'https://github.com/rfjakob/gocryptfs'
+    Font.Color = 16742179
+    ParentColor = False
+    ParentFont = False
+    OnClick = lblGocryptfsClick
+  end
+end

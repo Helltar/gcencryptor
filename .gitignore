@@ -1,0 +1,11 @@
+/gcencryptor
+gcencryptor.dbg
+
+config/
+
+*.lps
+*.res
+
+backup/
+lib/
+release_bin/
