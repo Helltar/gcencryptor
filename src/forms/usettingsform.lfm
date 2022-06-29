@@ -18,14 +18,14 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnpMain
     Left = 24
-    Height = 393
+    Height = 401
     Top = 24
     Width = 571
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Main'
-    ClientHeight = 362
+    ClientHeight = 370
     ClientWidth = 567
     ParentFont = False
     TabOrder = 0
@@ -123,8 +123,8 @@ object frmSettings: TfrmSettings
     AnchorSideTop.Control = gbSettings
     AnchorSideTop.Side = asrBottom
     Left = 24
-    Height = 38
-    Top = 441
+    Height = 30
+    Top = 449
     Width = 571
     BorderSpacing.Around = 24
     OKButton.Name = 'OKButton'
@@ -139,6 +139,7 @@ object frmSettings: TfrmSettings
     TabOrder = 1
     ShowButtons = [pbOK]
     ShowGlyphs = [pbOK]
+    ShowBevel = False
   end
   object sddMountPoint: TSelectDirectoryDialog
     Left = 424
