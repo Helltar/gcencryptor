@@ -10,14 +10,15 @@ uses
   athreads,
   {$ENDIF}
   Forms, Interfaces,
-  uMainForm, uSettingsForm, uAboutForm, uMountList
-  { you can add units after this };
+  { --------------------------------- }
+  uMainForm, uSettingsForm, uAboutForm,
+  uMountList;
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Scaled:=True;
+  Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
