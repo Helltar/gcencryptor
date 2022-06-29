@@ -24,7 +24,7 @@ function delDir(const dir: string): boolean;
 function dirExists(const dir: string): boolean;
 function isDirEmpty(const dir: string): boolean;
 function umount(const mountpoint: string): boolean;
-function mount(const cipherdir, mountpoint, pass: string): TMountRec;
+function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False): TMountRec;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
 function getRandomName(const ALength: integer; const charSequence: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'): string;
 
@@ -43,7 +43,7 @@ implementation
 uses
   uLogger;
 
-function mount(const cipherdir, mountpoint, pass: string): TMountRec;
+function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean): TMountRec;
 var
   p: TProcessRec;
   sl: TStringList;
@@ -62,6 +62,9 @@ begin
 
     sl.Add(cipherdir);
     sl.Add(genMountPoint);
+
+    if ReadOnly then
+      sl.Add('-ro');
 
     p := ProcStart('gocryptfs', sl, pass);
 
@@ -199,7 +202,7 @@ begin
     addErrLog(ERROR_CREATING_DIRECTORY, dir);
 end;
 
-function deldir(const dir: string): boolean;
+function delDir(const dir: string): boolean;
 begin
   Result := False;
 

@@ -18,6 +18,7 @@ type
     btnUmount: TButton;
     btnMount: TButton;
     btnUmountAll: TButton;
+    cbROMount: TCheckBox;
     edtPassword: TEdit;
     edtCurrentVaultDir: TEdit;
     flbVaultList: TFileListBox;
@@ -30,6 +31,7 @@ type
     miOpenVaultDir: TMenuItem;
     miDelFromList: TMenuItem;
     miOpenCryptoDir: TMenuItem;
+    pnlMountButton: TPanel;
     sddNewVault: TSelectDirectoryDialog;
     spHorizontal: TMenuItem;
     pmMain: TPopupMenu;
@@ -355,7 +357,7 @@ begin
   if not dirExists(edtCurrentVaultDir.Text) then
     Exit;
 
-  m := mount(edtCurrentVaultDir.Text, config.mountPoint, edtPassword.Text);
+  m := mount(edtCurrentVaultDir.Text, config.mountPoint, edtPassword.Text, cbROMount.Checked);
 
   if m.Completed then
   begin

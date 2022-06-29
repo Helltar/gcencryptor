@@ -1,14 +1,14 @@
 object frmMain: TfrmMain
-  Left = 804
-  Height = 636
-  Top = 194
-  Width = 975
+  Left = 830
+  Height = 846
+  Top = 76
+  Width = 997
   HorzScrollBar.Page = 48
-  VertScrollBar.Page = 351
+  VertScrollBar.Page = 398
   AutoScroll = True
   Caption = 'gcencryptor'
-  ClientHeight = 605
-  ClientWidth = 975
+  ClientHeight = 815
+  ClientWidth = 997
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,10 +22,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 350
-    Height = 304
-    Top = 277
-    Width = 601
+    Left = 357
+    Height = 467
+    Top = 324
+    Width = 616
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -532,8 +532,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 326
-    Height = 605
+    Left = 333
+    Height = 815
     Top = 0
     Width = 5
     Align = alNone
@@ -548,10 +548,10 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 557
+    Height = 767
     Hint = 'Vaults'
     Top = 24
-    Width = 283
+    Width = 290
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 12
@@ -575,55 +575,18 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 350
-    Height = 229
+    Left = 357
+    Height = 276
     Top = 24
-    Width = 601
+    Width = 616
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
-    ClientHeight = 198
-    ClientWidth = 597
+    ClientHeight = 245
+    ClientWidth = 612
     ParentFont = False
     TabOrder = 1
-    object btnMount: TButton
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = edtPassword
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 36
-      Top = 138
-      Width = 120
-      BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 6
-      Caption = '&Unlock'
-      Enabled = False
-      OnClick = btnMountClick
-      ParentFont = False
-      TabOrder = 0
-    end
-    object btnUmount: TButton
-      AnchorSideLeft.Control = btnUmountAll
-      AnchorSideLeft.Side = asrCenter
-      AnchorSideTop.Control = edtPassword
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = btnUmountAll
-      Cursor = crHandPoint
-      Left = 309
-      Height = 36
-      Top = 138
-      Width = 120
-      Anchors = [akTop, akRight]
-      BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 6
-      Caption = '&Lock'
-      Enabled = False
-      OnClick = btnUmountClick
-      ParentFont = False
-      TabOrder = 1
-    end
     object edtCurrentVaultDir: TEdit
       AnchorSideLeft.Control = gbCurrentVault
       AnchorSideTop.Control = gbCurrentVault
@@ -632,12 +595,12 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 24
-      Width = 549
+      Width = 564
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       ParentFont = False
       ReadOnly = True
-      TabOrder = 2
+      TabOrder = 0
       TextHint = 'vault directory'
     end
     object edtPassword: TEdit
@@ -649,7 +612,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 81
-      Width = 549
+      Width = 564
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -657,34 +620,98 @@ object frmMain: TfrmMain
       OnChange = edtPasswordChange
       ParentFont = False
       PasswordChar = '*'
-      TabOrder = 3
+      TabOrder = 1
       TextHint = 'password'
     end
-    object btnUmountAll: TButton
+    object pnlMountButton: TPanel
       AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = cbROMount
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 36
+      Top = 185
+      Width = 564
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 24
+      BevelOuter = bvNone
+      ClientHeight = 36
+      ClientWidth = 564
+      TabOrder = 2
+      object btnMount: TButton
+        AnchorSideLeft.Control = pnlMountButton
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Side = asrBottom
+        Left = 0
+        Height = 36
+        Top = 0
+        Width = 120
+        BorderSpacing.InnerBorder = 6
+        Caption = '&Unlock'
+        Enabled = False
+        OnClick = btnMountClick
+        ParentFont = False
+        TabOrder = 0
+      end
+      object btnUmount: TButton
+        AnchorSideLeft.Control = btnUmountAll
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Control = btnUmountAll
+        Cursor = crHandPoint
+        Left = 300
+        Height = 36
+        Top = 0
+        Width = 120
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 24
+        BorderSpacing.InnerBorder = 6
+        Caption = '&Lock'
+        Enabled = False
+        OnClick = btnUmountClick
+        ParentFont = False
+        TabOrder = 1
+      end
+      object btnUmountAll: TButton
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Control = pnlMountButton
+        AnchorSideRight.Side = asrBottom
+        Left = 444
+        Height = 36
+        Top = 0
+        Width = 120
+        Anchors = [akTop, akRight]
+        BorderSpacing.InnerBorder = 6
+        Caption = 'Lock All'
+        Enabled = False
+        OnClick = btnUmountAllClick
+        TabOrder = 2
+      end
+    end
+    object cbROMount: TCheckBox
+      AnchorSideLeft.Control = gbCurrentVault
       AnchorSideTop.Control = edtPassword
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbCurrentVault
       AnchorSideRight.Side = asrBottom
-      Left = 453
-      Height = 36
+      Left = 24
+      Height = 23
       Top = 138
-      Width = 120
-      Anchors = [akTop, akRight]
+      Width = 564
+      Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 6
-      Caption = 'Lock All'
-      Enabled = False
-      OnClick = btnUmountAllClick
-      TabOrder = 4
+      Caption = 'read-only'
+      TabOrder = 3
     end
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
     Enabled = False
-    Left = 536
-    Top = 360
+    Left = 480
+    Top = 688
   end
   object pmMain: TPopupMenu
     OnPopup = pmMainPopup
