@@ -13,13 +13,16 @@ type
 
   TfrmNewVault = class(TForm)
     btnCreate: TButton;
-    edtPath: TDirectoryEdit;
+    btnSelectDir: TButton;
+    edtPath: TEdit;
     edtVaultName: TEdit;
     edtPassword: TEdit;
     edtRepeatPassword: TEdit;
+    selectDirectoryDialog: TSelectDirectoryDialog;
     procedure btnCreateClick(Sender: TObject);
-    procedure edtPasswordChange(Sender: TObject);
+    procedure btnSelectDirClick(Sender: TObject);
     procedure edtPathChange(Sender: TObject);
+    procedure edtPasswordChange(Sender: TObject);
     procedure edtRepeatPasswordChange(Sender: TObject);
     procedure edtVaultNameChange(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -52,7 +55,7 @@ var
   path: string;
 
 begin
-  path := edtPath.Directory + DirectorySeparator + edtVaultName.Text;
+  path := edtPath.Text + DirectorySeparator + edtVaultName.Text;
 
   if edtPassword.Text <> edtRepeatPassword.Text then
     ShowMessage(PASSWORDS_DO_NOT_MATCH)
@@ -63,6 +66,16 @@ begin
     createVault(path);
 end;
 
+procedure TfrmNewVault.btnSelectDirClick(Sender: TObject);
+begin
+  if selectDirectoryDialog.Execute then
+    edtPath.Text := selectDirectoryDialog.FileName;
+end;
+
+procedure TfrmNewVault.edtPathChange(Sender: TObject);
+begin
+  updateControls();
+end;
 
 procedure TfrmNewVault.createVault(const path: string);
 var
@@ -71,7 +84,7 @@ var
 begin
   edtRepeatPassword.Clear;
 
-  if init(edtVaultName.Text, edtPath.Directory, edtPassword.Text) then
+  if init(edtVaultName.Text, edtPath.Text, edtPassword.Text) then
   begin
     frmMain.addVaultToList(path);
 
@@ -96,7 +109,7 @@ end;
 procedure TfrmNewVault.updateControls;
 begin
   btnCreate.Enabled :=
-    (edtPath.Directory <> '') and
+    (edtPath.Text <> '') and
     (edtVaultName.Text <> '') and
     (edtPassword.Text <> '') and
     (edtRepeatPassword.Text <> '') and
@@ -104,11 +117,6 @@ begin
 end;
 
 procedure TfrmNewVault.edtPasswordChange(Sender: TObject);
-begin
-  updateControls();
-end;
-
-procedure TfrmNewVault.edtPathChange(Sender: TObject);
 begin
   updateControls();
 end;
