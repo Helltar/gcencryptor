@@ -107,6 +107,7 @@
         <Filename Value="forms/umasterkeyform.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="frmMasterKey"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uMasterKeyForm"/>
       </Unit>

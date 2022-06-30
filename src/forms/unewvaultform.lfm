@@ -70,10 +70,12 @@ object frmNewVault: TfrmNewVault
     AnchorSideTop.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 36
+    Height = 41
     Top = 252
-    Width = 120
+    Width = 82
+    AutoSize = True
     BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 6
     Caption = '&Create'
     Enabled = False
     OnClick = btnCreateClick
