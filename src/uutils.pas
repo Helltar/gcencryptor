@@ -19,8 +19,8 @@ function dirExists(const dir: string): boolean;
 function getRandomName(const ALength: integer; const charSequence: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'): string;
 function isDirEmpty(const dir: string): boolean;
 function mkDir(const dir: string): boolean;
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
-function procStart(const executable, parameters: string; const stdin: string = ''): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const isMount: boolean = False): TProcessRec;
+function procStart(const executable, parameters: string; const stdin: string = ''; const isMount: boolean = False): TProcessRec;
 function umount(const mountpoint: string): boolean;
 
 implementation
@@ -38,7 +38,7 @@ resourcestring
 const
   FUSERMOUNT_BIN = 'fusermount';
 
-function procStart(const executable, parameters: string; const stdin: string): TProcessRec;
+function procStart(const executable, parameters: string; const stdin: string; const isMount: boolean): TProcessRec;
 var
   i: integer;
   s, s1: TStringList;
@@ -53,13 +53,13 @@ begin
   for i := 0 to s.Count - 1 do
     s1.Add(s[i]);
 
-  Result := ProcStart(executable, s1, stdin);
+  Result := ProcStart(executable, s1, stdin, isMount);
 
   FreeAndNil(s);
   FreeAndNil(s1);
 end;
 
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string; const isMount: boolean): TProcessRec;
 var
   p: TProcess;
 
@@ -78,18 +78,18 @@ begin
 
       if stdin <> '' then
       begin
-        stdin := stdin + LineEnding;
+        stdin += LineEnding;
         p.Input.Write(stdin[1], Length(stdin));
         stdin := '******';
         stdin := '';
       end;
 
-      Sleep(300); // large output, trick
-
       with TStringList.Create do
         try
-          LoadFromStream(p.Output);
-          Result.Output := Text;
+          repeat
+            LoadFromStream(p.Output);
+            Result.Output += Text;
+          until not p.Running or isMount;
         finally
           Free;
         end;

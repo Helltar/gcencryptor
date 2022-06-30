@@ -100,7 +100,7 @@ begin
 
   cmd := cipherdir + LineEnding + genMountPoint;
 
-  p := procStart(GOCRYPTFS_BIN, cmd, pass);
+  p := procStart(GOCRYPTFS_BIN, cmd, pass, True);
 
   if p.Completed and (p.ExitStatus = 0) then
   begin
