@@ -84,7 +84,7 @@ end;
 
 function TConfig.GetLogFontSize: integer;
 begin
-  Result := ReadInteger('MAIN', 'logFontSize', 10);
+  Result := ReadInteger('MAIN', 'logFontSize', 11);
 end;
 
 function TConfig.GetSplLeft: integer;
