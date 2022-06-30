@@ -3,5 +3,5 @@
 
 backup/
 lib/
-debug_bin
+debug_bin/
 release_bin/
