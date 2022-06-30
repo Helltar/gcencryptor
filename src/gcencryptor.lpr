@@ -12,7 +12,7 @@ uses
   Forms, Interfaces,
   { --------------------------------- }
   uMainForm, uSettingsForm, uAboutForm,
-  uMountList;
+  uMountList, ugocryptfs;
 
 {$R *.res}
 

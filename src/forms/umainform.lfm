@@ -1,14 +1,14 @@
 object frmMain: TfrmMain
-  Left = 830
-  Height = 846
-  Top = 76
-  Width = 997
+  Left = 692
+  Height = 571
+  Top = 181
+  Width = 983
   HorzScrollBar.Page = 48
   VertScrollBar.Page = 398
   AutoScroll = True
   Caption = 'gcencryptor'
-  ClientHeight = 815
-  ClientWidth = 997
+  ClientHeight = 540
+  ClientWidth = 983
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -22,10 +22,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 357
-    Height = 467
+    Left = 352
+    Height = 192
     Top = 324
-    Width = 616
+    Width = 607
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -532,8 +532,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 333
-    Height = 815
+    Left = 328
+    Height = 540
     Top = 0
     Width = 5
     Align = alNone
@@ -548,10 +548,10 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 767
+    Height = 492
     Hint = 'Vaults'
     Top = 24
-    Width = 290
+    Width = 285
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 12
@@ -575,16 +575,16 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 357
+    Left = 352
     Height = 276
     Top = 24
-    Width = 616
+    Width = 607
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
     ClientHeight = 245
-    ClientWidth = 612
+    ClientWidth = 603
     ParentFont = False
     TabOrder = 1
     object edtCurrentVaultDir: TEdit
@@ -595,7 +595,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 24
-      Width = 564
+      Width = 555
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       ParentFont = False
@@ -612,7 +612,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 81
-      Width = 564
+      Width = 555
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -632,22 +632,24 @@ object frmMain: TfrmMain
       Left = 24
       Height = 36
       Top = 185
-      Width = 564
+      Width = 555
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 36
-      ClientWidth = 564
+      ClientWidth = 555
       TabOrder = 2
       object btnMount: TButton
         AnchorSideLeft.Control = pnlMountButton
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
         Left = 0
         Height = 36
         Top = 0
         Width = 120
+        BorderSpacing.Right = 24
         BorderSpacing.InnerBorder = 6
         Caption = '&Unlock'
         Enabled = False
@@ -661,7 +663,7 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 300
+        Left = 291
         Height = 36
         Top = 0
         Width = 120
@@ -679,7 +681,8 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
-        Left = 444
+        Cursor = crHandPoint
+        Left = 435
         Height = 36
         Top = 0
         Width = 120
@@ -700,10 +703,10 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 138
-      Width = 564
+      Width = 555
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
-      Caption = 'read-only'
+      Caption = 'Mount read-only'
       TabOrder = 3
     end
   end
@@ -725,7 +728,18 @@ object frmMain: TfrmMain
       Caption = 'Open &Mounted Directory'
       OnClick = miOpenCryptoDirClick
     end
-    object spHorizontal: TMenuItem
+    object sp1: TMenuItem
+      Caption = '-'
+    end
+    object miFsck: TMenuItem
+      Caption = 'Check Integrity'
+      OnClick = miFsckClick
+    end
+    object miVaultInfo: TMenuItem
+      Caption = 'Information'
+      OnClick = miVaultInfoClick
+    end
+    object sp2: TMenuItem
       Caption = '-'
     end
     object miDelFromList: TMenuItem

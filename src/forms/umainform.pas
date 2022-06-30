@@ -23,6 +23,8 @@ type
     edtCurrentVaultDir: TEdit;
     flbVaultList: TFileListBox;
     gbCurrentVault: TGroupBox;
+    miVaultInfo: TMenuItem;
+    miFsck: TMenuItem;
     mmMain: TMainMenu;
     miSettings: TMenuItem;
     miAbout: TMenuItem;
@@ -33,7 +35,8 @@ type
     miOpenCryptoDir: TMenuItem;
     pnlMountButton: TPanel;
     sddNewVault: TSelectDirectoryDialog;
-    spHorizontal: TMenuItem;
+    sp1: TMenuItem;
+    sp2: TMenuItem;
     pmMain: TPopupMenu;
     splLeft: TSplitter;
     synLog: TSynEdit;
@@ -48,12 +51,14 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure miFsckClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenVaultClick(Sender: TObject);
     procedure miOpenVaultDirClick(Sender: TObject);
     procedure miDelFromListClick(Sender: TObject);
     procedure miOpenCryptoDirClick(Sender: TObject);
+    procedure miVaultInfoClick(Sender: TObject);
     procedure pmMainPopup(Sender: TObject);
     procedure sddNewVaultFolderChange(Sender: TObject);
   private
@@ -61,7 +66,7 @@ type
     mountList: TMountList;
     vaultListConfigFile: string;
     function isNotEdtEmpty(): boolean;
-    function itemSelected(): boolean;
+    function isItemSelected(): boolean;
     function umountAll(): boolean;
     procedure updateControls();
     procedure initControls();
@@ -80,7 +85,7 @@ var
 implementation
 
 uses
-  uUtils, uLogger,
+  ugocryptfs, uUtils, uLogger,
   uSettingsForm, uAboutForm;
 
 resourcestring
@@ -135,6 +140,11 @@ begin
   finally
     FreeAndNil(fileList);
   end;
+end;
+
+procedure TfrmMain.miFsckClick(Sender: TObject);
+begin
+  fsck(getSelectedVaultPath(), edtPassword.Text);
 end;
 
 procedure TfrmMain.miSettingsClick(Sender: TObject);
@@ -202,7 +212,7 @@ begin
   if flbVaultList.Count >= 1 then
     flbVaultList.ItemIndex := 0;
 
-  if not itemSelected() then
+  if not isItemSelected() then
     edtCurrentVaultDir.Clear;
 
   updateControls();
@@ -211,6 +221,11 @@ end;
 procedure TfrmMain.miOpenCryptoDirClick(Sender: TObject);
 begin
   OpenURL(getSelectedMountPoint());
+end;
+
+procedure TfrmMain.miVaultInfoClick(Sender: TObject);
+begin
+  getVaultInfo(getSelectedVaultPath());
 end;
 
 procedure TfrmMain.pmMainPopup(Sender: TObject);
@@ -234,9 +249,11 @@ begin
 
   miOpenVaultDir.Enabled := False;
   miOpenCryptoDir.Enabled := False;
+  miFsck.Enabled := False;
+  miVaultInfo.Enabled := False;
   miDelFromList.Enabled := False;
 
-  if not itemSelected() then
+  if not isItemSelected() then
   begin
     btnMount.Enabled := isNotEdtEmpty();
     Exit;
@@ -249,8 +266,10 @@ begin
   btnUmount.Enabled := not isNotVaultUnlock(selectedVaultDir);
   btnUmountAll.Enabled := isOpenVaultsExists();
 
-  miOpenVaultDir.Enabled := dirExists(edtCurrentVaultDir.Text);
+  miOpenVaultDir.Enabled := dirExists(edtCurrentVaultDir.Text) and isItemSelected();
   miOpenCryptoDir.Enabled := btnUmount.Enabled;
+  miFsck.Enabled := isNotEdtEmpty();
+  miVaultInfo.Enabled := miOpenVaultDir.Enabled;
   miDelFromList.Enabled := not btnUmount.Enabled;
 end;
 
@@ -328,7 +347,7 @@ begin
   Result := (edtCurrentVaultDir.Text <> '') and (edtPassword.Text <> '');
 end;
 
-function TfrmMain.itemSelected: boolean;
+function TfrmMain.isItemSelected: boolean;
 begin
   Result := flbVaultList.ItemIndex >= 0;
 end;
@@ -340,7 +359,7 @@ end;
 
 procedure TfrmMain.flbVaultListDblClick(Sender: TObject);
 begin
-  if itemSelected() then
+  if isItemSelected() then
     OpenURL(getSelectedMountPoint());
 end;
 

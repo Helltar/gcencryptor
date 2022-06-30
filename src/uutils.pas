@@ -14,82 +14,72 @@ type
     ExitStatus: integer;
   end;
 
-  TMountRec = record
-    Completed: boolean;
-    Point: string;
-  end;
-
+function umount(const mountpoint: string): boolean;
 function mkDir(const dir: string): boolean;
 function delDir(const dir: string): boolean;
 function dirExists(const dir: string): boolean;
 function isDirEmpty(const dir: string): boolean;
-function umount(const mountpoint: string): boolean;
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False): TMountRec;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
 function getRandomName(const ALength: integer; const charSequence: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'): string;
-
-resourcestring
-  DIRECTORY_NOT_EXISTS = 'Directory not exists';
-  ERROR_CREATING_DIRECTORY = 'Error creating the directory';
-  ERROR_DEL_DIRECTORY = 'Error deleting the directory';
-  ERROR_WRONG_PASSWORD = 'Error, something went wrong reading the password';
-  PASSWORD_EMPTY = 'Password Empty';
-  PASSWORD_INCORRECT = 'Password Incorrect';
-  SUCCESSFULLY_MOUNTED = 'successfully mounted';
-  UNMOUNTED_SUCCESSFULLY = 'unmounted successfully';
 
 implementation
 
 uses
   uLogger;
 
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean): TMountRec;
+resourcestring
+  DIRECTORY_NOT_EXISTS = 'Directory not exists';
+  ERROR_CREATING_DIRECTORY = 'Error creating the directory';
+  ERROR_DEL_DIRECTORY = 'Error deleting the directory';
+  ERROR_RUN_EXECUTABLE = 'failed to run';
+  UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
+
+const
+  FUSERMOUNT_BIN = 'fusermount';
+
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
 var
-  p: TProcessRec;
-  sl: TStringList;
-  genMountPoint: string;
+  p: TProcess;
 
 begin
   Result.Completed := False;
-
-  genMountPoint := mountpoint + DirectorySeparator + ExtractFileName(cipherdir) + '_' + getRandomName(8);
-
-  if not mkDir(genMountPoint) then
-    Exit;
+  Result.ExitStatus := -1;
 
   try
-    sl := TStringList.Create;
+    p := TProcess.Create(nil);
+    p.Executable := AExecutable;
+    p.Parameters := AParameters;
+    p.Options := [poStderrToOutPut, poUsePipes];
 
-    sl.Add(cipherdir);
-    sl.Add(genMountPoint);
+    try
+      p.Execute;
 
-    if ReadOnly then
-      sl.Add('-ro');
+      if stdin <> '' then
+      begin
+        stdin := stdin + LineEnding;
+        p.Input.Write(stdin[1], stdin.Length);
+        stdin := '******';
+        stdin := '';
+      end;
 
-    p := ProcStart('gocryptfs', sl, pass);
+       Sleep(300); // large output, trick
 
+      with TStringList.Create do
+        try
+          LoadFromStream(p.Output);
+          Result.Output := Text;
+        finally
+          Free;
+        end;
+
+      Result.Completed := p.WaitOnExit();
+      Result.ExitStatus := p.ExitStatus;
+
+    except
+      addErrLog(AExecutable, ERROR_RUN_EXECUTABLE);
+    end;
   finally
-    FreeAndNil(sl);
-  end;
-
-  if p.Completed and (p.ExitStatus = 0) then
-  begin
-    Result.Completed := True;
-    Result.Point := genMountPoint;
-    addLog(SUCCESSFULLY_MOUNTED, genMountPoint);
-  end
-  else
-  begin
-    deldir(genMountPoint);
-
-    if (p.ExitStatus = 9) then
-      addErrLog(ERROR_WRONG_PASSWORD)
-    else if (p.ExitStatus = 12) then
-      addErrLog(PASSWORD_INCORRECT)
-    else if (p.ExitStatus = 22) then
-      addErrLog(PASSWORD_EMPTY)
-    else
-      addErrLog(p.Output);
+    FreeAndNil(p);
   end;
 end;
 
@@ -107,7 +97,7 @@ begin
     sl.Add('-u');
     sl.Add(mountpoint);
 
-    p := ProcStart('fusermount', sl);
+    p := ProcStart(FUSERMOUNT_BIN, sl);
 
   finally
     FreeAndNil(sl);
@@ -116,60 +106,17 @@ begin
   if p.Completed and (p.ExitStatus = 0) then
   begin
     deldir(mountpoint);
-    addLog(ExtractFileName(mountpoint), UNMOUNTED_SUCCESSFULLY);
+    addLog(UNMOUNTED_SUCCESSFULLY, mountpoint);
     Result := True;
   end
   else
     addErrLog(p.Output);
 end;
 
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
-var
-  p: TProcess;
-
-begin
-  Result.Completed := False;
-  Result.ExitStatus := -1;
-
-  stdin += LineEnding;
-
-  try
-    try
-      p := TProcess.Create(nil);
-
-      p.Executable := AExecutable;
-      p.Parameters := AParameters;
-      p.Options := [poStderrToOutPut, poUsePipes];
-
-      p.Execute;
-
-      if stdin <> '' then
-      begin
-        p.Input.Write(stdin[1], stdin.Length);
-        p.CloseInput;
-      end;
-
-      with TStringList.Create do
-        try
-          LoadFromStream(p.Output);
-          Result.Output := Text;
-        finally
-          Free;
-        end;
-
-      Result.Completed := p.WaitOnExit();
-      Result.ExitStatus := p.ExitStatus;
-    except
-      addErrExecLog(AExecutable);
-    end;
-  finally
-    FreeAndNil(p);
-  end;
-end;
-
 function dirExists(const dir: string): boolean;
 begin
   Result := False;
+
   if DirectoryExists(dir) then
     Result := True
   else

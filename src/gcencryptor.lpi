@@ -17,7 +17,7 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <BuildNr Value="12"/>
+      <BuildNr Value="27"/>
       <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.0"/>
     </VersionInfo>
     <BuildModes>
@@ -89,6 +89,10 @@
         <Filename Value="umountlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMountList"/>
+      </Unit>
+      <Unit>
+        <Filename Value="ugocryptfs.pas"/>
+        <IsPartOfProject Value="True"/>
       </Unit>
     </Units>
   </ProjectOptions>
