@@ -61,6 +61,7 @@ type
     procedure miVaultInfoClick(Sender: TObject);
     procedure pmMainPopup(Sender: TObject);
     procedure sddNewVaultFolderChange(Sender: TObject);
+    procedure synLogEnter(Sender: TObject);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -77,6 +78,7 @@ type
     function isNotVaultUnlock(const vault: string): boolean;
   public
     config: TConfig;
+    procedure addSynLog(const msg: string; const err: boolean = False);
   end;
 
 var
@@ -238,6 +240,12 @@ begin
   edtCurrentVaultDir.Text := sddNewVault.FileName;
 end;
 
+procedure TfrmMain.synLogEnter(Sender: TObject);
+begin
+  synLog.LineHighlightColor.Foreground := clBlack;
+  synLog.LineHighlightColor.Background := clCream;
+end;
+
 procedure TfrmMain.updateControls;
 var
   selectedVaultDir: string;
@@ -324,6 +332,42 @@ end;
 function TfrmMain.isNotVaultUnlock(const vault: string): boolean;
 begin
   Result := mountList.getMountPoint(vault) = '';
+end;
+
+procedure TfrmMain.addSynLog(const msg: string; const err: boolean);
+var
+  i: integer;
+  s: TStringList;
+
+begin
+  s := TStringList.Create;
+  s.Text := msg;
+  s.Delimiter := LineEnding;
+
+  synLog.Lines.Add(s[0]);
+
+  // 'wordwrap'
+  for i := 1 to s.Count - 1 do
+    synLog.Lines.Add('  - ' + s[i]);
+
+  synLog.Lines.Add(LineEnding);
+
+  if not err then
+  begin
+    synLog.LineHighlightColor.Foreground := clBlack;
+    synLog.LineHighlightColor.Background := $98FB98; // PaleGreen
+  end
+  else
+  begin
+    synLog.LineHighlightColor.Foreground := clWhite;
+    synLog.LineHighlightColor.Background := clRed;
+  end;
+
+  // scroll down
+  synLog.CaretY := synLog.Lines.Count;
+  synLog.CaretY := synLog.Lines.Count - s.Count;
+
+  FreeAndNil(s);
 end;
 
 function TfrmMain.umountAll: boolean;

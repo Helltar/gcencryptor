@@ -10,7 +10,6 @@ uses
 procedure addLog(title: string; const msg: string = '');
 procedure addGoCryptFsLog(const output: string; const exitStatus: integer);
 procedure addErrLog(title: string; const msg: string = '');
-procedure addSynEditLog(const msg: string);
 
 implementation
 
@@ -39,7 +38,7 @@ begin
   if msg <> '' then
     title := title + LineEnding + msg;
 
-  addSynEditLog('! ' + title);
+  frmMain.addSynLog('! ' + title, true);
 end;
 
 procedure addLog(title: string; const msg: string);
@@ -47,28 +46,7 @@ begin
   if msg <> '' then
     title := title + LineEnding + msg;
 
-  addSynEditLog('# ' + title);
-end;
-
-procedure addSynEditLog(const msg: string);
-var
-  i: integer;
-  s: TStringList;
-
-begin
-  s := TStringList.Create;
-  s.Text := msg;
-  s.Delimiter := LineEnding;
-
-  frmMain.synLog.Lines.Add(s[0]);
-
-  // synedit 'wordwrap'
-  for i := 1 to s.Count - 1 do
-    frmMain.synLog.Lines.Add('  - ' + s[i]);
-
-  FreeAndNil(s);
-
-  frmMain.synLog.Lines.Add(LineEnding);
+  frmMain.addSynLog('# ' + title);
 end;
 
 end.

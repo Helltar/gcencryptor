@@ -30,13 +30,15 @@ object frmMain: TfrmMain
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
     Font.Height = -13
-    Font.Name = 'Courier New'
+    Font.Name = 'Monospace'
     Font.Pitch = fpFixed
     Font.Quality = fqCleartype
     ParentColor = False
     ParentFont = False
     TabOrder = 3
+    OnEnter = synLogEnter
     BorderStyle = bsNone
+    ExtraLineSpacing = 1
     Gutter.Color = 16382457
     Gutter.Visible = False
     Gutter.Width = 57
@@ -471,7 +473,6 @@ object frmMain: TfrmMain
     Options = [eoAutoIndent, eoBracketHighlight, eoGroupUndo, eoNoCaret, eoSmartTabs, eoTabsToSpaces, eoTrimTrailingSpaces]
     Options2 = [eoCaretMoveEndsSelection, eoFoldedCopyPaste, eoOverwriteBlock, eoAcceptDragDropEditing]
     VisibleSpecialChars = [vscSpace, vscTabAtLast]
-    ReadOnly = True
     RightEdge = -1
     ScrollBars = ssAutoBoth
     SelectedColor.BackPriority = 50
@@ -490,8 +491,8 @@ object frmMain: TfrmMain
     FoldedCodeColor.FrameColor = clWhite
     MouseLinkColor.Background = clNone
     MouseLinkColor.Foreground = clBlue
-    LineHighlightColor.Background = clCream
-    LineHighlightColor.Foreground = clNone
+    LineHighlightColor.Background = clBtnHighlight
+    LineHighlightColor.Foreground = clBlack
     inline SynLeftGutterPartList1: TSynGutterPartList
       object SynGutterMarks1: TSynGutterMarks
         Width = 24
@@ -712,7 +713,6 @@ object frmMain: TfrmMain
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
-    Enabled = False
     Left = 480
     Top = 688
   end
