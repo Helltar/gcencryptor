@@ -1,0 +1,103 @@
+object frmNewVault: TfrmNewVault
+  Left = 889
+  Height = 409
+  Top = 322
+  Width = 625
+  AutoSize = True
+  Caption = 'frmNewVault'
+  ClientHeight = 409
+  ClientWidth = 625
+  OnShow = FormShow
+  Position = poOwnerFormCenter
+  LCLVersion = '2.2.2.0'
+  object edtVaultName: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = edtPath
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 33
+    Top = 81
+    Width = 577
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 24
+    OnChange = edtVaultNameChange
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 1
+    TextHint = 'vault name'
+  end
+  object edtPassword: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = edtVaultName
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 33
+    Top = 138
+    Width = 577
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 24
+    EchoMode = emPassword
+    OnChange = edtPasswordChange
+    PasswordChar = '*'
+    TabOrder = 2
+    TextHint = 'password'
+  end
+  object edtRepeatPassword: TEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = edtPassword
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 33
+    Top = 195
+    Width = 577
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 24
+    EchoMode = emPassword
+    OnChange = edtRepeatPasswordChange
+    PasswordChar = '*'
+    TabOrder = 3
+    TextHint = 'repeat password'
+  end
+  object btnCreate: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = edtRepeatPassword
+    AnchorSideTop.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 36
+    Top = 252
+    Width = 120
+    BorderSpacing.Around = 24
+    Caption = '&Create'
+    Enabled = False
+    OnClick = btnCreateClick
+    TabOrder = 4
+  end
+  object edtPath: TDirectoryEdit
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 33
+    Top = 24
+    Width = 577
+    ShowHidden = True
+    ButtonWidth = 23
+    NumGlyphs = 1
+    FocusOnButtonClick = True
+    Anchors = [akTop, akLeft, akRight]
+    BorderSpacing.Around = 24
+    Color = clDefault
+    MaxLength = 0
+    TabOrder = 0
+    OnChange = edtPathChange
+    TextHint = 'path'
+  end
+end

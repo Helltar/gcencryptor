@@ -1,19 +1,193 @@
 object frmMain: TfrmMain
-  Left = 747
-  Height = 571
-  Top = 195
-  Width = 983
-  HorzScrollBar.Page = 48
-  VertScrollBar.Page = 398
-  AutoScroll = True
+  Left = 786
+  Height = 676
+  Top = 165
+  Width = 1030
   Caption = 'gcencryptor'
-  ClientHeight = 540
-  ClientWidth = 983
+  ClientHeight = 645
+  ClientWidth = 1030
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   LCLVersion = '2.2.2.0'
+  object splLeft: TSplitter
+    AnchorSideTop.Control = Owner
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 352
+    Height = 645
+    Top = 0
+    Width = 5
+    Align = alNone
+    Anchors = [akTop, akBottom]
+    ResizeAnchor = akRight
+  end
+  object flbVaultList: TFileListBox
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = splLeft
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 24
+    Height = 597
+    Hint = 'Vaults'
+    Top = 24
+    Width = 309
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 12
+    BorderStyle = bsNone
+    Color = clForm
+    Directory = '/home/'
+    FileType = [ftReadOnly, ftNormal]
+    Font.Height = -21
+    Font.Style = [fsBold]
+    ItemHeight = 48
+    OnDblClick = flbVaultListDblClick
+    OnSelectionChange = flbVaultListSelectionChange
+    ParentFont = False
+    PopupMenu = pmMain
+    Sorted = False
+    Style = lbOwnerDrawVariable
+    TabOrder = 0
+  end
+  object gbCurrentVault: TGroupBox
+    AnchorSideLeft.Control = splLeft
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 376
+    Height = 276
+    Top = 24
+    Width = 630
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    Caption = 'Vault'
+    ClientHeight = 245
+    ClientWidth = 626
+    TabOrder = 1
+    object edtCurrentVaultDir: TEdit
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideTop.Control = gbCurrentVault
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 33
+      Top = 24
+      Width = 578
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 24
+      ReadOnly = True
+      TabOrder = 0
+      TextHint = 'vault directory'
+    end
+    object edtPassword: TEdit
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideTop.Control = edtCurrentVaultDir
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 33
+      Top = 81
+      Width = 578
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 24
+      EchoMode = emPassword
+      MaxLength = 512
+      OnChange = edtPasswordChange
+      PasswordChar = '*'
+      TabOrder = 1
+      TextHint = 'password'
+    end
+    object pnlMountButton: TPanel
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideTop.Control = cbROMount
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 36
+      Top = 185
+      Width = 578
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
+      BorderSpacing.Around = 24
+      BevelOuter = bvNone
+      ClientHeight = 36
+      ClientWidth = 578
+      TabOrder = 2
+      object btnMount: TButton
+        AnchorSideLeft.Control = pnlMountButton
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 0
+        Height = 36
+        Top = 0
+        Width = 120
+        BorderSpacing.Right = 24
+        BorderSpacing.InnerBorder = 6
+        Caption = '&Unlock'
+        Enabled = False
+        OnClick = btnMountClick
+        TabOrder = 0
+      end
+      object btnUmount: TButton
+        AnchorSideLeft.Control = btnUmountAll
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Control = btnUmountAll
+        Cursor = crHandPoint
+        Left = 314
+        Height = 36
+        Top = 0
+        Width = 120
+        Anchors = [akTop, akRight]
+        BorderSpacing.Right = 24
+        BorderSpacing.InnerBorder = 6
+        Caption = '&Lock'
+        Enabled = False
+        OnClick = btnUmountClick
+        TabOrder = 1
+      end
+      object btnUmountAll: TButton
+        AnchorSideLeft.Side = asrCenter
+        AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Control = pnlMountButton
+        AnchorSideRight.Side = asrBottom
+        Cursor = crHandPoint
+        Left = 458
+        Height = 36
+        Top = 0
+        Width = 120
+        Anchors = [akTop, akRight]
+        BorderSpacing.InnerBorder = 6
+        Caption = 'Lock All'
+        Enabled = False
+        OnClick = btnUmountAllClick
+        TabOrder = 2
+      end
+    end
+    object cbROMount: TCheckBox
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideTop.Control = edtPassword
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 23
+      Top = 138
+      Width = 578
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 24
+      Caption = 'Mount read-only'
+      TabOrder = 3
+    end
+  end
   inline synLog: TSynEdit
     AnchorSideLeft.Control = splLeft
     AnchorSideTop.Control = gbCurrentVault
@@ -22,10 +196,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 352
-    Height = 192
+    Left = 376
+    Height = 297
     Top = 324
-    Width = 607
+    Width = 630
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -39,8 +213,6 @@ object frmMain: TfrmMain
     TabOrder = 3
     OnEnter = synLogEnter
     BorderStyle = bsNone
-    ExtraLineSpacing = 1
-    Gutter.Color = 16382457
     Gutter.Visible = False
     Gutter.Width = 57
     Gutter.MouseActions = <>
@@ -472,7 +644,6 @@ object frmMain: TfrmMain
     MouseTextActions = <>
     MouseSelActions = <>
     Options = [eoAutoIndent, eoBracketHighlight, eoGroupUndo, eoNoCaret, eoSmartTabs, eoTabsToSpaces, eoTrimTrailingSpaces]
-    Options2 = [eoCaretMoveEndsSelection, eoFoldedCopyPaste, eoOverwriteBlock, eoAcceptDragDropEditing]
     VisibleSpecialChars = [vscSpace, vscTabAtLast]
     RightEdge = -1
     ScrollBars = ssAutoBoth
@@ -488,8 +659,8 @@ object frmMain: TfrmMain
     BracketMatchColor.Foreground = clNone
     BracketMatchColor.Style = [fsBold]
     FoldedCodeColor.Background = clNone
-    FoldedCodeColor.Foreground = clWhite
-    FoldedCodeColor.FrameColor = clWhite
+    FoldedCodeColor.Foreground = clGray
+    FoldedCodeColor.FrameColor = clGray
     MouseLinkColor.Background = clNone
     MouseLinkColor.Foreground = clBlue
     LineHighlightColor.Background = clNone
@@ -529,189 +700,6 @@ object frmMain: TfrmMain
         MouseActionsCollapsed = <>
       end
     end
-  end
-  object splLeft: TSplitter
-    AnchorSideTop.Control = Owner
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 328
-    Height = 540
-    Top = 0
-    Width = 5
-    Align = alNone
-    Anchors = [akTop, akBottom]
-    ResizeAnchor = akRight
-  end
-  object flbVaultList: TFileListBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = splLeft
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 24
-    Height = 492
-    Hint = 'Vaults'
-    Top = 24
-    Width = 285
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 24
-    BorderSpacing.InnerBorder = 12
-    BorderStyle = bsNone
-    Color = clForm
-    Directory = '/home/'
-    FileType = [ftReadOnly, ftNormal]
-    Font.Height = -21
-    Font.Style = [fsBold]
-    ItemHeight = 48
-    OnDblClick = flbVaultListDblClick
-    OnSelectionChange = flbVaultListSelectionChange
-    ParentFont = False
-    PopupMenu = pmMain
-    Sorted = False
-    Style = lbOwnerDrawVariable
-    TabOrder = 0
-  end
-  object gbCurrentVault: TGroupBox
-    AnchorSideLeft.Control = splLeft
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 352
-    Height = 276
-    Top = 24
-    Width = 607
-    Anchors = [akTop, akLeft, akRight]
-    AutoSize = True
-    BorderSpacing.Around = 24
-    Caption = 'Vault'
-    ClientHeight = 245
-    ClientWidth = 603
-    TabOrder = 1
-    object edtCurrentVaultDir: TEdit
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = gbCurrentVault
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 33
-      Top = 24
-      Width = 555
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      ReadOnly = True
-      TabOrder = 0
-      TextHint = 'vault directory'
-    end
-    object edtPassword: TEdit
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = edtCurrentVaultDir
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 33
-      Top = 81
-      Width = 555
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      EchoMode = emPassword
-      MaxLength = 512
-      OnChange = edtPasswordChange
-      PasswordChar = '*'
-      TabOrder = 1
-      TextHint = 'password'
-    end
-    object pnlMountButton: TPanel
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = cbROMount
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 36
-      Top = 185
-      Width = 555
-      Anchors = [akTop, akLeft, akRight]
-      AutoSize = True
-      BorderSpacing.Around = 24
-      BevelOuter = bvNone
-      ClientHeight = 36
-      ClientWidth = 555
-      TabOrder = 2
-      object btnMount: TButton
-        AnchorSideLeft.Control = pnlMountButton
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Side = asrBottom
-        Cursor = crHandPoint
-        Left = 0
-        Height = 36
-        Top = 0
-        Width = 120
-        BorderSpacing.Right = 24
-        BorderSpacing.InnerBorder = 6
-        Caption = '&Unlock'
-        Enabled = False
-        OnClick = btnMountClick
-        TabOrder = 0
-      end
-      object btnUmount: TButton
-        AnchorSideLeft.Control = btnUmountAll
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Control = btnUmountAll
-        Cursor = crHandPoint
-        Left = 291
-        Height = 36
-        Top = 0
-        Width = 120
-        Anchors = [akTop, akRight]
-        BorderSpacing.Right = 24
-        BorderSpacing.InnerBorder = 6
-        Caption = '&Lock'
-        Enabled = False
-        OnClick = btnUmountClick
-        TabOrder = 1
-      end
-      object btnUmountAll: TButton
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Control = pnlMountButton
-        AnchorSideRight.Side = asrBottom
-        Cursor = crHandPoint
-        Left = 435
-        Height = 36
-        Top = 0
-        Width = 120
-        Anchors = [akTop, akRight]
-        BorderSpacing.InnerBorder = 6
-        Caption = 'Lock All'
-        Enabled = False
-        OnClick = btnUmountAllClick
-        TabOrder = 2
-      end
-    end
-    object cbROMount: TCheckBox
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = edtPassword
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 23
-      Top = 138
-      Width = 555
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      Caption = 'Mount read-only'
-      TabOrder = 3
-    end
-  end
-  object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
-    DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
-    Enabled = False
-    Left = 480
-    Top = 688
   end
   object pmMain: TPopupMenu
     OnPopup = pmMainPopup
@@ -756,8 +744,12 @@ object frmMain: TfrmMain
     Top = 88
     object miVault: TMenuItem
       Caption = '&Vault'
+      object miCreateNewVault: TMenuItem
+        Caption = '&New Vault ...'
+        OnClick = miCreateNewVaultClick
+      end
       object miOpenVault: TMenuItem
-        Caption = '&Open New Vault ...'
+        Caption = '&Open Vault ...'
         OnClick = miOpenVaultClick
       end
     end
@@ -769,5 +761,11 @@ object frmMain: TfrmMain
       Caption = '&About'
       OnClick = miAboutClick
     end
+  end
+  object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
+    DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
+    NumberAttri.Foreground = clTeal
+    Left = 176
+    Top = 208
   end
 end

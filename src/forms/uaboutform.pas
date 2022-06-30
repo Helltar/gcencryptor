@@ -22,10 +22,6 @@ type
     procedure lblGocryptfsClick(Sender: TObject);
     procedure lblHomepageClick(Sender: TObject);
     procedure lblGithubClick(Sender: TObject);
-  private
-
-  public
-
   end;
 
 var

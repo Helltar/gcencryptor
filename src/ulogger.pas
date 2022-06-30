@@ -38,7 +38,7 @@ begin
   if msg <> '' then
     title := title + LineEnding + msg;
 
-  frmMain.addSynLog('! ' + title, true);
+  frmMain.addSynLog('! ' + title, True);
 end;
 
 procedure addLog(title: string; const msg: string);

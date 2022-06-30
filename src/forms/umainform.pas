@@ -23,6 +23,7 @@ type
     edtCurrentVaultDir: TEdit;
     flbVaultList: TFileListBox;
     gbCurrentVault: TGroupBox;
+    miCreateNewVault: TMenuItem;
     miVaultInfo: TMenuItem;
     miFsck: TMenuItem;
     mmMain: TMainMenu;
@@ -51,6 +52,7 @@ type
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure miCreateNewVaultClick(Sender: TObject);
     procedure miFsckClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -79,6 +81,7 @@ type
   public
     config: TConfig;
     procedure addSynLog(const msg: string; const err: boolean = False);
+    procedure addVaultToList(const path: string);
   end;
 
 var
@@ -88,7 +91,7 @@ implementation
 
 uses
   ugocryptfs, uUtils, uLogger,
-  uSettingsForm, uAboutForm;
+  uNewVaultForm, uSettingsForm, uAboutForm;
 
 resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
@@ -144,6 +147,16 @@ begin
   end;
 end;
 
+procedure TfrmMain.miCreateNewVaultClick(Sender: TObject);
+begin
+  with TfrmNewVault.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
 procedure TfrmMain.miFsckClick(Sender: TObject);
 begin
   fsck(getSelectedVaultPath(), edtPassword.Text);
@@ -172,20 +185,7 @@ end;
 procedure TfrmMain.miOpenVaultClick(Sender: TObject);
 begin
   if sddNewVault.Execute then
-  begin
-    if fileList.Count > 0 then
-      if fileList.IndexOf(sddNewVault.FileName) <> -1 then
-      begin
-        flbVaultList.ItemIndex := fileList.IndexOf(sddNewVault.FileName);
-        Exit;
-      end;
-
-    flbVaultList.AddItem(ExtractFileName(sddNewVault.FileName), nil);
-    fileList.Add(sddNewVault.FileName);
-    flbVaultList.ItemIndex := fileList.Count - 1;
-
-    updateControls();
-  end;
+    addVaultToList(sddNewVault.FileName);
 end;
 
 procedure TfrmMain.miOpenVaultDirClick(Sender: TObject);
@@ -368,6 +368,22 @@ begin
   synLog.CaretY := synLog.Lines.Count - s.Count;
 
   FreeAndNil(s);
+end;
+
+procedure TfrmMain.addVaultToList(const path: string);
+begin
+  if fileList.Count > 0 then
+    if fileList.IndexOf(path) <> -1 then
+    begin
+      flbVaultList.ItemIndex := fileList.IndexOf(path);
+      Exit;
+    end;
+
+  flbVaultList.AddItem(ExtractFileName(path), nil);
+  fileList.Add(path);
+  flbVaultList.ItemIndex := fileList.Count - 1;
+
+  updateControls();
 end;
 
 function TfrmMain.umountAll: boolean;

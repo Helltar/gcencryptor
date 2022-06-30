@@ -11,8 +11,9 @@ uses
   {$ENDIF}
   Forms, Interfaces,
   { --------------------------------- }
-  uMainForm, uSettingsForm, uAboutForm,
-  uMountList, ugocryptfs;
+  uMainForm, uSettingsForm,
+  uNewVaultForm, uAboutForm,
+  uMountList, ugocryptfs, uMasterKeyForm;
 
 {$R *.res}
 

@@ -57,12 +57,12 @@ begin
       if stdin <> '' then
       begin
         stdin := stdin + LineEnding;
-        p.Input.Write(stdin[1], stdin.Length);
+        p.Input.Write(stdin[1], Length(stdin));
         stdin := '******';
         stdin := '';
       end;
 
-       Sleep(300); // large output, trick
+      Sleep(300); // large output, trick
 
       with TStringList.Create do
         try

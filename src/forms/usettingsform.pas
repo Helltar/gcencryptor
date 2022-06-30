@@ -26,10 +26,6 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure OKButtonClick(Sender: TObject);
-  private
-
-  public
-
   end;
 
 var
