@@ -242,8 +242,8 @@ end;
 
 procedure TfrmMain.synLogEnter(Sender: TObject);
 begin
-  synLog.LineHighlightColor.Foreground := clBlack;
-  synLog.LineHighlightColor.Background := clCream;
+  synLog.LineHighlightColor.Foreground := clBtnText;
+  synLog.LineHighlightColor.Background := clScrollBar;
 end;
 
 procedure TfrmMain.updateControls;
