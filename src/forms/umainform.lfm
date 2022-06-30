@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 786
-  Height = 676
-  Top = 165
+  Left = 757
+  Height = 595
+  Top = 172
   Width = 1030
   Caption = 'gcencryptor'
-  ClientHeight = 645
+  ClientHeight = 564
   ClientWidth = 1030
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
@@ -16,7 +16,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 352
-    Height = 645
+    Height = 564
     Top = 0
     Width = 5
     Align = alNone
@@ -31,7 +31,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 597
+    Height = 516
     Hint = 'Vaults'
     Top = 24
     Width = 309
@@ -200,7 +200,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 376
-    Height = 292
+    Height = 211
     Top = 329
     Width = 630
     BorderSpacing.Around = 24
@@ -769,7 +769,7 @@ object frmMain: TfrmMain
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
     Enabled = False
     NumberAttri.Foreground = clTeal
-    Left = 176
-    Top = 208
+    Left = 616
+    Top = 368
   end
 end

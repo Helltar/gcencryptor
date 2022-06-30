@@ -1,14 +1,13 @@
 object frmNewVault: TfrmNewVault
-  Left = 914
-  Height = 460
-  Top = 269
-  Width = 751
-  AutoSize = True
+  Left = 895
+  Height = 400
+  Top = 275
+  Width = 700
   Caption = 'frmNewVault'
-  ClientHeight = 460
-  ClientWidth = 751
+  ClientHeight = 400
+  ClientWidth = 700
   OnShow = FormShow
-  Position = poWorkAreaCenter
+  Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
   object edtVaultName: TEdit
     AnchorSideLeft.Control = Owner
@@ -19,7 +18,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 81
-    Width = 703
+    Width = 652
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     OnChange = edtVaultNameChange
@@ -37,7 +36,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 138
-    Width = 703
+    Width = 652
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -55,7 +54,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 195
-    Width = 703
+    Width = 652
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -88,7 +87,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 24
-    Width = 652
+    Width = 601
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     ReadOnly = True
@@ -103,7 +102,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
     Cursor = crHandPoint
-    Left = 700
+    Left = 649
     Height = 29
     Top = 26
     Width = 27

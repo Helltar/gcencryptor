@@ -14,13 +14,14 @@ type
     ExitStatus: integer;
   end;
 
-function umount(const mountpoint: string): boolean;
-function mkDir(const dir: string): boolean;
 function delDir(const dir: string): boolean;
 function dirExists(const dir: string): boolean;
-function isDirEmpty(const dir: string): boolean;
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
 function getRandomName(const ALength: integer; const charSequence: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'): string;
+function isDirEmpty(const dir: string): boolean;
+function mkDir(const dir: string): boolean;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
+function procStart(const executable, parameters: string; const stdin: string = ''): TProcessRec;
+function umount(const mountpoint: string): boolean;
 
 implementation
 
@@ -37,7 +38,28 @@ resourcestring
 const
   FUSERMOUNT_BIN = 'fusermount';
 
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
+function procStart(const executable, parameters: string; const stdin: string): TProcessRec;
+var
+  i: integer;
+  s, s1: TStringList;
+
+begin
+  s := TStringList.Create;
+  s1 := TStringList.Create;
+
+  s.Text := parameters;
+  s.Delimiter := LineEnding;
+
+  for i := 0 to s.Count - 1 do
+    s1.Add(s[i]);
+
+  Result := ProcStart(executable, s1, stdin);
+
+  FreeAndNil(s);
+  FreeAndNil(s1);
+end;
+
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string): TProcessRec;
 var
   p: TProcess;
 
@@ -86,22 +108,11 @@ end;
 function umount(const mountpoint: string): boolean;
 var
   p: TProcessRec;
-  sl: TStringList;
 
 begin
   Result := False;
 
-  try
-    sl := TStringList.Create;
-
-    sl.Add('-u');
-    sl.Add(mountpoint);
-
-    p := ProcStart(FUSERMOUNT_BIN, sl);
-
-  finally
-    FreeAndNil(sl);
-  end;
+  p := procStart(FUSERMOUNT_BIN, '-u' + LineEnding + mountpoint);
 
   if p.Completed and (p.ExitStatus = 0) then
   begin

@@ -61,7 +61,7 @@ end;
 procedure TfrmMasterKey.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
-  Constraints.MinWidth := 700;
+  Constraints.MinWidth := Width;
 end;
 
 procedure TfrmMasterKey.btnOKClick(Sender: TObject);
