@@ -138,6 +138,7 @@ object frmSettings: TfrmSettings
     TabOrder = 1
   end
   object sddMountPoint: TSelectDirectoryDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing, ofViewDetail]
     Left = 424
     Top = 120
   end

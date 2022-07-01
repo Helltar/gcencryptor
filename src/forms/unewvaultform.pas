@@ -5,7 +5,7 @@ unit uNewVaultForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, EditBtn;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
 
 type
 
