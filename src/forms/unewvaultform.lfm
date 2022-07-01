@@ -1,9 +1,9 @@
 object frmNewVault: TfrmNewVault
-  Left = 851
+  Left = 696
   Height = 427
-  Top = 313
+  Top = 301
   Width = 700
-  Caption = 'frmNewVault'
+  Caption = 'Create new vault ...'
   ClientHeight = 427
   ClientWidth = 700
   OnShow = FormShow
