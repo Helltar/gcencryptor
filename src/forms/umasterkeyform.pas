@@ -21,6 +21,7 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
   public
     vaultName: string;
   end;

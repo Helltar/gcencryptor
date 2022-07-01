@@ -92,6 +92,7 @@ object frmMasterKey: TfrmMasterKey
     ParentColor = False
   end
   object saveDialog: TSaveDialog
+    Options = [ofOverwritePrompt, ofPathMustExist, ofEnableSizing, ofViewDetail]
     Left = 248
     Top = 288
   end

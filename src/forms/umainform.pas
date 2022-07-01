@@ -35,7 +35,7 @@ type
     miDelFromList: TMenuItem;
     miOpenCryptoDir: TMenuItem;
     pnlMountButton: TPanel;
-    sddNewVault: TSelectDirectoryDialog;
+    sddOpenVault: TSelectDirectoryDialog;
     sp1: TMenuItem;
     sp2: TMenuItem;
     pmMain: TPopupMenu;
@@ -62,7 +62,7 @@ type
     procedure miOpenCryptoDirClick(Sender: TObject);
     procedure miVaultInfoClick(Sender: TObject);
     procedure pmMainPopup(Sender: TObject);
-    procedure sddNewVaultFolderChange(Sender: TObject);
+    procedure sddOpenVaultFolderChange(Sender: TObject);
     procedure synLogEnter(Sender: TObject);
   private
     fileList: TStringList;
@@ -184,8 +184,8 @@ end;
 
 procedure TfrmMain.miOpenVaultClick(Sender: TObject);
 begin
-  if sddNewVault.Execute then
-    addVaultToList(sddNewVault.FileName);
+  if sddOpenVault.Execute then
+    addVaultToList(sddOpenVault.FileName);
 end;
 
 procedure TfrmMain.miOpenVaultDirClick(Sender: TObject);
@@ -235,9 +235,9 @@ begin
   updateControls;
 end;
 
-procedure TfrmMain.sddNewVaultFolderChange(Sender: TObject);
+procedure TfrmMain.sddOpenVaultFolderChange(Sender: TObject);
 begin
-  edtCurrentVaultDir.Text := sddNewVault.FileName;
+  edtCurrentVaultDir.Text := sddOpenVault.FileName;
 end;
 
 procedure TfrmMain.synLogEnter(Sender: TObject);

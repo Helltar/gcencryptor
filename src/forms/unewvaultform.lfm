@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 696
+  Left = 870
   Height = 427
-  Top = 301
+  Top = 336
   Width = 700
   Caption = 'Create new vault ...'
   ClientHeight = 427
@@ -83,7 +83,7 @@ object frmNewVault: TfrmNewVault
   object edtPath: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = btnSelectDir
+    AnchorSideRight.Control = btnSelectPath
     Left = 24
     Height = 33
     Top = 24
@@ -94,7 +94,7 @@ object frmNewVault: TfrmNewVault
     TabOrder = 5
     TextHint = 'path'
   end
-  object btnSelectDir: TButton
+  object btnSelectPath: TButton
     AnchorSideTop.Control = edtPath
     AnchorSideTop.Side = asrCenter
     AnchorSideRight.Control = Owner
@@ -110,10 +110,10 @@ object frmNewVault: TfrmNewVault
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = '...'
-    OnClick = btnSelectDirClick
+    OnClick = btnSelectPathClick
     TabOrder = 0
   end
-  object selectDirectoryDialog: TSelectDirectoryDialog
+  object sddSelectPath: TSelectDirectoryDialog
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 280

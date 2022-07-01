@@ -735,11 +735,11 @@ object frmMain: TfrmMain
       OnClick = miDelFromListClick
     end
   end
-  object sddNewVault: TSelectDirectoryDialog
+  object sddOpenVault: TSelectDirectoryDialog
     FileName = '/'
     InitialDir = '/'
-    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
-    OnFolderChange = sddNewVaultFolderChange
+    Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
+    OnFolderChange = sddOpenVaultFolderChange
     Left = 80
     Top = 88
   end

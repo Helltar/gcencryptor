@@ -13,14 +13,14 @@ type
 
   TfrmNewVault = class(TForm)
     btnCreate: TButton;
-    btnSelectDir: TButton;
+    btnSelectPath: TButton;
     edtPath: TEdit;
     edtVaultName: TEdit;
     edtPassword: TEdit;
     edtRepeatPassword: TEdit;
-    selectDirectoryDialog: TSelectDirectoryDialog;
+    sddSelectPath: TSelectDirectoryDialog;
     procedure btnCreateClick(Sender: TObject);
-    procedure btnSelectDirClick(Sender: TObject);
+    procedure btnSelectPathClick(Sender: TObject);
     procedure edtPathChange(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure edtRepeatPasswordChange(Sender: TObject);
@@ -66,10 +66,10 @@ begin
     createVault(path);
 end;
 
-procedure TfrmNewVault.btnSelectDirClick(Sender: TObject);
+procedure TfrmNewVault.btnSelectPathClick(Sender: TObject);
 begin
-  if selectDirectoryDialog.Execute then
-    edtPath.Text := selectDirectoryDialog.FileName;
+  if sddSelectPath.Execute then
+    edtPath.Text := sddSelectPath.FileName;
 end;
 
 procedure TfrmNewVault.edtPathChange(Sender: TObject);
