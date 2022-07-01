@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 651
-  Height = 595
-  Top = 222
-  Width = 1030
+  Left = 654
+  Height = 569
+  Top = 253
+  Width = 940
   Caption = 'gcencryptor'
-  ClientHeight = 564
-  ClientWidth = 1030
+  ClientHeight = 538
+  ClientWidth = 940
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -15,8 +15,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 352
-    Height = 564
+    Left = 321
+    Height = 538
     Top = 0
     Width = 5
     Align = alNone
@@ -31,10 +31,10 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 516
+    Height = 490
     Hint = 'Vaults'
     Top = 24
-    Width = 309
+    Width = 278
     Anchors = [akTop, akLeft, akRight, akBottom]
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 12
@@ -58,16 +58,16 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 376
+    Left = 345
     Height = 281
     Top = 24
-    Width = 630
+    Width = 571
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
     ClientHeight = 250
-    ClientWidth = 626
+    ClientWidth = 567
     TabOrder = 1
     object edtCurrentVaultDir: TEdit
       AnchorSideLeft.Control = gbCurrentVault
@@ -77,7 +77,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 24
-      Width = 578
+      Width = 519
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       ReadOnly = True
@@ -93,7 +93,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 81
-      Width = 578
+      Width = 519
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -112,13 +112,13 @@ object frmMain: TfrmMain
       Left = 24
       Height = 41
       Top = 185
-      Width = 578
+      Width = 519
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 41
-      ClientWidth = 578
+      ClientWidth = 519
       TabOrder = 2
       object btnMount: TButton
         AnchorSideLeft.Control = pnlMountButton
@@ -143,7 +143,7 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 402
+        Left = 343
         Height = 41
         Top = 0
         Width = 70
@@ -162,7 +162,7 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 496
+        Left = 437
         Height = 41
         Top = 0
         Width = 82
@@ -184,7 +184,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 138
-      Width = 578
+      Width = 519
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
@@ -199,10 +199,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 376
-    Height = 211
+    Left = 345
+    Height = 185
     Top = 329
-    Width = 630
+    Width = 571
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -738,6 +738,7 @@ object frmMain: TfrmMain
   object sddNewVault: TSelectDirectoryDialog
     FileName = '/'
     InitialDir = '/'
+    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
     OnFolderChange = sddNewVaultFolderChange
     Left = 80
     Top = 88

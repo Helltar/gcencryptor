@@ -114,6 +114,7 @@ object frmNewVault: TfrmNewVault
     TabOrder = 0
   end
   object selectDirectoryDialog: TSelectDirectoryDialog
+    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
     Left = 280
     Top = 280
   end
