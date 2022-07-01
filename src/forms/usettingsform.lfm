@@ -85,7 +85,7 @@ object frmSettings: TfrmSettings
       Width = 512
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
-      TabOrder = 2
+      TabOrder = 3
       TextHint = 'mountpoint'
     end
     object seFontSize: TSpinEdit
@@ -99,7 +99,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Around = 24
       MaxValue = 48
       MinValue = 6
-      TabOrder = 3
+      TabOrder = 2
       Value = 6
     end
     object lblFontSize: TLabel

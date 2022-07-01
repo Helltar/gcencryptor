@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 757
+  Left = 651
   Height = 595
-  Top = 172
+  Top = 222
   Width = 1030
   Caption = 'gcencryptor'
   ClientHeight = 564
@@ -213,7 +213,7 @@ object frmMain: TfrmMain
     Font.Quality = fqCleartype
     ParentColor = False
     ParentFont = False
-    TabOrder = 3
+    TabOrder = 2
     OnEnter = synLogEnter
     BorderStyle = bsNone
     Gutter.Visible = False

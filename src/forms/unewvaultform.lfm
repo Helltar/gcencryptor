@@ -1,10 +1,10 @@
 object frmNewVault: TfrmNewVault
-  Left = 895
-  Height = 400
-  Top = 275
+  Left = 851
+  Height = 427
+  Top = 313
   Width = 700
   Caption = 'frmNewVault'
-  ClientHeight = 400
+  ClientHeight = 427
   ClientWidth = 700
   OnShow = FormShow
   Position = poOwnerFormCenter
@@ -24,7 +24,7 @@ object frmNewVault: TfrmNewVault
     OnChange = edtVaultNameChange
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 0
+    TabOrder = 1
     TextHint = 'vault name'
   end
   object edtPassword: TEdit
@@ -42,7 +42,7 @@ object frmNewVault: TfrmNewVault
     EchoMode = emPassword
     OnChange = edtPasswordChange
     PasswordChar = '*'
-    TabOrder = 1
+    TabOrder = 2
     TextHint = 'password'
   end
   object edtRepeatPassword: TEdit
@@ -60,7 +60,7 @@ object frmNewVault: TfrmNewVault
     EchoMode = emPassword
     OnChange = edtRepeatPasswordChange
     PasswordChar = '*'
-    TabOrder = 2
+    TabOrder = 3
     TextHint = 'repeat password'
   end
   object btnCreate: TButton
@@ -71,14 +71,14 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 41
     Top = 252
-    Width = 82
+    Width = 73
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 6
-    Caption = '&Create'
+    Caption = '&Done'
     Enabled = False
     OnClick = btnCreateClick
-    TabOrder = 3
+    TabOrder = 4
   end
   object edtPath: TEdit
     AnchorSideLeft.Control = Owner
@@ -91,7 +91,7 @@ object frmNewVault: TfrmNewVault
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     ReadOnly = True
-    TabOrder = 4
+    TabOrder = 5
     TextHint = 'path'
   end
   object btnSelectDir: TButton
@@ -111,7 +111,7 @@ object frmNewVault: TfrmNewVault
     BorderSpacing.Around = 24
     Caption = '...'
     OnClick = btnSelectDirClick
-    TabOrder = 5
+    TabOrder = 0
   end
   object selectDirectoryDialog: TSelectDirectoryDialog
     Left = 280

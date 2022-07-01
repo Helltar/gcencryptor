@@ -37,7 +37,7 @@ object frmMasterKey: TfrmMasterKey
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'If the gocryptfs.conf file becomes corrupted or you ever forget your password,'#10'there is only one hope for recovery: The master key. Print it to a piece of'#10'paper and store it in a drawer. This message is only printed once.'
-    TabOrder = 1
+    TabOrder = 3
   end
   object btnSave: TButton
     AnchorSideLeft.Control = Owner
@@ -75,7 +75,7 @@ object frmMasterKey: TfrmMasterKey
     BorderSpacing.InnerBorder = 6
     Caption = '&OK'
     OnClick = btnOKClick
-    TabOrder = 3
+    TabOrder = 1
   end
   object lblYourKey: TLabel
     AnchorSideLeft.Control = Owner
