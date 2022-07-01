@@ -85,7 +85,8 @@ end;
 function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean): TMountRec;
 var
   p: TProcessRec;
-  genMountPoint, cmd: string;
+  genMountPoint: string;
+  cmd: string = '';
 
 begin
   Result.Completed := False;
@@ -98,7 +99,7 @@ begin
   if ReadOnly then
     cmd := '-ro' + LineEnding;
 
-  cmd := cipherdir + LineEnding + genMountPoint;
+  cmd := cmd + cipherdir + LineEnding + genMountPoint;
 
   p := procStart(GOCRYPTFS_BIN, cmd, pass, True);
 
