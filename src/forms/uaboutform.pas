@@ -5,7 +5,7 @@ unit uAboutForm;
 interface
 
 uses
-  Forms, Graphics, Dialogs, StdCtrls, LCLIntf, ExtCtrls, Classes;
+  Forms, Graphics, Dialogs, StdCtrls, LCLIntf, ExtCtrls, Classes, fileinfo;
 
 type
 
@@ -17,11 +17,12 @@ type
     lblHomepage: TLabel;
     lblGithub: TLabel;
     memAbout: TMemo;
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure imgLogoDblClick(Sender: TObject);
-    procedure lblGocryptfsClick(Sender: TObject);
-    procedure lblHomepageClick(Sender: TObject);
-    procedure lblGithubClick(Sender: TObject);
+    procedure lblClick(Sender: TObject);
+  private
+    function getAppVersion(const AType: string): string;
   end;
 
 var
@@ -33,11 +34,6 @@ implementation
 
 { TfrmAbout }
 
-procedure TfrmAbout.lblHomepageClick(Sender: TObject);
-begin
-  OpenURL(lblHomepage.Caption);
-end;
-
 procedure TfrmAbout.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
@@ -46,19 +42,38 @@ begin
   Constraints.MaxWidth := Width;
 end;
 
+procedure TfrmAbout.FormCreate(Sender: TObject);
+begin
+  memAbout.Append(getAppVersion('OriginalFilename') + LineEnding);
+  memAbout.Append('Version: ' + getAppVersion('FileVersion'));
+  memAbout.Append('License: MIT (see. ./LICENSE)');
+  {
+    ['CompanyName'] ['FileDescription'] ['FileVersion']
+    ['InternalName'] ['LegalCopyright'] ['OriginalFilename']
+    ['ProductName'] ['ProductVersion']
+  }
+end;
+
 procedure TfrmAbout.imgLogoDblClick(Sender: TObject);
 begin
   OpenURL(lblGithub.Caption);
 end;
 
-procedure TfrmAbout.lblGocryptfsClick(Sender: TObject);
+procedure TfrmAbout.lblClick(Sender: TObject);
 begin
-  OpenURL(lblGocryptfs.Caption);
+  OpenURL(TLabel(Sender).Caption);
 end;
 
-procedure TfrmAbout.lblGithubClick(Sender: TObject);
+function TfrmAbout.getAppVersion(const AType: string): string;
 begin
-  OpenURL(lblGithub.Caption);
+  Result := '-1';
+  with TFileVersionInfo.Create(nil) do
+    try
+      ReadFileInfo;
+      Result := VersionStrings.Values[AType];
+    finally
+      Free;
+    end;
 end;
 
 end.

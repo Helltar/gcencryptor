@@ -1,12 +1,13 @@
 object frmAbout: TfrmAbout
-  Left = 960
+  Left = 825
   Height = 396
-  Top = 298
+  Top = 293
   Width = 400
   AutoSize = True
   Caption = 'About'
   ClientHeight = 396
   ClientWidth = 400
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
@@ -28,12 +29,6 @@ object frmAbout: TfrmAbout
     BorderSpacing.InnerBorder = 12
     BorderStyle = bsNone
     Color = clForm
-    Lines.Strings = (
-      'gcencryptor'
-      ''
-      'Version: 1.3'
-      'License: MIT (see. ./LICENSE)'
-    )
     ReadOnly = True
     ScrollBars = ssAutoBoth
     TabOrder = 0
@@ -57,7 +52,7 @@ object frmAbout: TfrmAbout
     Font.Color = 16742179
     ParentColor = False
     ParentFont = False
-    OnClick = lblHomepageClick
+    OnClick = lblClick
   end
   object lblGithub: TLabel
     AnchorSideLeft.Control = Owner
@@ -78,7 +73,7 @@ object frmAbout: TfrmAbout
     Font.Color = 16742179
     ParentColor = False
     ParentFont = False
-    OnClick = lblGithubClick
+    OnClick = lblClick
   end
   object lblGocryptfs: TLabel
     AnchorSideLeft.Control = Owner
@@ -99,7 +94,7 @@ object frmAbout: TfrmAbout
     Font.Color = 16742179
     ParentColor = False
     ParentFont = False
-    OnClick = lblGocryptfsClick
+    OnClick = lblClick
   end
   object imgLogo: TImage
     AnchorSideLeft.Control = Owner
