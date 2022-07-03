@@ -18,7 +18,7 @@
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="3"/>
-      <BuildNr Value="60"/>
+      <BuildNr Value="65"/>
       <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.3"/>
     </VersionInfo>
     <BuildModes>

@@ -10,10 +10,9 @@ uses
   athreads,
   {$ENDIF}
   Forms, Interfaces,
-  { --------------------------------- }
-  uMainForm, uSettingsForm,
-  uNewVaultForm, uAboutForm,
-  uMountList, ugocryptfs, uMasterKeyForm;
+  { ---------------------------------------------------------------- }
+  uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm,
+  uMountList, ugocryptfs;
 
 {$R *.res}
 
