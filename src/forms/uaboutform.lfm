@@ -1,48 +1,26 @@
 object frmAbout: TfrmAbout
-  Left = 825
-  Height = 396
-  Top = 293
+  Left = 859
+  Height = 400
+  Top = 278
   Width = 400
   AutoSize = True
   Caption = 'About'
-  ClientHeight = 396
+  ClientHeight = 400
   ClientWidth = 400
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
-  object memAbout: TMemo
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = imgLogo
-    AnchorSideTop.Side = asrBottom
-    AnchorSideRight.Control = Owner
-    AnchorSideRight.Side = asrBottom
-    Left = 24
-    Height = 120
-    Top = 88
-    Width = 352
-    Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Left = 24
-    BorderSpacing.Top = 24
-    BorderSpacing.Right = 24
-    BorderSpacing.Bottom = 12
-    BorderSpacing.InnerBorder = 12
-    BorderStyle = bsNone
-    Color = clForm
-    ReadOnly = True
-    ScrollBars = ssAutoBoth
-    TabOrder = 0
-  end
   object lblHomepage: TLabel
     AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = memAbout
+    AnchorSideTop.Control = stAbout
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
     Height = 19
-    Top = 220
+    Top = 131
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -63,7 +41,7 @@ object frmAbout: TfrmAbout
     Cursor = crHandPoint
     Left = 24
     Height = 19
-    Top = 282
+    Top = 193
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -84,7 +62,7 @@ object frmAbout: TfrmAbout
     Cursor = crHandPoint
     Left = 24
     Height = 19
-    Top = 251
+    Top = 162
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -198,5 +176,20 @@ object frmAbout: TfrmAbout
       DAD3857598F3621D646D7622B3614D4D44440C1022223A3CFF02694ADA9CADE5
       BD990000000049454E44AE426082
     }
+  end
+  object stAbout: TStaticText
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = imgLogo
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    Left = 24
+    Height = 19
+    Top = 88
+    Width = 352
+    Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    TabOrder = 0
   end
 end

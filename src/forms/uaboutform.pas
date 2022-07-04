@@ -16,7 +16,7 @@ type
     lblGocryptfs: TLabel;
     lblHomepage: TLabel;
     lblGithub: TLabel;
-    memAbout: TMemo;
+    stAbout: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure imgLogoDblClick(Sender: TObject);
@@ -44,9 +44,10 @@ end;
 
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
-  memAbout.Append(getAppVersion('OriginalFilename') + LineEnding);
-  memAbout.Append('Version: ' + getAppVersion('FileVersion'));
-  memAbout.Append('License: MIT (see. ./LICENSE)');
+  stAbout.Caption :=
+    getAppVersion('OriginalFilename') + ' - v' + getAppVersion('FileVersion') + LineEnding +
+    getAppVersion('FileDescription') + LineEnding +
+    'License: MIT';
   {
     ['CompanyName'] ['FileDescription'] ['FileVersion']
     ['InternalName'] ['LegalCopyright'] ['OriginalFilename']
