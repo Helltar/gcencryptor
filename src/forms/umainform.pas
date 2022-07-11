@@ -97,7 +97,7 @@ resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
   CAPTION_WARNING = 'Warning';
   LOCK_ALL_AND_CLOSE = 'Lock all and close?';
-  MOUNTPOINT_COPIED_TO_CLIPBOARD = 'Mount-point copied to clipboard';
+  MOUNTPOINT_COPIED_TO_CLIPBOARD = 'Mountpoint copied to clipboard';
 
 {$R *.lfm}
 
@@ -436,6 +436,10 @@ var
 begin
   if not dirExists(edtCurrentVaultDir.Text) then
     Exit;
+
+  if not DirectoryExists(config.mountPoint) then
+    if not mkDir(config.mountPoint) then
+      Exit;
 
   m := mount(edtCurrentVaultDir.Text, config.mountPoint, edtPassword.Text, cbROMount.Checked);
 
