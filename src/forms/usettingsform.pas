@@ -26,7 +26,6 @@ type
     procedure btnSelectMountPointClick(Sender: TObject);
     procedure edtMountPointChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure FormShow(Sender: TObject);
   end;
 
 var
@@ -69,12 +68,6 @@ begin
   cbAutorun.Checked := frmMain.config.autorunState;
   edtMountPoint.Text := frmMain.config.mountPoint;
   seFontSize.Value := frmMain.config.logFontSize;
-end;
-
-procedure TfrmSettings.FormShow(Sender: TObject);
-begin
-  Constraints.MinHeight := Height;
-  Constraints.MinWidth := Width;
 end;
 
 end.

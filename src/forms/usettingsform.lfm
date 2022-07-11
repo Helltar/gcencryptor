@@ -1,13 +1,15 @@
 object frmSettings: TfrmSettings
-  Left = 777
+  Left = 579
   Height = 450
-  Top = 280
+  Top = 251
   Width = 600
+  AutoSize = True
   Caption = 'Settings'
   ClientHeight = 450
   ClientWidth = 600
+  Constraints.MinHeight = 450
+  Constraints.MinWidth = 600
   OnCreate = FormCreate
-  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
   object gbSettings: TGroupBox
@@ -16,13 +18,13 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 280
+    Height = 278
     Top = 24
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
-    ClientHeight = 276
+    ClientHeight = 274
     ClientWidth = 548
     ParentFont = False
     TabOrder = 0
@@ -35,7 +37,7 @@ object frmSettings: TfrmSettings
       Cursor = crHandPoint
       Left = 497
       Height = 29
-      Top = 74
+      Top = 72
       Width = 27
       Anchors = [akTop, akRight]
       AutoSize = True
@@ -53,7 +55,7 @@ object frmSettings: TfrmSettings
       AnchorSideBottom.Side = asrBottom
       Left = 24
       Height = 23
-      Top = 129
+      Top = 127
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
@@ -84,7 +86,7 @@ object frmSettings: TfrmSettings
       AnchorSideRight.Control = btnSelectMountPoint
       Left = 24
       Height = 33
-      Top = 72
+      Top = 70
       Width = 449
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Left = 24
@@ -101,7 +103,7 @@ object frmSettings: TfrmSettings
       AnchorSideTop.Side = asrBottom
       Left = 24
       Height = 33
-      Top = 219
+      Top = 217
       Width = 50
       BorderSpacing.Around = 24
       MaxValue = 48
@@ -117,7 +119,7 @@ object frmSettings: TfrmSettings
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 19
-      Top = 176
+      Top = 174
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
@@ -131,7 +133,7 @@ object frmSettings: TfrmSettings
       AnchorSideRight.Control = gbSettings
       AnchorSideRight.Side = asrBottom
       Left = 24
-      Height = 17
+      Height = 15
       Top = 49
       Width = 500
       Anchors = [akTop, akLeft, akRight]
@@ -153,7 +155,7 @@ object frmSettings: TfrmSettings
     Cursor = crHandPoint
     Left = 506
     Height = 41
-    Top = 328
+    Top = 326
     Width = 70
     Anchors = [akTop, akRight]
     AutoSize = True
