@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 301
-  Height = 603
-  Top = 233
-  Width = 957
+  Left = 459
+  Height = 632
+  Top = 158
+  Width = 965
   Caption = 'gcencryptor'
-  ClientHeight = 572
-  ClientWidth = 957
+  ClientHeight = 601
+  ClientWidth = 965
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -15,60 +15,30 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 327
-    Height = 572
-    Top = 0
+    Left = 330
+    Height = 553
+    Top = 24
     Width = 5
     Align = alNone
     Anchors = [akTop, akBottom]
     ResizeAnchor = akRight
-  end
-  object flbVaultList: TFileListBox
-    AnchorSideLeft.Control = Owner
-    AnchorSideTop.Control = Owner
-    AnchorSideRight.Control = splLeft
-    AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 24
-    Height = 524
-    Hint = 'Vaults'
-    Top = 24
-    Width = 284
-    Anchors = [akTop, akLeft, akRight, akBottom]
-    BorderSpacing.Around = 24
-    BorderSpacing.InnerBorder = 12
-    BorderStyle = bsNone
-    Color = clForm
-    Directory = '/home/'
-    FileType = [ftReadOnly, ftNormal]
-    Font.Height = -21
-    Font.Style = [fsBold]
-    ItemHeight = 48
-    OnDblClick = flbVaultListDblClick
-    OnSelectionChange = flbVaultListSelectionChange
-    ParentFont = False
-    PopupMenu = pmMain
-    Sorted = False
-    Style = lbOwnerDrawVariable
-    TabOrder = 0
   end
   object gbCurrentVault: TGroupBox
     AnchorSideLeft.Control = splLeft
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 351
+    Left = 354
     Height = 281
     Top = 24
-    Width = 582
+    Width = 587
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
     ClientHeight = 250
-    ClientWidth = 578
-    TabOrder = 1
+    ClientWidth = 583
+    TabOrder = 0
     object edtCurrentVaultDir: TEdit
       AnchorSideLeft.Control = gbCurrentVault
       AnchorSideTop.Control = gbCurrentVault
@@ -77,7 +47,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 24
-      Width = 530
+      Width = 535
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       ReadOnly = True
@@ -93,7 +63,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 81
-      Width = 530
+      Width = 535
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -112,13 +82,13 @@ object frmMain: TfrmMain
       Left = 24
       Height = 41
       Top = 185
-      Width = 530
+      Width = 535
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 41
-      ClientWidth = 530
+      ClientWidth = 535
       TabOrder = 2
       object btnMount: TButton
         AnchorSideLeft.Control = pnlMountButton
@@ -143,7 +113,7 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 354
+        Left = 359
         Height = 41
         Top = 0
         Width = 70
@@ -162,7 +132,7 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 448
+        Left = 453
         Height = 41
         Top = 0
         Width = 82
@@ -184,7 +154,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 138
-      Width = 530
+      Width = 535
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
@@ -199,10 +169,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 351
-    Height = 219
+    Left = 354
+    Height = 248
     Top = 329
-    Width = 582
+    Width = 587
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -213,7 +183,7 @@ object frmMain: TfrmMain
     Font.Quality = fqCleartype
     ParentColor = False
     ParentFont = False
-    TabOrder = 2
+    TabOrder = 1
     OnEnter = synLogEnter
     BorderStyle = bsNone
     Gutter.Visible = False
@@ -713,20 +683,50 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = synLog
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 873
+    Left = 887
     Height = 29
     Hint = 'Clear log'
-    Top = 495
+    Top = 518
     Width = 24
     Anchors = [akRight, akBottom]
     AutoSize = True
-    BorderSpacing.Right = 12
-    BorderSpacing.Around = 24
+    BorderSpacing.Around = 30
     Caption = '⎚'
     OnClick = btnClearLogClick
     ParentShowHint = False
     ShowHint = True
+    TabOrder = 3
+  end
+  object lvVaults: TListView
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = Owner
+    AnchorSideRight.Control = splLeft
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 24
+    Height = 553
+    Top = 24
+    Width = 282
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    AutoWidthLastColumn = True
+    BorderSpacing.Around = 24
+    BorderStyle = bsNone
+    Color = clForm
+    Columns = <    
+      item
+        Width = 282
+      end>
+    ParentFont = False
+    PopupMenu = pmMain
+    ReadOnly = True
+    RowSelect = True
+    ScrollBars = ssAutoBoth
+    ShowColumnHeaders = False
+    SmallImages = ilVaultState
     TabOrder = 4
+    ViewStyle = vsReport
+    OnDblClick = lvVaultsDblClick
+    OnSelectItem = lvVaultsSelectItem
   end
   object pmMain: TPopupMenu
     OnPopup = pmMainPopup
@@ -761,7 +761,7 @@ object frmMain: TfrmMain
   end
   object sddOpenVault: TSelectDirectoryDialog
     FileName = '/'
-    InitialDir = '/'
+    InitialDir = '/home'
     Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
     OnFolderChange = sddOpenVaultFolderChange
     Left = 80
@@ -796,5 +796,28 @@ object frmMain: TfrmMain
     NumberAttri.Foreground = clTeal
     Left = 616
     Top = 368
+  end
+  object ilVaultState: TImageList
+    Height = 32
+    Width = 32
+    Left = 208
+    Top = 232
+    Bitmap = {
+      4C7A020000002000000020000000BC0100000000000078DAED98CF6AC2401087
+      E7508F4A1FA278A8478F5EFC8B241E149F4A3C28BE8CBE44410F5A258848F458
+      C8C5934AED6FB785266BA3A64E3087097C2C0993FD66C725CB48245794AB542A
+      E5AAD56A1FCCC04E51ABD5A6187B954AE5352E6F3E9F4FC13380E7084E211C54
+      6E2A96DB8D794717BC0190E7B0582C3E71F9556D6F75FBE872B8F19B667FEAEA
+      9F7B0E9A854221AD404C0BF70B23665FAFD75F18D6DE35DDA8EDB319A79EFD91
+      438761FD1363CEE6855CDB46EC9861FD9E7F4E55EFB058CBB23286DF63F007F6
+      1577BCF893E5C73B0DB0FDC7F7E6DA377103EC6B7E15C7EDF6E146AD1F37E217
+      BFF8C52FFE64FA1F7DFEA83332A61CDC72B96C49077BE7E5528E56D4A725CDC0
+      4EE3D014630F636CFD2FBD510ADE013C47700AE1A07353B1DCEE258D2E7883AC
+      68489FC4D6FFEADADEEAFECD81A5FFA577CAEABA06E79F83267D505AB3A616EE
+      1746CC1E7BE5EEFE57AFC374AFE9ACFFD5CFCC1C56D461A8FDC4F087F6BFD8FF
+      6D2376CCE0F70273AA7A87FB3386DF63F007F715777CD2FD71E72B7EF127C9EF
+      5003EF6D239F37D7D900FB86FC3731B8BF71C88D5C3F6EC42F7EF18B5FFC49F5
+      3FFAFCB163C941B91774F6FFC717AE90284C
+    }
   end
 end

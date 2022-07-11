@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, FileCtrl,
-  ExtCtrls, SynEdit, LCLIntf, Menus, LCLType, synhighlighterunixshellscript, Clipbrd,
+  ExtCtrls, SynEdit, LCLIntf, Menus, LCLType, synhighlighterunixshellscript,
+  Clipbrd, ComCtrls,
   { ---------------- }
   uConfig, uMountList;
 
@@ -22,8 +23,9 @@ type
     cbROMount: TCheckBox;
     edtPassword: TEdit;
     edtCurrentVaultDir: TEdit;
-    flbVaultList: TFileListBox;
     gbCurrentVault: TGroupBox;
+    ilVaultState: TImageList;
+    lvVaults: TListView;
     miCreateNewVault: TMenuItem;
     miVaultInfo: TMenuItem;
     miFsck: TMenuItem;
@@ -49,11 +51,11 @@ type
     procedure btnClearLogClick(Sender: TObject);
     procedure edtNewVaultDirChange(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
-    procedure flbVaultListDblClick(Sender: TObject);
-    procedure flbVaultListSelectionChange(Sender: TObject; User: boolean);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure lvVaultsDblClick(Sender: TObject);
+    procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
     procedure miCreateNewVaultClick(Sender: TObject);
     procedure miFsckClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
@@ -128,7 +130,10 @@ begin
       fileList.LoadFromFile(vaultListConfigFile);
 
       for i := 0 to fileList.Count - 1 do
-        flbVaultList.AddItem(ExtractFileName(fileList[i]), nil);
+      begin
+        lvVaults.AddItem(ExtractFileName(fileList[i]), nil);
+        lvVaults.Items[i].ImageIndex := 0; // lock.icon
+      end;
     except
       addErrLog(ERROR_LOAD_CONFIG, vaultListConfigFile);
     end;
@@ -148,6 +153,17 @@ begin
   finally
     FreeAndNil(fileList);
   end;
+end;
+
+procedure TfrmMain.lvVaultsDblClick(Sender: TObject);
+begin
+  if isItemSelected() then
+    OpenURL(getSelectedMountPoint());
+end;
+
+procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+begin
+  updateControls;
 end;
 
 procedure TfrmMain.miCreateNewVaultClick(Sender: TObject);
@@ -201,21 +217,22 @@ var
   index: integer;
 
 begin
-  index := flbVaultList.ItemIndex;
+  index := lvVaults.ItemIndex;
 
   mountList.del(getSelectedVaultPath());
   fileList.Delete(index);
-  flbVaultList.DeleteSelected;
+  if lvVaults.Items[index].Selected then
+    lvVaults.Items.Delete(index);
 
   // select previous
   if index >= 1 then
   begin
     Dec(index);
-    flbVaultList.ItemIndex := index;
+    lvVaults.ItemIndex := index;
   end
   else
-  if flbVaultList.Count >= 1 then
-    flbVaultList.ItemIndex := 0;
+  if lvVaults.Items.Count >= 1 then
+    lvVaults.ItemIndex := 0;
 
   if not isItemSelected() then
     edtCurrentVaultDir.Clear;
@@ -252,6 +269,7 @@ end;
 procedure TfrmMain.updateControls;
 var
   selectedVaultDir: string;
+  i: integer;
 
 begin
   btnMount.Enabled := False;
@@ -270,7 +288,7 @@ begin
     Exit;
   end;
 
-  selectedVaultDir := fileList[flbVaultList.ItemIndex];
+  selectedVaultDir := fileList[lvVaults.ItemIndex];
   edtCurrentVaultDir.Text := selectedVaultDir;
 
   btnMount.Enabled := isNotVaultUnlock(selectedVaultDir) and isNotEdtEmpty();
@@ -282,6 +300,12 @@ begin
   miFsck.Enabled := isNotEdtEmpty();
   miVaultInfo.Enabled := miOpenVaultDir.Enabled;
   miDelFromList.Enabled := not btnUmount.Enabled;
+
+  for i := 0 to lvVaults.Items.Count - 1 do
+    if isNotVaultUnlock(fileList[i]) then
+      lvVaults.Items[i].ImageIndex := 0 // lock.icon
+    else
+      lvVaults.Items[i].ImageIndex := 1; // unlock.icon
 end;
 
 procedure TfrmMain.initControls;
@@ -302,9 +326,9 @@ begin
   else
     Position := poScreenCenter;
 
-  if flbVaultList.Count > 0 then
-    if flbVaultList.Count > config.latestVaultIndex then
-      flbVaultList.ItemIndex := config.latestVaultIndex;
+  if lvVaults.Items.Count > 0 then
+    if lvVaults.Items.Count > config.latestVaultIndex then
+      lvVaults.ItemIndex := config.latestVaultIndex;
 end;
 
 procedure TfrmMain.saveConfig;
@@ -314,17 +338,17 @@ begin
   config.frmLeft := Left;
   config.frmTop := Top;
   config.splLeft := splLeft.Left;
-  config.latestVaultIndex := flbVaultList.ItemIndex;
+  config.latestVaultIndex := lvVaults.ItemIndex;
 end;
 
 function TfrmMain.getSelectedMountPoint: string;
 begin
-  Result := mountList.getMountPoint(fileList[flbVaultList.ItemIndex]);
+  Result := mountList.getMountPoint(fileList[lvVaults.ItemIndex]);
 end;
 
 function TfrmMain.getSelectedVaultPath: string;
 begin
-  Result := fileList[flbVaultList.ItemIndex];
+  Result := fileList[lvVaults.ItemIndex];
 end;
 
 function TfrmMain.isOpenVaultsExists: boolean;
@@ -378,13 +402,13 @@ begin
   if fileList.Count > 0 then
     if fileList.IndexOf(path) <> -1 then
     begin
-      flbVaultList.ItemIndex := fileList.IndexOf(path);
+      lvVaults.ItemIndex := fileList.IndexOf(path);
       Exit;
     end;
 
-  flbVaultList.AddItem(ExtractFileName(path), nil);
+  lvVaults.AddItem(ExtractFileName(path), nil);
   fileList.Add(path);
-  flbVaultList.ItemIndex := fileList.Count - 1;
+  lvVaults.ItemIndex := fileList.Count - 1;
 
   updateControls();
 end;
@@ -412,21 +436,10 @@ end;
 
 function TfrmMain.isItemSelected: boolean;
 begin
-  Result := flbVaultList.ItemIndex >= 0;
+  Result := lvVaults.ItemIndex >= 0;
 end;
 
 procedure TfrmMain.edtPasswordChange(Sender: TObject);
-begin
-  updateControls;
-end;
-
-procedure TfrmMain.flbVaultListDblClick(Sender: TObject);
-begin
-  if isItemSelected() then
-    OpenURL(getSelectedMountPoint());
-end;
-
-procedure TfrmMain.flbVaultListSelectionChange(Sender: TObject; User: boolean);
 begin
   updateControls;
 end;
@@ -454,6 +467,8 @@ begin
     if config.autorunState then
       OpenURL(m.Point);
   end;
+
+  updateControls;
 end;
 
 procedure TfrmMain.btnUmountAllClick(Sender: TObject);
