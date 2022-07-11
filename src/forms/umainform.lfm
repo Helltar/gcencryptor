@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 459
+  Left = 420
   Height = 632
-  Top = 158
+  Top = 199
   Width = 965
   Caption = 'gcencryptor'
   ClientHeight = 601
@@ -16,8 +16,8 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 330
-    Height = 553
-    Top = 24
+    Height = 601
+    Top = 0
     Width = 5
     Align = alNone
     Anchors = [akTop, akBottom]
@@ -89,7 +89,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       ClientHeight = 41
       ClientWidth = 535
-      TabOrder = 2
+      TabOrder = 3
       object btnMount: TButton
         AnchorSideLeft.Control = pnlMountButton
         AnchorSideTop.Control = pnlMountButton
@@ -158,7 +158,7 @@ object frmMain: TfrmMain
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
-      TabOrder = 3
+      TabOrder = 2
     end
   end
   inline synLog: TSynEdit
@@ -685,7 +685,7 @@ object frmMain: TfrmMain
     Cursor = crHandPoint
     Left = 887
     Height = 29
-    Hint = 'Clear log'
+    Hint = 'Clear'
     Top = 518
     Width = 24
     Anchors = [akRight, akBottom]
@@ -695,7 +695,7 @@ object frmMain: TfrmMain
     OnClick = btnClearLogClick
     ParentShowHint = False
     ShowHint = True
-    TabOrder = 3
+    TabOrder = 2
   end
   object lvVaults: TListView
     AnchorSideLeft.Control = Owner
@@ -716,6 +716,7 @@ object frmMain: TfrmMain
       item
         Width = 282
       end>
+    Font.Style = [fsBold]
     ParentFont = False
     PopupMenu = pmMain
     ReadOnly = True
@@ -723,7 +724,7 @@ object frmMain: TfrmMain
     ScrollBars = ssAutoBoth
     ShowColumnHeaders = False
     SmallImages = ilVaultState
-    TabOrder = 4
+    TabOrder = 3
     ViewStyle = vsReport
     OnDblClick = lvVaultsDblClick
     OnSelectItem = lvVaultsSelectItem
