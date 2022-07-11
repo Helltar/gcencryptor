@@ -18,6 +18,7 @@ type
     btnUmount: TButton;
     btnMount: TButton;
     btnUmountAll: TButton;
+    btnClearLog: TButton;
     cbROMount: TCheckBox;
     edtPassword: TEdit;
     edtCurrentVaultDir: TEdit;
@@ -45,6 +46,7 @@ type
     procedure btnMountClick(Sender: TObject);
     procedure btnUmountAllClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
+    procedure btnClearLogClick(Sender: TObject);
     procedure edtNewVaultDirChange(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure flbVaultListDblClick(Sender: TObject);
@@ -467,6 +469,11 @@ begin
     mountList.del(getSelectedVaultPath());
     updateControls;
   end;
+end;
+
+procedure TfrmMain.btnClearLogClick(Sender: TObject);
+begin
+  synLog.Clear;
 end;
 
 procedure TfrmMain.edtNewVaultDirChange(Sender: TObject);
