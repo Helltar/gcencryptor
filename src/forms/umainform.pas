@@ -6,7 +6,7 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, FileCtrl,
-  ExtCtrls, SynEdit, LCLIntf, Menus, LCLType, synhighlighterunixshellscript,
+  ExtCtrls, SynEdit, LCLIntf, Menus, LCLType, synhighlighterunixshellscript, Clipbrd,
   { ---------------- }
   uConfig, uMountList;
 
@@ -442,6 +442,7 @@ begin
   begin
     mountList.add(edtCurrentVaultDir.Text, m.Point);
     edtPassword.Clear;
+    Clipboard.AsText := m.Point;
     if config.autorunState then
       OpenURL(m.Point);
   end;
