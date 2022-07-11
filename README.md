@@ -5,7 +5,9 @@ gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs) so it
 
 - https://youtu.be/6NEIftu0ke8
 
-![gcencryptor_linux_qt](https://helltar.com/projects/gcencryptor/screenshots/screenshot_11072022_110638.png)
+<p align="center">
+  <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_11072022_110638.png" alt="gcencryptor_linux_qt"/>
+</p>
 
 Download
 --------
