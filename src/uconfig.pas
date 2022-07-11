@@ -49,7 +49,7 @@ implementation
 
 function TConfig.GetMountPoint: string;
 begin
-  Result := ReadString('MAIN', 'mountPoint', GetUserDir());
+  Result := ReadString('MAIN', 'mountPoint', GetAppConfigDir(False) + 'mnt');
 end;
 
 function TConfig.GetAutorunState: boolean;
@@ -84,7 +84,7 @@ end;
 
 function TConfig.GetLogFontSize: integer;
 begin
-  Result := ReadInteger('MAIN', 'logFontSize', 11);
+  Result := ReadInteger('MAIN', 'logFontSize', 10);
 end;
 
 function TConfig.GetSplLeft: integer;
