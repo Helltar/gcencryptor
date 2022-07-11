@@ -21,8 +21,10 @@ type
     lblMountPoint: TLabel;
     sddMountPoint: TSelectDirectoryDialog;
     seFontSize: TSpinEdit;
+    stMountPointHint: TStaticText;
     procedure btnSaveClick(Sender: TObject);
     procedure btnSelectMountPointClick(Sender: TObject);
+    procedure edtMountPointChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   end;
@@ -35,6 +37,9 @@ implementation
 uses
   uMainForm;
 
+resourcestring
+  MOUNTPOINT_HINT = 'During the mount, directories with the storage name will be temporarily created in this directory, for example:';
+
 {$R *.lfm}
 
 { TfrmSettings }
@@ -43,6 +48,11 @@ procedure TfrmSettings.btnSelectMountPointClick(Sender: TObject);
 begin
   if sddMountPoint.Execute then
     edtMountPoint.Text := sddMountPoint.FileName;
+end;
+
+procedure TfrmSettings.edtMountPointChange(Sender: TObject);
+begin
+  stMountPointHint.Caption := MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_XXX';
 end;
 
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
