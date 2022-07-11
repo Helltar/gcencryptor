@@ -97,6 +97,7 @@ resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
   CAPTION_WARNING = 'Warning';
   LOCK_ALL_AND_CLOSE = 'Lock all and close?';
+  MOUNTPOINT_COPIED_TO_CLIPBOARD = 'Mount-point copied to clipboard';
 
 {$R *.lfm}
 
@@ -443,6 +444,7 @@ begin
     mountList.add(edtCurrentVaultDir.Text, m.Point);
     edtPassword.Clear;
     Clipboard.AsText := m.Point;
+    addSynLog(MOUNTPOINT_COPIED_TO_CLIPBOARD);
     if config.autorunState then
       OpenURL(m.Point);
   end;
