@@ -33,6 +33,7 @@ uses
 resourcestring
   SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
   CREATED_SUCCESSFULLY = 'The gocryptfs filesystem has been created successfully';
+  FSCK_NO_PROBLEMS_FOUND = 'fsck summary: no problems found';
 
 const
   GOCRYPTFS_BIN = 'gocryptfs';
@@ -121,9 +122,12 @@ var
   p: TProcessRec;
 
 begin
-  p := procStart(GOCRYPTFS_BIN, '-fsck' + LineEnding + cipherdir, pass);
+  // -q, -quiet Silence informational messages
+  p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + cipherdir, pass);
 
-  if p.Completed then
+  if p.Completed and (p.ExitStatus = 0) then
+    addLog(FSCK_NO_PROBLEMS_FOUND)
+  else
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 

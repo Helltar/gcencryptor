@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 420
-  Height = 632
-  Top = 199
-  Width = 965
+  Left = 513
+  Height = 624
+  Top = 184
+  Width = 962
   Caption = 'gcencryptor'
-  ClientHeight = 601
-  ClientWidth = 965
+  ClientHeight = 593
+  ClientWidth = 962
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -15,8 +15,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 330
-    Height = 601
+    Left = 329
+    Height = 593
     Top = 0
     Width = 5
     Align = alNone
@@ -28,16 +28,16 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 354
+    Left = 353
     Height = 281
     Top = 24
-    Width = 587
+    Width = 585
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
     ClientHeight = 250
-    ClientWidth = 583
+    ClientWidth = 581
     TabOrder = 0
     object edtCurrentVaultDir: TEdit
       AnchorSideLeft.Control = gbCurrentVault
@@ -47,7 +47,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 24
-      Width = 535
+      Width = 533
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       ReadOnly = True
@@ -63,7 +63,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 81
-      Width = 535
+      Width = 533
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -82,13 +82,13 @@ object frmMain: TfrmMain
       Left = 24
       Height = 41
       Top = 185
-      Width = 535
+      Width = 533
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 41
-      ClientWidth = 535
+      ClientWidth = 533
       TabOrder = 3
       object btnMount: TButton
         AnchorSideLeft.Control = pnlMountButton
@@ -113,7 +113,7 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 359
+        Left = 357
         Height = 41
         Top = 0
         Width = 70
@@ -132,7 +132,7 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 453
+        Left = 451
         Height = 41
         Top = 0
         Width = 82
@@ -144,6 +144,24 @@ object frmMain: TfrmMain
         OnClick = btnUmountAllClick
         TabOrder = 2
       end
+      object btnFsck: TButton
+        AnchorSideLeft.Control = btnMount
+        AnchorSideLeft.Side = asrBottom
+        AnchorSideTop.Control = pnlMountButton
+        Cursor = crHandPoint
+        Left = 109
+        Height = 41
+        Hint = 'Check filesystem integrity'
+        Top = 0
+        Width = 72
+        AutoSize = True
+        BorderSpacing.InnerBorder = 6
+        Caption = 'Health'
+        OnClick = btnFsckClick
+        ParentShowHint = False
+        ShowHint = True
+        TabOrder = 3
+      end
     end
     object cbROMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
@@ -154,7 +172,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 138
-      Width = 535
+      Width = 533
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
@@ -169,10 +187,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 354
-    Height = 248
+    Left = 353
+    Height = 240
     Top = 329
-    Width = 587
+    Width = 585
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -683,10 +701,10 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = synLog
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 887
+    Left = 884
     Height = 29
     Hint = 'Clear'
-    Top = 518
+    Top = 510
     Width = 24
     Anchors = [akRight, akBottom]
     AutoSize = True
@@ -704,9 +722,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 553
+    Height = 545
     Top = 24
-    Width = 282
+    Width = 281
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Around = 24
@@ -714,7 +732,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 282
+        Width = 277
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -743,10 +761,6 @@ object frmMain: TfrmMain
     end
     object sp1: TMenuItem
       Caption = '-'
-    end
-    object miFsck: TMenuItem
-      Caption = 'Check Integrity'
-      OnClick = miFsckClick
     end
     object miVaultInfo: TMenuItem
       Caption = 'Information'

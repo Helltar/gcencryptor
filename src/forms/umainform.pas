@@ -20,6 +20,7 @@ type
     btnMount: TButton;
     btnUmountAll: TButton;
     btnClearLog: TButton;
+    btnFsck: TButton;
     cbROMount: TCheckBox;
     edtPassword: TEdit;
     edtCurrentVaultDir: TEdit;
@@ -28,7 +29,6 @@ type
     lvVaults: TListView;
     miCreateNewVault: TMenuItem;
     miVaultInfo: TMenuItem;
-    miFsck: TMenuItem;
     mmMain: TMainMenu;
     miSettings: TMenuItem;
     miAbout: TMenuItem;
@@ -45,6 +45,7 @@ type
     splLeft: TSplitter;
     synLog: TSynEdit;
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
+    procedure btnFsckClick(Sender: TObject);
     procedure btnMountClick(Sender: TObject);
     procedure btnUmountAllClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
@@ -57,7 +58,6 @@ type
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
     procedure miCreateNewVaultClick(Sender: TObject);
-    procedure miFsckClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenVaultClick(Sender: TObject);
@@ -101,7 +101,6 @@ resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
   CAPTION_WARNING = 'Warning';
   LOCK_ALL_AND_CLOSE = 'Lock all and close?';
-  MOUNTPOINT_COPIED_TO_CLIPBOARD = 'Mountpoint copied to clipboard';
 
 {$R *.lfm}
 
@@ -174,11 +173,6 @@ begin
     finally
       Free;
     end;
-end;
-
-procedure TfrmMain.miFsckClick(Sender: TObject);
-begin
-  fsck(getSelectedVaultPath(), edtPassword.Text);
 end;
 
 procedure TfrmMain.miSettingsClick(Sender: TObject);
@@ -275,10 +269,10 @@ begin
   btnMount.Enabled := False;
   btnUmount.Enabled := False;
   btnUmountAll.Enabled := False;
+  btnFsck.Enabled := False;
 
   miOpenVaultDir.Enabled := False;
   miOpenCryptoDir.Enabled := False;
-  miFsck.Enabled := False;
   miVaultInfo.Enabled := False;
   miDelFromList.Enabled := False;
 
@@ -294,10 +288,10 @@ begin
   btnMount.Enabled := isNotVaultUnlock(selectedVaultDir) and isNotEdtEmpty();
   btnUmount.Enabled := not isNotVaultUnlock(selectedVaultDir);
   btnUmountAll.Enabled := isOpenVaultsExists();
+  btnFsck.Enabled := isNotEdtEmpty();
 
   miOpenVaultDir.Enabled := dirExists(edtCurrentVaultDir.Text) and isItemSelected();
   miOpenCryptoDir.Enabled := btnUmount.Enabled;
-  miFsck.Enabled := isNotEdtEmpty();
   miVaultInfo.Enabled := miOpenVaultDir.Enabled;
   miDelFromList.Enabled := not btnUmount.Enabled;
 
@@ -461,14 +455,20 @@ begin
   if m.Completed then
   begin
     mountList.add(edtCurrentVaultDir.Text, m.Point);
+
     edtPassword.Clear;
-    Clipboard.AsText := m.Point;
-    addSynLog(MOUNTPOINT_COPIED_TO_CLIPBOARD);
+    Clipboard.AsText := '';
+
     if config.autorunState then
       OpenURL(m.Point);
   end;
 
   updateControls;
+end;
+
+procedure TfrmMain.btnFsckClick(Sender: TObject);
+begin
+  fsck(getSelectedVaultPath(), edtPassword.Text);
 end;
 
 procedure TfrmMain.btnUmountAllClick(Sender: TObject);
