@@ -1,15 +1,15 @@
 object frmSettings: TfrmSettings
-  Left = 579
+  Left = 475
   Height = 450
-  Top = 251
+  Top = 263
   Width = 600
   AutoSize = True
   Caption = 'Settings'
   ClientHeight = 450
   ClientWidth = 600
-  Constraints.MinHeight = 450
   Constraints.MinWidth = 600
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
   object gbSettings: TGroupBox

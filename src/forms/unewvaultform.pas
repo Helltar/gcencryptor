@@ -47,7 +47,6 @@ resourcestring
 procedure TfrmNewVault.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
-  Constraints.MinWidth := Width;
 end;
 
 procedure TfrmNewVault.btnCreateClick(Sender: TObject);

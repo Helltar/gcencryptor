@@ -1,11 +1,13 @@
 object frmNewVault: TfrmNewVault
-  Left = 870
-  Height = 427
-  Top = 336
-  Width = 700
+  Left = 1013
+  Height = 381
+  Top = 281
+  Width = 600
+  AutoSize = True
   Caption = 'Create new vault ...'
-  ClientHeight = 427
-  ClientWidth = 700
+  ClientHeight = 381
+  ClientWidth = 600
+  Constraints.MinWidth = 600
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
@@ -18,7 +20,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 81
-    Width = 652
+    Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     OnChange = edtVaultNameChange
@@ -36,7 +38,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 138
-    Width = 652
+    Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -54,7 +56,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 195
-    Width = 652
+    Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -67,11 +69,14 @@ object frmNewVault: TfrmNewVault
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = edtRepeatPassword
     AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
-    Left = 24
+    Left = 503
     Height = 41
     Top = 252
     Width = 73
+    Anchors = [akTop, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 6
@@ -87,7 +92,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 24
-    Width = 601
+    Width = 501
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     ReadOnly = True
@@ -102,7 +107,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
     Cursor = crHandPoint
-    Left = 649
+    Left = 549
     Height = 29
     Top = 26
     Width = 27
@@ -115,7 +120,7 @@ object frmNewVault: TfrmNewVault
   end
   object sddSelectPath: TSelectDirectoryDialog
     Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
-    Left = 280
-    Top = 280
+    Left = 376
+    Top = 24
   end
 end
