@@ -445,7 +445,7 @@ begin
   CanClose := False;
 
   if isOpenVaultsExists() then
-    case MessageDlg(CAPTION_WARNING, LOCK_ALL_AND_CLOSE, mtWarning, [mbYes, mbCancel], 0) of
+    case MessageDlg(CAPTION_WARNING, LOCK_ALL_AND_CLOSE, mtConfirmation, [mbYes, mbCancel], 0) of
       mrYes:
         if not umountAll() then
           Exit;
