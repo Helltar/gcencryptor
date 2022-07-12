@@ -22,6 +22,7 @@ function mkDir(const dir: string): boolean;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const isMount: boolean = False): TProcessRec;
 function procStart(const executable, parameters: string; const stdin: string = ''; const isMount: boolean = False): TProcessRec;
 function umount(const mountpoint: string): boolean;
+function findmnt(const path: string): boolean;
 
 implementation
 
@@ -34,9 +35,6 @@ resourcestring
   ERROR_DEL_DIRECTORY = 'Error deleting the directory';
   ERROR_RUN_EXECUTABLE = 'failed to run';
   UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
-
-const
-  FUSERMOUNT_BIN = 'fusermount';
 
 function procStart(const executable, parameters: string; const stdin: string; const isMount: boolean): TProcessRec;
 var
@@ -105,6 +103,15 @@ begin
   end;
 end;
 
+function findmnt(const path: string): boolean;
+var
+  p: TProcessRec;
+
+begin
+  p := procStart('findmnt', path);
+  Result := p.Completed and (p.ExitStatus = 0);
+end;
+
 function umount(const mountpoint: string): boolean;
 var
   p: TProcessRec;
@@ -112,16 +119,24 @@ var
 begin
   Result := False;
 
-  p := procStart(FUSERMOUNT_BIN, '-u' + LineEnding + mountpoint);
+  p := procStart('fusermount', '-u' + LineEnding + mountpoint);
 
-  if p.Completed and (p.ExitStatus = 0) then
+  if p.Completed then
   begin
+    if p.ExitStatus <> 0 then
+      // if find path in /etc/mtab (findmnt), then fusermount -> device busy, etc.
+      // else was unmounted in another way: result true
+      if findmnt(mountpoint) then
+      begin
+        addErrLog(p.Output);
+        Exit;
+      end;
+
     deldir(mountpoint);
     addLog(UNMOUNTED_SUCCESSFULLY, mountpoint);
+
     Result := True;
-  end
-  else
-    addErrLog(p.Output);
+  end;
 end;
 
 function dirExists(const dir: string): boolean;
