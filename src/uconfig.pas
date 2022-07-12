@@ -59,7 +59,7 @@ end;
 
 function TConfig.GetFrmHeight: integer;
 begin
-  Result := ReadInteger('FORM', 'height', 400);
+  Result := ReadInteger('FORM', 'height', 500);
 end;
 
 function TConfig.GetFrmLeft: integer;
