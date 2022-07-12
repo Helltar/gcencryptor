@@ -42,8 +42,8 @@ type
     stMountVaultPath: TStaticText;
     procedure btnMountClick(Sender: TObject);
     procedure btnFsckClick(Sender: TObject);
-    procedure btnUmountClick(Sender: TObject);
     procedure btnUmountAllClick(Sender: TObject);
+    procedure btnUmountClick(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -423,6 +423,12 @@ begin
   fsck(getSelectedVaultPath(), edtPassword.Text);
 end;
 
+procedure TfrmMain.btnUmountAllClick(Sender: TObject);
+begin
+  umountAll();
+  updateControls;
+end;
+
 procedure TfrmMain.btnUmountClick(Sender: TObject);
 begin
   if umount(getSelectedMountPoint()) then
@@ -430,12 +436,6 @@ begin
     mountList.del(getSelectedVaultPath());
     updateControls;
   end;
-end;
-
-procedure TfrmMain.btnUmountAllClick(Sender: TObject);
-begin
-  umountAll();
-  updateControls;
 end;
 
 procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: boolean);

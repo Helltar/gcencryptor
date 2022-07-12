@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 425
-  Height = 590
-  Top = 209
+  Left = 394
+  Height = 507
+  Top = 247
   Width = 997
   Caption = 'gcencryptor'
-  ClientHeight = 559
+  ClientHeight = 476
   ClientWidth = 997
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
@@ -16,7 +16,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 367
-    Height = 559
+    Height = 476
     Top = 0
     Width = 5
     Align = alNone
@@ -31,14 +31,14 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 391
-    Height = 511
+    Height = 428
     Top = 24
     Width = 582
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
-    ClientHeight = 480
+    ClientHeight = 397
     ClientWidth = 578
     Enabled = False
     TabOrder = 0
@@ -50,7 +50,7 @@ object frmMain: TfrmMain
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 33
-      Top = 148
+      Top = 166
       Width = 530
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
@@ -68,13 +68,14 @@ object frmMain: TfrmMain
       AnchorSideRight.Control = gbCurrentVault
       AnchorSideRight.Side = asrBottom
       Left = 24
-      Height = 220
-      Top = 252
+      Height = 34
+      Top = 270
       Width = 530
       Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
-      ClientHeight = 220
+      ClientHeight = 34
       ClientWidth = 530
       TabOrder = 4
       object btnMount: TBitBtn
@@ -285,7 +286,7 @@ object frmMain: TfrmMain
           00000000000043434305434343164444441C4444441645454505000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = btnUmountClick
+        OnClick = btnUmountAllClick
         TabOrder = 3
       end
     end
@@ -297,7 +298,7 @@ object frmMain: TfrmMain
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 23
-      Top = 205
+      Top = 223
       Width = 530
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
@@ -316,9 +317,7 @@ object frmMain: TfrmMain
       Top = 24
       Width = 530
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 24
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 24
+      BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
       BorderStyle = sbsSingle
       Color = clHotLight
@@ -341,12 +340,10 @@ object frmMain: TfrmMain
       Left = 24
       Height = 47
       Hint = 'Open'
-      Top = 77
+      Top = 95
       Width = 530
       Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Left = 24
-      BorderSpacing.Top = 6
-      BorderSpacing.Right = 24
+      BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
       BorderStyle = sbsSingle
       Color = clGreen
@@ -367,7 +364,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 511
+    Height = 428
     Top = 24
     Width = 319
     Anchors = [akTop, akLeft, akRight, akBottom]
