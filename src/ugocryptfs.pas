@@ -126,7 +126,7 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + cipherdir, pass);
 
   if p.Completed and (p.ExitStatus = 0) then
-    addLog(FSCK_NO_PROBLEMS_FOUND)
+    addLog(FSCK_NO_PROBLEMS_FOUND, '', True)
   else
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
@@ -139,7 +139,7 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-info' + LineEnding + cipherdir);
 
   if p.Completed then
-    addGoCryptFsLog(p.Output, p.ExitStatus);
+    addGoCryptFsLog(p.Output, p.ExitStatus, True);
 end;
 
 end.

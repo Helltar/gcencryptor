@@ -5,9 +5,8 @@ unit uMainForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, FileCtrl,
-  ExtCtrls, SynEdit, LCLIntf, Menus, LCLType, synhighlighterunixshellscript,
-  Clipbrd, ComCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
   { ---------------- }
   uConfig, uMountList;
 
@@ -16,11 +15,10 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
-    btnUmount: TButton;
-    btnMount: TButton;
-    btnUmountAll: TButton;
-    btnClearLog: TButton;
-    btnFsck: TButton;
+    btnMount: TBitBtn;
+    btnFsck: TBitBtn;
+    btnUmount: TBitBtn;
+    btnUmountAll: TBitBtn;
     cbROMount: TCheckBox;
     edtPassword: TEdit;
     gbCurrentVault: TGroupBox;
@@ -42,13 +40,10 @@ type
     splLeft: TSplitter;
     stVaultPath: TStaticText;
     stMountVaultPath: TStaticText;
-    synLog: TSynEdit;
-    synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
-    procedure btnFsckClick(Sender: TObject);
     procedure btnMountClick(Sender: TObject);
-    procedure btnUmountAllClick(Sender: TObject);
+    procedure btnFsckClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
-    procedure btnClearLogClick(Sender: TObject);
+    procedure btnUmountAllClick(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -65,7 +60,6 @@ type
     procedure sddOpenVaultFolderChange(Sender: TObject);
     procedure stVaultPathClick(Sender: TObject);
     procedure stMountVaultPathClick(Sender: TObject);
-    procedure synLogEnter(Sender: TObject);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -82,7 +76,6 @@ type
     function isNotVaultUnlock(const vault: string): boolean;
   public
     config: TConfig;
-    procedure addSynLog(const msg: string; const err: boolean = False);
     procedure addVaultToList(const path: string);
   end;
 
@@ -244,52 +237,50 @@ end;
 
 procedure TfrmMain.stVaultPathClick(Sender: TObject);
 begin
-  OpenURL(stVaultPath.Caption);
+  OpenURL(getSelectedVaultPath());
 end;
 
 procedure TfrmMain.stMountVaultPathClick(Sender: TObject);
 begin
-  OpenURL(stMountVaultPath.Caption);
-end;
-
-procedure TfrmMain.synLogEnter(Sender: TObject);
-begin
-  synLog.LineHighlightColor.Foreground := clBtnText;
-  synLog.LineHighlightColor.Background := clScrollBar;
+  OpenURL(getSelectedMountPoint());
 end;
 
 procedure TfrmMain.updateControls;
 var
-  selectedVaultDir: string;
   i: integer;
 
 begin
-  gbCurrentVault.Enabled := False;
-
   stVaultPath.Visible := False;
   stMountVaultPath.Visible := False;
+
+  btnMount.Enabled := False;
+  btnFsck.Enabled := False;
+  btnUmount.Enabled := False;
+  btnUmountAll.Enabled := False;
 
   miVaultInfo.Enabled := False;
   miDelFromList.Enabled := False;
 
   if not isItemSelected() then
+  begin
+    gbCurrentVault.Enabled := False;
     Exit;
-
-  selectedVaultDir := fileList[lvVaults.ItemIndex];
+  end;
 
   gbCurrentVault.Enabled := True;
 
-  stVaultPath.Caption := selectedVaultDir;
+  stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
   stVaultPath.Visible := True;
-  stMountVaultPath.Caption := getSelectedMountPoint();
+
+  stMountVaultPath.Caption := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
   stMountVaultPath.Visible := getSelectedMountPoint() <> '';
 
-  btnMount.Enabled := isNotVaultUnlock(selectedVaultDir) and isNotEdtEmpty();
+  btnMount.Enabled := isNotVaultUnlock(getSelectedVaultPath()) and isNotEdtEmpty();
   btnFsck.Enabled := isNotEdtEmpty();
-  btnUmount.Enabled := not isNotVaultUnlock(selectedVaultDir);
+  btnUmount.Enabled := not isNotVaultUnlock(getSelectedVaultPath());
   btnUmountAll.Enabled := isOpenVaultsExists();
 
-  miVaultInfo.Enabled := DirectoryExists(stVaultPath.Caption);
+  miVaultInfo.Enabled := DirectoryExists(getSelectedVaultPath());
   miDelFromList.Enabled := not btnUmount.Enabled;
 
   // update icons
@@ -308,7 +299,6 @@ begin
   Width := config.frmWidth;
 
   splLeft.Left := config.splLeft;
-  synLog.Font.Size := config.logFontSize;
 
   if (config.frmLeft + config.frmTop) > 0 then
   begin
@@ -351,42 +341,6 @@ end;
 function TfrmMain.isNotVaultUnlock(const vault: string): boolean;
 begin
   Result := mountList.getMountPoint(vault) = '';
-end;
-
-procedure TfrmMain.addSynLog(const msg: string; const err: boolean);
-var
-  i: integer;
-  s: TStringList;
-
-begin
-  s := TStringList.Create;
-  s.Text := msg;
-  s.Delimiter := LineEnding;
-
-  synLog.Lines.Add(s[0]);
-
-  // 'wordwrap'
-  for i := 1 to s.Count - 1 do
-    synLog.Lines.Add('  - ' + s[i]);
-
-  synLog.Lines.Add(LineEnding);
-
-  if not err then
-  begin
-    synLog.LineHighlightColor.Foreground := clBlack;
-    synLog.LineHighlightColor.Background := $98FB98; // PaleGreen
-  end
-  else
-  begin
-    synLog.LineHighlightColor.Foreground := clWhite;
-    synLog.LineHighlightColor.Background := clRed;
-  end;
-
-  // scroll down
-  synLog.CaretY := synLog.Lines.Count;
-  synLog.CaretY := synLog.Lines.Count - s.Count;
-
-  FreeAndNil(s);
 end;
 
 procedure TfrmMain.addVaultToList(const path: string);
@@ -441,18 +395,18 @@ var
   m: TMountRec;
 
 begin
-  if not dirExists(stVaultPath.Caption) then
+  if not dirExists(getSelectedVaultPath()) then
     Exit;
 
   if not DirectoryExists(config.mountPoint) then
     if not mkDir(config.mountPoint) then
       Exit;
 
-  m := mount(stVaultPath.Caption, config.mountPoint, edtPassword.Text, cbROMount.Checked);
+  m := mount(getSelectedVaultPath(), config.mountPoint, edtPassword.Text, cbROMount.Checked);
 
   if m.Completed then
   begin
-    mountList.add(stVaultPath.Caption, m.Point);
+    mountList.add(getSelectedVaultPath(), m.Point);
 
     edtPassword.Clear;
     Clipboard.AsText := '';
@@ -469,12 +423,6 @@ begin
   fsck(getSelectedVaultPath(), edtPassword.Text);
 end;
 
-procedure TfrmMain.btnUmountAllClick(Sender: TObject);
-begin
-  umountAll();
-  updateControls;
-end;
-
 procedure TfrmMain.btnUmountClick(Sender: TObject);
 begin
   if umount(getSelectedMountPoint()) then
@@ -484,9 +432,10 @@ begin
   end;
 end;
 
-procedure TfrmMain.btnClearLogClick(Sender: TObject);
+procedure TfrmMain.btnUmountAllClick(Sender: TObject);
 begin
-  synLog.Clear;
+  umountAll();
+  updateControls;
 end;
 
 procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: boolean);

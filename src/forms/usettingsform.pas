@@ -35,7 +35,7 @@ var
 implementation
 
 uses
-  uMainForm;
+  uMainForm, uLogForm;
 
 resourcestring
   MOUNTPOINT_HINT = 'During the mount, directories with the storage name will be temporarily created in this directory, for example:';
@@ -60,7 +60,7 @@ begin
   frmMain.config.mountPoint := edtMountPoint.Text;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
-  frmMain.synLog.Font.Size := seFontSize.Value;
+  frmLog.synLog.Font.Size := seFontSize.Value;
   Close;
 end;
 

@@ -12,7 +12,7 @@ uses
   Forms, Interfaces,
   { ---------------------------------------------------------------- }
   uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm,
-  uMountList, ugocryptfs;
+  uMountList, ugocryptfs, uLogForm;
 
 {$R *.res}
 
@@ -21,5 +21,6 @@ begin
   Application.Scaled:=True;
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
+  Application.CreateForm(TfrmLog, frmLog);
   Application.Run;
 end.
