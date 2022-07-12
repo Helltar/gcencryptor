@@ -45,6 +45,11 @@ resourcestring
 
 { TfrmNewVault }
 
+procedure TfrmNewVault.FormCreate(Sender: TObject);
+begin
+  sddSelectPath.InitialDir := GetUserDir;
+end;
+
 procedure TfrmNewVault.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
@@ -64,9 +69,12 @@ end;
 procedure TfrmNewVault.btnSelectPathClick(Sender: TObject);
 begin
   if sddSelectPath.Execute then
+  begin
     edtPath.Text := sddSelectPath.FileName;
-
-  updateControls();
+    edtPath.Enabled := True;
+    edtVaultName.Enabled := True;
+    edtVaultName.SetFocus;
+  end;
 end;
 
 procedure TfrmNewVault.edtPathChange(Sender: TObject);
@@ -105,12 +113,10 @@ end;
 
 procedure TfrmNewVault.updateControls;
 begin
-  edtVaultName.Enabled := edtPath.Text <> '';
   edtPassword.Enabled := edtVaultName.Text <> '';
   edtRepeatPassword.Enabled := (edtPassword.Text <> '') and edtPassword.Enabled;
 
   btnCreate.Enabled :=
-    edtVaultName.Enabled and
     edtPassword.Enabled and
     edtRepeatPassword.Enabled and
     (edtRepeatPassword.Text <> '') and
@@ -131,11 +137,6 @@ procedure TfrmNewVault.edtVaultNameChange(Sender: TObject);
 begin
   edtPath.Text := sddSelectPath.FileName + DirectorySeparator + edtVaultName.Text;
   updateControls();
-end;
-
-procedure TfrmNewVault.FormCreate(Sender: TObject);
-begin
-  sddSelectPath.InitialDir := GetUserDir;
 end;
 
 end.
