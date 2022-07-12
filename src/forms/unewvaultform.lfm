@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 1013
+  Left = 471
   Height = 381
-  Top = 281
+  Top = 331
   Width = 600
   AutoSize = True
   Caption = 'Create new vault ...'
@@ -72,14 +72,14 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
-    Left = 503
-    Height = 41
+    Left = 511
+    Height = 33
     Top = 252
-    Width = 73
+    Width = 65
     Anchors = [akTop, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
-    BorderSpacing.InnerBorder = 6
+    BorderSpacing.InnerBorder = 2
     Caption = '&Done'
     Enabled = False
     OnClick = btnCreateClick

@@ -23,7 +23,6 @@ type
     btnFsck: TButton;
     cbROMount: TCheckBox;
     edtPassword: TEdit;
-    edtCurrentVaultDir: TEdit;
     gbCurrentVault: TGroupBox;
     ilVaultState: TImageList;
     lvVaults: TListView;
@@ -34,15 +33,15 @@ type
     miAbout: TMenuItem;
     miVault: TMenuItem;
     miOpenVault: TMenuItem;
-    miOpenVaultDir: TMenuItem;
     miDelFromList: TMenuItem;
-    miOpenCryptoDir: TMenuItem;
     pnlMountButton: TPanel;
     sddOpenVault: TSelectDirectoryDialog;
     sp1: TMenuItem;
     sp2: TMenuItem;
     pmMain: TPopupMenu;
     splLeft: TSplitter;
+    stVaultPath: TStaticText;
+    stMountVaultPath: TStaticText;
     synLog: TSynEdit;
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
     procedure btnFsckClick(Sender: TObject);
@@ -50,7 +49,6 @@ type
     procedure btnUmountAllClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
     procedure btnClearLogClick(Sender: TObject);
-    procedure edtNewVaultDirChange(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
@@ -61,12 +59,12 @@ type
     procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenVaultClick(Sender: TObject);
-    procedure miOpenVaultDirClick(Sender: TObject);
     procedure miDelFromListClick(Sender: TObject);
-    procedure miOpenCryptoDirClick(Sender: TObject);
     procedure miVaultInfoClick(Sender: TObject);
     procedure pmMainPopup(Sender: TObject);
     procedure sddOpenVaultFolderChange(Sender: TObject);
+    procedure stVaultPathClick(Sender: TObject);
+    procedure stMountVaultPathClick(Sender: TObject);
     procedure synLogEnter(Sender: TObject);
   private
     fileList: TStringList;
@@ -201,11 +199,6 @@ begin
     addVaultToList(sddOpenVault.FileName);
 end;
 
-procedure TfrmMain.miOpenVaultDirClick(Sender: TObject);
-begin
-  OpenURL(edtCurrentVaultDir.Text);
-end;
-
 procedure TfrmMain.miDelFromListClick(Sender: TObject);
 var
   index: integer;
@@ -229,14 +222,9 @@ begin
     lvVaults.ItemIndex := 0;
 
   if not isItemSelected() then
-    edtCurrentVaultDir.Clear;
+    stVaultPath.Caption := '';
 
   updateControls();
-end;
-
-procedure TfrmMain.miOpenCryptoDirClick(Sender: TObject);
-begin
-  OpenURL(getSelectedMountPoint());
 end;
 
 procedure TfrmMain.miVaultInfoClick(Sender: TObject);
@@ -251,7 +239,17 @@ end;
 
 procedure TfrmMain.sddOpenVaultFolderChange(Sender: TObject);
 begin
-  edtCurrentVaultDir.Text := sddOpenVault.FileName;
+  stVaultPath.Caption := sddOpenVault.FileName;
+end;
+
+procedure TfrmMain.stVaultPathClick(Sender: TObject);
+begin
+  OpenURL(stVaultPath.Caption);
+end;
+
+procedure TfrmMain.stMountVaultPathClick(Sender: TObject);
+begin
+  OpenURL(stMountVaultPath.Caption);
 end;
 
 procedure TfrmMain.synLogEnter(Sender: TObject);
@@ -266,35 +264,35 @@ var
   i: integer;
 
 begin
-  btnMount.Enabled := False;
-  btnUmount.Enabled := False;
-  btnUmountAll.Enabled := False;
-  btnFsck.Enabled := False;
+  gbCurrentVault.Enabled := False;
 
-  miOpenVaultDir.Enabled := False;
-  miOpenCryptoDir.Enabled := False;
+  stVaultPath.Visible := False;
+  stMountVaultPath.Visible := False;
+
   miVaultInfo.Enabled := False;
   miDelFromList.Enabled := False;
 
   if not isItemSelected() then
-  begin
-    btnMount.Enabled := isNotEdtEmpty();
     Exit;
-  end;
 
   selectedVaultDir := fileList[lvVaults.ItemIndex];
-  edtCurrentVaultDir.Text := selectedVaultDir;
+
+  gbCurrentVault.Enabled := True;
+
+  stVaultPath.Caption := selectedVaultDir;
+  stVaultPath.Visible := True;
+  stMountVaultPath.Caption := getSelectedMountPoint();
+  stMountVaultPath.Visible := getSelectedMountPoint() <> '';
 
   btnMount.Enabled := isNotVaultUnlock(selectedVaultDir) and isNotEdtEmpty();
+  btnFsck.Enabled := isNotEdtEmpty();
   btnUmount.Enabled := not isNotVaultUnlock(selectedVaultDir);
   btnUmountAll.Enabled := isOpenVaultsExists();
-  btnFsck.Enabled := isNotEdtEmpty();
 
-  miOpenVaultDir.Enabled := dirExists(edtCurrentVaultDir.Text) and isItemSelected();
-  miOpenCryptoDir.Enabled := btnUmount.Enabled;
-  miVaultInfo.Enabled := miOpenVaultDir.Enabled;
+  miVaultInfo.Enabled := DirectoryExists(stVaultPath.Caption);
   miDelFromList.Enabled := not btnUmount.Enabled;
 
+  // update icons
   for i := 0 to lvVaults.Items.Count - 1 do
     if isNotVaultUnlock(fileList[i]) then
       lvVaults.Items[i].ImageIndex := 0 // lock.icon
@@ -425,7 +423,7 @@ end;
 
 function TfrmMain.isNotEdtEmpty: boolean;
 begin
-  Result := (edtCurrentVaultDir.Text <> '') and (edtPassword.Text <> '');
+  Result := (stVaultPath.Caption <> '') and (edtPassword.Text <> '');
 end;
 
 function TfrmMain.isItemSelected: boolean;
@@ -443,18 +441,18 @@ var
   m: TMountRec;
 
 begin
-  if not dirExists(edtCurrentVaultDir.Text) then
+  if not dirExists(stVaultPath.Caption) then
     Exit;
 
   if not DirectoryExists(config.mountPoint) then
     if not mkDir(config.mountPoint) then
       Exit;
 
-  m := mount(edtCurrentVaultDir.Text, config.mountPoint, edtPassword.Text, cbROMount.Checked);
+  m := mount(stVaultPath.Caption, config.mountPoint, edtPassword.Text, cbROMount.Checked);
 
   if m.Completed then
   begin
-    mountList.add(edtCurrentVaultDir.Text, m.Point);
+    mountList.add(stVaultPath.Caption, m.Point);
 
     edtPassword.Clear;
     Clipboard.AsText := '';
@@ -489,11 +487,6 @@ end;
 procedure TfrmMain.btnClearLogClick(Sender: TObject);
 begin
   synLog.Clear;
-end;
-
-procedure TfrmMain.edtNewVaultDirChange(Sender: TObject);
-begin
-  updateControls;
 end;
 
 procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: boolean);
