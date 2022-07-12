@@ -2,10 +2,10 @@ object frmMain: TfrmMain
   Left = 394
   Height = 507
   Top = 247
-  Width = 997
+  Width = 927
   Caption = 'gcencryptor'
   ClientHeight = 476
-  ClientWidth = 997
+  ClientWidth = 927
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -15,7 +15,7 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 367
+    Left = 341
     Height = 476
     Top = 0
     Width = 5
@@ -30,16 +30,16 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 391
+    Left = 365
     Height = 428
     Top = 24
-    Width = 582
+    Width = 538
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
     ClientHeight = 397
-    ClientWidth = 578
+    ClientWidth = 534
     Enabled = False
     TabOrder = 0
     object edtPassword: TEdit
@@ -51,7 +51,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 33
       Top = 166
-      Width = 530
+      Width = 486
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       EchoMode = emPassword
@@ -70,13 +70,13 @@ object frmMain: TfrmMain
       Left = 24
       Height = 34
       Top = 270
-      Width = 530
+      Width = 486
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 34
-      ClientWidth = 530
+      ClientWidth = 486
       TabOrder = 4
       object btnMount: TBitBtn
         AnchorSideLeft.Control = pnlMountButton
@@ -188,7 +188,7 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 333
+        Left = 289
         Height = 34
         Top = 0
         Width = 82
@@ -242,7 +242,7 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 427
+        Left = 383
         Height = 34
         Top = 0
         Width = 103
@@ -299,7 +299,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 223
-      Width = 530
+      Width = 486
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
@@ -315,7 +315,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 24
-      Width = 530
+      Width = 486
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -341,7 +341,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 95
-      Width = 530
+      Width = 486
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -366,7 +366,7 @@ object frmMain: TfrmMain
     Left = 24
     Height = 428
     Top = 24
-    Width = 319
+    Width = 293
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Around = 24
@@ -374,7 +374,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 315
+        Width = 289
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -409,9 +409,7 @@ object frmMain: TfrmMain
     end
   end
   object sddOpenVault: TSelectDirectoryDialog
-    FileName = '/'
-    InitialDir = '/home'
-    Options = [ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
+    Options = [ofPathMustExist, ofFileMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     OnFolderChange = sddOpenVaultFolderChange
     Left = 80
     Top = 88
@@ -422,11 +420,11 @@ object frmMain: TfrmMain
     object miVault: TMenuItem
       Caption = '&Vault'
       object miCreateNewVault: TMenuItem
-        Caption = '&New Vault ...'
+        Caption = 'Create &New Vault ...'
         OnClick = miCreateNewVaultClick
       end
       object miOpenVault: TMenuItem
-        Caption = '&Open Vault ...'
+        Caption = '&Open Existing Vault ...'
         OnClick = miOpenVaultClick
       end
     end

@@ -76,7 +76,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Left = 24
       BorderSpacing.Top = 24
       BorderSpacing.Right = 24
-      Caption = 'Mount point directory:'
+      Caption = 'Mount Point Prefix:'
       ParentColor = False
     end
     object edtMountPoint: TEdit
@@ -95,7 +95,7 @@ object frmSettings: TfrmSettings
       OnChange = edtMountPointChange
       ReadOnly = True
       TabOrder = 3
-      TextHint = 'mountpoint'
+      TextHint = 'path'
     end
     object seFontSize: TSpinEdit
       AnchorSideLeft.Control = gbSettings
@@ -166,7 +166,7 @@ object frmSettings: TfrmSettings
     TabOrder = 1
   end
   object sddMountPoint: TSelectDirectoryDialog
-    Options = [ofHideReadOnly, ofPathMustExist, ofEnableSizing, ofViewDetail]
+    Options = [ofHideReadOnly, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     Left = 416
     Top = 96
   end

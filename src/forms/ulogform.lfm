@@ -1,18 +1,15 @@
 object frmLog: TfrmLog
-  Left = 663
+  Left = 591
   Height = 300
-  Top = 260
+  Top = 284
   Width = 700
-  BorderStyle = bsSingle
   Caption = 'Messages'
   ClientHeight = 300
   ClientWidth = 700
-  Constraints.MaxHeight = 700
-  Constraints.MaxWidth = 700
   Constraints.MinHeight = 200
-  Constraints.MinWidth = 500
+  Constraints.MinWidth = 400
   OnShow = FormShow
-  Position = poOwnerFormCenter
+  Position = poMainFormCenter
   LCLVersion = '2.2.2.0'
   inline synLog: TSynEdit
     AnchorSideLeft.Control = Owner

@@ -20,7 +20,9 @@ type
     stText: TStaticText;
     procedure btnOKClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
 
   public
     vaultName: string;
@@ -57,6 +59,11 @@ begin
         Free;
         Close;
       end;
+end;
+
+procedure TfrmMasterKey.FormCreate(Sender: TObject);
+begin
+  saveDialog.InitialDir := GetUserDir;
 end;
 
 procedure TfrmMasterKey.FormShow(Sender: TObject);

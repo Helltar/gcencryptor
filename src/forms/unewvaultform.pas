@@ -25,6 +25,7 @@ type
     procedure edtPasswordChange(Sender: TObject);
     procedure edtRepeatPasswordChange(Sender: TObject);
     procedure edtVaultNameChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   private
     procedure createVault(const path: string);
@@ -50,25 +51,22 @@ begin
 end;
 
 procedure TfrmNewVault.btnCreateClick(Sender: TObject);
-var
-  path: string;
-
 begin
-  path := edtPath.Text + DirectorySeparator + edtVaultName.Text;
-
   if edtPassword.Text <> edtRepeatPassword.Text then
     ShowMessage(PASSWORDS_DO_NOT_MATCH)
   else
-  if DirectoryExists(path) then
-    ShowMessage(DIRECTORY_EXISTS + ': ' + path)
+  if DirectoryExists(edtPath.Text) then
+    ShowMessage(DIRECTORY_EXISTS + ': ' + edtPath.Text)
   else
-    createVault(path);
+    createVault(edtPath.Text);
 end;
 
 procedure TfrmNewVault.btnSelectPathClick(Sender: TObject);
 begin
   if sddSelectPath.Execute then
     edtPath.Text := sddSelectPath.FileName;
+
+  updateControls();
 end;
 
 procedure TfrmNewVault.edtPathChange(Sender: TObject);
@@ -83,7 +81,7 @@ var
 begin
   edtRepeatPassword.Clear;
 
-  if init(edtVaultName.Text, edtPath.Text, edtPassword.Text) then
+  if init(path, edtPassword.Text) then
   begin
     frmMain.addVaultToList(path);
 
@@ -107,10 +105,14 @@ end;
 
 procedure TfrmNewVault.updateControls;
 begin
+  edtVaultName.Enabled := edtPath.Text <> '';
+  edtPassword.Enabled := edtVaultName.Text <> '';
+  edtRepeatPassword.Enabled := (edtPassword.Text <> '') and edtPassword.Enabled;
+
   btnCreate.Enabled :=
-    (edtPath.Text <> '') and
-    (edtVaultName.Text <> '') and
-    (edtPassword.Text <> '') and
+    edtVaultName.Enabled and
+    edtPassword.Enabled and
+    edtRepeatPassword.Enabled and
     (edtRepeatPassword.Text <> '') and
     (Length(edtPassword.Text) = Length(edtRepeatPassword.Text));
 end;
@@ -127,7 +129,13 @@ end;
 
 procedure TfrmNewVault.edtVaultNameChange(Sender: TObject);
 begin
+  edtPath.Text := sddSelectPath.FileName + DirectorySeparator + edtVaultName.Text;
   updateControls();
+end;
+
+procedure TfrmNewVault.FormCreate(Sender: TObject);
+begin
+  sddSelectPath.InitialDir := GetUserDir;
 end;
 
 end.

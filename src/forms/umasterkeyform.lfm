@@ -8,6 +8,7 @@ object frmMasterKey: TfrmMasterKey
   ClientHeight = 403
   ClientWidth = 600
   Constraints.MinWidth = 600
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
@@ -94,7 +95,7 @@ object frmMasterKey: TfrmMasterKey
     ParentColor = False
   end
   object saveDialog: TSaveDialog
-    Options = [ofOverwritePrompt, ofPathMustExist, ofEnableSizing, ofViewDetail]
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     Left = 208
     Top = 256
   end

@@ -1,13 +1,14 @@
 object frmNewVault: TfrmNewVault
-  Left = 471
+  Left = 548
   Height = 381
-  Top = 331
+  Top = 267
   Width = 600
   AutoSize = True
   Caption = 'Create new vault ...'
   ClientHeight = 381
   ClientWidth = 600
   Constraints.MinWidth = 600
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'
@@ -23,6 +24,7 @@ object frmNewVault: TfrmNewVault
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
+    Enabled = False
     OnChange = edtVaultNameChange
     ParentShowHint = False
     ShowHint = True
@@ -42,6 +44,7 @@ object frmNewVault: TfrmNewVault
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
+    Enabled = False
     OnChange = edtPasswordChange
     PasswordChar = '*'
     TabOrder = 2
@@ -60,6 +63,7 @@ object frmNewVault: TfrmNewVault
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
+    Enabled = False
     OnChange = edtRepeatPasswordChange
     PasswordChar = '*'
     TabOrder = 3
@@ -72,15 +76,15 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
-    Left = 511
+    Left = 461
     Height = 33
     Top = 252
-    Width = 65
+    Width = 115
     Anchors = [akTop, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
-    Caption = '&Done'
+    Caption = '&Create Vault'
     Enabled = False
     OnClick = btnCreateClick
     TabOrder = 4
@@ -95,7 +99,7 @@ object frmNewVault: TfrmNewVault
     Width = 501
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
-    ReadOnly = True
+    Enabled = False
     TabOrder = 5
     TextHint = 'path'
   end
@@ -119,7 +123,8 @@ object frmNewVault: TfrmNewVault
     TabOrder = 0
   end
   object sddSelectPath: TSelectDirectoryDialog
-    Options = [ofHideReadOnly, ofPathMustExist, ofFileMustExist, ofEnableSizing, ofViewDetail]
+    InitialDir = '/home'
+    Options = [ofHideReadOnly, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     Left = 376
     Top = 24
   end

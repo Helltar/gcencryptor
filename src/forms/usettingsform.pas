@@ -69,6 +69,7 @@ begin
   cbAutorun.Checked := frmMain.config.autorunState;
   edtMountPoint.Text := frmMain.config.mountPoint;
   seFontSize.Value := frmMain.config.logFontSize;
+  sddMountPoint.InitialDir := GetUserDir;
 end;
 
 procedure TfrmSettings.FormShow(Sender: TObject);

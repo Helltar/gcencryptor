@@ -311,6 +311,8 @@ begin
   if lvVaults.Items.Count > 0 then
     if lvVaults.Items.Count > config.latestVaultIndex then
       lvVaults.ItemIndex := config.latestVaultIndex;
+
+  sddOpenVault.InitialDir := GetUserDir;
 end;
 
 procedure TfrmMain.saveConfig;
