@@ -20,7 +20,7 @@ type
   end;
 
 function dumpMasterKey(path: string; const pass: string): TInitRec;
-function init(const vaultName: string; path: string; const pass: string): boolean;
+function init(const path: string; const pass: string): boolean;
 function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False): TMountRec;
 procedure fsck(const cipherdir, pass: string);
 procedure getVaultInfo(const cipherdir: string);
@@ -60,14 +60,12 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function init(const vaultName: string; path: string; const pass: string): boolean;
+function init(const path: string; const pass: string): boolean;
 var
   p: TProcessRec;
 
 begin
   Result := False;
-
-  path := path + DirectorySeparator + vaultName;
 
   if not mkDir(path) then
     Exit;
