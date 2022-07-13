@@ -8,6 +8,7 @@ object frmLog: TfrmLog
   ClientWidth = 700
   Constraints.MinHeight = 200
   Constraints.MinWidth = 400
+  OnClose = FormClose
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '2.2.2.0'
@@ -529,5 +530,12 @@ object frmLog: TfrmLog
     NumberAttri.Foreground = clTeal
     Left = 200
     Top = 96
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 500
+    OnTimer = Timer1Timer
+    Left = 472
+    Top = 80
   end
 end

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  { ---------------- }
+  { ---------------------------- }
   uConfig, uMountList;
 
 type
@@ -67,7 +67,6 @@ type
     function isNotEdtEmpty(): boolean;
     function isItemSelected(): boolean;
     function umountAll(): boolean;
-    procedure updateControls();
     procedure initControls();
     procedure saveConfig();
     function getSelectedMountPoint(): string;
@@ -77,6 +76,7 @@ type
   public
     config: TConfig;
     procedure addVaultToList(const path: string);
+    procedure updateControls();
   end;
 
 var
@@ -85,8 +85,8 @@ var
 implementation
 
 uses
-  ugocryptfs, uUtils, uLogger,
-  uNewVaultForm, uSettingsForm, uAboutForm;
+  uUtils, uLogger, ugocryptfs, ugocryptfsFsck,
+  uLogForm, uNewVaultForm, uSettingsForm, uAboutForm;
 
 resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
@@ -272,11 +272,11 @@ begin
   stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
   stVaultPath.Visible := True;
 
-  stMountVaultPath.Caption := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
+  stMountVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
   stMountVaultPath.Visible := getSelectedMountPoint() <> '';
 
   btnMount.Enabled := isNotVaultUnlock(getSelectedVaultPath()) and isNotEdtEmpty();
-  btnFsck.Enabled := isNotEdtEmpty();
+  btnFsck.Enabled := isNotEdtEmpty() and isFsckThreadStopped;
   btnUmount.Enabled := not isNotVaultUnlock(getSelectedVaultPath());
   btnUmountAll.Enabled := isOpenVaultsExists();
 
@@ -404,7 +404,7 @@ begin
     if not mkDir(config.mountPoint) then
       Exit;
 
-  m := mount(getSelectedVaultPath(), config.mountPoint, edtPassword.Text, cbROMount.Checked);
+  m := mount(getSelectedVaultPath(), config.mountPoint, edtPassword.Text, cbROMount.Checked, config.mountPointShortName);
 
   if m.Completed then
   begin
@@ -423,6 +423,8 @@ end;
 procedure TfrmMain.btnFsckClick(Sender: TObject);
 begin
   fsck(getSelectedVaultPath(), edtPassword.Text);
+  frmLog.waitOnThreadFinish();
+  updateControls();
 end;
 
 procedure TfrmMain.btnUmountAllClick(Sender: TObject);

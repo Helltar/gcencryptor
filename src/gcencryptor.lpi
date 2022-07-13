@@ -189,6 +189,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uLogForm"/>
       </Unit>
+      <Unit>
+        <Filename Value="ugocryptfsfsck.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="ugocryptfsFsck"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

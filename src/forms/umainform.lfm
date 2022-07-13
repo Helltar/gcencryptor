@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 394
+  Left = 331
   Height = 507
-  Top = 247
+  Top = 222
   Width = 927
   Caption = 'gcencryptor'
   ClientHeight = 476

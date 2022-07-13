@@ -5,7 +5,7 @@ unit uLogForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, SynEdit,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, SynEdit,
   synhighlighterunixshellscript;
 
 type
@@ -15,11 +15,15 @@ type
   TfrmLog = class(TForm)
     synLog: TSynEdit;
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
+    Timer1: TTimer;
+    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
+    procedure Timer1Timer(Sender: TObject);
   private
 
   public
     procedure addSynLog(const msg: string; const err: boolean = False);
+    procedure waitOnThreadFinish();
   end;
 
 var
@@ -28,7 +32,7 @@ var
 implementation
 
 uses
-  uMainForm;
+  uMainForm, ugocryptfsFsck;
 
 {$R *.lfm}
 
@@ -37,6 +41,24 @@ uses
 procedure TfrmLog.FormShow(Sender: TObject);
 begin
   synLog.Font.Size := frmMain.config.logFontSize;
+end;
+
+procedure TfrmLog.FormClose(Sender: TObject; var CloseAction: TCloseAction);
+begin
+  frmMain.updateControls();
+end;
+
+procedure TfrmLog.Timer1Timer(Sender: TObject);
+begin
+  Cursor := crAppStart;
+  synLog.Enabled := False;
+
+  if isFsckThreadStopped then
+  begin
+    Cursor := crDefault;
+    synLog.Enabled := True;
+    Timer1.Enabled := False;
+  end;
 end;
 
 procedure TfrmLog.addSynLog(const msg: string; const err: boolean);
@@ -74,6 +96,13 @@ begin
   synLog.CaretY := synLog.Lines.Count - s.Count;
 
   FreeAndNil(s);
+end;
+
+procedure TfrmLog.waitOnThreadFinish;
+begin
+  addSynLog('Please wait until the process is completed' + LineEnding + 'it may take some time ...');
+  Timer1.Enabled := True;
+  ShowModal;
 end;
 
 end.
