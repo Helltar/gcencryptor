@@ -21,6 +21,7 @@ type
     function GetLatestVaultIndex: integer;
     function GetLogFontSize: integer;
     function GetMountPoint: string;
+    function GetMountPointShortName: boolean;
     function GetSplLeft: integer;
     procedure SetAutorunState(AValue: boolean);
     procedure SetFrmHeight(AValue: integer);
@@ -30,6 +31,7 @@ type
     procedure SetLatestVaultIndex(AValue: integer);
     procedure SetLogFontSize(AValue: integer);
     procedure SetMountPoint(AValue: string);
+    procedure SetMountPointShortName(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
   public
     property autorunState: boolean read GetAutorunState write SetAutorunState;
@@ -40,6 +42,7 @@ type
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
+    property mountPointShortName: boolean read GetMountPointShortName write SetMountPointShortName;
     property splLeft: integer read GetSplLeft write SetSplLeft;
   end;
 
@@ -50,6 +53,11 @@ implementation
 function TConfig.GetMountPoint: string;
 begin
   Result := ReadString('MAIN', 'mountPoint', GetAppConfigDir(False) + 'mnt');
+end;
+
+function TConfig.GetMountPointShortName: boolean;
+begin
+  Result := ReadBool('MAIN', 'mountPointShortName', False);
 end;
 
 function TConfig.GetAutorunState: boolean;
@@ -114,22 +122,27 @@ end;
 
 procedure TConfig.SetFrmWidth(AValue: integer);
 begin
- WriteInteger('FORM', 'width', AValue);
+  WriteInteger('FORM', 'width', AValue);
 end;
 
 procedure TConfig.SetLatestVaultIndex(AValue: integer);
 begin
- WriteInteger('MAIN', 'latestVaultIndex', AValue);
+  WriteInteger('MAIN', 'latestVaultIndex', AValue);
 end;
 
 procedure TConfig.SetLogFontSize(AValue: integer);
 begin
- WriteInteger('MAIN', 'logFontSize', AValue);
+  WriteInteger('MAIN', 'logFontSize', AValue);
 end;
 
 procedure TConfig.SetMountPoint(AValue: string);
 begin
   WriteString('MAIN', 'mountPoint', AValue);
+end;
+
+procedure TConfig.SetMountPointShortName(AValue: boolean);
+begin
+  WriteBool('MAIN', 'mountPointShortName', AValue);
 end;
 
 procedure TConfig.SetSplLeft(AValue: integer);

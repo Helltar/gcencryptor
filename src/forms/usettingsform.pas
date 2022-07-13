@@ -15,6 +15,7 @@ type
     btnSelectMountPoint: TButton;
     btnSave: TButton;
     cbAutorun: TCheckBox;
+    cbShortNames: TCheckBox;
     edtMountPoint: TEdit;
     gbSettings: TGroupBox;
     lblFontSize: TLabel;
@@ -52,12 +53,13 @@ end;
 
 procedure TfrmSettings.edtMountPointChange(Sender: TObject);
 begin
-  stMountPointHint.Caption := MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_XXX';
+  stMountPointHint.Caption := MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_GUID';
 end;
 
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
 begin
   frmMain.config.mountPoint := edtMountPoint.Text;
+  frmMain.config.mountPointShortName := cbShortNames.Checked;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
   frmLog.synLog.Font.Size := seFontSize.Value;
@@ -68,6 +70,7 @@ procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   cbAutorun.Checked := frmMain.config.autorunState;
   edtMountPoint.Text := frmMain.config.mountPoint;
+  cbShortNames.Checked := frmMain.config.mountPointShortName;
   seFontSize.Value := frmMain.config.logFontSize;
   sddMountPoint.InitialDir := GetUserDir;
 end;
