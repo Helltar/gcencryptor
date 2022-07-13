@@ -531,10 +531,10 @@ object frmLog: TfrmLog
     Left = 200
     Top = 96
   end
-  object Timer1: TTimer
+  object timer: TTimer
     Enabled = False
-    Interval = 500
-    OnTimer = Timer1Timer
+    Interval = 100
+    OnTimer = timerTimer
     Left = 472
     Top = 80
   end

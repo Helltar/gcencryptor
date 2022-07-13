@@ -15,10 +15,10 @@ type
   TfrmLog = class(TForm)
     synLog: TSynEdit;
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
-    Timer1: TTimer;
+    timer: TTimer;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormShow(Sender: TObject);
-    procedure Timer1Timer(Sender: TObject);
+    procedure timerTimer(Sender: TObject);
   private
 
   public
@@ -34,6 +34,9 @@ implementation
 uses
   uMainForm, ugocryptfsFsck;
 
+resourcestring
+  PLEASE_WAIT_UNTIL_THE_PROCESS = 'Please wait until the process is completed it may take some time ...';
+
 {$R *.lfm}
 
 { TfrmLog }
@@ -48,7 +51,7 @@ begin
   frmMain.updateControls();
 end;
 
-procedure TfrmLog.Timer1Timer(Sender: TObject);
+procedure TfrmLog.timerTimer(Sender: TObject);
 begin
   Cursor := crAppStart;
   synLog.Enabled := False;
@@ -57,7 +60,7 @@ begin
   begin
     Cursor := crDefault;
     synLog.Enabled := True;
-    Timer1.Enabled := False;
+    timer.Enabled := False;
   end;
 end;
 
@@ -100,8 +103,8 @@ end;
 
 procedure TfrmLog.waitOnThreadFinish;
 begin
-  addSynLog('Please wait until the process is completed' + LineEnding + 'it may take some time ...');
-  Timer1.Enabled := True;
+  addSynLog(PLEASE_WAIT_UNTIL_THE_PROCESS);
+  timer.Enabled := True;
   ShowModal;
 end;
 

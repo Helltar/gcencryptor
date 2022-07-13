@@ -10,15 +10,15 @@ uses
   athreads,
   {$ENDIF}
   Forms, Interfaces,
-  { ---------------------------------------------------------------- }
-  uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm,
-  uMountList, ugocryptfs, uLogForm, ugocryptfsFsck;
+  //----------------------------------------------------------------------------
+  uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm, uLogForm,
+  uMountList, ugocryptfs, ugocryptfsFsck;
 
 {$R *.res}
 
 begin
   RequireDerivedFormResource := True;
-  Application.Scaled:=True;
+  Application.Scaled := True;
   Application.Initialize;
   Application.CreateForm(TfrmMain, frmMain);
   Application.CreateForm(TfrmLog, frmLog);

@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  { ---------------------------- }
+  //------------------
   uConfig, uMountList;
 
 type
