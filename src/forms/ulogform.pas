@@ -5,8 +5,8 @@ unit uLogForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, SynEdit,
-  synhighlighterunixshellscript;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
+  SynEdit, synhighlighterunixshellscript;
 
 type
 
@@ -53,9 +53,6 @@ end;
 
 procedure TfrmLog.timerTimer(Sender: TObject);
 begin
-  Cursor := crAppStart;
-  synLog.Enabled := False;
-
   if isFsckThreadStopped then
   begin
     Cursor := crDefault;
@@ -75,13 +72,13 @@ begin
   s.Delimiter := LineEnding;
 
   synLog.Clear;
-  synLog.Lines.Add(s[0]);
+  synLog.Append(s[0]);
 
   // 'wordwrap'
   for i := 1 to s.Count - 1 do
-    synLog.Lines.Add('  - ' + s[i]);
+    synLog.Append('  - ' + s[i]);
 
-  synLog.Lines.Add(LineEnding);
+  synLog.Append(LineEnding);
 
   if not err then
   begin
@@ -104,8 +101,12 @@ end;
 procedure TfrmLog.waitOnThreadFinish;
 begin
   addSynLog(PLEASE_WAIT_UNTIL_THE_PROCESS);
+
+  Cursor := crAppStart;
+  synLog.Enabled := False;
   timer.Enabled := True;
-  ShowModal;
+
+  Show;
 end;
 
 end.

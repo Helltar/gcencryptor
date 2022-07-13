@@ -64,7 +64,7 @@ end;
 
 procedure TFsckThread.addOkLog;
 begin
-  addLog(FSCK_NO_PROBLEMS_FOUND, '', True);
+  addLog(FSCK_NO_PROBLEMS_FOUND);
 end;
 
 procedure TFsckThread.addErrorLog;

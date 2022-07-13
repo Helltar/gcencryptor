@@ -1,7 +1,7 @@
 object frmLog: TfrmLog
-  Left = 591
+  Left = 503
   Height = 300
-  Top = 284
+  Top = 223
   Width = 700
   Caption = 'Messages'
   ClientHeight = 300
@@ -526,14 +526,13 @@ object frmLog: TfrmLog
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
-    Enabled = False
     NumberAttri.Foreground = clTeal
     Left = 200
     Top = 96
   end
   object timer: TTimer
     Enabled = False
-    Interval = 100
+    Interval = 500
     OnTimer = timerTimer
     Left = 472
     Top = 80
