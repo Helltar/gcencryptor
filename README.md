@@ -6,13 +6,13 @@ gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs) so it
 - https://youtu.be/A5GicX8CsmQ
 
 <p align="center">
-  <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_12072022_082345.png" alt="gcencryptor_linux_qt"/>
+  <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_13072022_184026.png" alt="gcencryptor_linux_qt"/>
 </p>
 
 Download
 --------
 
-- [gcencryptor-1.4.0_linux-qt-x86_64.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/v1.4.0/gcencryptor-1.4.0_linux-qt-x86_64.tar.gz) (1.29 MB)
+- [gcencryptor-1.4.1_linux-qt-x86_64.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/v1.4.1/gcencryptor-1.4.1_linux-qt-x86_64.tar.gz) (1.3 MB)
 
 Install
 -------
