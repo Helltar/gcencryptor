@@ -274,6 +274,7 @@ begin
 
   stMountVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
   stMountVaultPath.Visible := getSelectedMountPoint() <> '';
+  stMountVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
 
   btnMount.Enabled := isNotVaultUnlock(getSelectedVaultPath()) and isNotEdtEmpty();
   btnFsck.Enabled := isNotEdtEmpty() and isFsckThreadStopped;
