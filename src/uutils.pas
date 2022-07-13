@@ -16,7 +16,6 @@ type
 
 function delDir(const dir: string): boolean;
 function dirExists(const dir: string): boolean;
-function getRandomName(const ALength: integer; const charSequence: string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'): string;
 function isDirEmpty(const dir: string): boolean;
 function mkDir(const dir: string): boolean;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const isMount: boolean = False): TProcessRec;
@@ -82,19 +81,16 @@ begin
         stdin := '';
       end;
 
-      with TStringList.Create do
-        try
-          repeat
-            LoadFromStream(p.Output);
-            Result.Output += Text;
-          until not p.Running or isMount;
-        finally
-          Free;
-        end;
-
       Result.Completed := p.WaitOnExit();
       Result.ExitStatus := p.ExitStatus;
 
+      with TStringList.Create do
+        try
+          LoadFromStream(p.Output);
+          Result.Output := Text;
+        finally
+          Free;
+        end;
     except
       addErrLog(AExecutable, ERROR_RUN_EXECUTABLE);
     end;
@@ -147,22 +143,6 @@ begin
     Result := True
   else
     addErrLog(DIRECTORY_NOT_EXISTS, dir);
-end;
-
-function getRandomName(const ALength: integer; const charSequence: string): string;
-var
-  ch, sLength: integer;
-
-begin
-  sLength := Length(charSequence);
-  SetLength(Result, ALength);
-
-  Randomize;
-
-  for ch := Low(Result) to High(Result) do
-    Result[ch] := charSequence.Chars[Random(sLength)];
-
-  Result := UpperCase(Result);
 end;
 
 function mkDir(const dir: string): boolean;

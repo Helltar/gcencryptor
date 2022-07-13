@@ -5,7 +5,7 @@ unit ugocryptfs;
 interface
 
 uses
-  Classes, SysUtils;
+  Classes, SysUtils, Controls;
 
 type
 
@@ -21,24 +21,25 @@ type
 
 function dumpMasterKey(path: string; const pass: string): TInitRec;
 function init(const path: string; const pass: string): boolean;
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False): TMountRec;
-procedure fsck(const cipherdir, pass: string);
+function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False; const shortName: boolean = False): TMountRec;
 procedure getVaultInfo(const cipherdir: string);
+procedure fsck(const ACipherdir, pass: string);
+
+const
+  GOCRYPTFS_BIN = 'gocryptfs';
 
 implementation
 
 uses
-  uUtils, uLogger;
+  uLogger, uUtils, ugocryptfsFsck;
+
+const
+  GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
+  GOCRYPTFS_CONF = 'gocryptfs.conf';
 
 resourcestring
   SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
   CREATED_SUCCESSFULLY = 'The gocryptfs filesystem has been created successfully';
-  FSCK_NO_PROBLEMS_FOUND = 'fsck summary: no problems found';
-
-const
-  GOCRYPTFS_BIN = 'gocryptfs';
-  GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
-  GOCRYPTFS_CONF = 'gocryptfs.conf';
 
 function dumpMasterKey(path: string; const pass: string): TInitRec;
 var
@@ -81,16 +82,25 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean): TMountRec;
+function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean; const shortName: boolean): TMountRec;
 var
   p: TProcessRec;
-  genMountPoint: string;
+  guid, genMountPoint: string;
   cmd: string = '';
+  shortGuid: TStringArray;
 
 begin
   Result.Completed := False;
 
-  genMountPoint := mountpoint + DirectorySeparator + ExtractFileName(cipherdir) + '_' + getRandomName(8);
+  guid := TGUID.NewGuid.ToString(True);
+
+  if shortName then
+  begin
+    shortGuid := guid.Split('-');
+    guid := shortGuid[0];
+  end;
+
+  genMountPoint := mountpoint + DirectorySeparator + ExtractFileName(cipherdir) + '_' + guid;
 
   if not mkDir(genMountPoint) then
     Exit;
@@ -115,18 +125,14 @@ begin
   end;
 end;
 
-procedure fsck(const cipherdir, pass: string);
-var
-  p: TProcessRec;
-
+procedure fsck(const ACipherdir, pass: string);
 begin
-  // -q, -quiet Silence informational messages
-  p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + cipherdir, pass);
-
-  if p.Completed and (p.ExitStatus = 0) then
-    addLog(FSCK_NO_PROBLEMS_FOUND, '', True)
-  else
-    addGoCryptFsLog(p.Output, p.ExitStatus);
+  with TFsckThread.Create(True) do
+  begin
+    Cipherdir := ACipherdir;
+    Password := pass;
+    Start;
+  end;
 end;
 
 procedure getVaultInfo(const cipherdir: string);
