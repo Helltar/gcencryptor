@@ -1,11 +1,11 @@
 object frmSettings: TfrmSettings
-  Left = 659
-  Height = 595
-  Top = 219
+  Left = 938
+  Height = 477
+  Top = 233
   Width = 600
   AutoSize = True
   Caption = 'Settings'
-  ClientHeight = 595
+  ClientHeight = 477
   ClientWidth = 600
   Constraints.MinWidth = 600
   OnCreate = FormCreate
@@ -18,12 +18,13 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 438
+    Height = 325
     Top = 24
     Width = 552
     Anchors = [akTop, akLeft, akRight]
+    AutoSize = True
     BorderSpacing.Around = 24
-    ClientHeight = 434
+    ClientHeight = 321
     ClientWidth = 548
     ParentFont = False
     TabOrder = 0
@@ -60,7 +61,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Around = 24
       Caption = 'Open in File Manager after unlocking'
       ParentFont = False
-      TabOrder = 1
+      TabOrder = 2
     end
     object lblMountPoint: TLabel
       AnchorSideLeft.Control = gbSettings
@@ -93,7 +94,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Right = 24
       OnChange = edtMountPointChange
       ReadOnly = True
-      TabOrder = 3
+      TabOrder = 4
       TextHint = 'path'
     end
     object seFontSize: TSpinEdit
@@ -107,7 +108,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Around = 24
       MaxValue = 48
       MinValue = 6
-      TabOrder = 2
+      TabOrder = 3
       Value = 6
     end
     object lblFontSize: TLabel
@@ -142,7 +143,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Right = 24
       Font.Height = -13
       ParentFont = False
-      TabOrder = 4
+      TabOrder = 5
     end
     object cbShortNames: TCheckBox
       AnchorSideLeft.Control = gbSettings
@@ -158,7 +159,7 @@ object frmSettings: TfrmSettings
       BorderSpacing.Around = 24
       Caption = 'Generate short names (8 characters)'
       ParentShowHint = False
-      TabOrder = 5
+      TabOrder = 1
     end
   end
   object btnSave: TButton
@@ -170,7 +171,7 @@ object frmSettings: TfrmSettings
     Cursor = crHandPoint
     Left = 514
     Height = 33
-    Top = 486
+    Top = 373
     Width = 62
     Anchors = [akTop, akRight]
     AutoSize = True
