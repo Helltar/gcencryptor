@@ -1,6 +1,7 @@
 *.lps
 *.res
 *.lrj
+*.mo
 
 backup/
 lib/
