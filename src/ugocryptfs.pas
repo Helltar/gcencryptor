@@ -143,7 +143,7 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-info' + LineEnding + cipherdir);
 
   if p.Completed then
-    addGoCryptFsLog(p.Output, p.ExitStatus, True, False);
+    addGoCryptFsLog(p.Output + LineEnding + cipherdir, p.ExitStatus, True, False);
 end;
 
 end.
