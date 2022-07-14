@@ -17,6 +17,8 @@ type
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
     timer: TTimer;
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
+    procedure FormCreate(Sender: TObject);
+    procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
   private
@@ -49,6 +51,18 @@ end;
 procedure TfrmLog.FormClose(Sender: TObject; var CloseAction: TCloseAction);
 begin
   frmMain.updateControls();
+end;
+
+procedure TfrmLog.FormCreate(Sender: TObject);
+begin
+  Height := frmMain.config.frmLogHeight;
+  Width := frmMain.config.frmLogWidth;
+end;
+
+procedure TfrmLog.FormDestroy(Sender: TObject);
+begin
+  frmMain.config.frmLogHeight := Height;
+  frmMain.config.frmLogWidth := Width;
 end;
 
 procedure TfrmLog.timerTimer(Sender: TObject);

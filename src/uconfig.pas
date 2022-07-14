@@ -16,6 +16,8 @@ type
     function GetAutorunState: boolean;
     function GetFrmHeight: integer;
     function GetFrmLeft: integer;
+    function GetFrmLogHeight: integer;
+    function GetFrmLogWidth: integer;
     function GetFrmTop: integer;
     function GetFrmWidth: integer;
     function GetLatestVaultIndex: integer;
@@ -26,6 +28,8 @@ type
     procedure SetAutorunState(AValue: boolean);
     procedure SetFrmHeight(AValue: integer);
     procedure SetFrmLeft(AValue: integer);
+    procedure SetFrmLogHeight(AValue: integer);
+    procedure SetFrmLogWidth(AValue: integer);
     procedure SetFrmTop(AValue: integer);
     procedure SetFrmWidth(AValue: integer);
     procedure SetLatestVaultIndex(AValue: integer);
@@ -39,6 +43,8 @@ type
     property frmLeft: integer read GetFrmLeft write SetFrmLeft;
     property frmTop: integer read GetFrmTop write SetFrmTop;
     property frmWidth: integer read GetFrmWidth write SetFrmWidth;
+    property frmLogHeight: integer read GetFrmLogHeight write SetFrmLogHeight;
+    property frmLogWidth: integer read GetFrmLogWidth write SetFrmLogWidth;
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
@@ -73,6 +79,16 @@ end;
 function TConfig.GetFrmLeft: integer;
 begin
   Result := ReadInteger('FORM', 'left', 0);
+end;
+
+function TConfig.GetFrmLogHeight: integer;
+begin
+  Result := ReadInteger('FORM', 'logHeight', 432);
+end;
+
+function TConfig.GetFrmLogWidth: integer;
+begin
+  Result := ReadInteger('FORM', 'logWidth', 768);
 end;
 
 function TConfig.GetFrmTop: integer;
@@ -113,6 +129,16 @@ end;
 procedure TConfig.SetFrmLeft(AValue: integer);
 begin
   WriteInteger('FORM', 'left', AValue);
+end;
+
+procedure TConfig.SetFrmLogHeight(AValue: integer);
+begin
+  WriteInteger('FORM', 'logHeight', AValue);
+end;
+
+procedure TConfig.SetFrmLogWidth(AValue: integer);
+begin
+  WriteInteger('FORM', 'logWidth', AValue);
 end;
 
 procedure TConfig.SetFrmTop(AValue: integer);

@@ -9,6 +9,8 @@ object frmLog: TfrmLog
   Constraints.MinHeight = 200
   Constraints.MinWidth = 400
   OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '2.2.2.0'
