@@ -41,10 +41,10 @@ type
     property autorunState: boolean read GetAutorunState write SetAutorunState;
     property frmHeight: integer read GetFrmHeight write SetFrmHeight;
     property frmLeft: integer read GetFrmLeft write SetFrmLeft;
-    property frmTop: integer read GetFrmTop write SetFrmTop;
-    property frmWidth: integer read GetFrmWidth write SetFrmWidth;
     property frmLogHeight: integer read GetFrmLogHeight write SetFrmLogHeight;
     property frmLogWidth: integer read GetFrmLogWidth write SetFrmLogWidth;
+    property frmTop: integer read GetFrmTop write SetFrmTop;
+    property frmWidth: integer read GetFrmWidth write SetFrmWidth;
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
