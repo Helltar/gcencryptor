@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  LCLTranslator, DefaultTranslator,
+  LCLTranslator, DefaultTranslator, ActnList,
   //------------------
   uConfig, uMountList;
 
@@ -16,6 +16,8 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
+    actHideMenubar: TAction;
+    actlMain: TActionList;
     btnMount: TBitBtn;
     btnUmount: TBitBtn;
     btnUmountAll: TBitBtn;
@@ -23,6 +25,7 @@ type
     gbCurrentVault: TGroupBox;
     ilVaultState: TImageList;
     lvVaults: TListView;
+    miShowMenubar: TMenuItem;
     miUkrainian: TMenuItem;
     miEnglish: TMenuItem;
     miRussian: TMenuItem;
@@ -45,6 +48,7 @@ type
     splLeft: TSplitter;
     stVaultPath: TStaticText;
     stMountVaultPath: TStaticText;
+    procedure actHideMenubarExecute(Sender: TObject);
     procedure btnMountClick(Sender: TObject);
     procedure btnUmountAllClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
@@ -80,6 +84,7 @@ type
     function isOpenVaultsExists(): boolean;
     function isNotVaultUnlock(const vault: string): boolean;
     procedure showPasswordForm(const title: string);
+    procedure hideMenubar();
   public
     config: TConfig;
     vaultPassword: string;
@@ -120,7 +125,6 @@ begin
     mkDir(configDir);
 
   config := TConfig.Create(configFile);
-
   fileList := TStringList.Create;
   mountList := TMountList.Create;
 
@@ -322,8 +326,8 @@ begin
   btnUmount.Enabled := not isNotVaultUnlock(getSelectedVaultPath());
   btnUmountAll.Enabled := isOpenVaultsExists();
 
-  miFsck.Enabled := isFsckThreadStopped and btnMount.Enabled;
   miVaultInfo.Enabled := DirectoryExists(getSelectedVaultPath());
+  miFsck.Enabled := isFsckThreadStopped and btnMount.Enabled and miVaultInfo.Enabled;
   miDelFromList.Enabled := not btnUmount.Enabled;
 
   // update icons
@@ -356,6 +360,9 @@ begin
       lvVaults.ItemIndex := config.latestVaultIndex;
 
   sddOpenVault.InitialDir := GetUserDir;
+
+  if not config.showMenubar then
+    hideMenubar();
 end;
 
 procedure TfrmMain.saveConfig;
@@ -397,6 +404,20 @@ begin
     finally
       Free;
     end;
+end;
+
+procedure TfrmMain.hideMenubar;
+begin
+  if Menu <> nil then
+  begin
+    Menu := nil;
+    config.showMenubar := False;
+  end
+  else
+  begin
+    Menu := mmMain;
+    config.showMenubar := True;
+  end;
 end;
 
 procedure TfrmMain.addVaultToList(const path: string);
@@ -465,6 +486,11 @@ begin
   end;
 
   updateControls;
+end;
+
+procedure TfrmMain.actHideMenubarExecute(Sender: TObject);
+begin
+  hideMenubar();
 end;
 
 procedure TfrmMain.btnUmountAllClick(Sender: TObject);

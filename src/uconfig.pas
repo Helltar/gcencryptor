@@ -25,6 +25,7 @@ type
     function GetLogFontSize: integer;
     function GetMountPoint: string;
     function GetMountPointShortName: boolean;
+    function GetShowMenubar: boolean;
     function GetSplLeft: integer;
     procedure SetAutorunState(AValue: boolean);
     procedure SetFrmHeight(AValue: integer);
@@ -38,6 +39,7 @@ type
     procedure SetLogFontSize(AValue: integer);
     procedure SetMountPoint(AValue: string);
     procedure SetMountPointShortName(AValue: boolean);
+    procedure SetShowMenubar(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
   public
     property autorunState: boolean read GetAutorunState write SetAutorunState;
@@ -48,6 +50,7 @@ type
     property frmTop: integer read GetFrmTop write SetFrmTop;
     property frmWidth: integer read GetFrmWidth write SetFrmWidth;
     property lang: string read GetLang write SetLang;
+    property showMenubar: boolean read GetShowMenubar write SetShowMenubar;
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
@@ -67,6 +70,11 @@ end;
 function TConfig.GetMountPointShortName: boolean;
 begin
   Result := ReadBool('MAIN', 'mountPointShortName', False);
+end;
+
+function TConfig.GetShowMenubar: boolean;
+begin
+  Result := ReadBool('FORM', 'showMenubar', True);
 end;
 
 function TConfig.GetAutorunState: boolean;
@@ -182,6 +190,11 @@ end;
 procedure TConfig.SetMountPointShortName(AValue: boolean);
 begin
   WriteBool('MAIN', 'mountPointShortName', AValue);
+end;
+
+procedure TConfig.SetShowMenubar(AValue: boolean);
+begin
+  WriteBool('FORM', 'showMenubar', AValue);
 end;
 
 procedure TConfig.SetSplLeft(AValue: integer);

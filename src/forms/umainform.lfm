@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 435
+  Left = 393
   Height = 531
-  Top = 226
+  Top = 295
   Width = 912
   Caption = 'gcencryptor'
   ClientHeight = 500
@@ -60,7 +60,7 @@ object frmMain: TfrmMain
       BevelOuter = bvNone
       ClientHeight = 34
       ClientWidth = 477
-      TabOrder = 3
+      TabOrder = 2
       object btnMount: TBitBtn
         AnchorSideLeft.Control = pnlMountButton
         AnchorSideTop.Control = pnlMountButton
@@ -233,7 +233,7 @@ object frmMain: TfrmMain
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
-      TabOrder = 2
+      TabOrder = 3
     end
     object stVaultPath: TStaticText
       AnchorSideLeft.Control = gbCurrentVault
@@ -384,6 +384,9 @@ object frmMain: TfrmMain
           OnClick = miRussianClick
         end
       end
+      object miShowMenubar: TMenuItem
+        Action = actHideMenubar
+      end
     end
     object miAbout: TMenuItem
       Caption = '&About'
@@ -412,5 +415,15 @@ object frmMain: TfrmMain
       5003EF6D239F37D7D900FB86FC3731B8BF71C88D5C3F6EC42F7EF18B5FFC49F5
       3FFAFCB163C941B91774F6FFC717AE90284C
     }
+  end
+  object actlMain: TActionList
+    Left = 160
+    Top = 352
+    object actHideMenubar: TAction
+      Caption = 'Show Menubar'
+      Checked = True
+      OnExecute = actHideMenubarExecute
+      ShortCut = 16461
+    end
   end
 end
