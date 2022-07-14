@@ -20,6 +20,7 @@ type
     function GetFrmLogWidth: integer;
     function GetFrmTop: integer;
     function GetFrmWidth: integer;
+    function GetLang: string;
     function GetLatestVaultIndex: integer;
     function GetLogFontSize: integer;
     function GetMountPoint: string;
@@ -32,6 +33,7 @@ type
     procedure SetFrmLogWidth(AValue: integer);
     procedure SetFrmTop(AValue: integer);
     procedure SetFrmWidth(AValue: integer);
+    procedure SetLang(AValue: string);
     procedure SetLatestVaultIndex(AValue: integer);
     procedure SetLogFontSize(AValue: integer);
     procedure SetMountPoint(AValue: string);
@@ -45,6 +47,7 @@ type
     property frmLogWidth: integer read GetFrmLogWidth write SetFrmLogWidth;
     property frmTop: integer read GetFrmTop write SetFrmTop;
     property frmWidth: integer read GetFrmWidth write SetFrmWidth;
+    property lang: string read GetLang write SetLang;
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
@@ -101,6 +104,11 @@ begin
   Result := ReadInteger('FORM', 'width', 900);
 end;
 
+function TConfig.GetLang: string;
+begin
+  Result := ReadString('MAIN', 'lang', 'en');
+end;
+
 function TConfig.GetLatestVaultIndex: integer;
 begin
   Result := ReadInteger('MAIN', 'latestVaultIndex', -1);
@@ -149,6 +157,11 @@ end;
 procedure TConfig.SetFrmWidth(AValue: integer);
 begin
   WriteInteger('FORM', 'width', AValue);
+end;
+
+procedure TConfig.SetLang(AValue: string);
+begin
+  WriteString('MAIN', 'lang', AValue);
 end;
 
 procedure TConfig.SetLatestVaultIndex(AValue: integer);

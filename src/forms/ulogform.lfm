@@ -1,7 +1,7 @@
 object frmLog: TfrmLog
-  Left = 546
+  Left = 548
   Height = 432
-  Top = 300
+  Top = 296
   Width = 768
   Caption = 'Messages'
   ClientHeight = 432

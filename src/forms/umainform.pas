@@ -23,6 +23,11 @@ type
     gbCurrentVault: TGroupBox;
     ilVaultState: TImageList;
     lvVaults: TListView;
+    miUkrainian: TMenuItem;
+    miEnglish: TMenuItem;
+    miRussian: TMenuItem;
+    miLanguage: TMenuItem;
+    miConfig: TMenuItem;
     miFsck: TMenuItem;
     miCreateNewVault: TMenuItem;
     miVaultInfo: TMenuItem;
@@ -48,12 +53,15 @@ type
     procedure FormDestroy(Sender: TObject);
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+    procedure miConfigClick(Sender: TObject);
+    procedure miEnglishClick(Sender: TObject);
     procedure miFsckClick(Sender: TObject);
     procedure miCreateNewVaultClick(Sender: TObject);
-    procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miOpenVaultClick(Sender: TObject);
     procedure miDelFromListClick(Sender: TObject);
+    procedure miRussianClick(Sender: TObject);
+    procedure miUkrainianClick(Sender: TObject);
     procedure miVaultInfoClick(Sender: TObject);
     procedure pmMainPopup(Sender: TObject);
     procedure sddOpenVaultFolderChange(Sender: TObject);
@@ -157,6 +165,22 @@ begin
   updateControls;
 end;
 
+procedure TfrmMain.miConfigClick(Sender: TObject);
+begin
+  with TfrmSettings.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
+end;
+
+procedure TfrmMain.miEnglishClick(Sender: TObject);
+begin
+  SetDefaultLang('en');
+  config.lang := 'en';
+end;
+
 procedure TfrmMain.miFsckClick(Sender: TObject);
 begin
   showPasswordForm(getSelectedVaultPath());
@@ -173,16 +197,6 @@ end;
 procedure TfrmMain.miCreateNewVaultClick(Sender: TObject);
 begin
   with TfrmNewVault.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
-end;
-
-procedure TfrmMain.miSettingsClick(Sender: TObject);
-begin
-  with TfrmSettings.Create(Self) do
     try
       ShowModal;
     finally
@@ -232,6 +246,18 @@ begin
     stVaultPath.Caption := '';
 
   updateControls();
+end;
+
+procedure TfrmMain.miRussianClick(Sender: TObject);
+begin
+  SetDefaultLang('ru');
+  config.lang := 'ru';
+end;
+
+procedure TfrmMain.miUkrainianClick(Sender: TObject);
+begin
+  SetDefaultLang('uk');
+  config.lang := 'uk';
 end;
 
 procedure TfrmMain.miVaultInfoClick(Sender: TObject);
@@ -310,6 +336,8 @@ end;
 
 procedure TfrmMain.initControls;
 begin
+  SetDefaultLang(config.lang);
+
   Height := config.frmHeight;
   Width := config.frmWidth;
 
@@ -328,8 +356,6 @@ begin
       lvVaults.ItemIndex := config.latestVaultIndex;
 
   sddOpenVault.InitialDir := GetUserDir;
-
-  //SetDefaultLang('ru');
 end;
 
 procedure TfrmMain.saveConfig;

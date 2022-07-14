@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 560
+  Left = 548
   Height = 381
-  Top = 297
+  Top = 312
   Width = 640
   AutoSize = True
   Caption = 'New Vault'

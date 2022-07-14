@@ -50,6 +50,10 @@ msgstr ""
 msgid "&About"
 msgstr ""
 
+#: tfrmmain.miconfig.caption
+msgid "Configure gcencryptor"
+msgstr ""
+
 #: tfrmmain.micreatenewvault.caption
 msgid "Create &New Vault ..."
 msgstr ""
@@ -58,16 +62,32 @@ msgstr ""
 msgid "Delete From List"
 msgstr ""
 
+#: tfrmmain.mienglish.caption
+msgid "English"
+msgstr ""
+
 #: tfrmmain.mifsck.caption
-msgid "Check Filesystem Integrity"
+msgid "Check Integrity"
+msgstr ""
+
+#: tfrmmain.milanguage.caption
+msgid "Language"
 msgstr ""
 
 #: tfrmmain.miopenvault.caption
 msgid "&Open Existing Vault ..."
 msgstr ""
 
+#: tfrmmain.mirussian.caption
+msgid "Russian"
+msgstr ""
+
 #: tfrmmain.misettings.caption
 msgid "&Settings"
+msgstr ""
+
+#: tfrmmain.miukrainian.caption
+msgid "Ukrainian"
 msgstr ""
 
 #: tfrmmain.mivault.caption
@@ -130,7 +150,6 @@ msgid "New Vault"
 msgstr ""
 
 #: tfrmnewvault.edtpassword.texthint
-msgctxt "tfrmnewvault.edtpassword.texthint"
 msgid "password"
 msgstr ""
 
@@ -153,7 +172,6 @@ msgid "&OK"
 msgstr ""
 
 #: tfrmpassword.btnshowpass.caption
-msgctxt "tfrmpassword.btnshowpass.caption"
 msgid "👁"
 msgstr ""
 
@@ -163,7 +181,6 @@ msgid "gcencryptor"
 msgstr ""
 
 #: tfrmpassword.lblpassword.caption
-msgctxt "tfrmpassword.lblpassword.caption"
 msgid "Password:"
 msgstr ""
 

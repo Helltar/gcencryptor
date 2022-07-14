@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 391
+  Left = 435
   Height = 531
-  Top = 253
+  Top = 226
   Width = 912
   Caption = 'gcencryptor'
   ClientHeight = 500
@@ -324,7 +324,7 @@ object frmMain: TfrmMain
     Left = 80
     Top = 232
     object miFsck: TMenuItem
-      Caption = 'Check Filesystem Integrity'
+      Caption = 'Check Integrity'
       OnClick = miFsckClick
     end
     object sp1: TMenuItem
@@ -365,7 +365,25 @@ object frmMain: TfrmMain
     end
     object miSettings: TMenuItem
       Caption = '&Settings'
-      OnClick = miSettingsClick
+      object miConfig: TMenuItem
+        Caption = 'Configure gcencryptor'
+        OnClick = miConfigClick
+      end
+      object miLanguage: TMenuItem
+        Caption = 'Language'
+        object miEnglish: TMenuItem
+          Caption = 'English'
+          OnClick = miEnglishClick
+        end
+        object miUkrainian: TMenuItem
+          Caption = 'Ukrainian'
+          OnClick = miUkrainianClick
+        end
+        object miRussian: TMenuItem
+          Caption = 'Russian'
+          OnClick = miRussianClick
+        end
+      end
     end
     object miAbout: TMenuItem
       Caption = '&About'
