@@ -54,6 +54,15 @@ Configuration stored in:
 
 The program does not save any sensitive data, like passwords, logs, etc.
 
+Available languages
+-------------------
+- English
+- Ukrainian
+- Russian
+
+You can help translate:
+- https://github.com/Helltar/gcencryptor/tree/master/locale
+
 Build from source
 -----------------
 
