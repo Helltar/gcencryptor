@@ -12,7 +12,7 @@ uses
   Forms, Interfaces,
   //----------------------------------------------------------------------------
   uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm, uLogForm,
-  uMountList, ugocryptfs, ugocryptfsFsck;
+  uMountList, ugocryptfs, ugocryptfsFsck, uPasswordForm;
 
 {$R *.res}
 

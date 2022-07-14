@@ -1,0 +1,287 @@
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8"
+
+#: tfrmabout.caption
+msgid "About"
+msgstr ""
+
+#: tfrmabout.lblgithub.caption
+msgid "https://github.com/helltar/gcencryptor"
+msgstr ""
+
+#: tfrmabout.lblgocryptfs.caption
+msgid "https://github.com/rfjakob/gocryptfs"
+msgstr ""
+
+#: tfrmabout.lblhomepage.caption
+msgid "https://helltar.com"
+msgstr ""
+
+#: tfrmlog.caption
+msgid "Messages"
+msgstr ""
+
+#: tfrmmain.btnmount.caption
+msgid "Unlock"
+msgstr ""
+
+#: tfrmmain.btnumount.caption
+msgid "Lock"
+msgstr ""
+
+#: tfrmmain.btnumountall.caption
+msgid "Lock All"
+msgstr ""
+
+#: tfrmmain.caption
+msgctxt "tfrmmain.caption"
+msgid "gcencryptor"
+msgstr ""
+
+#: tfrmmain.cbromount.caption
+msgid "Mount read-only"
+msgstr ""
+
+#: tfrmmain.gbcurrentvault.caption
+msgid "Vault"
+msgstr ""
+
+#: tfrmmain.miabout.caption
+msgid "&About"
+msgstr ""
+
+#: tfrmmain.micreatenewvault.caption
+msgid "Create &New Vault ..."
+msgstr ""
+
+#: tfrmmain.midelfromlist.caption
+msgid "Delete From List"
+msgstr ""
+
+#: tfrmmain.mifsck.caption
+msgid "Check Filesystem Integrity"
+msgstr ""
+
+#: tfrmmain.miopenvault.caption
+msgid "&Open Existing Vault ..."
+msgstr ""
+
+#: tfrmmain.misettings.caption
+msgid "&Settings"
+msgstr ""
+
+#: tfrmmain.mivault.caption
+msgid "&Vault"
+msgstr ""
+
+#: tfrmmain.mivaultinfo.caption
+msgid "Information"
+msgstr ""
+
+#: tfrmmain.sddopenvault.title
+msgid "Select An Encrypted Vault Directory"
+msgstr ""
+
+#: tfrmmain.stmountvaultpath.hint
+msgctxt "tfrmmain.stmountvaultpath.hint"
+msgid "Open"
+msgstr ""
+
+#: tfrmmain.stvaultpath.hint
+msgctxt "tfrmmain.stvaultpath.hint"
+msgid "Open"
+msgstr ""
+
+#: tfrmmasterkey.btnok.caption
+msgctxt "tfrmmasterkey.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmmasterkey.btnsave.caption
+msgid "&Save to file"
+msgstr ""
+
+#: tfrmmasterkey.caption
+msgid "Recovery Master Key"
+msgstr ""
+
+#: tfrmmasterkey.lblyourkey.caption
+msgid "Your master key is:"
+msgstr ""
+
+#: tfrmmasterkey.sttext.caption
+msgid ""
+"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
+"there is only one hope for recovery: The master key. Print it to a piece of\n"
+"paper and store it in a drawer. This message is only printed once."
+msgstr ""
+
+#: tfrmnewvault.btncreate.caption
+msgid "&Create Vault"
+msgstr ""
+
+#: tfrmnewvault.btnselectpath.caption
+msgctxt "tfrmnewvault.btnselectpath.caption"
+msgid "..."
+msgstr ""
+
+#: tfrmnewvault.caption
+msgid "New Vault"
+msgstr ""
+
+#: tfrmnewvault.edtpassword.texthint
+msgctxt "tfrmnewvault.edtpassword.texthint"
+msgid "password"
+msgstr ""
+
+#: tfrmnewvault.edtpath.texthint
+msgctxt "tfrmnewvault.edtpath.texthint"
+msgid "path"
+msgstr ""
+
+#: tfrmnewvault.edtrepeatpassword.texthint
+msgid "confirm password"
+msgstr ""
+
+#: tfrmnewvault.edtvaultname.texthint
+msgid "vault name"
+msgstr ""
+
+#: tfrmpassword.btnok.caption
+msgctxt "tfrmpassword.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.caption
+msgctxt "tfrmpassword.btnshowpass.caption"
+msgid "👁"
+msgstr ""
+
+#: tfrmpassword.caption
+msgctxt "tfrmpassword.caption"
+msgid "gcencryptor"
+msgstr ""
+
+#: tfrmpassword.lblpassword.caption
+msgctxt "tfrmpassword.lblpassword.caption"
+msgid "Password:"
+msgstr ""
+
+#: tfrmsettings.btnsave.caption
+msgid "&Save"
+msgstr ""
+
+#: tfrmsettings.btnselectmountpoint.caption
+msgctxt "tfrmsettings.btnselectmountpoint.caption"
+msgid "..."
+msgstr ""
+
+#: tfrmsettings.caption
+msgid "Settings"
+msgstr ""
+
+#: tfrmsettings.cbautorun.caption
+msgid "Open in File Manager after unlocking"
+msgstr ""
+
+#: tfrmsettings.cbshortnames.caption
+msgid "Generate short name for mount point"
+msgstr ""
+
+#: tfrmsettings.cbshortnames.hint
+msgid "Only 8 random char after name"
+msgstr ""
+
+#: tfrmsettings.edtmountpoint.texthint
+msgctxt "tfrmsettings.edtmountpoint.texthint"
+msgid "path"
+msgstr ""
+
+#: tfrmsettings.gbmain.caption
+msgid "Mount Directory"
+msgstr ""
+
+#: tfrmsettings.lblfontsize.caption
+msgid "Font size (messages):"
+msgstr ""
+
+#: ugocryptfs.created_successfully
+msgid "The gocryptfs filesystem has been created successfully"
+msgstr ""
+
+#: ugocryptfs.successfully_mounted
+msgid "Filesystem mounted and ready"
+msgstr ""
+
+#: ugocryptfsfsck.fsck_no_problems_found
+msgid "fsck summary: no problems found"
+msgstr ""
+
+#: ulogform.please_wait_until_the_process
+msgid "Please wait until the process is completed it may take some time ..."
+msgstr ""
+
+#: ulogger.error_wrong_password
+msgid "Error, something went wrong reading the password"
+msgstr ""
+
+#: ulogger.password_empty
+msgid "Password Empty"
+msgstr ""
+
+#: ulogger.password_incorrect
+msgid "Password Incorrect"
+msgstr ""
+
+#: umainform.caption_warning
+msgid "Warning"
+msgstr ""
+
+#: umainform.error_load_config
+msgid "Error load config"
+msgstr ""
+
+#: umainform.lock_all_and_close
+msgid "Lock all and close?"
+msgstr ""
+
+#: umasterkeyform.err_save_key
+msgid "Error when saving key"
+msgstr ""
+
+#: umasterkeyform.key_saved
+msgid "Key successfully saved"
+msgstr ""
+
+#: unewvaultform.directory_exists
+msgid "Directory already exists"
+msgstr ""
+
+#: unewvaultform.passwords_do_not_match
+msgid "Passwords do not match"
+msgstr ""
+
+#: usettingsform.mountpoint_hint
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr ""
+
+#: uutils.directory_not_exists
+msgid "Directory not exists"
+msgstr ""
+
+#: uutils.error_creating_directory
+msgid "Error creating the directory"
+msgstr ""
+
+#: uutils.error_del_directory
+msgid "Error deleting the directory"
+msgstr ""
+
+#: uutils.error_run_executable
+msgid "failed to run"
+msgstr ""
+
+#: uutils.unmounted_successfully
+msgid "Unmounted successfully"
+msgstr ""
+

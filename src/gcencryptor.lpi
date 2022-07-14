@@ -13,13 +13,17 @@
       </XPManifest>
       <Icon Value="0"/>
     </General>
+    <i18n>
+      <EnableI18N Value="True"/>
+      <OutDir Value="../locale"/>
+    </i18n>
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="4"/>
       <RevisionNr Value="2"/>
-      <BuildNr Value="72"/>
+      <BuildNr Value="73"/>
       <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.4"/>
     </VersionInfo>
     <BuildModes>
@@ -194,6 +198,14 @@
         <Filename Value="ugocryptfsfsck.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ugocryptfsFsck"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms/upasswordform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPassword"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uPasswordForm"/>
       </Unit>
     </Units>
   </ProjectOptions>

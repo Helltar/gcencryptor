@@ -1,0 +1,19 @@
+{"version":1,"strings":[
+{"hash":185460514,"name":"tfrmmain.caption","sourcebytes":[103,99,101,110,99,114,121,112,116,111,114],"value":"gcencryptor"},
+{"hash":6065204,"name":"tfrmmain.gbcurrentvault.caption","sourcebytes":[86,97,117,108,116],"value":"Vault"},
+{"hash":96810395,"name":"tfrmmain.btnmount.caption","sourcebytes":[85,110,108,111,99,107],"value":"Unlock"},
+{"hash":341403,"name":"tfrmmain.btnumount.caption","sourcebytes":[76,111,99,107],"value":"Lock"},
+{"hash":94192412,"name":"tfrmmain.btnumountall.caption","sourcebytes":[76,111,99,107,32,65,108,108],"value":"Lock All"},
+{"hash":189172201,"name":"tfrmmain.cbromount.caption","sourcebytes":[77,111,117,110,116,32,114,101,97,100,45,111,110,108,121],"value":"Mount read-only"},
+{"hash":353982,"name":"tfrmmain.stvaultpath.hint","sourcebytes":[79,112,101,110],"value":"Open"},
+{"hash":353982,"name":"tfrmmain.stmountvaultpath.hint","sourcebytes":[79,112,101,110],"value":"Open"},
+{"hash":43278361,"name":"tfrmmain.mifsck.caption","sourcebytes":[67,104,101,99,107,32,70,105,108,101,115,121,115,116,101,109,32,73,110,116,101,103,114,105,116,121],"value":"Check Filesystem Integrity"},
+{"hash":157868862,"name":"tfrmmain.mivaultinfo.caption","sourcebytes":[73,110,102,111,114,109,97,116,105,111,110],"value":"Information"},
+{"hash":156815636,"name":"tfrmmain.midelfromlist.caption","sourcebytes":[68,101,108,101,116,101,32,70,114,111,109,32,76,105,115,116],"value":"Delete From List"},
+{"hash":206431129,"name":"tfrmmain.sddopenvault.title","sourcebytes":[83,101,108,101,99,116,32,65,110,32,69,110,99,114,121,112,116,101,100,32,86,97,117,108,116,32,68,105,114,101,99,116,111,114,121],"value":"Select An Encrypted Vault Directory"},
+{"hash":45911092,"name":"tfrmmain.mivault.caption","sourcebytes":[38,86,97,117,108,116],"value":"&Vault"},
+{"hash":91575742,"name":"tfrmmain.micreatenewvault.caption","sourcebytes":[67,114,101,97,116,101,32,38,78,101,119,32,86,97,117,108,116,32,46,46,46],"value":"Create &New Vault ..."},
+{"hash":33958702,"name":"tfrmmain.miopenvault.caption","sourcebytes":[38,79,112,101,110,32,69,120,105,115,116,105,110,103,32,86,97,117,108,116,32,46,46,46],"value":"&Open Existing Vault ..."},
+{"hash":213577587,"name":"tfrmmain.misettings.caption","sourcebytes":[38,83,101,116,116,105,110,103,115],"value":"&Settings"},
+{"hash":44537540,"name":"tfrmmain.miabout.caption","sourcebytes":[38,65,98,111,117,116],"value":"&About"}
+]}
