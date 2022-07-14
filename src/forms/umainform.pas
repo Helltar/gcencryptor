@@ -7,6 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
+  LCLTranslator, DefaultTranslator,
   //------------------
   uConfig, uMountList;
 
@@ -16,14 +17,13 @@ type
 
   TfrmMain = class(TForm)
     btnMount: TBitBtn;
-    btnFsck: TBitBtn;
     btnUmount: TBitBtn;
     btnUmountAll: TBitBtn;
     cbROMount: TCheckBox;
-    edtPassword: TEdit;
     gbCurrentVault: TGroupBox;
     ilVaultState: TImageList;
     lvVaults: TListView;
+    miFsck: TMenuItem;
     miCreateNewVault: TMenuItem;
     miVaultInfo: TMenuItem;
     mmMain: TMainMenu;
@@ -41,15 +41,14 @@ type
     stVaultPath: TStaticText;
     stMountVaultPath: TStaticText;
     procedure btnMountClick(Sender: TObject);
-    procedure btnFsckClick(Sender: TObject);
     procedure btnUmountAllClick(Sender: TObject);
     procedure btnUmountClick(Sender: TObject);
-    procedure edtPasswordChange(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+    procedure miFsckClick(Sender: TObject);
     procedure miCreateNewVaultClick(Sender: TObject);
     procedure miSettingsClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
@@ -64,7 +63,6 @@ type
     fileList: TStringList;
     mountList: TMountList;
     vaultListConfigFile: string;
-    function isNotEdtEmpty(): boolean;
     function isItemSelected(): boolean;
     function umountAll(): boolean;
     procedure initControls();
@@ -73,8 +71,10 @@ type
     function getSelectedVaultPath(): string;
     function isOpenVaultsExists(): boolean;
     function isNotVaultUnlock(const vault: string): boolean;
+    procedure showPasswordForm(const title: string);
   public
     config: TConfig;
+    vaultPassword: string;
     procedure addVaultToList(const path: string);
     procedure updateControls();
   end;
@@ -86,7 +86,8 @@ implementation
 
 uses
   uUtils, uLogger, ugocryptfs, ugocryptfsFsck,
-  uLogForm, uNewVaultForm, uSettingsForm, uAboutForm;
+  uLogForm, uNewVaultForm, uSettingsForm, uPasswordForm,
+  uAboutForm;
 
 resourcestring
   ERROR_LOAD_CONFIG = 'Error load config';
@@ -154,6 +155,19 @@ end;
 procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
 begin
   updateControls;
+end;
+
+procedure TfrmMain.miFsckClick(Sender: TObject);
+begin
+  showPasswordForm(getSelectedVaultPath());
+
+  if not vaultPassword.IsEmpty then
+  begin
+    fsck(getSelectedVaultPath(), vaultPassword);
+    vaultPassword := '';
+    frmLog.waitOnThreadFinish();
+    updateControls();
+  end;
 end;
 
 procedure TfrmMain.miCreateNewVaultClick(Sender: TObject);
@@ -252,12 +266,13 @@ var
 begin
   stVaultPath.Visible := False;
   stMountVaultPath.Visible := False;
+  cbROMount.Visible := False;
 
   btnMount.Enabled := False;
-  btnFsck.Enabled := False;
   btnUmount.Enabled := False;
   btnUmountAll.Enabled := False;
 
+  miFsck.Enabled := False;
   miVaultInfo.Enabled := False;
   miDelFromList.Enabled := False;
 
@@ -276,11 +291,12 @@ begin
   stMountVaultPath.Visible := getSelectedMountPoint() <> '';
   stMountVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
 
-  btnMount.Enabled := isNotVaultUnlock(getSelectedVaultPath()) and isNotEdtEmpty();
-  btnFsck.Enabled := isNotEdtEmpty() and isFsckThreadStopped;
+  btnMount.Enabled := isNotVaultUnlock(getSelectedVaultPath());
+  cbROMount.Visible := btnMount.Enabled;
   btnUmount.Enabled := not isNotVaultUnlock(getSelectedVaultPath());
   btnUmountAll.Enabled := isOpenVaultsExists();
 
+  miFsck.Enabled := isFsckThreadStopped and btnMount.Enabled;
   miVaultInfo.Enabled := DirectoryExists(getSelectedVaultPath());
   miDelFromList.Enabled := not btnUmount.Enabled;
 
@@ -294,8 +310,6 @@ end;
 
 procedure TfrmMain.initControls;
 begin
-  Constraints.MinHeight := 400;
-  Constraints.MinWidth := 600;
   Height := config.frmHeight;
   Width := config.frmWidth;
 
@@ -314,6 +328,8 @@ begin
       lvVaults.ItemIndex := config.latestVaultIndex;
 
   sddOpenVault.InitialDir := GetUserDir;
+
+  //SetDefaultLang('ru');
 end;
 
 procedure TfrmMain.saveConfig;
@@ -344,6 +360,17 @@ end;
 function TfrmMain.isNotVaultUnlock(const vault: string): boolean;
 begin
   Result := mountList.getMountPoint(vault) = '';
+end;
+
+procedure TfrmMain.showPasswordForm(const title: string);
+begin
+  with TfrmPassword.Create(Self) do
+    try
+      lblVault.Caption := title;
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TfrmMain.addVaultToList(const path: string);
@@ -378,19 +405,9 @@ begin
   Result := True;
 end;
 
-function TfrmMain.isNotEdtEmpty: boolean;
-begin
-  Result := (stVaultPath.Caption <> '') and (edtPassword.Text <> '');
-end;
-
 function TfrmMain.isItemSelected: boolean;
 begin
   Result := lvVaults.ItemIndex >= 0;
-end;
-
-procedure TfrmMain.edtPasswordChange(Sender: TObject);
-begin
-  updateControls;
 end;
 
 procedure TfrmMain.btnMountClick(Sender: TObject);
@@ -405,27 +422,23 @@ begin
     if not mkDir(config.mountPoint) then
       Exit;
 
-  m := mount(getSelectedVaultPath(), config.mountPoint, edtPassword.Text, cbROMount.Checked, config.mountPointShortName);
+  showPasswordForm(getSelectedVaultPath());
+
+  if vaultPassword.IsEmpty then
+    Exit;
+
+  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword, cbROMount.Checked, config.mountPointShortName);
+  vaultPassword := '';
 
   if m.Completed then
   begin
     mountList.add(getSelectedVaultPath(), m.Point);
-
-    edtPassword.Clear;
     Clipboard.AsText := '';
-
     if config.autorunState then
       OpenURL(m.Point);
   end;
 
   updateControls;
-end;
-
-procedure TfrmMain.btnFsckClick(Sender: TObject);
-begin
-  fsck(getSelectedVaultPath(), edtPassword.Text);
-  frmLog.waitOnThreadFinish();
-  updateControls();
 end;
 
 procedure TfrmMain.btnUmountAllClick(Sender: TObject);

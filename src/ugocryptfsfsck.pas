@@ -53,6 +53,7 @@ begin
 
   // -q, -quiet silence informational messages
   p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + FCipherdir, FPassword);
+  FPassword := '';
 
   if p.Completed and (p.ExitStatus = 0) then
     Synchronize(@addOkLog)

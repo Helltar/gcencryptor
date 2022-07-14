@@ -19,11 +19,11 @@ type
     Point: string;
   end;
 
-function dumpMasterKey(path: string; const pass: string): TInitRec;
-function init(const path: string; const pass: string): boolean;
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean = False; const shortName: boolean = False): TMountRec;
+function dumpMasterKey(path, pass: string): TInitRec;
+function init(const path: string; pass: string): boolean;
+function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const shortName: boolean = False): TMountRec;
 procedure getVaultInfo(const cipherdir: string);
-procedure fsck(const ACipherdir, pass: string);
+procedure fsck(const ACipherdir: string; pass: string);
 
 const
   GOCRYPTFS_BIN = 'gocryptfs';
@@ -41,7 +41,7 @@ resourcestring
   SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
   CREATED_SUCCESSFULLY = 'The gocryptfs filesystem has been created successfully';
 
-function dumpMasterKey(path: string; const pass: string): TInitRec;
+function dumpMasterKey(path, pass: string): TInitRec;
 var
   p: TProcessRec;
 
@@ -51,6 +51,7 @@ begin
   path := path + DirectorySeparator + GOCRYPTFS_CONF;
 
   p := procStart(GOCRYPTFS_XRAY_BIN, '-dumpmasterkey' + LineEnding + path, pass);
+  pass := '';
 
   if p.Completed and (p.ExitStatus = 0) then
   begin
@@ -61,7 +62,7 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function init(const path: string; const pass: string): boolean;
+function init(const path: string; pass: string): boolean;
 var
   p: TProcessRec;
 
@@ -72,6 +73,7 @@ begin
     Exit;
 
   p := procStart(GOCRYPTFS_BIN, '-init' + LineEnding + path, pass);
+  pass := '';
 
   if p.Completed and (p.ExitStatus = 0) then
   begin
@@ -82,7 +84,7 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function mount(const cipherdir, mountpoint, pass: string; const ReadOnly: boolean; const shortName: boolean): TMountRec;
+function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean; const shortName: boolean): TMountRec;
 var
   p: TProcessRec;
   guid, genMountPoint: string;
@@ -111,6 +113,7 @@ begin
   cmd := cmd + cipherdir + LineEnding + genMountPoint;
 
   p := procStart(GOCRYPTFS_BIN, cmd, pass, True);
+  pass := '';
 
   if p.Completed and (p.ExitStatus = 0) then
   begin
@@ -125,12 +128,13 @@ begin
   end;
 end;
 
-procedure fsck(const ACipherdir, pass: string);
+procedure fsck(const ACipherdir: string; pass: string);
 begin
   with TFsckThread.Create(True) do
   begin
     Cipherdir := ACipherdir;
     Password := pass;
+    pass := '';
     Start;
   end;
 end;

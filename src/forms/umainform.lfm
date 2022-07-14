@@ -1,11 +1,13 @@
 object frmMain: TfrmMain
-  Left = 331
-  Height = 507
-  Top = 222
-  Width = 927
+  Left = 391
+  Height = 531
+  Top = 253
+  Width = 912
   Caption = 'gcencryptor'
-  ClientHeight = 476
-  ClientWidth = 927
+  ClientHeight = 500
+  ClientWidth = 912
+  Constraints.MinHeight = 400
+  Constraints.MinWidth = 768
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -15,8 +17,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 341
-    Height = 476
+    Left = 335
+    Height = 500
     Top = 0
     Width = 5
     Align = alNone
@@ -30,37 +32,18 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 365
-    Height = 428
+    Left = 359
+    Height = 452
     Top = 24
-    Width = 538
+    Width = 529
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
-    ClientHeight = 397
-    ClientWidth = 534
+    ClientHeight = 421
+    ClientWidth = 525
     Enabled = False
     TabOrder = 0
-    object edtPassword: TEdit
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = stMountVaultPath
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 33
-      Top = 166
-      Width = 486
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      EchoMode = emPassword
-      MaxLength = 512
-      OnChange = edtPasswordChange
-      PasswordChar = '*'
-      TabOrder = 2
-      TextHint = 'password'
-    end
     object pnlMountButton: TPanel
       AnchorSideLeft.Control = gbCurrentVault
       AnchorSideTop.Control = cbROMount
@@ -69,15 +52,15 @@ object frmMain: TfrmMain
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 34
-      Top = 270
-      Width = 486
+      Top = 213
+      Width = 477
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 34
-      ClientWidth = 486
-      TabOrder = 4
+      ClientWidth = 477
+      TabOrder = 3
       object btnMount: TBitBtn
         AnchorSideLeft.Control = pnlMountButton
         AnchorSideTop.Control = pnlMountButton
@@ -128,73 +111,19 @@ object frmMain: TfrmMain
         OnClick = btnMountClick
         TabOrder = 0
       end
-      object btnFsck: TBitBtn
+      object btnUmount: TBitBtn
         AnchorSideLeft.Control = btnMount
         AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = pnlMountButton
-        Cursor = crHandPoint
-        Left = 108
-        Height = 34
-        Hint = 'Check filesystem integrity'
-        Top = 0
-        Width = 93
-        AutoSize = True
-        BorderSpacing.Left = 12
-        BorderSpacing.InnerBorder = 2
-        Caption = 'Health'
-        Glyph.Data = {
-          36040000424D3604000000000000360000002800000010000000100000000100
-          2000000000000004000064000000640000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          000000000000000000000000000000000000FFFFFF01E4E4E48CE4E4E48DFFFF
-          FF01000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000FFFFFF04E3E3E39DE4E4E4FFE4E4E4FFE4E4
-          E4ACDFDFDF080000000000000000000000000000000000000000000000000000
-          00000000000000000000E8E8E80BE4E4E4B6E4E4E4FFE4E4E4FFCECCE5FFE4E4
-          E4FFE4E4E4BDDDDDDD0F00000000000000000000000000000000000000000000
-          000000000000E3E3E312E4E4E4C6E4E4E4FFE4E4E4FFE4E4E4FF7671E9FFE2E2
-          E4FFE4E4E4FFE4E4E4D2E3E3E31B000000000000000000000000000000000000
-          0000E7E7E720E4E4E4D8E4E4E4FFE4E4E4FFE4E4E4FFE3E3E4FF4C44ECFFB6B3
-          E6FFE4E4E4FFE4E4E4FFE4E4E4DFE5E5E527000000000000000000000000E2E2
-          E22CE4E4E4E4E4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFD1D0E5FF443CECFF746F
-          EAFFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4EDE5E5E53B00000000E1E1E12BE3E3
-          E3F1E4E4E4FFC9C7E6FFC4C2E5FFC4C2E5FFC6C4E5FFB8B5E6FF443CECFF463E
-          ECFFBEBCE6FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4F3E6E6E629E5E5E5AEE4E4
-          E4FFC4C2E5FF443CECFF443CECFF443CECFF443CECFF736DEAFF4C44ECFF4F48
-          EBFF443CECFFC4C2E5FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4A8E4E4E4E3E4E4
-          E4FFE4E4E4FFC9C7E6FFC4C2E5FFC4C2E5FF6D67EAFF443CECFF655FEAFFCDCC
-          E5FFC9C7E6FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4EBE4E4E4F7E4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFC5C4E5FF453EECFF7E79E9FFE4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4F7E4E4E4D2E4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FF7D78E9FF9894E8FFE4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4D0E3E3E36FE4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFD2D2E5FFB8B6E7FFE4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE3E3E36DFFFFFF04E4E4
-          E4B4E4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4DBE4E4E4DBE4E4
-          E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4FFE4E4E4B2FFFFFF0300000000FFFF
-          FF04E4E4E473E4E4E4D7E4E4E4FAE4E4E4E3E4E4E490E3E3E312E4E4E413E4E4
-          E490E4E4E4E3E4E4E4FAE4E4E4D6E4E4E472FFFFFF0400000000000000000000
-          0000000000000000000000000000000000000000000000000000000000000000
-          0000000000000000000000000000000000000000000000000000
-        }
-        OnClick = btnFsckClick
-        ParentShowHint = False
-        ShowHint = True
-        TabOrder = 1
-      end
-      object btnUmount: TBitBtn
-        AnchorSideLeft.Side = asrCenter
-        AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 289
+        Left = 268
         Height = 34
         Top = 0
         Width = 82
         Anchors = [akTop, akRight]
         AutoSize = True
-        BorderSpacing.Right = 12
+        BorderSpacing.Right = 24
         BorderSpacing.InnerBorder = 2
         Caption = 'Lock'
         Glyph.Data = {
@@ -234,15 +163,16 @@ object frmMain: TfrmMain
           0000000000000000000000000000000000000000000000000000
         }
         OnClick = btnUmountClick
-        TabOrder = 2
+        TabOrder = 1
       end
       object btnUmountAll: TBitBtn
-        AnchorSideLeft.Side = asrCenter
+        AnchorSideLeft.Control = btnUmount
+        AnchorSideLeft.Side = asrBottom
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 383
+        Left = 374
         Height = 34
         Top = 0
         Width = 103
@@ -287,23 +217,23 @@ object frmMain: TfrmMain
           0000000000000000000000000000000000000000000000000000
         }
         OnClick = btnUmountAllClick
-        TabOrder = 3
+        TabOrder = 2
       end
     end
     object cbROMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = edtPassword
+      AnchorSideTop.Control = stMountVaultPath
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbCurrentVault
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 23
-      Top = 223
-      Width = 486
+      Top = 166
+      Width = 477
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
-      TabOrder = 3
+      TabOrder = 2
     end
     object stVaultPath: TStaticText
       AnchorSideLeft.Control = gbCurrentVault
@@ -315,7 +245,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 24
-      Width = 486
+      Width = 477
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -341,7 +271,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 95
-      Width = 486
+      Width = 477
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -364,9 +294,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 428
+    Height = 452
     Top = 24
-    Width = 293
+    Width = 287
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Around = 24
@@ -374,7 +304,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 289
+        Width = 283
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -393,6 +323,10 @@ object frmMain: TfrmMain
     OnPopup = pmMainPopup
     Left = 80
     Top = 232
+    object miFsck: TMenuItem
+      Caption = 'Check Filesystem Integrity'
+      OnClick = miFsckClick
+    end
     object sp1: TMenuItem
       Caption = '-'
     end
