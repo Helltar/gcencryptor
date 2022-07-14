@@ -52,6 +52,8 @@ Configuration stored in:
 ~/.config/gcencryptor/
 ```
 
+The program does not save any sensitive data, like passwords, logs, etc.
+
 Build from source
 -----------------
 
