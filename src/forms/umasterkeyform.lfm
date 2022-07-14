@@ -2,11 +2,11 @@ object frmMasterKey: TfrmMasterKey
   Left = 528
   Height = 403
   Top = 312
-  Width = 600
+  Width = 640
   AutoSize = True
   Caption = 'Recovery Master Key'
   ClientHeight = 403
-  ClientWidth = 600
+  ClientWidth = 640
   Constraints.MinWidth = 600
   OnCreate = FormCreate
   OnShow = FormShow
@@ -21,7 +21,7 @@ object frmMasterKey: TfrmMasterKey
     Left = 24
     Height = 33
     Top = 67
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     TabOrder = 0
@@ -35,7 +35,7 @@ object frmMasterKey: TfrmMasterKey
     Left = 24
     Height = 114
     Top = 124
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
@@ -68,7 +68,7 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 527
+    Left = 567
     Height = 33
     Top = 262
     Width = 49
@@ -88,7 +88,7 @@ object frmMasterKey: TfrmMasterKey
     Left = 24
     Height = 19
     Top = 24
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     Caption = 'Your master key is:'

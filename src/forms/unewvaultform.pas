@@ -71,7 +71,6 @@ begin
   if sddSelectPath.Execute then
   begin
     edtPath.Text := sddSelectPath.FileName;
-    edtPath.Enabled := True;
     edtVaultName.Enabled := True;
     edtVaultName.SetFocus;
   end;

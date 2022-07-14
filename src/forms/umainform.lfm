@@ -409,6 +409,7 @@ object frmMain: TfrmMain
     end
   end
   object sddOpenVault: TSelectDirectoryDialog
+    Title = 'Select An Encrypted Vault Directory'
     Options = [ofPathMustExist, ofFileMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     OnFolderChange = sddOpenVaultFolderChange
     Left = 80

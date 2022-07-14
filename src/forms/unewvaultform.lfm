@@ -2,11 +2,11 @@ object frmNewVault: TfrmNewVault
   Left = 548
   Height = 381
   Top = 267
-  Width = 600
+  Width = 640
   AutoSize = True
-  Caption = 'Create new vault ...'
+  Caption = 'New Vault'
   ClientHeight = 381
-  ClientWidth = 600
+  ClientWidth = 640
   Constraints.MinWidth = 600
   OnCreate = FormCreate
   OnShow = FormShow
@@ -21,7 +21,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 81
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     Enabled = False
@@ -40,7 +40,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 138
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -59,7 +59,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 195
-    Width = 552
+    Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
@@ -67,7 +67,7 @@ object frmNewVault: TfrmNewVault
     OnChange = edtRepeatPasswordChange
     PasswordChar = '*'
     TabOrder = 3
-    TextHint = 'repeat password'
+    TextHint = 'confirm password'
   end
   object btnCreate: TButton
     AnchorSideLeft.Control = Owner
@@ -76,7 +76,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
-    Left = 461
+    Left = 501
     Height = 33
     Top = 252
     Width = 115
@@ -96,7 +96,7 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 24
-    Width = 501
+    Width = 541
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     Enabled = False
@@ -112,7 +112,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
     Cursor = crHandPoint
-    Left = 549
+    Left = 589
     Height = 29
     Top = 26
     Width = 27

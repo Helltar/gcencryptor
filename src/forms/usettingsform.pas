@@ -17,9 +17,9 @@ type
     cbAutorun: TCheckBox;
     cbShortNames: TCheckBox;
     edtMountPoint: TEdit;
-    gbSettings: TGroupBox;
+    gbMain: TGroupBox;
+    gbOther: TGroupBox;
     lblFontSize: TLabel;
-    lblMountPoint: TLabel;
     sddMountPoint: TSelectDirectoryDialog;
     seFontSize: TSpinEdit;
     stMountPointHint: TStaticText;

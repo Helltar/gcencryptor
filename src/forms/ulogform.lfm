@@ -1,11 +1,11 @@
 object frmLog: TfrmLog
-  Left = 503
-  Height = 300
-  Top = 223
-  Width = 700
+  Left = 504
+  Height = 432
+  Top = 261
+  Width = 768
   Caption = 'Messages'
-  ClientHeight = 300
-  ClientWidth = 700
+  ClientHeight = 432
+  ClientWidth = 768
   Constraints.MinHeight = 200
   Constraints.MinWidth = 400
   OnClose = FormClose
@@ -20,9 +20,9 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 252
+    Height = 384
     Top = 24
-    Width = 652
+    Width = 720
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -526,6 +526,7 @@ object frmLog: TfrmLog
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
+    Enabled = False
     NumberAttri.Foreground = clTeal
     Left = 200
     Top = 96
@@ -535,6 +536,6 @@ object frmLog: TfrmLog
     Interval = 500
     OnTimer = timerTimer
     Left = 472
-    Top = 80
+    Top = 96
   end
 end
