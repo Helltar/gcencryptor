@@ -1,9 +1,0 @@
-{"version":1,"strings":[
-{"hash":157081844,"name":"tfrmnewvault.caption","sourcebytes":[78,101,119,32,86,97,117,108,116],"value":"New Vault"},
-{"hash":56791285,"name":"tfrmnewvault.edtvaultname.texthint","sourcebytes":[118,97,117,108,116,32,110,97,109,101],"value":"vault name"},
-{"hash":145416676,"name":"tfrmnewvault.edtpassword.texthint","sourcebytes":[112,97,115,115,119,111,114,100],"value":"password"},
-{"hash":94672804,"name":"tfrmnewvault.edtrepeatpassword.texthint","sourcebytes":[99,111,110,102,105,114,109,32,112,97,115,115,119,111,114,100],"value":"confirm password"},
-{"hash":234108084,"name":"tfrmnewvault.btncreate.caption","sourcebytes":[38,67,114,101,97,116,101,32,86,97,117,108,116],"value":"&Create Vault"},
-{"hash":485544,"name":"tfrmnewvault.edtpath.texthint","sourcebytes":[112,97,116,104],"value":"path"},
-{"hash":12558,"name":"tfrmnewvault.btnselectpath.caption","sourcebytes":[46,46,46],"value":"..."}
-]}
