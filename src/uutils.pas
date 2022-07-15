@@ -18,8 +18,8 @@ function delDir(const dir: string): boolean;
 function dirExists(const dir: string): boolean;
 function isDirEmpty(const dir: string): boolean;
 function mkDir(const dir: string): boolean;
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const isMount: boolean = False): TProcessRec;
-function procStart(const executable, parameters: string; stdin: string = ''; const isMount: boolean = False): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
+function procStart(const executable, parameters: string; stdin: string = ''): TProcessRec;
 function umount(const mountpoint: string): boolean;
 function findmnt(const path: string): boolean;
 
@@ -35,7 +35,7 @@ resourcestring
   ERROR_RUN_EXECUTABLE = 'failed to run';
   UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
 
-function procStart(const executable, parameters: string; stdin: string; const isMount: boolean): TProcessRec;
+function procStart(const executable, parameters: string; stdin: string): TProcessRec;
 var
   i: integer;
   s, s1: TStringList;
@@ -50,14 +50,14 @@ begin
   for i := 0 to s.Count - 1 do
     s1.Add(s[i]);
 
-  Result := ProcStart(executable, s1, stdin, isMount);
+  Result := ProcStart(executable, s1, stdin);
   stdin := '';
 
   FreeAndNil(s);
   FreeAndNil(s1);
 end;
 
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string; const isMount: boolean): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string): TProcessRec;
 var
   p: TProcess;
 

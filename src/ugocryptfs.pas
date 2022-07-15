@@ -112,7 +112,7 @@ begin
 
   cmd := cmd + cipherdir + LineEnding + genMountPoint;
 
-  p := procStart(GOCRYPTFS_BIN, cmd, pass, True);
+  p := procStart(GOCRYPTFS_BIN, cmd, pass);
   pass := '';
 
   if p.Completed and (p.ExitStatus = 0) then
