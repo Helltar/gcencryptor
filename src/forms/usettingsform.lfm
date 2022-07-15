@@ -1,11 +1,11 @@
 object frmSettings: TfrmSettings
-  Left = 880
-  Height = 667
-  Top = 211
+  Left = 663
+  Height = 437
+  Top = 226
   Width = 726
   AutoSize = True
   Caption = 'Settings'
-  ClientHeight = 667
+  ClientHeight = 437
   ClientWidth = 726
   Constraints.MinWidth = 600
   OnCreate = FormCreate

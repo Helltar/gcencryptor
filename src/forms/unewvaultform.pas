@@ -35,11 +35,12 @@ type
 implementation
 
 uses
-  ugocryptfs, uMainForm, uMasterKeyForm;
+  ugocryptfs, uMainForm, uMasterKeyForm, uLogger;
 
 resourcestring
   PASSWORDS_DO_NOT_MATCH = 'Passwords do not match';
   DIRECTORY_EXISTS = 'Directory already exists';
+  FAILED_TO_RETRIEVE_RECOVERY_KEY =  'Vault was successfully created, but could not retrieve the recovery key';
 
 {$R *.lfm}
 
@@ -96,6 +97,7 @@ begin
     edtPassword.Clear;
 
     if xRay.Completed then
+    begin
       with TfrmMasterKey.Create(Self) do
         try
           edtKey.Text := xRay.Output;
@@ -105,6 +107,9 @@ begin
         finally
           Free;
         end;
+    end
+    else
+      addErrLog(FAILED_TO_RETRIEVE_RECOVERY_KEY, path);
   end;
 
   Close;

@@ -6,25 +6,31 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
-  SynEdit, synhighlighterunixshellscript;
+  StdCtrls, SynEdit, synhighlighterunixshellscript;
 
 type
 
   { TfrmLog }
 
   TfrmLog = class(TForm)
+    btnSaveLog: TButton;
+    btnClear: TButton;
+    btnClose: TButton;
+    saveDialog: TSaveDialog;
     synLog: TSynEdit;
     synUNIXShellScriptSyn: TSynUNIXShellScriptSyn;
     timer: TTimer;
+    procedure btnSaveLogClick(Sender: TObject);
+    procedure btnClearClick(Sender: TObject);
+    procedure btnCloseClick(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
-  private
 
   public
-    procedure addSynLog(const msg: string; const err: boolean = False; const highlight: boolean = True);
+    procedure addSynLog(const msg: string; const err: boolean = False);
     procedure waitOnThreadFinish();
   end;
 
@@ -34,10 +40,11 @@ var
 implementation
 
 uses
-  uMainForm, ugocryptfsFsck;
+  uMainForm, ugocryptfsFsck, uLogger;
 
 resourcestring
   PLEASE_WAIT_UNTIL_THE_PROCESS = 'Please wait until the process is completed it may take some time ...';
+  FAILED_TO_SAVE_LOG_FILE = 'Failed to save log file';
 
 {$R *.lfm}
 
@@ -53,10 +60,33 @@ begin
   frmMain.updateControls();
 end;
 
+procedure TfrmLog.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmLog.btnClearClick(Sender: TObject);
+begin
+  synLog.Clear;
+end;
+
+procedure TfrmLog.btnSaveLogClick(Sender: TObject);
+begin
+  saveDialog.FileName := 'gcencryptor_' + FormatDateTime('yyy-mm-dd_hh-nn-ss', Now) + '.log';
+
+  if saveDialog.Execute then
+    try
+      synLog.Lines.SaveToFile(saveDialog.FileName);
+    except
+      addErrLog(FAILED_TO_SAVE_LOG_FILE, saveDialog.FileName);
+    end;
+end;
+
 procedure TfrmLog.FormCreate(Sender: TObject);
 begin
   Height := frmMain.config.frmLogHeight;
   Width := frmMain.config.frmLogWidth;
+  saveDialog.InitialDir := GetUserDir;
 end;
 
 procedure TfrmLog.FormDestroy(Sender: TObject);
@@ -75,38 +105,33 @@ begin
   end;
 end;
 
-procedure TfrmLog.addSynLog(const msg: string; const err: boolean; const highlight: boolean);
+procedure TfrmLog.addSynLog(const msg: string; const err: boolean);
 var
   i: integer;
   s: TStringList;
-  tab: string = '';
+  tab: string = '        ';
 
 begin
-  synLog.Clear;
   synLog.LineHighlightColor.Foreground := clNone;
   synLog.LineHighlightColor.Background := clNone;
 
-  if highlight then
+  if not err then
   begin
-    tab := '  - ';
-
-    if not err then
-    begin
-      synLog.LineHighlightColor.Foreground := clBlack;
-      synLog.LineHighlightColor.Background := $98FB98; // PaleGreen
-    end
-    else
-    begin
-      synLog.LineHighlightColor.Foreground := clWhite;
-      synLog.LineHighlightColor.Background := clRed;
-    end;
+    synLog.LineHighlightColor.Foreground := clBlack;
+    synLog.LineHighlightColor.Background := $98FB98; // PaleGreen
+  end
+  else
+  begin
+    synLog.LineHighlightColor.Foreground := clWhite;
+    synLog.LineHighlightColor.Background := clRed;
   end;
 
   s := TStringList.Create;
   s.Text := msg;
   s.Delimiter := LineEnding;
 
-  synLog.Append(s[0]);
+  synLog.Append(TimeToStr(Time));
+  synLog.Append(tab + s[0]);
 
   // 'wordwrap'
   for i := 1 to s.Count - 1 do
@@ -114,15 +139,16 @@ begin
 
   synLog.Append(LineEnding);
 
-  if not highlight then
-    synLog.CaretY := synLog.Lines.Count;
+  // scroll down
+  synLog.CaretY := synLog.Lines.Count;
+  synLog.CaretY := synLog.Lines.Count - s.Count;
 
   FreeAndNil(s);
 end;
 
 procedure TfrmLog.waitOnThreadFinish;
 begin
-  addSynLog(PLEASE_WAIT_UNTIL_THE_PROCESS);
+  addLog(PLEASE_WAIT_UNTIL_THE_PROCESS);
 
   Cursor := crAppStart;
   synLog.Enabled := False;

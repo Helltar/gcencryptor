@@ -34,7 +34,7 @@ uses
   uLogger, uUtils, ugocryptfsFsck;
 
 const
-  GOCRYPTFS_XRAY_BIN = '1gocryptfs-xray';
+  GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
   GOCRYPTFS_CONF = 'gocryptfs.conf';
 
 resourcestring
@@ -159,7 +159,7 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-info' + LineEnding + cipherdir);
 
   if p.Completed then
-    addGoCryptFsLog(p.Output + LineEnding + cipherdir, p.ExitStatus, True, False);
+    addGoCryptFsLog(p.Output + LineEnding + cipherdir, p.ExitStatus, True, True);
 end;
 
 end.

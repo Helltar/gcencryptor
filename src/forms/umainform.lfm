@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 478
+  Left = 496
   Height = 527
-  Top = 282
+  Top = 266
   Width = 854
   Caption = 'gcencryptor'
   ClientHeight = 496
@@ -419,8 +419,8 @@ object frmMain: TfrmMain
     }
   end
   object actlMain: TActionList
-    Left = 160
-    Top = 352
+    Left = 80
+    Top = 344
     object actHideMenubar: TAction
       Caption = 'Show Menubar'
       Checked = True

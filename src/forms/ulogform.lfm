@@ -1,11 +1,11 @@
 object frmLog: TfrmLog
-  Left = 548
-  Height = 432
-  Top = 296
-  Width = 768
+  Left = 549
+  Height = 431
+  Top = 251
+  Width = 752
   Caption = 'gocryptfs'
-  ClientHeight = 432
-  ClientWidth = 768
+  ClientHeight = 431
+  ClientWidth = 752
   Constraints.MinHeight = 200
   Constraints.MinWidth = 400
   OnClose = FormClose
@@ -19,12 +19,11 @@ object frmLog: TfrmLog
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
+    AnchorSideBottom.Control = btnSaveLog
     Left = 24
-    Height = 384
+    Height = 326
     Top = 24
-    Width = 720
+    Width = 704
     BorderSpacing.Around = 24
     Anchors = [akTop, akLeft, akRight, akBottom]
     Color = clForm
@@ -526,6 +525,67 @@ object frmLog: TfrmLog
       end
     end
   end
+  object btnSaveLog: TButton
+    AnchorSideLeft.Control = Owner
+    AnchorSideTop.Control = synLog
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 24
+    Height = 33
+    Top = 374
+    Width = 96
+    Anchors = [akLeft, akBottom]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 2
+    Caption = 'Save to file'
+    OnClick = btnSaveLogClick
+    TabOrder = 1
+  end
+  object btnClear: TButton
+    AnchorSideLeft.Control = btnSaveLog
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = synLog
+    AnchorSideTop.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 144
+    Height = 33
+    Top = 374
+    Width = 55
+    Anchors = [akLeft, akBottom]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 2
+    Caption = 'Clear'
+    OnClick = btnClearClick
+    TabOrder = 2
+  end
+  object btnClose: TButton
+    AnchorSideLeft.Control = btnClear
+    AnchorSideLeft.Side = asrBottom
+    AnchorSideTop.Control = synLog
+    AnchorSideTop.Side = asrBottom
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Cursor = crHandPoint
+    Left = 670
+    Height = 33
+    Top = 374
+    Width = 58
+    Anchors = [akRight, akBottom]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 2
+    Caption = 'Close'
+    OnClick = btnCloseClick
+    TabOrder = 3
+  end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
     Enabled = False
@@ -539,5 +599,10 @@ object frmLog: TfrmLog
     OnTimer = timerTimer
     Left = 472
     Top = 96
+  end
+  object saveDialog: TSaveDialog
+    Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
+    Left = 200
+    Top = 208
   end
 end
