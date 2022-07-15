@@ -1,5 +1,15 @@
+#, fuzzy
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8"
+msgstr ""
+"Project-Id-Version: gcencryptor\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Helltar <iam@helltar.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.0.1\n"
 
 #: tfrmabout.caption
 msgid "About"
@@ -306,4 +316,3 @@ msgstr ""
 #: uutils.unmounted_successfully
 msgid "Unmounted successfully"
 msgstr ""
-

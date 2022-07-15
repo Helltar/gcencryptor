@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: gcencryptor\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
+"Last-Translator: Helltar <iam@helltar.com>\n"
 "Language-Team: \n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -321,4 +321,3 @@ msgstr "не удалось запустить"
 #: uutils.unmounted_successfully
 msgid "Unmounted successfully"
 msgstr "Успешно отсоединено"
-
