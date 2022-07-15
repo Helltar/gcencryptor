@@ -42,7 +42,7 @@ msgid "Save to file"
 msgstr ""
 
 #: tfrmlog.caption
-msgid "gocryptfs"
+msgid "Log Messages"
 msgstr ""
 
 #: tfrmmain.acthidemenubar.caption

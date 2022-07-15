@@ -44,8 +44,8 @@ msgid "Save to file"
 msgstr "Сохранить в файл"
 
 #: tfrmlog.caption
-msgid "gocryptfs"
-msgstr ""
+msgid "Log Messages"
+msgstr "Сообщения"
 
 #: tfrmmain.acthidemenubar.caption
 msgctxt "tfrmmain.acthidemenubar.caption"
