@@ -55,7 +55,10 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + FCipherdir, FPassword);
   FPassword := '';
 
-  if p.Completed and (p.ExitStatus = 0) then
+  if not p.Completed then
+    Exit;
+
+  if p.ExitStatus = 0 then
     Synchronize(@addOkLog)
   else
     Synchronize(@addErrorLog);

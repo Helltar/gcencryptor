@@ -34,7 +34,7 @@ uses
   uLogger, uUtils, ugocryptfsFsck;
 
 const
-  GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
+  GOCRYPTFS_XRAY_BIN = '1gocryptfs-xray';
   GOCRYPTFS_CONF = 'gocryptfs.conf';
 
 resourcestring
@@ -53,7 +53,10 @@ begin
   p := procStart(GOCRYPTFS_XRAY_BIN, '-dumpmasterkey' + LineEnding + path, pass);
   pass := '';
 
-  if p.Completed and (p.ExitStatus = 0) then
+  if not p.Completed then
+    Exit;
+
+  if p.ExitStatus = 0 then
   begin
     Result.Completed := True;
     Result.Output := p.Output;
@@ -75,7 +78,10 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-init' + LineEnding + path, pass);
   pass := '';
 
-  if p.Completed and (p.ExitStatus = 0) then
+  if not p.Completed then
+    Exit;
+
+  if p.ExitStatus = 0 then
   begin
     Result := True;
     addLog(CREATED_SUCCESSFULLY, path);
@@ -115,7 +121,13 @@ begin
   p := procStart(GOCRYPTFS_BIN, cmd, pass);
   pass := '';
 
-  if p.Completed and (p.ExitStatus = 0) then
+  if not p.Completed then
+  begin
+    deldir(genMountPoint);
+    Exit;
+  end;
+
+  if p.ExitStatus = 0 then
   begin
     Result.Completed := True;
     Result.Point := genMountPoint;

@@ -106,7 +106,11 @@ var
 
 begin
   p := procStart('findmnt', path);
-  Result := p.Completed and (p.ExitStatus = 0);
+
+  if p.Completed and (p.ExitStatus = 0) then
+    Result := True
+  else
+    Result := False;
 end;
 
 function umount(const mountpoint: string): boolean;
