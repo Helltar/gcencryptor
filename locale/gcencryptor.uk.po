@@ -28,6 +28,21 @@ msgstr ""
 msgid "https://helltar.com"
 msgstr ""
 
+#: tfrmlog.btnclear.caption
+msgctxt "tfrmlog.btnclear.caption"
+msgid "Clear"
+msgstr "Очистити"
+
+#: tfrmlog.btnclose.caption
+msgctxt "tfrmlog.btnclose.caption"
+msgid "Close"
+msgstr "Закрити"
+
+#: tfrmlog.btnsavelog.caption
+msgctxt "tfrmlog.btnsavelog.caption"
+msgid "Save to file"
+msgstr "Зберегти у файл"
+
 #: tfrmlog.caption
 msgid "gocryptfs"
 msgstr ""
@@ -218,7 +233,7 @@ msgstr "Налаштування"
 
 #: tfrmsettings.cbautorun.caption
 msgid "Open in File Manager after unlocking"
-msgstr "Відкривати в менеджері файлів після розблокування"
+msgstr "Відкривати у менеджері файлів після розблокування"
 
 #: tfrmsettings.cbshortnames.caption
 msgid "Generate short name for mount point"
@@ -233,13 +248,13 @@ msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
 msgstr "шлях"
 
-#: tfrmsettings.gbmain.caption
-msgid "Mount Directory"
-msgstr "Каталог монтування"
-
 #: tfrmsettings.lblfontsize.caption
-msgid "Font size (messages):"
-msgstr "Розмір шрифту (повідомлення):"
+msgid "Font size (messages)"
+msgstr "Розмір шрифту (повідомлення)"
+
+#: tfrmsettings.lblmountdirectory.caption
+msgid "Mount Directory:"
+msgstr "Каталог монтування:"
 
 #: ugocryptfs.created_successfully
 msgid "The gocryptfs filesystem has been created successfully"
@@ -252,6 +267,10 @@ msgstr "Файлова система змонтована та готова д�
 #: ugocryptfsfsck.fsck_no_problems_found
 msgid "fsck summary: no problems found"
 msgstr "fsck: проблем не знайдено"
+
+#: ulogform.failed_to_save_log_file
+msgid "Failed to save log file"
+msgstr "Не вдалося зберегти файл журналу"
 
 #: ulogform.please_wait_until_the_process
 msgid "Please wait until the process is completed it may take some time ..."
@@ -267,7 +286,7 @@ msgstr "Пароль порожній"
 
 #: ulogger.password_incorrect
 msgid "Password Incorrect"
-msgstr "Пароль неправильний"
+msgstr "Невірний пароль"
 
 #: umainform.caption_warning
 msgid "Warning"
@@ -292,6 +311,10 @@ msgstr "Ключ успішно збережено"
 #: unewvaultform.directory_exists
 msgid "Directory already exists"
 msgstr "Каталог уже існує"
+
+#: unewvaultform.failed_to_retrieve_recovery_key
+msgid "Vault was successfully created, but could not retrieve the recovery key"
+msgstr "Сховище успішно створено, але не вдалося отримати ключ відновлення"
 
 #: unewvaultform.passwords_do_not_match
 msgid "Passwords do not match"

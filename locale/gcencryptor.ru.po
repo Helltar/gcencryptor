@@ -28,6 +28,21 @@ msgstr ""
 msgid "https://helltar.com"
 msgstr ""
 
+#: tfrmlog.btnclear.caption
+msgctxt "tfrmlog.btnclear.caption"
+msgid "Clear"
+msgstr "Очистить"
+
+#: tfrmlog.btnclose.caption
+msgctxt "tfrmlog.btnclose.caption"
+msgid "Close"
+msgstr "Закрыть"
+
+#: tfrmlog.btnsavelog.caption
+msgctxt "tfrmlog.btnsavelog.caption"
+msgid "Save to file"
+msgstr "Сохранить в файл"
+
 #: tfrmlog.caption
 msgid "gocryptfs"
 msgstr ""
@@ -234,13 +249,13 @@ msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
 msgstr "путь"
 
-#: tfrmsettings.gbmain.caption
-msgid "Mount Directory"
-msgstr "Каталог монтирования"
-
 #: tfrmsettings.lblfontsize.caption
-msgid "Font size (messages):"
-msgstr "Размер шрифта (сообщения):"
+msgid "Font size (messages)"
+msgstr "Размер шрифта (сообщения)"
+
+#: tfrmsettings.lblmountdirectory.caption
+msgid "Mount Directory:"
+msgstr "Каталог монтирования:"
 
 #: ugocryptfs.created_successfully
 msgid "The gocryptfs filesystem has been created successfully"
@@ -253,6 +268,10 @@ msgstr "Файловая система смонтирована и готова
 #: ugocryptfsfsck.fsck_no_problems_found
 msgid "fsck summary: no problems found"
 msgstr "fsck: проблем не обнаружено"
+
+#: ulogform.failed_to_save_log_file
+msgid "Failed to save log file"
+msgstr "Не удалось сохранить файл журнала"
 
 #: ulogform.please_wait_until_the_process
 msgid "Please wait until the process is completed it may take some time ..."
@@ -293,6 +312,10 @@ msgstr "Ключ успешно сохранен"
 #: unewvaultform.directory_exists
 msgid "Directory already exists"
 msgstr "Каталог уже существует"
+
+#: unewvaultform.failed_to_retrieve_recovery_key
+msgid "Vault was successfully created, but could not retrieve the recovery key"
+msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
 
 #: unewvaultform.passwords_do_not_match
 msgid "Passwords do not match"
