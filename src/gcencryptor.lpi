@@ -32,7 +32,7 @@
         <CompilerOptions>
           <Version Value="11"/>
           <Target>
-            <Filename Value="../debug_bin/gcencryptor"/>
+            <Filename Value="../gcencryptor"/>
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>

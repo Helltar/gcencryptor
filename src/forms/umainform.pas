@@ -5,9 +5,9 @@ unit uMainForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList,
   FileCtrl, ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  LCLTranslator, DefaultTranslator, ActnList,
+  LCLTranslator,
   //------------------
   uConfig, uMountList;
 

@@ -3,7 +3,7 @@ object frmLog: TfrmLog
   Height = 432
   Top = 296
   Width = 768
-  Caption = 'Messages'
+  Caption = 'gocryptfs'
   ClientHeight = 432
   ClientWidth = 768
   Constraints.MinHeight = 200

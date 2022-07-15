@@ -18,7 +18,12 @@ msgid "https://helltar.com"
 msgstr ""
 
 #: tfrmlog.caption
-msgid "Messages"
+msgid "gocryptfs"
+msgstr ""
+
+#: tfrmmain.acthidemenubar.caption
+msgctxt "tfrmmain.acthidemenubar.caption"
+msgid "Show Menubar"
 msgstr ""
 
 #: tfrmmain.btnmount.caption

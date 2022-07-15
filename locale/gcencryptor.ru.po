@@ -9,8 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.0.1\n"
 
 #: tfrmabout.caption
@@ -30,8 +29,13 @@ msgid "https://helltar.com"
 msgstr ""
 
 #: tfrmlog.caption
-msgid "Messages"
-msgstr "Сообщения"
+msgid "gocryptfs"
+msgstr ""
+
+#: tfrmmain.acthidemenubar.caption
+msgctxt "tfrmmain.acthidemenubar.caption"
+msgid "Show Menubar"
+msgstr "Показывать меню"
 
 #: tfrmmain.btnmount.caption
 msgid "Unlock"
@@ -143,10 +147,8 @@ msgstr "Ваш мастер-ключ:"
 
 #: tfrmmasterkey.sttext.caption
 msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your "
-"password,\n"
-"there is only one hope for recovery: The master key. Print it to a piece "
-"of\n"
+"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
+"there is only one hope for recovery: The master key. Print it to a piece of\n"
 "paper and store it in a drawer. This message is only printed once."
 msgstr ""
 "Если файл gocryptfs.conf поврежден или вы забыли пароль,\n"
@@ -254,9 +256,7 @@ msgstr "fsck: проблем не обнаружено"
 
 #: ulogform.please_wait_until_the_process
 msgid "Please wait until the process is completed it may take some time ..."
-msgstr ""
-"Пожалуйста, подождите пока процесс завершится, это может занять некоторое "
-"время ..."
+msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
 
 #: ulogger.error_wrong_password
 msgid "Error, something went wrong reading the password"
@@ -299,12 +299,8 @@ msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
 #: usettingsform.mountpoint_hint
-msgid ""
-"During the mount, directories with the storage name will be temporarily "
-"created in this directory, for example:"
-msgstr ""
-"Во время монтирования в этом каталоге будут временно созданы каталоги с "
-"именем хранилища, например:"
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
 
 #: uutils.directory_not_exists
 msgid "Directory not exists"
@@ -325,3 +321,4 @@ msgstr "не удалось запустить"
 #: uutils.unmounted_successfully
 msgid "Unmounted successfully"
 msgstr "Успешно отсоединено"
+

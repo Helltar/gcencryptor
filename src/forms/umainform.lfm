@@ -1,13 +1,13 @@
 object frmMain: TfrmMain
-  Left = 393
-  Height = 531
-  Top = 295
-  Width = 912
+  Left = 478
+  Height = 527
+  Top = 282
+  Width = 854
   Caption = 'gcencryptor'
-  ClientHeight = 500
-  ClientWidth = 912
-  Constraints.MinHeight = 400
-  Constraints.MinWidth = 768
+  ClientHeight = 496
+  ClientWidth = 854
+  Constraints.MinHeight = 350
+  Constraints.MinWidth = 600
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
@@ -17,31 +17,31 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 335
-    Height = 500
+    Left = 344
+    Height = 496
     Top = 0
     Width = 5
     Align = alNone
     Anchors = [akTop, akBottom]
-    ResizeAnchor = akRight
   end
   object gbCurrentVault: TGroupBox
     AnchorSideLeft.Control = splLeft
+    AnchorSideLeft.Side = asrBottom
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 359
-    Height = 452
+    Left = 373
+    Height = 448
     Top = 24
-    Width = 529
+    Width = 457
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Vault'
-    ClientHeight = 421
-    ClientWidth = 525
+    ClientHeight = 417
+    ClientWidth = 453
     Enabled = False
     TabOrder = 0
     object pnlMountButton: TPanel
@@ -53,17 +53,18 @@ object frmMain: TfrmMain
       Left = 24
       Height = 34
       Top = 213
-      Width = 477
+      Width = 405
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 34
-      ClientWidth = 477
+      ClientWidth = 405
       TabOrder = 2
       object btnMount: TBitBtn
         AnchorSideLeft.Control = pnlMountButton
         AnchorSideTop.Control = pnlMountButton
+        AnchorSideRight.Control = btnUmount
         Cursor = crHandPoint
         Left = 0
         Height = 34
@@ -117,13 +118,13 @@ object frmMain: TfrmMain
         AnchorSideTop.Control = pnlMountButton
         AnchorSideRight.Control = btnUmountAll
         Cursor = crHandPoint
-        Left = 268
+        Left = 196
         Height = 34
         Top = 0
         Width = 82
         Anchors = [akTop, akRight]
         AutoSize = True
-        BorderSpacing.Right = 24
+        BorderSpacing.Left = 100
         BorderSpacing.InnerBorder = 2
         Caption = 'Lock'
         Glyph.Data = {
@@ -172,12 +173,13 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlMountButton
         AnchorSideRight.Side = asrBottom
         Cursor = crHandPoint
-        Left = 374
+        Left = 302
         Height = 34
         Top = 0
         Width = 103
         Anchors = [akTop, akRight]
         AutoSize = True
+        BorderSpacing.Left = 24
         BorderSpacing.InnerBorder = 2
         Caption = 'Lock All'
         Glyph.Data = {
@@ -229,7 +231,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 166
-      Width = 477
+      Width = 405
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Caption = 'Mount read-only'
@@ -245,7 +247,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 24
-      Width = 477
+      Width = 405
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -271,7 +273,7 @@ object frmMain: TfrmMain
       Height = 47
       Hint = 'Open'
       Top = 95
-      Width = 477
+      Width = 405
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       BorderSpacing.InnerBorder = 12
@@ -294,9 +296,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 452
+    Height = 448
     Top = 24
-    Width = 287
+    Width = 296
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Around = 24
@@ -304,7 +306,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 283
+        Width = 292
       end>
     Font.Style = [fsBold]
     ParentFont = False
