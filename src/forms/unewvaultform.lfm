@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 548
+  Left = 776
   Height = 381
-  Top = 312
+  Top = 309
   Width = 640
   AutoSize = True
   Caption = 'New Vault'
@@ -96,9 +96,11 @@ object frmNewVault: TfrmNewVault
     Left = 24
     Height = 33
     Top = 24
-    Width = 541
+    Width = 553
     Anchors = [akTop, akLeft, akRight]
-    BorderSpacing.Around = 24
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 12
     Enabled = False
     ReadOnly = True
     TabOrder = 5
@@ -118,7 +120,7 @@ object frmNewVault: TfrmNewVault
     Width = 27
     Anchors = [akTop, akRight]
     AutoSize = True
-    BorderSpacing.Around = 24
+    BorderSpacing.Right = 24
     Caption = '...'
     OnClick = btnSelectPathClick
     TabOrder = 0
