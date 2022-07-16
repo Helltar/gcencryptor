@@ -28,38 +28,98 @@ msgstr ""
 
 #: tfrmlog.btnclear.caption
 msgctxt "tfrmlog.btnclear.caption"
-msgid "Clear"
+msgid "C&lear"
 msgstr ""
 
 #: tfrmlog.btnclose.caption
-msgctxt "tfrmlog.btnclose.caption"
-msgid "Close"
+msgid "&Close"
 msgstr ""
 
 #: tfrmlog.btnsavelog.caption
 msgctxt "tfrmlog.btnsavelog.caption"
-msgid "Save to file"
+msgid "&Save to file"
 msgstr ""
 
 #: tfrmlog.caption
-msgid "Log Messages"
+msgid "Messages"
+msgstr ""
+
+#: tfrmmain.actconfigure.caption
+msgctxt "tfrmmain.actconfigure.caption"
+msgid "&Configure gcencryptor ..."
+msgstr ""
+
+#: tfrmmain.actcreatevault.caption
+msgctxt "tfrmmain.actcreatevault.caption"
+msgid "Create &New Vault ..."
+msgstr ""
+
+#: tfrmmain.actdelfromlist.caption
+msgctxt "tfrmmain.actdelfromlist.caption"
+msgid "&Delete From List"
+msgstr ""
+
+#: tfrmmain.actfsck.caption
+msgctxt "tfrmmain.actfsck.caption"
+msgid "&Check Integrity ..."
 msgstr ""
 
 #: tfrmmain.acthidemenubar.caption
 msgctxt "tfrmmain.acthidemenubar.caption"
-msgid "Show Menubar"
+msgid "Show &Menubar"
 msgstr ""
 
-#: tfrmmain.btnmount.caption
-msgid "Unlock"
-msgstr ""
-
-#: tfrmmain.btnumount.caption
+#: tfrmmain.actlock.caption
+msgctxt "tfrmmain.actlock.caption"
 msgid "Lock"
 msgstr ""
 
-#: tfrmmain.btnumountall.caption
+#: tfrmmain.actlock.hint
+msgid "Lock Selected Vault"
+msgstr ""
+
+#: tfrmmain.actlockall.caption
+msgctxt "tfrmmain.actlockall.caption"
 msgid "Lock All"
+msgstr ""
+
+#: tfrmmain.actlockall.hint
+msgid "Lock All Unlocked Vaults"
+msgstr ""
+
+#: tfrmmain.actopenmountdir.caption
+msgid "&Open Mounted Directory ..."
+msgstr ""
+
+#: tfrmmain.actopenmountdir.hint
+msgid "Decrypted Directory"
+msgstr ""
+
+#: tfrmmain.actopenvault.caption
+msgctxt "tfrmmain.actopenvault.caption"
+msgid "&Open Existing Vault ..."
+msgstr ""
+
+#: tfrmmain.actopenvaultdir.caption
+msgid "Open &Vault Directory ..."
+msgstr ""
+
+#: tfrmmain.actopenvaultdir.hint
+msgid "Encrypted Directory"
+msgstr ""
+
+#: tfrmmain.actunlock.caption
+msgctxt "tfrmmain.actunlock.caption"
+msgid "Unlock"
+msgstr ""
+
+#: tfrmmain.actunlock.hint
+msgid "Unlock Selected Vault"
+msgstr ""
+
+#: tfrmmain.actvaultinfo.caption
+msgctxt "tfrmmain.actvaultinfo.caption"
+msgid "&Information"
 msgstr ""
 
 #: tfrmmain.caption
@@ -67,7 +127,8 @@ msgctxt "tfrmmain.caption"
 msgid "gcencryptor"
 msgstr ""
 
-#: tfrmmain.cbromount.caption
+#: tfrmmain.cbreadonlymount.caption
+msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
 msgstr ""
 
@@ -79,36 +140,21 @@ msgstr ""
 msgid "&About"
 msgstr ""
 
-#: tfrmmain.miconfig.caption
-msgid "Configure gcencryptor"
-msgstr ""
-
-#: tfrmmain.micreatenewvault.caption
-msgid "Create &New Vault ..."
-msgstr ""
-
-#: tfrmmain.midelfromlist.caption
-msgid "Delete From List"
-msgstr ""
-
 #: tfrmmain.mienglish.caption
-msgid "English"
+msgid "&English"
 msgstr ""
 
-#: tfrmmain.mifsck.caption
-msgid "Check Integrity"
+#: tfrmmain.miexit.caption
+msgctxt "tfrmmain.miexit.caption"
+msgid "&Quit"
 msgstr ""
 
 #: tfrmmain.milanguage.caption
-msgid "Language"
-msgstr ""
-
-#: tfrmmain.miopenvault.caption
-msgid "&Open Existing Vault ..."
+msgid "&Language"
 msgstr ""
 
 #: tfrmmain.mirussian.caption
-msgid "Russian"
+msgid "&Russian"
 msgstr ""
 
 #: tfrmmain.misettings.caption
@@ -116,29 +162,15 @@ msgid "&Settings"
 msgstr ""
 
 #: tfrmmain.miukrainian.caption
-msgid "Ukrainian"
+msgid "&Ukrainian"
 msgstr ""
 
 #: tfrmmain.mivault.caption
 msgid "&Vault"
 msgstr ""
 
-#: tfrmmain.mivaultinfo.caption
-msgid "Information"
-msgstr ""
-
 #: tfrmmain.sddopenvault.title
 msgid "Select An Encrypted Vault Directory"
-msgstr ""
-
-#: tfrmmain.stmountvaultpath.hint
-msgctxt "tfrmmain.stmountvaultpath.hint"
-msgid "Open"
-msgstr ""
-
-#: tfrmmain.stvaultpath.hint
-msgctxt "tfrmmain.stvaultpath.hint"
-msgid "Open"
 msgstr ""
 
 #: tfrmmasterkey.btnok.caption
@@ -147,6 +179,7 @@ msgid "&OK"
 msgstr ""
 
 #: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
 msgid "&Save to file"
 msgstr ""
 
@@ -202,6 +235,10 @@ msgstr ""
 
 #: tfrmpassword.btnshowpass.caption
 msgid "👁"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
 msgstr ""
 
 #: tfrmpassword.caption
@@ -263,12 +300,13 @@ msgstr ""
 msgid "fsck summary: no problems found"
 msgstr ""
 
-#: ulogform.failed_to_save_log_file
-msgid "Failed to save log file"
+#: ugocryptfsfsck.please_wait_until_the_process
+msgctxt "ugocryptfsfsck.please_wait_until_the_process"
+msgid "Please wait until the process is completed it may take some time ..."
 msgstr ""
 
-#: ulogform.please_wait_until_the_process
-msgid "Please wait until the process is completed it may take some time ..."
+#: ulogform.failed_to_save_log_file
+msgid "Failed to save log file"
 msgstr ""
 
 #: ulogger.error_wrong_password
@@ -287,12 +325,21 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
+#: umainform.directory_not_exists
+msgctxt "umainform.directory_not_exists"
+msgid "Directory not exists"
+msgstr ""
+
 #: umainform.error_load_config
 msgid "Error load config"
 msgstr ""
 
 #: umainform.lock_all_and_close
 msgid "Lock all and close?"
+msgstr ""
+
+#: umainform.vaultpath_hint
+msgid "Open in File Manager ..."
 msgstr ""
 
 #: umasterkeyform.err_save_key
@@ -320,6 +367,7 @@ msgid "During the mount, directories with the storage name will be temporarily c
 msgstr ""
 
 #: uutils.directory_not_exists
+msgctxt "uutils.directory_not_exists"
 msgid "Directory not exists"
 msgstr ""
 

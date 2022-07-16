@@ -30,46 +30,107 @@ msgstr ""
 
 #: tfrmlog.btnclear.caption
 msgctxt "tfrmlog.btnclear.caption"
-msgid "Clear"
-msgstr "Очистити"
+msgid "C&lear"
+msgstr "&Очистити"
 
 #: tfrmlog.btnclose.caption
-msgctxt "tfrmlog.btnclose.caption"
-msgid "Close"
-msgstr "Закрити"
+msgid "&Close"
+msgstr "&Закрити"
 
 #: tfrmlog.btnsavelog.caption
 msgctxt "tfrmlog.btnsavelog.caption"
-msgid "Save to file"
-msgstr "Зберегти у файл"
+msgid "&Save to file"
+msgstr "З&берегти у файл"
 
 #: tfrmlog.caption
-msgid "Log Messages"
+msgid "Messages"
 msgstr "Повідомлення"
+
+#: tfrmmain.actconfigure.caption
+msgctxt "tfrmmain.actconfigure.caption"
+msgid "&Configure gcencryptor ..."
+msgstr "&Налаштувати gcencryptor ..."
+
+#: tfrmmain.actcreatevault.caption
+msgctxt "tfrmmain.actcreatevault.caption"
+msgid "Create &New Vault ..."
+msgstr "Створити &нове сховище ..."
+
+#: tfrmmain.actdelfromlist.caption
+msgctxt "tfrmmain.actdelfromlist.caption"
+msgid "&Delete From List"
+msgstr "Ви&далити зі списку"
+
+#: tfrmmain.actfsck.caption
+msgctxt "tfrmmain.actfsck.caption"
+msgid "&Check Integrity ..."
+msgstr "&Перевірити цілісність ..."
 
 #: tfrmmain.acthidemenubar.caption
 msgctxt "tfrmmain.acthidemenubar.caption"
-msgid "Show Menubar"
-msgstr "Показувати меню"
+msgid "Show &Menubar"
+msgstr "Показувати &меню"
 
-#: tfrmmain.btnmount.caption
-msgid "Unlock"
-msgstr "Розблокувати"
-
-#: tfrmmain.btnumount.caption
+#: tfrmmain.actlock.caption
+msgctxt "tfrmmain.actlock.caption"
 msgid "Lock"
 msgstr "Заблокувати"
 
-#: tfrmmain.btnumountall.caption
+#: tfrmmain.actlock.hint
+msgid "Lock Selected Vault"
+msgstr "Заблокувати вибране сховище"
+
+#: tfrmmain.actlockall.caption
+msgctxt "tfrmmain.actlockall.caption"
 msgid "Lock All"
 msgstr "Заблокувати все"
+
+#: tfrmmain.actlockall.hint
+msgid "Lock All Unlocked Vaults"
+msgstr "Заблокувати всі розблоковані сховища"
+
+#: tfrmmain.actopenmountdir.caption
+msgid "&Open Mounted Directory ..."
+msgstr "&Відкрити змонтований каталог ..."
+
+#: tfrmmain.actopenmountdir.hint
+msgid "Decrypted Directory"
+msgstr "Розшифрований каталог"
+
+#: tfrmmain.actopenvault.caption
+msgctxt "tfrmmain.actopenvault.caption"
+msgid "&Open Existing Vault ..."
+msgstr "&Відкрити наявне сховище ..."
+
+#: tfrmmain.actopenvaultdir.caption
+msgid "Open &Vault Directory ..."
+msgstr "Відкрити каталог &сховища ..."
+
+#: tfrmmain.actopenvaultdir.hint
+msgid "Encrypted Directory"
+msgstr "Зашифрований каталог"
+
+#: tfrmmain.actunlock.caption
+msgctxt "tfrmmain.actunlock.caption"
+msgid "Unlock"
+msgstr "Розблокувати"
+
+#: tfrmmain.actunlock.hint
+msgid "Unlock Selected Vault"
+msgstr "Розблокувати вибране сховище"
+
+#: tfrmmain.actvaultinfo.caption
+msgctxt "tfrmmain.actvaultinfo.caption"
+msgid "&Information"
+msgstr "&Інформація"
 
 #: tfrmmain.caption
 msgctxt "tfrmmain.caption"
 msgid "gcencryptor"
 msgstr ""
 
-#: tfrmmain.cbromount.caption
+#: tfrmmain.cbreadonlymount.caption
+msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
 msgstr "Монтувати лише для читання"
 
@@ -81,67 +142,38 @@ msgstr "Сховище"
 msgid "&About"
 msgstr "&Про програму"
 
-#: tfrmmain.miconfig.caption
-msgid "Configure gcencryptor"
-msgstr "Налаштувати gcencryptor"
-
-#: tfrmmain.micreatenewvault.caption
-msgid "Create &New Vault ..."
-msgstr "Створити &нове сховище ..."
-
-#: tfrmmain.midelfromlist.caption
-msgid "Delete From List"
-msgstr "Видалити зі списку"
-
 #: tfrmmain.mienglish.caption
-msgid "English"
-msgstr "Англійська"
+msgid "&English"
+msgstr "&Англійська"
 
-#: tfrmmain.mifsck.caption
-msgid "Check Integrity"
-msgstr "Перевірити цілісність"
+#: tfrmmain.miexit.caption
+msgctxt "tfrmmain.miexit.caption"
+msgid "&Quit"
+msgstr "&Вийти"
 
 #: tfrmmain.milanguage.caption
-msgid "Language"
-msgstr "Мова"
-
-#: tfrmmain.miopenvault.caption
-msgid "&Open Existing Vault ..."
-msgstr "&Відкрити наявне сховище ..."
+msgid "&Language"
+msgstr "&Мова"
 
 #: tfrmmain.mirussian.caption
-msgid "Russian"
-msgstr "Російська"
+msgid "&Russian"
+msgstr "&Російська"
 
 #: tfrmmain.misettings.caption
 msgid "&Settings"
 msgstr "&Налаштування"
 
 #: tfrmmain.miukrainian.caption
-msgid "Ukrainian"
-msgstr "Українська"
+msgid "&Ukrainian"
+msgstr "&Українська"
 
 #: tfrmmain.mivault.caption
 msgid "&Vault"
 msgstr "&Сховище"
 
-#: tfrmmain.mivaultinfo.caption
-msgid "Information"
-msgstr "Інформація"
-
 #: tfrmmain.sddopenvault.title
 msgid "Select An Encrypted Vault Directory"
 msgstr "Виберіть Зашифрований каталог сховища"
-
-#: tfrmmain.stmountvaultpath.hint
-msgctxt "tfrmmain.stmountvaultpath.hint"
-msgid "Open"
-msgstr "Відкрити"
-
-#: tfrmmain.stvaultpath.hint
-msgctxt "tfrmmain.stvaultpath.hint"
-msgid "Open"
-msgstr "Відкрити"
 
 #: tfrmmasterkey.btnok.caption
 msgctxt "tfrmmasterkey.btnok.caption"
@@ -149,6 +181,7 @@ msgid "&OK"
 msgstr ""
 
 #: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
 msgid "&Save to file"
 msgstr "&Зберегти у файл"
 
@@ -209,6 +242,10 @@ msgstr ""
 msgid "👁"
 msgstr ""
 
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
+msgstr "Показати пароль"
+
 #: tfrmpassword.caption
 msgctxt "tfrmpassword.caption"
 msgid "gcencryptor"
@@ -268,13 +305,14 @@ msgstr "Файлова система змонтована та готова д�
 msgid "fsck summary: no problems found"
 msgstr "fsck: проблем не знайдено"
 
+#: ugocryptfsfsck.please_wait_until_the_process
+msgctxt "ugocryptfsfsck.please_wait_until_the_process"
+msgid "Please wait until the process is completed it may take some time ..."
+msgstr "Зачекайте, доки процес завершиться, це може зайняти деякий час ..."
+
 #: ulogform.failed_to_save_log_file
 msgid "Failed to save log file"
 msgstr "Не вдалося зберегти файл журналу"
-
-#: ulogform.please_wait_until_the_process
-msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Зачекайте, доки процес завершиться, це може зайняти деякий час ..."
 
 #: ulogger.error_wrong_password
 msgid "Error, something went wrong reading the password"
@@ -292,6 +330,11 @@ msgstr "Невірний пароль"
 msgid "Warning"
 msgstr "Увага"
 
+#: umainform.directory_not_exists
+msgctxt "umainform.directory_not_exists"
+msgid "Directory not exists"
+msgstr "Каталог не існує"
+
 #: umainform.error_load_config
 msgid "Error load config"
 msgstr "Помилка завантаження конфігурації"
@@ -299,6 +342,10 @@ msgstr "Помилка завантаження конфігурації"
 #: umainform.lock_all_and_close
 msgid "Lock all and close?"
 msgstr "Заблокувати все і закрити?"
+
+#: umainform.vaultpath_hint
+msgid "Open in File Manager ..."
+msgstr "Відкрити в менеджері файлів ..."
 
 #: umasterkeyform.err_save_key
 msgid "Error when saving key"
@@ -325,6 +372,7 @@ msgid "During the mount, directories with the storage name will be temporarily c
 msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
 
 #: uutils.directory_not_exists
+msgctxt "uutils.directory_not_exists"
 msgid "Directory not exists"
 msgstr "Каталог не існує"
 

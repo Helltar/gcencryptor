@@ -30,46 +30,107 @@ msgstr ""
 
 #: tfrmlog.btnclear.caption
 msgctxt "tfrmlog.btnclear.caption"
-msgid "Clear"
-msgstr "Очистить"
+msgid "C&lear"
+msgstr "&Очистить"
 
 #: tfrmlog.btnclose.caption
-msgctxt "tfrmlog.btnclose.caption"
-msgid "Close"
-msgstr "Закрыть"
+msgid "&Close"
+msgstr "&Закрыть"
 
 #: tfrmlog.btnsavelog.caption
 msgctxt "tfrmlog.btnsavelog.caption"
-msgid "Save to file"
-msgstr "Сохранить в файл"
+msgid "&Save to file"
+msgstr "&Сохранить в файл"
 
 #: tfrmlog.caption
-msgid "Log Messages"
+msgid "Messages"
 msgstr "Сообщения"
+
+#: tfrmmain.actconfigure.caption
+msgctxt "tfrmmain.actconfigure.caption"
+msgid "&Configure gcencryptor ..."
+msgstr "&Настроить gcencryptor ..."
+
+#: tfrmmain.actcreatevault.caption
+msgctxt "tfrmmain.actcreatevault.caption"
+msgid "Create &New Vault ..."
+msgstr "Создать &новое хранилище ..."
+
+#: tfrmmain.actdelfromlist.caption
+msgctxt "tfrmmain.actdelfromlist.caption"
+msgid "&Delete From List"
+msgstr "&Удалить из списка"
+
+#: tfrmmain.actfsck.caption
+msgctxt "tfrmmain.actfsck.caption"
+msgid "&Check Integrity ..."
+msgstr "&Проверить целостность ..."
 
 #: tfrmmain.acthidemenubar.caption
 msgctxt "tfrmmain.acthidemenubar.caption"
-msgid "Show Menubar"
-msgstr "Показывать меню"
+msgid "Show &Menubar"
+msgstr "Показывать &меню"
 
-#: tfrmmain.btnmount.caption
-msgid "Unlock"
-msgstr "Разблокировать"
-
-#: tfrmmain.btnumount.caption
+#: tfrmmain.actlock.caption
+msgctxt "tfrmmain.actlock.caption"
 msgid "Lock"
 msgstr "Заблокировать"
 
-#: tfrmmain.btnumountall.caption
+#: tfrmmain.actlock.hint
+msgid "Lock Selected Vault"
+msgstr "Заблокировать выбранное хранилище"
+
+#: tfrmmain.actlockall.caption
+msgctxt "tfrmmain.actlockall.caption"
 msgid "Lock All"
 msgstr "Заблокировать все"
+
+#: tfrmmain.actlockall.hint
+msgid "Lock All Unlocked Vaults"
+msgstr "Заблокировать все незапертые хранилища"
+
+#: tfrmmain.actopenmountdir.caption
+msgid "&Open Mounted Directory ..."
+msgstr "&Открыть смонтированный каталог ..."
+
+#: tfrmmain.actopenmountdir.hint
+msgid "Decrypted Directory"
+msgstr "Расшифрованный каталог"
+
+#: tfrmmain.actopenvault.caption
+msgctxt "tfrmmain.actopenvault.caption"
+msgid "&Open Existing Vault ..."
+msgstr "&Открыть существующие хранилище ..."
+
+#: tfrmmain.actopenvaultdir.caption
+msgid "Open &Vault Directory ..."
+msgstr "Открыть каталог &хранилища ..."
+
+#: tfrmmain.actopenvaultdir.hint
+msgid "Encrypted Directory"
+msgstr "Зашифрованный каталог"
+
+#: tfrmmain.actunlock.caption
+msgctxt "tfrmmain.actunlock.caption"
+msgid "Unlock"
+msgstr "Разблокировать"
+
+#: tfrmmain.actunlock.hint
+msgid "Unlock Selected Vault"
+msgstr "Разблокировать выбранное хранилище"
+
+#: tfrmmain.actvaultinfo.caption
+msgctxt "tfrmmain.actvaultinfo.caption"
+msgid "&Information"
+msgstr "&Информация"
 
 #: tfrmmain.caption
 msgctxt "tfrmmain.caption"
 msgid "gcencryptor"
 msgstr ""
 
-#: tfrmmain.cbromount.caption
+#: tfrmmain.cbreadonlymount.caption
+msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
 msgstr "Смонтировать только для чтения"
 
@@ -81,67 +142,38 @@ msgstr "Хранилище"
 msgid "&About"
 msgstr "О &Программе"
 
-#: tfrmmain.miconfig.caption
-msgid "Configure gcencryptor"
-msgstr "Настроить gcencryptor"
-
-#: tfrmmain.micreatenewvault.caption
-msgid "Create &New Vault ..."
-msgstr "Создать &новое хранилище ..."
-
-#: tfrmmain.midelfromlist.caption
-msgid "Delete From List"
-msgstr "Удалить из списка"
-
 #: tfrmmain.mienglish.caption
-msgid "English"
-msgstr "Английский"
+msgid "&English"
+msgstr "&Английский"
 
-#: tfrmmain.mifsck.caption
-msgid "Check Integrity"
-msgstr "Проверить целостность"
+#: tfrmmain.miexit.caption
+msgctxt "tfrmmain.miexit.caption"
+msgid "&Quit"
+msgstr "&Выйти"
 
 #: tfrmmain.milanguage.caption
-msgid "Language"
-msgstr "Язык"
-
-#: tfrmmain.miopenvault.caption
-msgid "&Open Existing Vault ..."
-msgstr "&Открыть существующие хранилище ..."
+msgid "&Language"
+msgstr "&Язык"
 
 #: tfrmmain.mirussian.caption
-msgid "Russian"
-msgstr "Русский"
+msgid "&Russian"
+msgstr "&Русский"
 
 #: tfrmmain.misettings.caption
 msgid "&Settings"
 msgstr "&Настройки"
 
 #: tfrmmain.miukrainian.caption
-msgid "Ukrainian"
-msgstr "Украинский"
+msgid "&Ukrainian"
+msgstr "&Украинский"
 
 #: tfrmmain.mivault.caption
 msgid "&Vault"
 msgstr "&Хранилище"
 
-#: tfrmmain.mivaultinfo.caption
-msgid "Information"
-msgstr "Информация"
-
 #: tfrmmain.sddopenvault.title
 msgid "Select An Encrypted Vault Directory"
 msgstr "Выберите зашифрованный каталог"
-
-#: tfrmmain.stmountvaultpath.hint
-msgctxt "tfrmmain.stmountvaultpath.hint"
-msgid "Open"
-msgstr "Открыть"
-
-#: tfrmmain.stvaultpath.hint
-msgctxt "tfrmmain.stvaultpath.hint"
-msgid "Open"
-msgstr "Открыть"
 
 #: tfrmmasterkey.btnok.caption
 msgctxt "tfrmmasterkey.btnok.caption"
@@ -149,6 +181,7 @@ msgid "&OK"
 msgstr ""
 
 #: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
 msgid "&Save to file"
 msgstr "&Сохранить в файл"
 
@@ -199,7 +232,7 @@ msgstr "подтвердите пароль"
 
 #: tfrmnewvault.edtvaultname.texthint
 msgid "vault name"
-msgstr "имя"
+msgstr "название"
 
 #: tfrmpassword.btnok.caption
 msgctxt "tfrmpassword.btnok.caption"
@@ -209,6 +242,10 @@ msgstr ""
 #: tfrmpassword.btnshowpass.caption
 msgid "👁"
 msgstr ""
+
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
+msgstr "Показать пароль"
 
 #: tfrmpassword.caption
 msgctxt "tfrmpassword.caption"
@@ -269,13 +306,14 @@ msgstr "Файловая система смонтирована и готова
 msgid "fsck summary: no problems found"
 msgstr "fsck: проблем не обнаружено"
 
+#: ugocryptfsfsck.please_wait_until_the_process
+msgctxt "ugocryptfsfsck.please_wait_until_the_process"
+msgid "Please wait until the process is completed it may take some time ..."
+msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
+
 #: ulogform.failed_to_save_log_file
 msgid "Failed to save log file"
 msgstr "Не удалось сохранить файл журнала"
-
-#: ulogform.please_wait_until_the_process
-msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
 
 #: ulogger.error_wrong_password
 msgid "Error, something went wrong reading the password"
@@ -293,6 +331,11 @@ msgstr "Неверный пароль"
 msgid "Warning"
 msgstr "Предупреждение"
 
+#: umainform.directory_not_exists
+msgctxt "umainform.directory_not_exists"
+msgid "Directory not exists"
+msgstr "Каталога не существует"
+
 #: umainform.error_load_config
 msgid "Error load config"
 msgstr "Ошибка при загрузке конфигурации"
@@ -300,6 +343,10 @@ msgstr "Ошибка при загрузке конфигурации"
 #: umainform.lock_all_and_close
 msgid "Lock all and close?"
 msgstr "Заблокировать все и закрыть?"
+
+#: umainform.vaultpath_hint
+msgid "Open in File Manager ..."
+msgstr "Открыть в диспетчере файлов ..."
 
 #: umasterkeyform.err_save_key
 msgid "Error when saving key"
@@ -326,6 +373,7 @@ msgid "During the mount, directories with the storage name will be temporarily c
 msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
 
 #: uutils.directory_not_exists
+msgctxt "uutils.directory_not_exists"
 msgid "Directory not exists"
 msgstr "Каталога не существует"
 
