@@ -13,17 +13,20 @@ type
 
   TfrmAbout = class(TForm)
     imgLogo: TImage;
+    lblPapirus: TLabel;
     lblLicense: TLabel;
     lblGocryptfs: TLabel;
     lblHomepage: TLabel;
-    lblGithub: TLabel;
+    lblGcencryptor: TLabel;
     stAbout: TStaticText;
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
-    procedure imgLogoDblClick(Sender: TObject);
+    procedure lblPapirusClick(Sender: TObject);
+    procedure lblGcencryptorClick(Sender: TObject);
+    procedure lblGocryptfsClick(Sender: TObject);
+    procedure lblHomepageClick(Sender: TObject);
     procedure lblLicenseClick(Sender: TObject);
-    procedure lblClick(Sender: TObject);
   end;
 
 var
@@ -46,6 +49,26 @@ begin
   Constraints.MaxWidth := Width;
 end;
 
+procedure TfrmAbout.lblPapirusClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/PapirusDevelopmentTeam/papirus-icon-theme');
+end;
+
+procedure TfrmAbout.lblGcencryptorClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/Helltar/gcencryptor');
+end;
+
+procedure TfrmAbout.lblGocryptfsClick(Sender: TObject);
+begin
+  OpenURL('https://github.com/rfjakob/gocryptfs');
+end;
+
+procedure TfrmAbout.lblHomepageClick(Sender: TObject);
+begin
+  OpenURL('https://helltar.com');
+end;
+
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
   stAbout.Caption :=
@@ -59,11 +82,6 @@ begin
     Close;
 end;
 
-procedure TfrmAbout.imgLogoDblClick(Sender: TObject);
-begin
-  OpenURL(lblGithub.Caption);
-end;
-
 procedure TfrmAbout.lblLicenseClick(Sender: TObject);
 begin
   with TfrmLicense.Create(Self) do
@@ -72,11 +90,6 @@ begin
     finally
       Free;
     end;
-end;
-
-procedure TfrmAbout.lblClick(Sender: TObject);
-begin
-  OpenURL(TLabel(Sender).Caption);
 end;
 
 end.
