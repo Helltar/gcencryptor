@@ -5,7 +5,7 @@ unit uAboutForm;
 interface
 
 uses
-  Forms, Graphics, Dialogs, StdCtrls, LCLIntf, ExtCtrls, Classes, fileinfo;
+  Forms, Graphics, Dialogs, StdCtrls, LCLIntf, ExtCtrls, Classes, Controls, LCLType;
 
 type
 
@@ -13,22 +13,26 @@ type
 
   TfrmAbout = class(TForm)
     imgLogo: TImage;
+    lblLicense: TLabel;
     lblGocryptfs: TLabel;
     lblHomepage: TLabel;
     lblGithub: TLabel;
     stAbout: TStaticText;
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure imgLogoDblClick(Sender: TObject);
+    procedure lblLicenseClick(Sender: TObject);
     procedure lblClick(Sender: TObject);
-  private
-    function getAppVersion(const AType: string): string;
   end;
 
 var
   frmAbout: TfrmAbout;
 
 implementation
+
+uses
+  uUtils, uLicenseForm;
 
 {$R *.lfm}
 
@@ -45,14 +49,14 @@ end;
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
   stAbout.Caption :=
-    getAppVersion('OriginalFilename') + ' - v' + getAppVersion('FileVersion') + LineEnding +
-    getAppVersion('FileDescription') + LineEnding +
-    'License: MIT';
-  {
-    ['CompanyName'] ['FileDescription'] ['FileVersion']
-    ['InternalName'] ['LegalCopyright'] ['OriginalFilename']
-    ['ProductName'] ['ProductVersion']
-  }
+    getAppOriginalFilename() + ' - v' + getAppFileVersion() + LineEnding +
+    getAppInfo('FileDescription');
+end;
+
+procedure TfrmAbout.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if (Key = VK_Q) and (ssCtrl in Shift) then
+    Close;
 end;
 
 procedure TfrmAbout.imgLogoDblClick(Sender: TObject);
@@ -60,21 +64,19 @@ begin
   OpenURL(lblGithub.Caption);
 end;
 
-procedure TfrmAbout.lblClick(Sender: TObject);
+procedure TfrmAbout.lblLicenseClick(Sender: TObject);
 begin
-  OpenURL(TLabel(Sender).Caption);
-end;
-
-function TfrmAbout.getAppVersion(const AType: string): string;
-begin
-  Result := '-1';
-  with TFileVersionInfo.Create(nil) do
+  with TfrmLicense.Create(Self) do
     try
-      ReadFileInfo;
-      Result := VersionStrings.Values[AType];
+      ShowModal;
     finally
       Free;
     end;
+end;
+
+procedure TfrmAbout.lblClick(Sender: TObject);
+begin
+  OpenURL(TLabel(Sender).Caption);
 end;
 
 end.
