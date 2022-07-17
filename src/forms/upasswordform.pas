@@ -63,6 +63,8 @@ end;
 procedure TfrmPassword.FormCreate(Sender: TObject);
 begin
   Caption := APP_NAME;
+  Constraints.MinHeight := Height;
+  Constraints.MinWidth := Width;
 end;
 
 procedure TfrmPassword.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
