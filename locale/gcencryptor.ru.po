@@ -10,22 +10,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
 msgid "About"
 msgstr "О Программе"
 
-#: tfrmabout.lblgithub.caption
-msgid "https://github.com/helltar/gcencryptor"
+#: tfrmabout.lblgcencryptor.caption
+msgid "github.com/gcencryptor"
 msgstr ""
 
 #: tfrmabout.lblgocryptfs.caption
-msgid "https://github.com/rfjakob/gocryptfs"
+msgid "github.com/gocryptfs"
 msgstr ""
 
 #: tfrmabout.lblhomepage.caption
-msgid "https://helltar.com"
+msgid "helltar.com"
+msgstr ""
+
+#: tfrmabout.lbllicense.caption
+msgctxt "tfrmabout.lbllicense.caption"
+msgid "License: GNU General Public License v3.0"
+msgstr ""
+
+#: tfrmabout.lblpapirus.caption
+msgid "github.com/papirus-icon-theme"
+msgstr ""
+
+#: tfrmclosequery.btncancel.caption
+msgctxt "tfrmclosequery.btncancel.caption"
+msgid "&Cancel"
+msgstr "&Отмена"
+
+#: tfrmclosequery.btnyes.caption
+msgctxt "tfrmclosequery.btnyes.caption"
+msgid "&Yes"
+msgstr "&Да"
+
+#: tfrmclosequery.caption
+msgctxt "tfrmclosequery.caption"
+msgid "Please confirm"
+msgstr "Пожалуйста, подтвердите"
+
+#: tfrmclosequery.lblinfo.caption
+msgctxt "tfrmclosequery.lblinfo.caption"
+msgid ""
+"This action not have any risk corrupted the data,\n"
+"if the vault is busy you will get a message."
+msgstr ""
+"Это действие не несет никакого риска повреждения данных,\n"
+"если хранилище занято, вы получите сообщение."
+
+#: tfrmclosequery.lblq.caption
+msgctxt "tfrmclosequery.lblq.caption"
+msgid "Unmount all and quit application?"
+msgstr "Размонтировать все и выйти из приложения?"
+
+#: tfrmclosequery.lblunlockedvaults.caption
+msgctxt "tfrmclosequery.lblunlockedvaults.caption"
+msgid "There are unlocked vaults:"
+msgstr "Есть незапертые хранилища:"
+
+#: tfrmlicense.caption
+msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 
 #: tfrmlog.btnclear.caption
@@ -135,6 +182,7 @@ msgid "Mount read-only"
 msgstr "Смонтировать только для чтения"
 
 #: tfrmmain.gbcurrentvault.caption
+msgctxt "tfrmmain.gbcurrentvault.caption"
 msgid "Vault"
 msgstr "Хранилище"
 
@@ -294,101 +342,131 @@ msgstr "Размер шрифта (сообщения)"
 msgid "Mount Directory:"
 msgstr "Каталог монтирования:"
 
-#: ugocryptfs.created_successfully
-msgid "The gocryptfs filesystem has been created successfully"
-msgstr "Файловая система gocryptfs была успешно создана"
+#: uconsts.rs_bin_not_installed
+#, object-pascal-format
+msgid "Maybe %s is not installed"
+msgstr "Возможно, %s не установлен"
 
-#: ugocryptfs.successfully_mounted
-msgid "Filesystem mounted and ready"
-msgstr "Файловая система смонтирована и готова к использованию"
-
-#: ugocryptfsfsck.fsck_no_problems_found
-msgid "fsck summary: no problems found"
-msgstr "fsck: проблем не обнаружено"
-
-#: ugocryptfsfsck.please_wait_until_the_process
-msgctxt "ugocryptfsfsck.please_wait_until_the_process"
-msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
-
-#: ulogform.failed_to_save_log_file
-msgid "Failed to save log file"
-msgstr "Не удалось сохранить файл журнала"
-
-#: ulogger.error_wrong_password
-msgid "Error, something went wrong reading the password"
-msgstr "Ошибка, что-то пошло не так при чтении пароля"
-
-#: ulogger.password_empty
-msgid "Password Empty"
-msgstr "Пустой пароль"
-
-#: ulogger.password_incorrect
-msgid "Password Incorrect"
-msgstr "Неверный пароль"
-
-#: umainform.caption_warning
+#: uconsts.rs_caption_warning
+msgctxt "uconsts.rs_caption_warning"
 msgid "Warning"
 msgstr "Предупреждение"
 
-#: umainform.directory_not_exists
-msgctxt "umainform.directory_not_exists"
-msgid "Directory not exists"
-msgstr "Каталога не существует"
+#: uconsts.rs_created_successfully
+msgctxt "uconsts.rs_created_successfully"
+msgid "The gocryptfs filesystem has been created successfully"
+msgstr "Файловая система gocryptfs была успешно создана"
 
-#: umainform.error_load_config
-msgid "Error load config"
-msgstr "Ошибка при загрузке конфигурации"
-
-#: umainform.lock_all_and_close
-msgid "Lock all and close?"
-msgstr "Заблокировать все и закрыть?"
-
-#: umainform.vaultpath_hint
-msgid "Open in File Manager ..."
-msgstr "Открыть в диспетчере файлов ..."
-
-#: umasterkeyform.err_save_key
-msgid "Error when saving key"
-msgstr "Ошибка при сохранении ключа"
-
-#: umasterkeyform.key_saved
-msgid "Key successfully saved"
-msgstr "Ключ успешно сохранен"
-
-#: unewvaultform.directory_exists
+#: uconsts.rs_directory_exists
+msgctxt "uconsts.rs_directory_exists"
 msgid "Directory already exists"
 msgstr "Каталог уже существует"
 
-#: unewvaultform.failed_to_retrieve_recovery_key
-msgid "Vault was successfully created, but could not retrieve the recovery key"
-msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
-
-#: unewvaultform.passwords_do_not_match
-msgid "Passwords do not match"
-msgstr "Пароли не совпадают"
-
-#: usettingsform.mountpoint_hint
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
-
-#: uutils.directory_not_exists
-msgctxt "uutils.directory_not_exists"
+#: uconsts.rs_directory_not_exists
+msgctxt "uconsts.rs_directory_not_exists"
 msgid "Directory not exists"
 msgstr "Каталога не существует"
 
-#: uutils.error_creating_directory
+#: uconsts.rs_error_creating_directory
+msgctxt "uconsts.rs_error_creating_directory"
 msgid "Error creating the directory"
 msgstr "Ошибка при создании каталога"
 
-#: uutils.error_del_directory
+#: uconsts.rs_error_del_directory
+msgctxt "uconsts.rs_error_del_directory"
 msgid "Error deleting the directory"
 msgstr "Ошибка при удалении каталога"
 
-#: uutils.error_run_executable
+#: uconsts.rs_error_load_config
+msgctxt "uconsts.rs_error_load_config"
+msgid "Error load config"
+msgstr "Ошибка при загрузке конфигурации"
+
+#: uconsts.rs_error_run_executable
+msgctxt "uconsts.rs_error_run_executable"
 msgid "failed to run"
 msgstr "не удалось запустить"
 
-#: uutils.unmounted_successfully
+#: uconsts.rs_error_wrong_password
+msgctxt "uconsts.rs_error_wrong_password"
+msgid "Error, something went wrong reading the password"
+msgstr "Ошибка, что-то пошло не так при чтении пароля"
+
+#: uconsts.rs_err_save_key
+msgctxt "uconsts.rs_err_save_key"
+msgid "Error when saving key"
+msgstr "Ошибка при сохранении ключа"
+
+#: uconsts.rs_failed_to_retrieve_recovery_key
+msgctxt "uconsts.rs_failed_to_retrieve_recovery_key"
+msgid "Vault was successfully created, but could not retrieve the recovery key"
+msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
+
+#: uconsts.rs_failed_to_save_log_file
+msgctxt "uconsts.rs_failed_to_save_log_file"
+msgid "Failed to save log file"
+msgstr "Не удалось сохранить файл журнала"
+
+#: uconsts.rs_fsck_no_problems_found
+msgctxt "uconsts.rs_fsck_no_problems_found"
+msgid "fsck summary: no problems found"
+msgstr "fsck: проблем не обнаружено"
+
+#: uconsts.rs_gb_vault_caption
+msgctxt "uconsts.rs_gb_vault_caption"
+msgid "Vault"
+msgstr "Хранилище"
+
+#: uconsts.rs_gocryptfs_xray_failed_run_hint
+msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
+msgstr "Это не критично, но вы не сможете получить мастер-ключ при создании нового хранилища"
+
+#: uconsts.rs_key_saved
+msgctxt "uconsts.rs_key_saved"
+msgid "Key successfully saved"
+msgstr "Ключ успешно сохранен"
+
+#: uconsts.rs_lock_all_and_close
+msgctxt "uconsts.rs_lock_all_and_close"
+msgid "Lock all and close?"
+msgstr "Заблокировать все и закрыть?"
+
+#: uconsts.rs_mountpoint_hint
+msgctxt "uconsts.rs_mountpoint_hint"
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
+
+#: uconsts.rs_passwords_do_not_match
+msgctxt "uconsts.rs_passwords_do_not_match"
+msgid "Passwords do not match"
+msgstr "Пароли не совпадают"
+
+#: uconsts.rs_password_empty
+msgctxt "uconsts.rs_password_empty"
+msgid "Password Empty"
+msgstr "Пустой пароль"
+
+#: uconsts.rs_password_incorrect
+msgctxt "uconsts.rs_password_incorrect"
+msgid "Password Incorrect"
+msgstr "Неверный пароль"
+
+#: uconsts.rs_please_wait_until_the_process
+msgctxt "uconsts.rs_please_wait_until_the_process"
+msgid "Please wait until the process is completed it may take some time ..."
+msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
+
+#: uconsts.rs_successfully_mounted
+msgctxt "uconsts.rs_successfully_mounted"
+msgid "Filesystem mounted and ready"
+msgstr "Файловая система смонтирована и готова к использованию"
+
+#: uconsts.rs_unmounted_successfully
+msgctxt "uconsts.rs_unmounted_successfully"
 msgid "Unmounted successfully"
 msgstr "Успешно отсоединено"
+
+#: uconsts.rs_vaultpath_hint
+msgctxt "uconsts.rs_vaultpath_hint"
+msgid "Open in File Manager ..."
+msgstr "Открыть в диспетчере файлов ..."

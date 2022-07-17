@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 501
-  Height = 502
-  Top = 251
-  Width = 931
+  Left = 401
+  Height = 532
+  Top = 231
+  Width = 915
   AllowDropFiles = True
   Caption = 'gcencryptor'
-  ClientHeight = 471
-  ClientWidth = 931
+  ClientHeight = 501
+  ClientWidth = 915
   Constraints.MinHeight = 300
   Constraints.MinWidth = 600
   Menu = mmMain
@@ -20,8 +20,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 374
-    Height = 471
+    Left = 368
+    Height = 501
     Top = 0
     Width = 5
     Align = alNone
@@ -35,10 +35,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 385
-    Height = 423
+    Left = 379
+    Height = 453
     Top = 24
-    Width = 522
+    Width = 512
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Left = 6
@@ -46,8 +46,8 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 394
-    ClientWidth = 518
+    ClientHeight = 422
+    ClientWidth = 508
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
@@ -55,7 +55,7 @@ object frmMain: TfrmMain
       AnchorSideTop.Control = stVaultPath
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Side = asrBottom
-      Left = 187
+      Left = 182
       Height = 23
       Top = 71
       Width = 144
@@ -71,7 +71,7 @@ object frmMain: TfrmMain
       AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = cbReadOnlyMount
       AnchorSideTop.Side = asrBottom
-      Left = 95
+      Left = 90
       Height = 34
       Top = 118
       Width = 329
@@ -252,7 +252,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 23
       Top = 24
-      Width = 470
+      Width = 460
       Alignment = taCenter
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Left = 24
@@ -279,9 +279,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 423
+    Height = 453
     Top = 24
-    Width = 344
+    Width = 338
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Left = 24
@@ -292,7 +292,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 340
+        Width = 334
       end>
     Font.Style = [fsBold]
     ParentFont = False

@@ -10,22 +10,69 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
 msgid "About"
 msgstr "Про програму"
 
-#: tfrmabout.lblgithub.caption
-msgid "https://github.com/helltar/gcencryptor"
+#: tfrmabout.lblgcencryptor.caption
+msgid "github.com/gcencryptor"
 msgstr ""
 
 #: tfrmabout.lblgocryptfs.caption
-msgid "https://github.com/rfjakob/gocryptfs"
+msgid "github.com/gocryptfs"
 msgstr ""
 
 #: tfrmabout.lblhomepage.caption
-msgid "https://helltar.com"
+msgid "helltar.com"
+msgstr ""
+
+#: tfrmabout.lbllicense.caption
+msgctxt "tfrmabout.lbllicense.caption"
+msgid "License: GNU General Public License v3.0"
+msgstr ""
+
+#: tfrmabout.lblpapirus.caption
+msgid "github.com/papirus-icon-theme"
+msgstr ""
+
+#: tfrmclosequery.btncancel.caption
+msgctxt "tfrmclosequery.btncancel.caption"
+msgid "&Cancel"
+msgstr ""
+
+#: tfrmclosequery.btnyes.caption
+msgctxt "tfrmclosequery.btnyes.caption"
+msgid "&Yes"
+msgstr "&Так"
+
+#: tfrmclosequery.caption
+msgctxt "tfrmclosequery.caption"
+msgid "Please confirm"
+msgstr "Будь-ласка підтвердіть"
+
+#: tfrmclosequery.lblinfo.caption
+msgctxt "tfrmclosequery.lblinfo.caption"
+msgid ""
+"This action not have any risk corrupted the data,\n"
+"if the vault is busy you will get a message."
+msgstr ""
+"Ця дія не має ризику пошкодження даних,\n"
+"якщо сховище зайняте, ви отримаєте повідомлення."
+
+#: tfrmclosequery.lblq.caption
+msgctxt "tfrmclosequery.lblq.caption"
+msgid "Unmount all and quit application?"
+msgstr "Відмонтувати все та вийти з програми?"
+
+#: tfrmclosequery.lblunlockedvaults.caption
+msgctxt "tfrmclosequery.lblunlockedvaults.caption"
+msgid "There are unlocked vaults:"
+msgstr "Є розблоковані сховища:"
+
+#: tfrmlicense.caption
+msgid "GNU GENERAL PUBLIC LICENSE"
 msgstr ""
 
 #: tfrmlog.btnclear.caption
@@ -135,6 +182,7 @@ msgid "Mount read-only"
 msgstr "Монтувати лише для читання"
 
 #: tfrmmain.gbcurrentvault.caption
+msgctxt "tfrmmain.gbcurrentvault.caption"
 msgid "Vault"
 msgstr "Сховище"
 
@@ -293,101 +341,131 @@ msgstr "Розмір шрифту (повідомлення)"
 msgid "Mount Directory:"
 msgstr "Каталог монтування:"
 
-#: ugocryptfs.created_successfully
-msgid "The gocryptfs filesystem has been created successfully"
-msgstr "Файлову систему gocryptfs успішно створено"
+#: uconsts.rs_bin_not_installed
+#, object-pascal-format
+msgid "Maybe %s is not installed"
+msgstr "Можливо, %s не встановлено"
 
-#: ugocryptfs.successfully_mounted
-msgid "Filesystem mounted and ready"
-msgstr "Файлова система змонтована та готова до використання"
-
-#: ugocryptfsfsck.fsck_no_problems_found
-msgid "fsck summary: no problems found"
-msgstr "fsck: проблем не знайдено"
-
-#: ugocryptfsfsck.please_wait_until_the_process
-msgctxt "ugocryptfsfsck.please_wait_until_the_process"
-msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Зачекайте, доки процес завершиться, це може зайняти деякий час ..."
-
-#: ulogform.failed_to_save_log_file
-msgid "Failed to save log file"
-msgstr "Не вдалося зберегти файл журналу"
-
-#: ulogger.error_wrong_password
-msgid "Error, something went wrong reading the password"
-msgstr "Помилка, щось пішло не так під час читання пароля"
-
-#: ulogger.password_empty
-msgid "Password Empty"
-msgstr "Пароль порожній"
-
-#: ulogger.password_incorrect
-msgid "Password Incorrect"
-msgstr "Невірний пароль"
-
-#: umainform.caption_warning
+#: uconsts.rs_caption_warning
+msgctxt "uconsts.rs_caption_warning"
 msgid "Warning"
 msgstr "Увага"
 
-#: umainform.directory_not_exists
-msgctxt "umainform.directory_not_exists"
-msgid "Directory not exists"
-msgstr "Каталог не існує"
+#: uconsts.rs_created_successfully
+msgctxt "uconsts.rs_created_successfully"
+msgid "The gocryptfs filesystem has been created successfully"
+msgstr "Файлову систему gocryptfs успішно створено"
 
-#: umainform.error_load_config
-msgid "Error load config"
-msgstr "Помилка завантаження конфігурації"
-
-#: umainform.lock_all_and_close
-msgid "Lock all and close?"
-msgstr "Заблокувати все і закрити?"
-
-#: umainform.vaultpath_hint
-msgid "Open in File Manager ..."
-msgstr "Відкрити в менеджері файлів ..."
-
-#: umasterkeyform.err_save_key
-msgid "Error when saving key"
-msgstr "Помилка під час збереження ключа"
-
-#: umasterkeyform.key_saved
-msgid "Key successfully saved"
-msgstr "Ключ успішно збережено"
-
-#: unewvaultform.directory_exists
+#: uconsts.rs_directory_exists
+msgctxt "uconsts.rs_directory_exists"
 msgid "Directory already exists"
 msgstr "Каталог уже існує"
 
-#: unewvaultform.failed_to_retrieve_recovery_key
-msgid "Vault was successfully created, but could not retrieve the recovery key"
-msgstr "Сховище успішно створено, але не вдалося отримати ключ відновлення"
-
-#: unewvaultform.passwords_do_not_match
-msgid "Passwords do not match"
-msgstr "Паролі не співпадають"
-
-#: usettingsform.mountpoint_hint
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
-
-#: uutils.directory_not_exists
-msgctxt "uutils.directory_not_exists"
+#: uconsts.rs_directory_not_exists
+msgctxt "uconsts.rs_directory_not_exists"
 msgid "Directory not exists"
 msgstr "Каталог не існує"
 
-#: uutils.error_creating_directory
+#: uconsts.rs_error_creating_directory
+msgctxt "uconsts.rs_error_creating_directory"
 msgid "Error creating the directory"
 msgstr "Помилка створення каталогу"
 
-#: uutils.error_del_directory
+#: uconsts.rs_error_del_directory
+msgctxt "uconsts.rs_error_del_directory"
 msgid "Error deleting the directory"
 msgstr "Помилка видалення каталогу"
 
-#: uutils.error_run_executable
+#: uconsts.rs_error_load_config
+msgctxt "uconsts.rs_error_load_config"
+msgid "Error load config"
+msgstr "Помилка завантаження конфігурації"
+
+#: uconsts.rs_error_run_executable
+msgctxt "uconsts.rs_error_run_executable"
 msgid "failed to run"
 msgstr "не вдалося запустити"
 
-#: uutils.unmounted_successfully
+#: uconsts.rs_error_wrong_password
+msgctxt "uconsts.rs_error_wrong_password"
+msgid "Error, something went wrong reading the password"
+msgstr "Помилка, щось пішло не так під час читання пароля"
+
+#: uconsts.rs_err_save_key
+msgctxt "uconsts.rs_err_save_key"
+msgid "Error when saving key"
+msgstr "Помилка під час збереження ключа"
+
+#: uconsts.rs_failed_to_retrieve_recovery_key
+msgctxt "uconsts.rs_failed_to_retrieve_recovery_key"
+msgid "Vault was successfully created, but could not retrieve the recovery key"
+msgstr "Сховище успішно створено, але не вдалося отримати ключ відновлення"
+
+#: uconsts.rs_failed_to_save_log_file
+msgctxt "uconsts.rs_failed_to_save_log_file"
+msgid "Failed to save log file"
+msgstr "Не вдалося зберегти файл журналу"
+
+#: uconsts.rs_fsck_no_problems_found
+msgctxt "uconsts.rs_fsck_no_problems_found"
+msgid "fsck summary: no problems found"
+msgstr "fsck: проблем не знайдено"
+
+#: uconsts.rs_gb_vault_caption
+msgctxt "uconsts.rs_gb_vault_caption"
+msgid "Vault"
+msgstr "Сховище"
+
+#: uconsts.rs_gocryptfs_xray_failed_run_hint
+msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
+msgstr "Це не критично, але ви не зможете отримати головний ключ під час створення нового сховища"
+
+#: uconsts.rs_key_saved
+msgctxt "uconsts.rs_key_saved"
+msgid "Key successfully saved"
+msgstr "Ключ успішно збережено"
+
+#: uconsts.rs_lock_all_and_close
+msgctxt "uconsts.rs_lock_all_and_close"
+msgid "Lock all and close?"
+msgstr "Заблокувати все і закрити?"
+
+#: uconsts.rs_mountpoint_hint
+msgctxt "uconsts.rs_mountpoint_hint"
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
+
+#: uconsts.rs_passwords_do_not_match
+msgctxt "uconsts.rs_passwords_do_not_match"
+msgid "Passwords do not match"
+msgstr "Паролі не співпадають"
+
+#: uconsts.rs_password_empty
+msgctxt "uconsts.rs_password_empty"
+msgid "Password Empty"
+msgstr "Пароль порожній"
+
+#: uconsts.rs_password_incorrect
+msgctxt "uconsts.rs_password_incorrect"
+msgid "Password Incorrect"
+msgstr "Невірний пароль"
+
+#: uconsts.rs_please_wait_until_the_process
+msgctxt "uconsts.rs_please_wait_until_the_process"
+msgid "Please wait until the process is completed it may take some time ..."
+msgstr "Зачекайте, доки процес завершиться, це може зайняти деякий час ..."
+
+#: uconsts.rs_successfully_mounted
+msgctxt "uconsts.rs_successfully_mounted"
+msgid "Filesystem mounted and ready"
+msgstr "Файлова система змонтована та готова до використання"
+
+#: uconsts.rs_unmounted_successfully
+msgctxt "uconsts.rs_unmounted_successfully"
 msgid "Unmounted successfully"
 msgstr "Успішно відключено"
+
+#: uconsts.rs_vaultpath_hint
+msgctxt "uconsts.rs_vaultpath_hint"
+msgid "Open in File Manager ..."
+msgstr "Відкрити в менеджері файлів ..."

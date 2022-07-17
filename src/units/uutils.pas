@@ -145,7 +145,7 @@ var
   p: TProcessRec;
 
 begin
-  p := procStart('d00u', '-sh' + LineEnding + path, '', False);
+  p := procStart('du', '-sh' + LineEnding + path, '', False);
   if p.Completed then
     Result := Trim(StringReplace(p.Output, path, '', [rfReplaceAll]))
   else
