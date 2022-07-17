@@ -27,3 +27,4 @@ RS_SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
 RS_UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
 RS_VAULTPATH_HINT = 'Open in File Manager ...';
 
+RS_GB_VAULT_CAPTION = 'Vault';

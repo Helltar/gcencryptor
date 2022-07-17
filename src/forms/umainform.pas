@@ -34,7 +34,6 @@ type
     actLockAll: TAction;
     actOpenVault: TAction;
     actlMainMenu: TActionList;
-    bbtnVaultPath: TBitBtn;
     bbtnUnlock: TBitBtn;
     bbtnLock: TBitBtn;
     bbtnLockAll: TBitBtn;
@@ -71,6 +70,7 @@ type
     sp2: TMenuItem;
     pmMain: TPopupMenu;
     splLeft: TSplitter;
+    stVaultPath: TStaticText;
     procedure actConfigureExecute(Sender: TObject);
     procedure actCreateVaultExecute(Sender: TObject);
     procedure actDelFromListExecute(Sender: TObject);
@@ -91,7 +91,6 @@ type
     procedure actLockExecute(Sender: TObject);
     procedure actOpenVaultExecute(Sender: TObject);
     procedure actVaultInfoUpdate(Sender: TObject);
-    procedure bbtnVaultPathClick(Sender: TObject);
     procedure FormCloseQuery(Sender: TObject; var CanClose: boolean);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -103,6 +102,9 @@ type
     procedure miExitClick(Sender: TObject);
     procedure miRussianClick(Sender: TObject);
     procedure miUkrainianClick(Sender: TObject);
+    procedure stVaultPathClick(Sender: TObject);
+    procedure stVaultPathMouseEnter(Sender: TObject);
+    procedure stVaultPathMouseLeave(Sender: TObject);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -193,6 +195,27 @@ end;
 procedure TfrmMain.miUkrainianClick(Sender: TObject);
 begin
   setLang('uk');
+end;
+
+procedure TfrmMain.stVaultPathClick(Sender: TObject);
+begin
+  if getSelectedMountPoint().IsEmpty then
+    if isSelectedVaultPathExists() then
+      OpenURL(getSelectedVaultPath())
+    else
+      updateControls()
+  else
+    OpenURL(getSelectedMountPoint());
+end;
+
+procedure TfrmMain.stVaultPathMouseEnter(Sender: TObject);
+begin
+  TStaticText(Sender).Font.Style := [fsBold, fsUnderline];
+end;
+
+procedure TfrmMain.stVaultPathMouseLeave(Sender: TObject);
+begin
+  TStaticText(Sender).Font.Style := [fsBold];
 end;
 
 procedure TfrmMain.initControls;
@@ -341,40 +364,41 @@ end;
 
 procedure TfrmMain.updateControls;
 begin
-  bbtnVaultPath.Color := clHotLight;
-  bbtnVaultPath.Font.Color := clBtnText;
-  bbtnVaultPath.Enabled := False;
+  stVaultPath.Font.Color := clBtnText;
+  stVaultPath.Enabled := False;
   cbReadOnlyMount.Visible := False;
 
   if not isItemSelected() then
   begin
-    bbtnVaultPath.Caption := '';
-    bbtnVaultPath.Hint := '';
+    gbCurrentVault.Caption := RS_GB_VAULT_CAPTION;
+    stVaultPath.Caption := '';
+    stVaultPath.Hint := '';
     Exit;
   end;
 
   if isSelectedVaultPathExists() then
   begin
-    bbtnVaultPath.Enabled := True;
+    stVaultPath.Enabled := True;
+    gbCurrentVault.Caption := ExtractFileName(getSelectedVaultPath());
 
     if getSelectedMountPoint().IsEmpty then
     begin
-      bbtnVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
-      bbtnVaultPath.Hint := RS_VAULTPATH_HINT;
+      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
+      stVaultPath.Hint := RS_VAULTPATH_HINT;
       cbReadOnlyMount.Visible := True;
     end
     else
     begin
-      bbtnVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
-      bbtnVaultPath.Color := clGreen;
-      bbtnVaultPath.Font.Color := clWhite;
-      bbtnVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' ...';
+      stVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
+      stVaultPath.Font.Color := clGreen;
+      stVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' ...';
     end;
   end
   else
   begin
-    bbtnVaultPath.Caption := RS_DIRECTORY_NOT_EXISTS;
-    bbtnVaultPath.Hint := '';
+    gbCurrentVault.Caption := '404';
+    stVaultPath.Caption := RS_DIRECTORY_NOT_EXISTS;
+    stVaultPath.Hint := '';
   end;
 
   updateVaultListIcons();
@@ -520,17 +544,6 @@ end;
 procedure TfrmMain.actVaultInfoUpdate(Sender: TObject);
 begin
   actVaultInfo.Enabled := isItemSelected() and isSelectedVaultPathExists();
-end;
-
-procedure TfrmMain.bbtnVaultPathClick(Sender: TObject);
-begin
-  if getSelectedMountPoint().IsEmpty then
-    if isSelectedVaultPathExists() then
-      OpenURL(getSelectedVaultPath())
-    else
-      updateControls()
-  else
-    OpenURL(getSelectedMountPoint());
 end;
 
 procedure TfrmMain.actFsckUpdate(Sender: TObject);
