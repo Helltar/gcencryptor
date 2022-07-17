@@ -43,6 +43,9 @@ type
     ilMainmenu: TImageList;
     ilPopupmenu: TImageList;
     lvVaults: TListView;
+    miShowFormTray: TMenuItem;
+    miLockAllTray: TMenuItem;
+    miQuitTray: TMenuItem;
     miOpenMountDir: TMenuItem;
     miOpenVaultDir: TMenuItem;
     miExit: TMenuItem;
@@ -62,15 +65,18 @@ type
     miOpenVault: TMenuItem;
     miDelFromList: TMenuItem;
     pnlButtons: TPanel;
+    pmTray: TPopupMenu;
     sddOpenVault: TSelectDirectoryDialog;
     Separator1: TMenuItem;
     Separator2: TMenuItem;
     Separator3: TMenuItem;
+    Separator4: TMenuItem;
     sp1: TMenuItem;
     sp2: TMenuItem;
     pmMain: TPopupMenu;
     splLeft: TSplitter;
     stVaultPath: TStaticText;
+    trayIcon: TTrayIcon;
     procedure actConfigureExecute(Sender: TObject);
     procedure actCreateVaultExecute(Sender: TObject);
     procedure actDelFromListExecute(Sender: TObject);
@@ -97,6 +103,8 @@ type
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+    procedure miShowFormTrayClick(Sender: TObject);
+    procedure miQuitTrayClick(Sender: TObject);
     procedure miEnglishClick(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
@@ -105,6 +113,7 @@ type
     procedure stVaultPathClick(Sender: TObject);
     procedure stVaultPathMouseEnter(Sender: TObject);
     procedure stVaultPathMouseLeave(Sender: TObject);
+    procedure trayIconClick(Sender: TObject);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -124,10 +133,13 @@ type
     procedure showPasswordForm(const title: string);
     procedure updateControls();
     procedure updateVaultListIcons();
+    procedure showHideForm();
     procedure setLang(const langCode: string);
+    procedure closeApp(out CanClose: boolean);
   public
     config: TConfig;
     vaultPassword: string;
+    showTrayIcon: boolean;
     procedure addVaultToList(const path: string);
     procedure addSynLog(const msg: string; const err: boolean = False; const showForm: boolean = False);
   end;
@@ -152,7 +164,8 @@ begin
   fileList := TStringList.Create;
   mountList := TMountList.Create;
   vaultListConfigFile := GetAppConfigDir(False) + VAULTLIST_CONF_FILE;
-
+  showTrayIcon := config.showTrayIcon;
+  trayIcon.Visible := showTrayIcon;
   initControls();
 end;
 
@@ -165,6 +178,18 @@ end;
 procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
 begin
   updateControls();
+end;
+
+procedure TfrmMain.miShowFormTrayClick(Sender: TObject);
+begin
+  showHideForm();
+end;
+
+procedure TfrmMain.miQuitTrayClick(Sender: TObject);
+begin
+  Show;
+  showTrayIcon := False;
+  Close;
 end;
 
 procedure TfrmMain.miEnglishClick(Sender: TObject);
@@ -184,6 +209,7 @@ end;
 
 procedure TfrmMain.miExitClick(Sender: TObject);
 begin
+  showTrayIcon := False;
   Close;
 end;
 
@@ -216,6 +242,11 @@ end;
 procedure TfrmMain.stVaultPathMouseLeave(Sender: TObject);
 begin
   TStaticText(Sender).Font.Style := [fsBold];
+end;
+
+procedure TfrmMain.trayIconClick(Sender: TObject);
+begin
+  showHideForm();
 end;
 
 procedure TfrmMain.initControls;
@@ -359,10 +390,53 @@ begin
       lvVaults.Items[i].ImageIndex := 1; // unlock
 end;
 
+procedure TfrmMain.showHideForm;
+begin
+  if Visible then
+    Hide
+  else
+    Show;
+end;
+
 procedure TfrmMain.setLang(const langCode: string);
 begin
   SetDefaultLang(langCode);
   config.lang := langCode;
+end;
+
+procedure TfrmMain.closeApp(out CanClose: boolean);
+var
+  i: integer;
+
+begin
+  CanClose := False;
+
+  if isUnlockedVaultsExists() then
+    with TfrmCloseQuery.Create(Self) do
+      try
+        for i := 0 to mountList.getSize() do
+          stVaultList.Caption := stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
+
+        ShowModal;
+
+        if CloseQueryResult then
+        begin
+          if not umountAll() then
+            Exit;
+        end
+        else
+          Exit;
+      finally
+        Free;
+      end;
+
+  if not isFsckThreadStopped then
+  begin
+    frmLog.Show;
+    Exit;
+  end;
+
+  CanClose := True;
 end;
 
 procedure TfrmMain.updateControls;
@@ -633,6 +707,12 @@ var
 begin
   CanClose := False;
 
+  if showTrayIcon then
+  begin
+    showHideForm();
+    Exit;
+  end;
+
   if isUnlockedVaultsExists() then
     with TfrmCloseQuery.Create(Self) do
       try
@@ -647,7 +727,11 @@ begin
             Exit;
         end
         else
+        begin
+          if trayIcon.Visible then
+            showTrayIcon := True;
           Exit;
+        end;
       finally
         Free;
       end;

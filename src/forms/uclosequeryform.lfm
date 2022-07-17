@@ -7,6 +7,7 @@ object frmCloseQuery: TfrmCloseQuery
   Caption = 'Please confirm'
   ClientHeight = 283
   ClientWidth = 407
+  OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'

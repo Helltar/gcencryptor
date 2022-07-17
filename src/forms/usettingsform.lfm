@@ -1,11 +1,11 @@
 object frmSettings: TfrmSettings
-  Left = 554
-  Height = 433
-  Top = 276
+  Left = 688
+  Height = 580
+  Top = 227
   Width = 674
   AutoSize = True
   Caption = 'Settings'
-  ClientHeight = 433
+  ClientHeight = 580
   ClientWidth = 674
   Constraints.MinWidth = 600
   KeyPreview = True
@@ -20,13 +20,13 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 294
+    Height = 341
     Top = 24
     Width = 626
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
-    ClientHeight = 290
+    ClientHeight = 337
     ClientWidth = 622
     ParentFont = False
     TabOrder = 0
@@ -173,6 +173,24 @@ object frmSettings: TfrmSettings
       Caption = 'Mount Directory:'
       ParentColor = False
     end
+    object cbTray: TCheckBox
+      AnchorSideLeft.Control = gbMain
+      AnchorSideTop.Control = seFontSize
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbMain
+      AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Side = asrBottom
+      Left = 24
+      Height = 23
+      Top = 290
+      Width = 574
+      Anchors = [akTop, akLeft, akRight]
+      AutoSize = False
+      BorderSpacing.Around = 24
+      Caption = 'Hide window to system tray when close'
+      ParentFont = False
+      TabOrder = 6
+    end
   end
   object btnSave: TButton
     AnchorSideTop.Control = gbMain
@@ -183,7 +201,7 @@ object frmSettings: TfrmSettings
     Cursor = crHandPoint
     Left = 588
     Height = 33
-    Top = 342
+    Top = 389
     Width = 62
     Anchors = [akTop, akRight]
     AutoSize = True

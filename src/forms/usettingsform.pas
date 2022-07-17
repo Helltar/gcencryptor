@@ -15,6 +15,7 @@ type
     btnSelectMountPoint: TButton;
     btnSave: TButton;
     cbAutorun: TCheckBox;
+    cbTray: TCheckBox;
     cbShortNames: TCheckBox;
     edtMountPoint: TEdit;
     gbMain: TGroupBox;
@@ -57,6 +58,9 @@ begin
   frmMain.config.mountPointShortName := cbShortNames.Checked;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
+  frmMain.config.showTrayIcon := cbTray.Checked;
+  frmMain.showTrayIcon := cbTray.Checked;
+  frmMain.trayIcon.Visible := cbTray.Checked;
   Close;
 end;
 
@@ -66,6 +70,7 @@ begin
   edtMountPoint.Text := frmMain.config.mountPoint;
   cbShortNames.Checked := frmMain.config.mountPointShortName;
   seFontSize.Value := frmMain.config.logFontSize;
+  cbTray.Checked := frmMain.config.showTrayIcon;
   sddMountPoint.InitialDir := GetUserDir;
 end;
 

@@ -26,6 +26,7 @@ type
     function GetMountPoint: string;
     function GetMountPointShortName: boolean;
     function GetShowMenubar: boolean;
+    function GetShowTrayIcon: boolean;
     function GetSplLeft: integer;
     procedure SetAutorunState(AValue: boolean);
     procedure SetFrmHeight(AValue: integer);
@@ -40,6 +41,7 @@ type
     procedure SetMountPoint(AValue: string);
     procedure SetMountPointShortName(AValue: boolean);
     procedure SetShowMenubar(AValue: boolean);
+    procedure SetShowTrayIcon(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
   public
     constructor Create();
@@ -56,6 +58,7 @@ type
     property mountPoint: string read GetMountPoint write SetMountPoint;
     property mountPointShortName: boolean read GetMountPointShortName write SetMountPointShortName;
     property showMenubar: boolean read GetShowMenubar write SetShowMenubar;
+    property showTrayIcon: boolean read GetShowTrayIcon write SetShowTrayIcon;
     property splLeft: integer read GetSplLeft write SetSplLeft;
   end;
 
@@ -92,6 +95,11 @@ end;
 function TConfig.GetShowMenubar: boolean;
 begin
   Result := ReadBool('FORM', 'showMenubar', True);
+end;
+
+function TConfig.GetShowTrayIcon: boolean;
+begin
+  Result := ReadBool('FORM', 'showTrayIcon', False);
 end;
 
 function TConfig.GetAutorunState: boolean;
@@ -212,6 +220,11 @@ end;
 procedure TConfig.SetShowMenubar(AValue: boolean);
 begin
   WriteBool('FORM', 'showMenubar', AValue);
+end;
+
+procedure TConfig.SetShowTrayIcon(AValue: boolean);
+begin
+  WriteBool('FORM', 'showTrayIcon', AValue);
 end;
 
 procedure TConfig.SetSplLeft(AValue: integer);

@@ -20,6 +20,7 @@ type
     stVaultList: TStaticText;
     procedure btnYesClick(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
   public
     CloseQueryResult: boolean;
@@ -33,8 +34,12 @@ implementation
 
 procedure TfrmCloseQuery.btnCancelClick(Sender: TObject);
 begin
-  CloseQueryResult := False;
   Close;
+end;
+
+procedure TfrmCloseQuery.FormCreate(Sender: TObject);
+begin
+    CloseQueryResult := False;
 end;
 
 procedure TfrmCloseQuery.FormShow(Sender: TObject);
