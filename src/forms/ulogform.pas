@@ -181,7 +181,6 @@ begin
   btnClose.Enabled := False;
   btnSaveLog.Enabled := False;
   Cursor := crAppStart;
-  FormStyle := fsMDIForm;
   synLog.Enabled := False;
 
   timer.Enabled := True;
