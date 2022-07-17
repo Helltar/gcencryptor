@@ -111,7 +111,7 @@ end;
 
 function TConfig.GetFrmLogHeight: integer;
 begin
-  Result := ReadInteger('FORM', 'logHeight', 400);
+  Result := ReadInteger('FORM', 'logHeight', 350);
 end;
 
 function TConfig.GetFrmLogWidth: integer;
@@ -126,7 +126,7 @@ end;
 
 function TConfig.GetFrmWidth: integer;
 begin
-  Result := ReadInteger('FORM', 'width', 800);
+  Result := ReadInteger('FORM', 'width', 600);
 end;
 
 function TConfig.GetLang: string;
@@ -146,7 +146,7 @@ end;
 
 function TConfig.GetSplLeft: integer;
 begin
-  Result := ReadInteger('FORM', 'splLeft', 300);
+  Result := ReadInteger('FORM', 'splLeft', 200);
 end;
 
 procedure TConfig.SetAutorunState(AValue: boolean);
