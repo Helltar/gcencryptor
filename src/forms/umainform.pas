@@ -510,7 +510,7 @@ end;
 
 procedure TfrmMain.actUnlockUpdate(Sender: TObject);
 begin
-  actUnlock.Enabled := isItemSelected() and not isSelectedVaultUnlock() and isSelectedVaultPathExists() and isFsckThreadStopped;
+  actUnlock.Enabled := isItemSelected() and isSelectedVaultPathExists() and not isSelectedVaultUnlock();
 end;
 
 procedure TfrmMain.actVaultInfoExecute(Sender: TObject);
@@ -615,6 +615,16 @@ begin
   end;
 end;
 
+procedure TfrmMain.FormDropFiles(Sender: TObject; const FileNames: array of string);
+var
+  dir: string;
+
+begin
+  for dir in FileNames do
+    if DirectoryExists(dir) then
+      addVaultToList(dir);
+end;
+
 procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
   i: integer;
@@ -641,6 +651,12 @@ begin
         Free;
       end;
 
+  if not isFsckThreadStopped then
+  begin
+    frmLog.Show;
+    Exit;
+  end;
+
   CanClose := True;
 end;
 
@@ -656,16 +672,6 @@ begin
   finally
     FreeAndNil(fileList);
   end;
-end;
-
-procedure TfrmMain.FormDropFiles(Sender: TObject; const FileNames: array of string);
-var
-  dir: string;
-
-begin
-  for dir in FileNames do
-    if DirectoryExists(dir) then
-      addVaultToList(dir);
 end;
 
 end.
