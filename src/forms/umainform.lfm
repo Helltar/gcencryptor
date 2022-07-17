@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 538
+  Left = 348
   Height = 476
-  Top = 272
+  Top = 299
   Width = 840
   AllowDropFiles = True
   ClientHeight = 445
@@ -213,7 +213,6 @@ object frmMain: TfrmMain
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-      TabStop = True
     end
     object bbtnLockAll: TBitBtn
       AnchorSideLeft.Control = gbCurrentVault
