@@ -607,8 +607,10 @@ begin
     with TfrmCloseQuery.Create(Self) do
       try
         for i := 0 to mountList.getSize() do
-          StaticText1.Caption := StaticText1.Caption + LineEnding + mountList.getVaultDir(i);
+          stVaultList.Caption := stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
+
         ShowModal;
+
         if CloseQueryResult then
         begin
           if not umountAll() then
