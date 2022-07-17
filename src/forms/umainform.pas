@@ -122,6 +122,7 @@ type
     procedure showPasswordForm(const title: string);
     procedure updateControls();
     procedure updateVaultListIcons();
+    procedure setLang(const langCode: string);
   public
     config: TConfig;
     vaultPassword: string;
@@ -166,8 +167,7 @@ end;
 
 procedure TfrmMain.miEnglishClick(Sender: TObject);
 begin
-  SetDefaultLang('en');
-  config.lang := 'en';
+  setLang('en');
 end;
 
 procedure TfrmMain.miAboutClick(Sender: TObject);
@@ -187,14 +187,12 @@ end;
 
 procedure TfrmMain.miRussianClick(Sender: TObject);
 begin
-  SetDefaultLang('ru');
-  config.lang := 'ru';
+  setLang('ru');
 end;
 
 procedure TfrmMain.miUkrainianClick(Sender: TObject);
 begin
-  SetDefaultLang('uk');
-  config.lang := 'uk';
+  setLang('uk');
 end;
 
 procedure TfrmMain.initControls;
@@ -333,6 +331,12 @@ begin
         lvVaults.Items[i].ImageIndex := 2 // not found
     else
       lvVaults.Items[i].ImageIndex := 1; // unlock
+end;
+
+procedure TfrmMain.setLang(const langCode: string);
+begin
+  SetDefaultLang(langCode);
+  config.lang := langCode;
 end;
 
 procedure TfrmMain.updateControls;
