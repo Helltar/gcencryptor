@@ -167,11 +167,6 @@ msgctxt "tfrmmain.actvaultinfo.caption"
 msgid "&Information"
 msgstr ""
 
-#: tfrmmain.caption
-msgctxt "tfrmmain.caption"
-msgid "gcencryptor"
-msgstr ""
-
 #: tfrmmain.cbreadonlymount.caption
 msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
@@ -285,11 +280,6 @@ msgstr ""
 
 #: tfrmpassword.btnshowpass.hint
 msgid "Show Password"
-msgstr ""
-
-#: tfrmpassword.caption
-msgctxt "tfrmpassword.caption"
-msgid "gcencryptor"
 msgstr ""
 
 #: tfrmpassword.lblpassword.caption

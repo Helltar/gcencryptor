@@ -171,11 +171,6 @@ msgctxt "tfrmmain.actvaultinfo.caption"
 msgid "&Information"
 msgstr "&Інформація"
 
-#: tfrmmain.caption
-msgctxt "tfrmmain.caption"
-msgid "gcencryptor"
-msgstr ""
-
 #: tfrmmain.cbreadonlymount.caption
 msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
@@ -293,11 +288,6 @@ msgstr ""
 #: tfrmpassword.btnshowpass.hint
 msgid "Show Password"
 msgstr "Показати пароль"
-
-#: tfrmpassword.caption
-msgctxt "tfrmpassword.caption"
-msgid "gcencryptor"
-msgstr ""
 
 #: tfrmpassword.lblpassword.caption
 msgid "Password:"
@@ -469,3 +459,4 @@ msgstr "Успішно відключено"
 msgctxt "uconsts.rs_vaultpath_hint"
 msgid "Open in File Manager ..."
 msgstr "Відкрити в менеджері файлів ..."
+
