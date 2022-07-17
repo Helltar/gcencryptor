@@ -146,7 +146,7 @@ var
 
 begin
   p := procStart('du', '-sh' + LineEnding + path, '', False);
-  if p.Completed then
+  if p.Completed and (p.ExitStatus = 0) then
     Result := Trim(StringReplace(p.Output, path, '', [rfReplaceAll]))
   else
     Result := '0b';
@@ -256,9 +256,12 @@ begin
    [4] ...
   -----------------------------------------------------------------------------}
 
-  Result := s[1] + LineEnding + s[0] + LineEnding;
-  for i := 3 to s.Count - 1 do
-    Result := Result + s[i] + LineEnding;
+  if s.Count >= 4 then
+  begin
+    Result := s[1] + LineEnding + s[0] + LineEnding;
+    for i := 3 to s.Count - 1 do
+      Result += s[i] + LineEnding;
+  end;
 
   FreeAndNil(s);
 end;
