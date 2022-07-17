@@ -1,24 +1,27 @@
 object frmMain: TfrmMain
-  Left = 478
-  Height = 527
-  Top = 260
-  Width = 854
+  Left = 381
+  Height = 493
+  Top = 250
+  Width = 951
+  AllowDropFiles = True
   Caption = 'gcencryptor'
-  ClientHeight = 496
-  ClientWidth = 854
-  Constraints.MinHeight = 350
+  ClientHeight = 462
+  ClientWidth = 951
+  Constraints.MinHeight = 300
   Constraints.MinWidth = 600
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnDropFiles = FormDropFiles
   LCLVersion = '2.2.2.0'
+  Visible = True
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 344
-    Height = 496
+    Left = 382
+    Height = 462
     Top = 0
     Width = 5
     Align = alNone
@@ -32,47 +35,87 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 373
-    Height = 448
+    Left = 393
+    Height = 414
     Top = 24
-    Width = 457
+    Width = 534
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
-    BorderSpacing.Around = 24
+    BorderSpacing.Left = 6
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 24
+    BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 417
-    ClientWidth = 453
-    Enabled = False
-    TabOrder = 0
-    object pnlMountButton: TPanel
+    ClientHeight = 383
+    ClientWidth = 530
+    TabOrder = 1
+    object cbReadOnlyMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = cbROMount
+      AnchorSideTop.Control = bbtnVaultPath
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbCurrentVault
       AnchorSideRight.Side = asrBottom
       Left = 24
-      Height = 34
-      Top = 213
-      Width = 405
+      Height = 23
+      Top = 71
+      Width = 482
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 24
+      Caption = 'Mount read-only'
+      TabOrder = 1
+      Visible = False
+    end
+    object bbtnVaultPath: TBitBtn
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideTop.Control = gbCurrentVault
+      AnchorSideRight.Control = gbCurrentVault
+      AnchorSideRight.Side = asrBottom
+      Cursor = crHandPoint
+      Left = 24
+      Height = 23
+      Top = 24
+      Width = 482
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
+      BorderSpacing.InnerBorder = 6
+      Color = clHotLight
+      Default = True
+      Enabled = False
+      Font.Color = clBtnText
+      OnClick = bbtnVaultPathClick
+      ParentFont = False
+      ParentShowHint = False
+      ShowHint = True
+      TabOrder = 0
+    end
+    object pnlButtons: TPanel
+      AnchorSideLeft.Control = gbCurrentVault
+      AnchorSideLeft.Side = asrCenter
+      AnchorSideTop.Control = cbReadOnlyMount
+      AnchorSideTop.Side = asrBottom
+      Left = 101
+      Height = 34
+      Top = 118
+      Width = 329
+      AutoSize = True
       BevelOuter = bvNone
       ClientHeight = 34
-      ClientWidth = 405
+      ClientWidth = 329
       TabOrder = 2
-      object btnMount: TBitBtn
-        AnchorSideLeft.Control = pnlMountButton
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Control = btnUmount
+      object bbtnUnlock: TBitBtn
+        AnchorSideLeft.Control = pnlButtons
+        AnchorSideTop.Control = pnlButtons
+        AnchorSideBottom.Side = asrBottom
         Cursor = crHandPoint
         Left = 0
         Height = 34
         Top = 0
         Width = 96
+        Action = actUnlock
         AutoSize = True
+        BorderSpacing.Right = 24
         BorderSpacing.InnerBorder = 2
-        Caption = 'Unlock'
         Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000000000000000
@@ -109,24 +152,24 @@ object frmMain: TfrmMain
           000000000000000000000000000043434326434343AE444444F2444444F24444
           44AD454545250000000000000000000000000000000000000000
         }
-        OnClick = btnMountClick
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 0
       end
-      object btnUmount: TBitBtn
-        AnchorSideLeft.Control = btnMount
+      object bbtnLock: TBitBtn
+        AnchorSideLeft.Control = bbtnUnlock
         AnchorSideLeft.Side = asrBottom
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Control = btnUmountAll
+        AnchorSideTop.Control = pnlButtons
+        AnchorSideBottom.Side = asrBottom
         Cursor = crHandPoint
-        Left = 196
+        Left = 120
         Height = 34
         Top = 0
         Width = 82
-        Anchors = [akTop, akRight]
+        Action = actLock
         AutoSize = True
-        BorderSpacing.Left = 100
+        BorderSpacing.Right = 24
         BorderSpacing.InnerBorder = 2
-        Caption = 'Lock'
         Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000000000000000
@@ -163,25 +206,24 @@ object frmMain: TfrmMain
           0000000000000000000000000000000000000000000000000000000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = btnUmountClick
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 1
       end
-      object btnUmountAll: TBitBtn
-        AnchorSideLeft.Control = btnUmount
+      object bbtnLockAll: TBitBtn
+        AnchorSideLeft.Control = bbtnLock
         AnchorSideLeft.Side = asrBottom
-        AnchorSideTop.Control = pnlMountButton
-        AnchorSideRight.Control = pnlMountButton
+        AnchorSideTop.Control = pnlButtons
         AnchorSideRight.Side = asrBottom
+        AnchorSideBottom.Side = asrBottom
         Cursor = crHandPoint
-        Left = 302
+        Left = 226
         Height = 34
         Top = 0
         Width = 103
-        Anchors = [akTop, akRight]
+        Action = actLockAll
         AutoSize = True
-        BorderSpacing.Left = 24
         BorderSpacing.InnerBorder = 2
-        Caption = 'Lock All'
         Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
           2000000000000004000064000000640000000000000000000000000000000000
@@ -218,75 +260,10 @@ object frmMain: TfrmMain
           00000000000043434305434343164444441C4444441645454505000000000000
           0000000000000000000000000000000000000000000000000000
         }
-        OnClick = btnUmountAllClick
+        ParentShowHint = False
+        ShowHint = True
         TabOrder = 2
       end
-    end
-    object cbROMount: TCheckBox
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = stMountVaultPath
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Left = 24
-      Height = 23
-      Top = 166
-      Width = 405
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      Caption = 'Mount read-only'
-      TabOrder = 3
-    end
-    object stVaultPath: TStaticText
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = gbCurrentVault
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Cursor = crHandPoint
-      Left = 24
-      Height = 47
-      Hint = 'Open'
-      Top = 24
-      Width = 405
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 12
-      BorderStyle = sbsSingle
-      Color = clHotLight
-      Font.Color = clBtnText
-      OnClick = stVaultPathClick
-      ParentFont = False
-      ParentColor = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 0
-      Visible = False
-    end
-    object stMountVaultPath: TStaticText
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = stVaultPath
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      Cursor = crHandPoint
-      Left = 24
-      Height = 47
-      Hint = 'Open'
-      Top = 95
-      Width = 405
-      Anchors = [akTop, akLeft, akRight]
-      BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 12
-      BorderStyle = sbsSingle
-      Color = clGreen
-      Font.Color = clWhite
-      OnClick = stMountVaultPathClick
-      ParentFont = False
-      ParentColor = False
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 1
-      Visible = False
     end
   end
   object lvVaults: TListView
@@ -296,17 +273,20 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 448
+    Height = 414
     Top = 24
-    Width = 296
+    Width = 352
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
-    BorderSpacing.Around = 24
+    BorderSpacing.Left = 24
+    BorderSpacing.Top = 24
+    BorderSpacing.Right = 6
+    BorderSpacing.Bottom = 24
     BorderStyle = bsNone
     Color = clForm
     Columns = <    
       item
-        Width = 292
+        Width = 348
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -316,78 +296,93 @@ object frmMain: TfrmMain
     ScrollBars = ssAutoBoth
     ShowColumnHeaders = False
     SmallImages = ilVaultState
-    TabOrder = 1
+    TabOrder = 0
     ViewStyle = vsReport
     OnDblClick = lvVaultsDblClick
     OnSelectItem = lvVaultsSelectItem
   end
   object pmMain: TPopupMenu
-    OnPopup = pmMainPopup
-    Left = 80
-    Top = 232
-    object miFsck: TMenuItem
-      Caption = 'Check Integrity'
-      OnClick = miFsckClick
+    Images = ilPopupmenu
+    Left = 88
+    Top = 48
+    object miOpenVaultDir: TMenuItem
+      Action = actOpenVaultDir
+    end
+    object miOpenMountDir: TMenuItem
+      Action = actOpenMountDir
     end
     object sp1: TMenuItem
       Caption = '-'
     end
+    object miFsck: TMenuItem
+      Action = actFsck
+    end
     object miVaultInfo: TMenuItem
-      Caption = 'Information'
-      OnClick = miVaultInfoClick
+      Action = actVaultInfo
     end
     object sp2: TMenuItem
       Caption = '-'
     end
     object miDelFromList: TMenuItem
-      Caption = 'Delete From List'
-      OnClick = miDelFromListClick
+      Action = actDelFromList
     end
   end
   object sddOpenVault: TSelectDirectoryDialog
     Title = 'Select An Encrypted Vault Directory'
     Options = [ofPathMustExist, ofFileMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
-    OnFolderChange = sddOpenVaultFolderChange
-    Left = 80
-    Top = 88
+    Left = 88
+    Top = 136
   end
   object mmMain: TMainMenu
-    Left = 208
-    Top = 88
+    Images = ilMainmenu
+    Left = 224
+    Top = 48
     object miVault: TMenuItem
       Caption = '&Vault'
       object miCreateNewVault: TMenuItem
-        Caption = 'Create &New Vault ...'
-        OnClick = miCreateNewVaultClick
+        Action = actCreateVault
       end
       object miOpenVault: TMenuItem
-        Caption = '&Open Existing Vault ...'
-        OnClick = miOpenVaultClick
+        Action = actOpenVault
+      end
+      object Separator1: TMenuItem
+        Caption = '-'
+      end
+      object miExit: TMenuItem
+        Caption = '&Quit'
+        ImageIndex = 2
+        OnClick = miExitClick
       end
     end
     object miSettings: TMenuItem
       Caption = '&Settings'
-      object miConfig: TMenuItem
-        Caption = 'Configure gcencryptor'
-        OnClick = miConfigClick
+      object miShowMenubar: TMenuItem
+        Action = actHideMenubar
+      end
+      object Separator2: TMenuItem
+        Caption = '-'
       end
       object miLanguage: TMenuItem
-        Caption = 'Language'
+        Caption = '&Language'
+        ImageIndex = 3
         object miEnglish: TMenuItem
-          Caption = 'English'
+          Caption = '&English'
           OnClick = miEnglishClick
         end
         object miUkrainian: TMenuItem
-          Caption = 'Ukrainian'
+          Caption = '&Ukrainian'
           OnClick = miUkrainianClick
         end
         object miRussian: TMenuItem
-          Caption = 'Russian'
+          Caption = '&Russian'
           OnClick = miRussianClick
         end
       end
-      object miShowMenubar: TMenuItem
-        Action = actHideMenubar
+      object Separator3: TMenuItem
+        Caption = '-'
+      end
+      object miConfig: TMenuItem
+        Action = actConfigure
       end
     end
     object miAbout: TMenuItem
@@ -398,34 +393,204 @@ object frmMain: TfrmMain
   object ilVaultState: TImageList
     Height = 32
     Width = 32
-    Left = 208
-    Top = 232
+    Left = 88
+    Top = 224
     Bitmap = {
-      4C7A020000002000000020000000BC0100000000000078DAED98CF6AC2401087
-      E7508F4A1FA278A8478F5EFC8B241E149F4A3C28BE8CBE44410F5A258848F458
-      C8C5934AED6FB785266BA3A64E3087097C2C0993FD66C725CB48245794AB542A
-      E5AAD56A1FCCC04E51ABD5A6187B954AE5352E6F3E9F4FC13380E7084E211C54
-      6E2A96DB8D794717BC0190E7B0582C3E71F9556D6F75FBE872B8F19B667FEAEA
-      9F7B0E9A854221AD404C0BF70B23665FAFD75F18D6DE35DDA8EDB319A79EFD91
-      438761FD1363CEE6855CDB46EC9861FD9E7F4E55EFB058CBB23286DF63F007F6
-      1577BCF893E5C73B0DB0FDC7F7E6DA377103EC6B7E15C7EDF6E146AD1F37E217
-      BFF8C52FFE64FA1F7DFEA83332A61CDC72B96C49077BE7E5528E56D4A725CDC0
-      4EE3D014630F636CFD2FBD510ADE013C47700AE1A07353B1DCEE258D2E7883AC
-      68489FC4D6FFEADADEEAFECD81A5FFA577CAEABA06E79F83267D505AB3A616EE
-      1746CC1E7BE5EEFE57AFC374AFE9ACFFD5CFCC1C56D461A8FDC4F087F6BFD8FF
-      6D2376CCE0F70273AA7A87FB3386DF63F007F715777CD2FD71E72B7EF127C9EF
-      5003EF6D239F37D7D900FB86FC3731B8BF71C88D5C3F6EC42F7EF18B5FFC49F5
-      3FFAFCB163C941B91774F6FFC717AE90284C
+      4C7A030000002000000020000000990300000000000078DAED984B4B1B5114C7
+      EFA22E95D2E7BA565C54FA00376D85A2D11013178A26F1F559DADAAEC4458C86
+      7E15FD04125F692C68151191285A68211BA15663A6FF339DD099E33CCD1DCDE2
+      5EF8332439737FE79C3973CFBD11428D20A3A7A7A7A3AFAF6F16DA824E49D168
+      7413D74C6F6FEFB3B0B89D9D9D4DE0CC81538134075D906F642B9B8D79175DB8
+      16C1CF85EEEEEE3BB2F8945BBF6C936664B0F14CDB8DBC9AE7DE8606BBBABA9A
+      49B019C2E71D66731E8BC5DA24C43EC3D9C8ED5D6E47DFD9F8302D21FE0D36E7
+      A08BAFC3CCB62821FEB2794ECAB7936D3C1E6F61FCB204BEA5AE64DB2B7E63F1
+      71CF0074748DF5C66B4D3C84125E7CB293CD36A914347FB2A5F88AAFF88AAFF8
+      8DC9BFEDFE433D32241F4A914824AE4EB0758E92E810FB6256EC892DE854D7AE
+      D8C435836B68E75FB12E9AC09D03A702690EBAD07D235BD9EC3DB1E8C2B56A5F
+      2C88AA9076FED573EB97FDDF0729E75FF15DB4EB79B5CEBF0D0D8A5FA259D781
+      18C2E71D66738E5AA9FBFCABC7C1D907E2CAF957FF8EFBB02FA625E47E83F11D
+      CFBFA8FF61665B94C02F5BE6A47C3BF35B18BF2C816FAD2BD9F68DCE0FDB5FC5
+      57FC46E2EF8A01DC7714B8DF78EB104AF8F0FF3004F63FED8A52E0FCC996E22B
+      BEE22BBEE2372AFFB6FB4F22141F88BD23D4FF1F12462A957A00BD181D1D4D8C
+      8D8DC5717D3E3E3E7E3F4C26386DE07C4AA7D31BB86A0E2A4253C964F2A9C458
+      1F63CE2FD0B90B978B6C73C8C9A33AD96F30CF49002ED74FE8DD75D8C8731AF7
+      9ED5C1AEE90C53A502C6FD5612BBA63F7EF3603CEF1FE6FB272626B4E5E5652D
+      97CB79B232998CB6B6B6A64D4E4EF2DF4E4646461E7AF18D5AB3B0575757351A
+      979797AE3E10BB52A9E8B68542C1CE87791FEF98A5CEF3F9BC661EE443369BBD
+      C2A6EFE837F3A07BF973402DB4BAC4FED92D26B30FE63CF8B1A909FC8F2EFC6F
+      5E79E5F307611BFAEAB4A67AD515E754ABD52B39F7AA11A88A3ABC6713FB2B3F
+      B5CD7D08C8D645BDC3A6F6E27EDE65F281C75CCB851FB6C1EFB7C97FFF4DF151
+      83319BF85FDE54FEA95F733EF5EFDBAC3FA3068B37F0FEADBBBCFF5361AF3FD0
+      7B273EED5B8C5E15DAFA8BE7FCC4A3FFE4CCF7C05E5B5A5A0ADC7F565656F4DE
+      C5EA7ED6ABFFD19E89EF79681E8AC52E6EBB3C902D6743C7B4C606D877C9DC7F
+      FC865E07DC7FA524F940ECE475F680E4739DFBCFE3A071F3417B26DAB7F0F7C2
+      6BBF87FC65FD3E6F9FCFA395F60ED4BF5DD6F502F4C1EB1DAB77D0FA496B38F5
+      CCDAF9CB694D55C37DFC058826C36B
     }
   end
-  object actlMain: TActionList
-    Left = 80
-    Top = 344
+  object actlMainMenu: TActionList
+    Images = ilMainmenu
+    Left = 488
+    Top = 248
+    object actCreateVault: TAction
+      Category = 'File'
+      Caption = 'Create &New Vault ...'
+      ImageIndex = 0
+      OnExecute = actCreateVaultExecute
+      ShortCut = 16462
+    end
+    object actOpenVault: TAction
+      Category = 'File'
+      Caption = '&Open Existing Vault ...'
+      ImageIndex = 1
+      OnExecute = actOpenVaultExecute
+      ShortCut = 24655
+    end
+    object actConfigure: TAction
+      Category = 'Settings'
+      Caption = '&Configure gcencryptor ...'
+      ImageIndex = 4
+      OnExecute = actConfigureExecute
+      ShortCut = 24764
+    end
     object actHideMenubar: TAction
-      Caption = 'Show Menubar'
+      Category = 'Settings'
+      Caption = 'Show &Menubar'
       Checked = True
+      Enabled = False
       OnExecute = actHideMenubarExecute
       ShortCut = 16461
+      Visible = False
     end
+  end
+  object actlPopupMenu: TActionList
+    Images = ilPopupmenu
+    Left = 648
+    Top = 248
+    object actOpenVaultDir: TAction
+      Caption = 'Open &Vault Directory ...'
+      Hint = 'Encrypted Directory'
+      ImageIndex = 0
+      OnExecute = actOpenVaultDirExecute
+      OnUpdate = actOpenVaultDirUpdate
+      ShortCut = 49231
+    end
+    object actOpenMountDir: TAction
+      Caption = '&Open Mounted Directory ...'
+      Hint = 'Decrypted Directory'
+      ImageIndex = 3
+      OnExecute = actOpenMountDirExecute
+      OnUpdate = actOpenMountDirUpdate
+      ShortCut = 16463
+    end
+    object actFsck: TAction
+      Caption = '&Check Integrity ...'
+      ImageIndex = 4
+      OnExecute = actFsckExecute
+      OnUpdate = actFsckUpdate
+      ShortCut = 24643
+    end
+    object actVaultInfo: TAction
+      Caption = '&Information'
+      ImageIndex = 1
+      OnExecute = actVaultInfoExecute
+      OnUpdate = actVaultInfoUpdate
+      ShortCut = 16457
+    end
+    object actDelFromList: TAction
+      Caption = '&Delete From List'
+      ImageIndex = 2
+      OnExecute = actDelFromListExecute
+      OnUpdate = actDelFromListUpdate
+      ShortCut = 46
+    end
+  end
+  object actlVault: TActionList
+    Left = 800
+    Top = 248
+    object actUnlock: TAction
+      Caption = 'Unlock'
+      Hint = 'Unlock Selected Vault'
+      OnExecute = actUnlockExecute
+      OnUpdate = actUnlockUpdate
+      ShortCut = 16469
+    end
+    object actLock: TAction
+      Caption = 'Lock'
+      Hint = 'Lock Selected Vault'
+      OnExecute = actLockExecute
+      OnUpdate = actLockUpdate
+      ShortCut = 16460
+    end
+    object actLockAll: TAction
+      Caption = 'Lock All'
+      Hint = 'Lock All Unlocked Vaults'
+      OnExecute = actLockAllExecute
+      OnUpdate = actLockAllUpdate
+      ShortCut = 24652
+    end
+  end
+  object ilMainmenu: TImageList
+    Left = 224
+    Top = 224
+    Bitmap = {
+      4C7A0500000010000000100000004C0300000000000078DAED96DF4B536118C7
+      C320BBB108A4EE0A4B646630111908327F4CE7B69C4E9DBFF0776A2A2A2A237F
+      80B820822E4514745D268DBA08235748DD79E16DB9DB6864E5A48BEC0FC89EBE
+      CF6167BC9D9DB39D3942255FF8E27BCEFB7C9E3D3FDEF7F59C3973F4A3A2A262
+      132215DDD7C9531C3D4A91D7D2668A3C25E28F6A5D6F9DFE157F5CD653ED5F12
+      FC662AFBEFA48FD3F37FCAFFE7FC893EFF88E536F4556FEC9595955F2087CCF3
+      F321F2DF51D63F897855FB27DA707C168BE585DD6E4F4F962F2D2D3D8FE7CF91
+      F76B8D8D8DE7E2F16A03BF9D039B6F11DB801887C82751AFA88FC3F0A8C76B35
+      5E6B9497975F430EA188ED1BADF8D59ED916CF9FD472D7DB3FFCB61BEFD6B917
+      87E97F32FB27D5FDCB7B2D491F3BA8AFFDB89C7FF4C75A5555F50A0A88424E77
+      F4F0E8D13AFA452A7AAF872F292909A8F1A8D36FC47623191EF6D4D4D414F5D1
+      DEDE4E3333334A1D783C1EAF1ADFD3D343C16090666767A5E7EAEA6A9A9E9E8E
+      D1F8F878408D0F8542B4B0B0405B5B5B720E3431314143434309F9BABA3A1A1D
+      1DA5D6D656F2FBFD12CBEFD1072A2E2E2687C3216970705095E7BC395E9EB30F
+      B6E539FFE5189C4E278D8D8DD1E4E4A466FC1A7D20ABD54AB80713E61FCF87DB
+      EDA6A9A9A918BEA8A8E8016C0EE2F11C7B575797D44F258F7116BAA414464E6E
+      6EEE2F83C140B5B5B512C7B9ABF09A233F3FFFA3CD668BE93FEAB8AE872F2B2B
+      9B1B1E1E7E373232F256D0465B5B9BF3B87FD763CF5E40CD3F40FBBDBDBD3EAF
+      D79B16CFBEAFAFCF83F3B30ACED0DFDF7F1DDCB3E6E66662B5B4B45067676781
+      16DBD1D1718FF72CDB622E89199967353434B8B478AC3D176DD5849A87070606
+      6C383F05CA5CCC66B345B4E57BC0E7F349E2B9E043DA83C8E5B1C8D7D7D7DF14
+      D9BDBD3D9247381CFECB47A41E3F641675CA80CF27F2DACACA0A29C7F2F2B2B2
+      16DB328F58B6C55A2D2D2DC5F08B8B8BD17597CBB59195957555E6716FFC147D
+      C31FEDEEEE46599E733FE475D4CA28E65E5353B3AAAC35F7727E7E5E92DCD788
+      0EBABBBB6F897C66666686C964B2E31EB98B3BE67BA23E22D7A771BE5B3A12F1
+      B80FE7E2FC2F3489B6C8EDA5D168341716165A7107ADE11E7C08B3742D3E3B3B
+      3B1D77B01F79EC634F04F3F2F2AE08CBFC1D99A6E3E8B1DD65E86222C33F4750
+      86FC
+    }
+  end
+  object ilPopupmenu: TImageList
+    Left = 88
+    Top = 328
+    Bitmap = {
+      4C7A050000001000000010000000B20200000000000078DAED58BD8B1341148F
+      362A5858E8157E61A3BD65BA902F12B0D17C774911828DFF42C82560EFDF20A2
+      886261D2A438C1BBE68E2457D88AE483A4B803B3C9612519DF6F797B8CE3CE66
+      7713214A1EFCC832EFFDDE7BF3E6CDEC6C0281F54B24127940781F8D46678C77
+      B158ECBE1B6E381CBE45F6A704A1E0947CDC5CC627BBD76CFF11BE42A1D06D7A
+      6EF2D82B17FC296CC1B3C6E2F1F81DE67F77C137F3753BBE2E3ED5E6C0A6663A
+      ECEBFCBBC596BF76FEBE07FEE7C0860AED951DCAAF41E811CE185D421D3A272E
+      F57086CF0BDDBC6774AEA41DB80BC5BECF90C716AA0FCE598DDBA733E03240CF
+      0345672493C91BD2DA356C7235F9C160F08A0D5F50BEBBD27979AC99EFC08ECB
+      E84AF1E74E3DA6ABA5A49FF9E01B92BEE7832FE75FF7CAA79AD596AC9F137F4A
+      6B735D7967A56DFAC70EB079A279EFC187E1C09DEAB896A0AFD01B64D7E17505
+      3A98AF9AF3264AA150D8C9E5720D428F70C6E866B3D93A744E5CB2C91066642F
+      ECC0BAB48E4BBA453E9F17C562F10F2EC6A0838DEA0379C137F4AD564B8C4623
+      51A954CEB9E57259F4FB7DD16EB72D1F462A953ADFFF3C5F512A95C460301010
+      FC8207C863B061BFBB52EEC76A2CC8783C367381A839A1A652FCB93C57F8180E
+      87C292C964A272CD5A4AF1675EF9A88114BFB74AFEE80D1FF5ABD9AD5FB3D974
+      B37ED34C26F3DB5E424FB8ED1F8A65BB87D987A1EB5FC4D5712D415FA137C8AE
+      C3EB3AE7E79A9AF3DF12DC7DE90C7ABBC2FDFD6485FBFB9B7FF9FEEED5EFA6F0
+      B7DF0FDBEF87FF5DF86C3A22ECF93813AFF2770CEA77E8855BAD562F12E70373
+      4FF0FF88C7BDFB82B93F881BF4F85FCC33E6FEA43DFED821C627D4269148DC93
+      B88FC063FED325391EF1BDFC1B7CD0F343E9BBE4F9B23CC101D7F241BF23E6BE
+      24F5059775BA4BF82AF5F91EDDA72F79ACB5E9836AF585D6FC9A9F3EC35CE4F7
+      CF26CB2F8641AF44
+    }
   end
 end

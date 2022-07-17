@@ -1,14 +1,16 @@
 object frmNewVault: TfrmNewVault
-  Left = 776
+  Left = 657
   Height = 381
-  Top = 309
+  Top = 297
   Width = 640
   AutoSize = True
   Caption = 'New Vault'
   ClientHeight = 381
   ClientWidth = 640
   Constraints.MinWidth = 600
+  KeyPreview = True
   OnCreate = FormCreate
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poOwnerFormCenter
   LCLVersion = '2.2.2.0'

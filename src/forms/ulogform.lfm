@@ -1,16 +1,17 @@
 object frmLog: TfrmLog
-  Left = 552
-  Height = 431
-  Top = 268
+  Left = 511
+  Height = 442
+  Top = 258
   Width = 752
-  Caption = 'Log Messages'
-  ClientHeight = 431
+  Caption = 'Messages'
+  ClientHeight = 442
   ClientWidth = 752
   Constraints.MinHeight = 200
   Constraints.MinWidth = 400
-  OnClose = FormClose
+  KeyPreview = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poMainFormCenter
   LCLVersion = '2.2.2.0'
@@ -21,7 +22,7 @@ object frmLog: TfrmLog
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnSaveLog
     Left = 24
-    Height = 326
+    Height = 337
     Top = 24
     Width = 704
     BorderSpacing.Around = 24
@@ -35,6 +36,7 @@ object frmLog: TfrmLog
     ParentColor = False
     ParentFont = False
     TabOrder = 0
+    TabStop = False
     BorderStyle = bsNone
     Gutter.Visible = False
     Gutter.Width = 57
@@ -489,6 +491,7 @@ object frmLog: TfrmLog
     MouseLinkColor.Foreground = clBlue
     LineHighlightColor.Background = clNone
     LineHighlightColor.Foreground = clNone
+    WantTabs = False
     inline SynLeftGutterPartList1: TSynGutterPartList
       object SynGutterMarks1: TSynGutterMarks
         Width = 24
@@ -534,15 +537,15 @@ object frmLog: TfrmLog
     Cursor = crHandPoint
     Left = 24
     Height = 33
-    Top = 374
-    Width = 96
+    Top = 385
+    Width = 105
     Anchors = [akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
-    Caption = 'Save to file'
+    Caption = '&Save to file'
     OnClick = btnSaveLogClick
-    TabOrder = 1
+    TabOrder = 3
   end
   object btnClear: TButton
     AnchorSideLeft.Control = btnSaveLog
@@ -552,15 +555,15 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 144
+    Left = 153
     Height = 33
-    Top = 374
-    Width = 55
+    Top = 385
+    Width = 65
     Anchors = [akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
-    Caption = 'Clear'
+    Caption = 'C&lear'
     OnClick = btnClearClick
     TabOrder = 2
   end
@@ -574,33 +577,40 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
-    Left = 670
+    Left = 660
     Height = 33
-    Top = 374
-    Width = 58
+    Top = 385
+    Width = 68
     Anchors = [akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
-    Caption = 'Close'
+    Caption = '&Close'
     OnClick = btnCloseClick
-    TabOrder = 3
+    TabOrder = 1
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
-    Enabled = False
+    CommentAttri.Style = [fsBold]
+    KeyAttri.Foreground = clBtnText
+    KeyAttri.Style = []
     NumberAttri.Foreground = clTeal
+    StringAttri.Foreground = clRed
+    StringAttri.Style = [fsBold]
+    SymbolAttri.Foreground = clBtnText
     Left = 200
     Top = 96
   end
   object timer: TTimer
     Enabled = False
-    Interval = 500
+    Interval = 200
     OnTimer = timerTimer
     Left = 472
     Top = 96
   end
   object saveDialog: TSaveDialog
+    FileName = '/home/helltar'
+    InitialDir = '/home/'
     Options = [ofOverwritePrompt, ofHideReadOnly, ofPathMustExist, ofNoReadOnlyReturn, ofEnableSizing, ofViewDetail]
     Left = 200
     Top = 208

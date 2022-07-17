@@ -22,24 +22,13 @@ type
 function dumpMasterKey(path, pass: string): TInitRec;
 function init(const path: string; pass: string): boolean;
 function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const shortName: boolean = False): TMountRec;
-procedure getVaultInfo(const cipherdir: string);
 procedure fsck(const ACipherdir: string; pass: string);
-
-const
-  GOCRYPTFS_BIN = 'gocryptfs';
+procedure getVaultInfo(const cipherdir: string);
 
 implementation
 
 uses
-  uLogger, uUtils, ugocryptfsFsck;
-
-const
-  GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
-  GOCRYPTFS_CONF = 'gocryptfs.conf';
-
-resourcestring
-  SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
-  CREATED_SUCCESSFULLY = 'The gocryptfs filesystem has been created successfully';
+  uLogger, uUtils, ugocryptfsFsck, uConsts;
 
 function dumpMasterKey(path, pass: string): TInitRec;
 var
@@ -48,7 +37,7 @@ var
 begin
   Result.Completed := False;
 
-  path := path + DirectorySeparator + GOCRYPTFS_CONF;
+  path := path + DirectorySeparator + GOCRYPTFS_CONF_FILE;
 
   p := procStart(GOCRYPTFS_XRAY_BIN, '-dumpmasterkey' + LineEnding + path, pass);
   pass := '';
@@ -84,7 +73,7 @@ begin
   if p.ExitStatus = 0 then
   begin
     Result := True;
-    addLog(CREATED_SUCCESSFULLY, path);
+    addLog(RS_CREATED_SUCCESSFULLY, path);
   end
   else
     addGoCryptFsLog(p.Output, p.ExitStatus);
@@ -131,7 +120,7 @@ begin
   begin
     Result.Completed := True;
     Result.Point := genMountPoint;
-    addLog(SUCCESSFULLY_MOUNTED, genMountPoint);
+    addLog(RS_SUCCESSFULLY_MOUNTED, genMountPoint);
   end
   else
   begin

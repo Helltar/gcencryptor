@@ -9,10 +9,10 @@ uses
   {$IFDEF HASAMIGA}
   athreads,
   {$ENDIF}
-  Forms, Interfaces,
-  //----------------------------------------------------------------------------
-  uMainForm, uSettingsForm, uNewVaultForm, uAboutForm, uMasterKeyForm, uLogForm,
-  uMountList, ugocryptfs, ugocryptfsFsck, uPasswordForm;
+  Forms,
+  Interfaces,
+  uMainForm,
+  uLogForm;
 
 {$R *.res}
 

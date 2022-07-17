@@ -6,7 +6,8 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, ComCtrls,
-  StdCtrls, SynEdit, synhighlighterunixshellscript;
+  StdCtrls, SynEdit, synhighlighterunixshellscript, SynHighlighterHTML,
+  SynExportHTML, LCLType;
 
 type
 
@@ -23,12 +24,11 @@ type
     procedure btnSaveLogClick(Sender: TObject);
     procedure btnClearClick(Sender: TObject);
     procedure btnCloseClick(Sender: TObject);
-    procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
-
   public
     procedure addSynLog(const msg: string; const err: boolean = False);
     procedure waitOnThreadFinish();
@@ -40,25 +40,11 @@ var
 implementation
 
 uses
-  uMainForm, ugocryptfsFsck, uLogger;
-
-resourcestring
-  PLEASE_WAIT_UNTIL_THE_PROCESS = 'Please wait until the process is completed it may take some time ...';
-  FAILED_TO_SAVE_LOG_FILE = 'Failed to save log file';
+  uMainForm, ugocryptfsFsck, uUtils, uConsts;
 
 {$R *.lfm}
 
 { TfrmLog }
-
-procedure TfrmLog.FormShow(Sender: TObject);
-begin
-  synLog.Font.Size := frmMain.config.logFontSize;
-end;
-
-procedure TfrmLog.FormClose(Sender: TObject; var CloseAction: TCloseAction);
-begin
-  frmMain.updateControls();
-end;
 
 procedure TfrmLog.btnCloseClick(Sender: TObject);
 begin
@@ -72,14 +58,22 @@ end;
 
 procedure TfrmLog.btnSaveLogClick(Sender: TObject);
 begin
-  saveDialog.FileName := 'gcencryptor_' + FormatDateTime('yyy-mm-dd_hh-nn-ss', Now) + '.log';
+  saveDialog.FileName := getAppOriginalFilename() + '_' + getAppFileVersion() + '_' + FormatDateTime('yyy-mm-dd_hh-nn-ss', Now) + '_log';
 
   if saveDialog.Execute then
-    try
-      synLog.Lines.SaveToFile(saveDialog.FileName);
-    except
-      addErrLog(FAILED_TO_SAVE_LOG_FILE, saveDialog.FileName);
-    end;
+    with TSynExporterHTML.Create(nil) do
+      try
+        try
+          Title := getAppOriginalFilename();
+          Highlighter := synLog.Highlighter;
+          ExportAll(synLog.Lines);
+          SaveToFile(saveDialog.FileName + '.html');
+        except
+          addSynLog(RS_FAILED_TO_SAVE_LOG_FILE + LineEnding + saveDialog.FileName, True);
+        end;
+      finally
+        Free;
+      end;
 end;
 
 procedure TfrmLog.FormCreate(Sender: TObject);
@@ -95,11 +89,27 @@ begin
   frmMain.config.frmLogWidth := Width;
 end;
 
+procedure TfrmLog.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if (Key = VK_Q) and (ssCtrl in Shift) then
+    Close;
+end;
+
+procedure TfrmLog.FormShow(Sender: TObject);
+begin
+  synLog.Font.Size := frmMain.config.logFontSize;
+end;
+
 procedure TfrmLog.timerTimer(Sender: TObject);
 begin
   if isFsckThreadStopped then
   begin
+    btnClear.Enabled := True;
+    btnClose.Enabled := True;
+    btnSaveLog.Enabled := True;
     Cursor := crDefault;
+    FormStyle := fsNormal;
+    synLog.Enabled := True;
     synLog.Enabled := True;
     timer.Enabled := False;
   end;
@@ -109,7 +119,7 @@ procedure TfrmLog.addSynLog(const msg: string; const err: boolean);
 var
   i: integer;
   s: TStringList;
-  tab: string = '        ';
+  tab: string = '          ';
 
 begin
   synLog.LineHighlightColor.Foreground := clNone;
@@ -130,8 +140,7 @@ begin
   s.Text := msg;
   s.Delimiter := LineEnding;
 
-  synLog.Append(TimeToStr(Time));
-  synLog.Append(tab + s[0]);
+  synLog.Append(TimeToStr(Time) + ': ' + s[0]); // title
 
   // 'wordwrap'
   for i := 1 to s.Count - 1 do
@@ -148,13 +157,14 @@ end;
 
 procedure TfrmLog.waitOnThreadFinish;
 begin
-  addLog(PLEASE_WAIT_UNTIL_THE_PROCESS);
-
+  btnClear.Enabled := False;
+  btnClose.Enabled := False;
+  btnSaveLog.Enabled := False;
   Cursor := crAppStart;
+  FormStyle := fsMDIForm;
   synLog.Enabled := False;
-  timer.Enabled := True;
 
-  Show;
+  timer.Enabled := True;
 end;
 
 end.

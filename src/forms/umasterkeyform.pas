@@ -22,8 +22,6 @@ type
     procedure btnSaveClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
-
-
   public
     vaultName: string;
   end;
@@ -31,11 +29,7 @@ type
 implementation
 
 uses
-  uLogger;
-
-resourcestring
-  KEY_SAVED = 'Key successfully saved';
-  ERR_SAVE_KEY = 'Error when saving key';
+  uLogger, uConsts;
 
 {$R *.lfm}
 
@@ -51,9 +45,9 @@ begin
         Text := edtKey.Text;
         try
           SaveToFile(saveDialog.FileName);
-          addLog(KEY_SAVED);
+          addLog(RS_KEY_SAVED);
         except
-          addErrLog(ERR_SAVE_KEY, saveDialog.FileName);
+          addErrLog(RS_ERR_SAVE_KEY, saveDialog.FileName);
         end;
       finally
         Free;

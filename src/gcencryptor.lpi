@@ -4,6 +4,7 @@
     <Version Value="12"/>
     <General>
       <SessionStorage Value="InProjectDir"/>
+      <AutoCreateForms Value="False"/>
       <Title Value="gcencryptor"/>
       <Scaled Value="True"/>
       <ResourceType Value="res"/>
@@ -21,10 +22,9 @@
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
       <MajorVersionNr Value="1"/>
-      <MinorVersionNr Value="4"/>
-      <RevisionNr Value="5"/>
-      <BuildNr Value="75"/>
-      <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.4"/>
+      <MinorVersionNr Value="5"/>
+      <BuildNr Value="79"/>
+      <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.5"/>
     </VersionInfo>
     <BuildModes>
       <Item Name="Default" Default="True"/>
@@ -36,7 +36,8 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="forms"/>
+            <Libraries Value="/usr/lib/"/>
+            <OtherUnitFiles Value="forms;gocryptfs;units"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <Parsing>
@@ -66,6 +67,11 @@
               </Win32>
             </Options>
           </Linking>
+          <Other>
+            <Verbosity>
+              <ShowHintsForUnusedUnitsInMainSrc Value="True"/>
+            </Verbosity>
+          </Other>
         </CompilerOptions>
       </Item>
       <Item Name="Release">
@@ -76,7 +82,8 @@
           </Target>
           <SearchPaths>
             <IncludeFiles Value="$(ProjOutDir)"/>
-            <OtherUnitFiles Value="forms"/>
+            <Libraries Value="/usr/lib/"/>
+            <OtherUnitFiles Value="forms;gocryptfs;units"/>
             <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
           </SearchPaths>
           <CodeGeneration>
@@ -131,17 +138,17 @@
         <UnitName Value="uMainForm"/>
       </Unit>
       <Unit>
-        <Filename Value="uutils.pas"/>
+        <Filename Value="units/uutils.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uUtils"/>
       </Unit>
       <Unit>
-        <Filename Value="uconfig.pas"/>
+        <Filename Value="units/uconfig.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uConfig"/>
       </Unit>
       <Unit>
-        <Filename Value="ulogger.pas"/>
+        <Filename Value="units/ulogger.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uLogger"/>
       </Unit>
@@ -162,12 +169,12 @@
         <UnitName Value="uAboutForm"/>
       </Unit>
       <Unit>
-        <Filename Value="umountlist.pas"/>
+        <Filename Value="units/umountlist.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uMountList"/>
       </Unit>
       <Unit>
-        <Filename Value="ugocryptfs.pas"/>
+        <Filename Value="gocryptfs/ugocryptfs.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit>
       <Unit>
@@ -195,7 +202,7 @@
         <UnitName Value="uLogForm"/>
       </Unit>
       <Unit>
-        <Filename Value="ugocryptfsfsck.pas"/>
+        <Filename Value="gocryptfs/ugocryptfsfsck.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="ugocryptfsFsck"/>
       </Unit>
@@ -207,6 +214,27 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="uPasswordForm"/>
       </Unit>
+      <Unit>
+        <Filename Value="forms/ulicenseform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLicense"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uLicenseForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="forms/uclosequeryform.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCloseQuery"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="uCloseQueryForm"/>
+      </Unit>
+      <Unit>
+        <Filename Value="units/uconsts.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="uConsts"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>
@@ -216,7 +244,8 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
-      <OtherUnitFiles Value="forms"/>
+      <Libraries Value="/usr/lib/"/>
+      <OtherUnitFiles Value="forms;gocryptfs;units"/>
       <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)"/>
     </SearchPaths>
     <Linking>

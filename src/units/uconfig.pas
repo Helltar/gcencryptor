@@ -42,6 +42,7 @@ type
     procedure SetShowMenubar(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
   public
+    constructor Create();
     property autorunState: boolean read GetAutorunState write SetAutorunState;
     property frmHeight: integer read GetFrmHeight write SetFrmHeight;
     property frmLeft: integer read GetFrmLeft write SetFrmLeft;
@@ -50,17 +51,33 @@ type
     property frmTop: integer read GetFrmTop write SetFrmTop;
     property frmWidth: integer read GetFrmWidth write SetFrmWidth;
     property lang: string read GetLang write SetLang;
-    property showMenubar: boolean read GetShowMenubar write SetShowMenubar;
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
     property mountPointShortName: boolean read GetMountPointShortName write SetMountPointShortName;
+    property showMenubar: boolean read GetShowMenubar write SetShowMenubar;
     property splLeft: integer read GetSplLeft write SetSplLeft;
   end;
 
 implementation
 
+uses
+  uConsts;
+
 { TConfig }
+
+constructor TConfig.Create;
+var
+  configDir: string;
+
+begin
+  configDir := GetAppConfigDir(False);
+
+  if not DirectoryExists(configDir) then
+    mkDir(configDir);
+
+  inherited Create(configDir + MAIN_CONF_FILE);
+end;
 
 function TConfig.GetMountPoint: string;
 begin
@@ -84,7 +101,7 @@ end;
 
 function TConfig.GetFrmHeight: integer;
 begin
-  Result := ReadInteger('FORM', 'height', 500);
+  Result := ReadInteger('FORM', 'height', 400);
 end;
 
 function TConfig.GetFrmLeft: integer;
@@ -94,12 +111,12 @@ end;
 
 function TConfig.GetFrmLogHeight: integer;
 begin
-  Result := ReadInteger('FORM', 'logHeight', 432);
+  Result := ReadInteger('FORM', 'logHeight', 400);
 end;
 
 function TConfig.GetFrmLogWidth: integer;
 begin
-  Result := ReadInteger('FORM', 'logWidth', 768);
+  Result := ReadInteger('FORM', 'logWidth', 800);
 end;
 
 function TConfig.GetFrmTop: integer;
@@ -109,7 +126,7 @@ end;
 
 function TConfig.GetFrmWidth: integer;
 begin
-  Result := ReadInteger('FORM', 'width', 900);
+  Result := ReadInteger('FORM', 'width', 800);
 end;
 
 function TConfig.GetLang: string;

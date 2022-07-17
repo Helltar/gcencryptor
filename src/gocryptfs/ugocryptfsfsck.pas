@@ -19,6 +19,7 @@ type
     FPassword: string;
     p: TProcessRec;
     procedure addOkLog;
+    procedure addWaitText;
     procedure addErrorLog;
     procedure SetCipherdir(AValue: string);
     procedure SetPassword(AValue: string);
@@ -36,10 +37,7 @@ var
 implementation
 
 uses
-  ugocryptfs, uLogger;
-
-resourcestring
-  FSCK_NO_PROBLEMS_FOUND = 'fsck summary: no problems found';
+  uLogger, uConsts;
 
 constructor TFsckThread.Create(CreateSuspended: boolean);
 begin
@@ -50,6 +48,8 @@ end;
 procedure TFsckThread.Execute;
 begin
   isFsckThreadStopped := False;
+
+  Synchronize(@addWaitText);
 
   // -q, -quiet silence informational messages
   p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + FCipherdir, FPassword);
@@ -68,12 +68,17 @@ end;
 
 procedure TFsckThread.addOkLog;
 begin
-  addLog(FSCK_NO_PROBLEMS_FOUND);
+  addLog(RS_FSCK_NO_PROBLEMS_FOUND);
+end;
+
+procedure TFsckThread.addWaitText;
+begin
+  addLog(RS_PLEASE_WAIT_UNTIL_THE_PROCESS, '', True);
 end;
 
 procedure TFsckThread.addErrorLog;
 begin
-  addGoCryptFsLog(p.Output + FCipherdir, p.ExitStatus);
+  addGoCryptFsLog(p.Output + LineEnding + FCipherdir, p.ExitStatus);
 end;
 
 procedure TFsckThread.SetCipherdir(AValue: string);

@@ -5,7 +5,7 @@ unit uNewVaultForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, LCLType;
 
 type
 
@@ -26,6 +26,7 @@ type
     procedure edtRepeatPasswordChange(Sender: TObject);
     procedure edtVaultNameChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
   private
     procedure createVault(const path: string);
@@ -35,12 +36,7 @@ type
 implementation
 
 uses
-  ugocryptfs, uMainForm, uMasterKeyForm, uLogger;
-
-resourcestring
-  PASSWORDS_DO_NOT_MATCH = 'Passwords do not match';
-  DIRECTORY_EXISTS = 'Directory already exists';
-  FAILED_TO_RETRIEVE_RECOVERY_KEY =  'Vault was successfully created, but could not retrieve the recovery key';
+  ugocryptfs, uMainForm, uMasterKeyForm, uLogger, uConsts;
 
 {$R *.lfm}
 
@@ -51,6 +47,12 @@ begin
   sddSelectPath.InitialDir := GetUserDir;
 end;
 
+procedure TfrmNewVault.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if (Key = VK_Q) and (ssCtrl in Shift) then
+    Close;
+end;
+
 procedure TfrmNewVault.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
@@ -59,10 +61,10 @@ end;
 procedure TfrmNewVault.btnCreateClick(Sender: TObject);
 begin
   if edtPassword.Text <> edtRepeatPassword.Text then
-    ShowMessage(PASSWORDS_DO_NOT_MATCH)
+    ShowMessage(RS_PASSWORDS_DO_NOT_MATCH)
   else
   if DirectoryExists(edtPath.Text) then
-    ShowMessage(DIRECTORY_EXISTS + ': ' + edtPath.Text)
+    ShowMessage(RS_DIRECTORY_EXISTS + ': ' + edtPath.Text)
   else
     createVault(edtPath.Text);
 end;
@@ -109,7 +111,7 @@ begin
         end;
     end
     else
-      addErrLog(FAILED_TO_RETRIEVE_RECOVERY_KEY, path);
+      addErrLog(RS_FAILED_TO_RETRIEVE_RECOVERY_KEY, path);
   end;
 
   Close;

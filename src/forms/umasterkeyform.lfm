@@ -1,7 +1,7 @@
 object frmMasterKey: TfrmMasterKey
-  Left = 607
+  Left = 582
   Height = 403
-  Top = 295
+  Top = 313
   Width = 640
   AutoSize = True
   Caption = 'Recovery Master Key'

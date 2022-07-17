@@ -5,7 +5,7 @@ unit uPasswordForm;
 interface
 
 uses
-  Forms, Dialogs, StdCtrls;
+  Forms, Dialogs, StdCtrls, Classes, Controls, LCLType;
 
 type
 
@@ -20,6 +20,10 @@ type
     procedure btnOKClick(Sender: TObject);
     procedure btnShowPassClick(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
+    procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+  private
+    procedure okClose();
   end;
 
 implementation
@@ -33,9 +37,7 @@ uses
 
 procedure TfrmPassword.btnOKClick(Sender: TObject);
 begin
-  frmMain.vaultPassword := edtPassword.Text;
-  edtPassword.Clear;
-  Close;
+  okClose();
 end;
 
 procedure TfrmPassword.btnShowPassClick(Sender: TObject);
@@ -49,6 +51,25 @@ end;
 procedure TfrmPassword.edtPasswordChange(Sender: TObject);
 begin
   btnOK.Enabled := edtPassword.Text <> '';
+end;
+
+procedure TfrmPassword.edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if Key = VK_RETURN then
+    okClose();
+end;
+
+procedure TfrmPassword.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if (Key = VK_Q) and (ssCtrl in Shift) then
+    Close;
+end;
+
+procedure TfrmPassword.okClose;
+begin
+  frmMain.vaultPassword := edtPassword.Text;
+  edtPassword.Clear;
+  Close;
 end;
 
 end.

@@ -5,7 +5,7 @@ unit uSettingsForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Dialogs, StdCtrls, Spin;
+  Classes, SysUtils, Forms, Dialogs, StdCtrls, Spin, LCLType, Controls;
 
 type
 
@@ -27,19 +27,14 @@ type
     procedure btnSelectMountPointClick(Sender: TObject);
     procedure edtMountPointChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
   end;
-
-var
-  frmSettings: TfrmSettings;
 
 implementation
 
 uses
-  uMainForm, uLogForm;
-
-resourcestring
-  MOUNTPOINT_HINT = 'During the mount, directories with the storage name will be temporarily created in this directory, for example:';
+  uMainForm, uConsts;
 
 {$R *.lfm}
 
@@ -53,7 +48,7 @@ end;
 
 procedure TfrmSettings.edtMountPointChange(Sender: TObject);
 begin
-  stMountPointHint.Caption := MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_GUID';
+  stMountPointHint.Caption := RS_MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_GUID';
 end;
 
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
@@ -62,7 +57,6 @@ begin
   frmMain.config.mountPointShortName := cbShortNames.Checked;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
-  frmLog.synLog.Font.Size := seFontSize.Value;
   Close;
 end;
 
@@ -73,6 +67,12 @@ begin
   cbShortNames.Checked := frmMain.config.mountPointShortName;
   seFontSize.Value := frmMain.config.logFontSize;
   sddMountPoint.InitialDir := GetUserDir;
+end;
+
+procedure TfrmSettings.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+begin
+  if (Key = VK_Q) and (ssCtrl in Shift) then
+    Close;
 end;
 
 procedure TfrmSettings.FormShow(Sender: TObject);

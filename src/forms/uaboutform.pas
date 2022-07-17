@@ -29,13 +29,10 @@ type
     procedure lblLicenseClick(Sender: TObject);
   end;
 
-var
-  frmAbout: TfrmAbout;
-
 implementation
 
 uses
-  uUtils, uLicenseForm;
+  uUtils, uLicenseForm, uConsts;
 
 {$R *.lfm}
 
@@ -51,28 +48,27 @@ end;
 
 procedure TfrmAbout.lblPapirusClick(Sender: TObject);
 begin
-  OpenURL('https://github.com/PapirusDevelopmentTeam/papirus-icon-theme');
+  OpenURL(URL_PAPIRUS);
 end;
 
 procedure TfrmAbout.lblGcencryptorClick(Sender: TObject);
 begin
-  OpenURL('https://github.com/Helltar/gcencryptor');
+  OpenURL(URL_GCENCRYPTOR);
 end;
 
 procedure TfrmAbout.lblGocryptfsClick(Sender: TObject);
 begin
-  OpenURL('https://github.com/rfjakob/gocryptfs');
+  OpenURL(URL_GOCRYPTFS);
 end;
 
 procedure TfrmAbout.lblHomepageClick(Sender: TObject);
 begin
-  OpenURL('https://helltar.com');
+  OpenURL(URL_HOMEPAGE);
 end;
 
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
-  stAbout.Caption :=
-    getAppOriginalFilename() + ' - v' + getAppFileVersion() + LineEnding +
+  stAbout.Caption := getAppOriginalFilename() + ' - v' + getAppFileVersion() + LineEnding +
     getAppInfo('FileDescription');
 end;
 
