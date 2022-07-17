@@ -42,8 +42,6 @@ procedure TfrmAbout.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
   Constraints.MinWidth := Width;
-  Constraints.MaxHeight := Height;
-  Constraints.MaxWidth := Width;
 end;
 
 procedure TfrmAbout.lblPapirusClick(Sender: TObject);

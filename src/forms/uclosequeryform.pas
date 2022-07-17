@@ -40,9 +40,7 @@ end;
 procedure TfrmCloseQuery.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
-  Constraints.MinWidth := Width;
-  Constraints.MaxHeight := Height;
-  Constraints.MaxWidth := Width;
+  Constraints.MinWidth := Width + 60; // gtk, caption
 end;
 
 procedure TfrmCloseQuery.btnYesClick(Sender: TObject);
