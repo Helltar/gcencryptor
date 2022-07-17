@@ -5,6 +5,8 @@ unit uConsts;
 interface
 
 const
+  APP_NAME = 'gcencryptor';
+
   FUSERMOUNT_BIN = 'fusermount';
   FUSER_BIN = 'fuser';
   GOCRYPTFS_BIN = 'gocryptfs';

@@ -1,11 +1,9 @@
 object frmMain: TfrmMain
-  Left = 615
+  Left = 538
   Height = 476
   Top = 272
   Width = 840
   AllowDropFiles = True
-  AutoSize = True
-  Caption = 'gcencryptor'
   ClientHeight = 445
   ClientWidth = 840
   Constraints.MinHeight = 350

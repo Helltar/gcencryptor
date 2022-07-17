@@ -213,7 +213,7 @@ end;
 
 function getAppInfo(const AType: string): string;
 begin
-  Result := '1';
+  Result := APP_NAME;
 
   with TFileVersionInfo.Create(nil) do
     try

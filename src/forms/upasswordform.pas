@@ -21,6 +21,7 @@ type
     procedure btnShowPassClick(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
   private
     procedure okClose();
@@ -29,7 +30,7 @@ type
 implementation
 
 uses
-  uMainForm;
+  uMainForm, uConsts;
 
 {$R *.lfm}
 
@@ -57,6 +58,11 @@ procedure TfrmPassword.edtPasswordKeyDown(Sender: TObject; var Key: word; Shift:
 begin
   if Key = VK_RETURN then
     okClose();
+end;
+
+procedure TfrmPassword.FormCreate(Sender: TObject);
+begin
+  Caption := APP_NAME;
 end;
 
 procedure TfrmPassword.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);

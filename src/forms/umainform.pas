@@ -221,7 +221,8 @@ end;
 procedure TfrmMain.initControls;
 begin
   SetDefaultLang(config.lang);
-  Caption := getAppOriginalFilename();
+
+  Caption := APP_NAME;
   Height := config.frmHeight;
   Width := config.frmWidth;
 

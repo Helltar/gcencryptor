@@ -68,8 +68,7 @@ end;
 
 procedure TfrmAbout.FormCreate(Sender: TObject);
 begin
-  stAbout.Caption := getAppOriginalFilename() + ' - v' + getAppFileVersion() + LineEnding +
-    getAppInfo('FileDescription');
+  stAbout.Caption := APP_NAME + ' - v' + getAppFileVersion() + LineEnding + getAppInfo('FileDescription');
 end;
 
 procedure TfrmAbout.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
