@@ -40,7 +40,7 @@ msgstr ""
 #: tfrmclosequery.btncancel.caption
 msgctxt "tfrmclosequery.btncancel.caption"
 msgid "&Cancel"
-msgstr ""
+msgstr "&Скасувати"
 
 #: tfrmclosequery.btnyes.caption
 msgctxt "tfrmclosequery.btnyes.caption"
@@ -197,7 +197,7 @@ msgstr "&Англійська"
 #: tfrmmain.miexit.caption
 msgctxt "tfrmmain.miexit.caption"
 msgid "&Quit"
-msgstr "&Вийти"
+msgstr "В&ийти"
 
 #: tfrmmain.milanguage.caption
 msgid "&Language"
