@@ -335,10 +335,12 @@ end;
 
 procedure TfrmMain.addSynLog(const msg: string; const err: boolean; const showForm: boolean);
 begin
-  frmLog.addSynLog(msg, err);
-
-  if showForm then
-    frmLog.Show;
+  if Assigned(frmLog) then
+  begin
+    frmLog.addSynLog(msg, err);
+    if showForm then
+      frmLog.Show;
+  end;
 end;
 
 procedure TfrmMain.updateVaultListIcons;
@@ -383,14 +385,14 @@ begin
 
     if getSelectedMountPoint().IsEmpty then
     begin
-      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
-      stVaultPath.Hint := RS_VAULTPATH_HINT;
       cbReadOnlyMount.Visible := True;
+      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' (' + getDirSize(getSelectedVaultPath()) + ')';
+      stVaultPath.Hint := RS_VAULTPATH_HINT;
     end
     else
     begin
-      stVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
       stVaultPath.Font.Color := clGreen;
+      stVaultPath.Caption := ExtractFileName(getSelectedMountPoint()) + ' (' + getDirSize(getSelectedMountPoint()) + ')';
       stVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' ...';
     end;
   end

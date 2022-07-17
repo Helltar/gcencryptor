@@ -24,16 +24,17 @@ function getAppOriginalFilename(): string;
 function getFuserOutput(const mountpoint: string): string;
 function isDirEmpty(const dir: string): boolean;
 function mkDir(const dir: string): boolean;
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''): TProcessRec;
-function procStart(const executable, parameters: string; stdin: string = ''): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
+function procStart(const executable, parameters: string; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
 function umount(const mountpoint: string): boolean;
+function getDirSize(const path: string): string;
 
 implementation
 
 uses
   uLogger, uConsts;
 
-function procStart(const executable, parameters: string; stdin: string): TProcessRec;
+function procStart(const executable, parameters: string; stdin: string; const showFormIfErr: boolean): TProcessRec;
 var
   s, s1: TStringList;
   ss: string;
@@ -48,14 +49,14 @@ begin
   for ss in s do
     s1.Add(ss);
 
-  Result := ProcStart(executable, s1, stdin);
+  Result := ProcStart(executable, s1, stdin, showFormIfErr);
   stdin := '';
 
   FreeAndNil(s);
   FreeAndNil(s1);
 end;
 
-function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string): TProcessRec;
+function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string; const showFormIfErr: boolean): TProcessRec;
 var
   p: TProcess;
 
@@ -91,7 +92,7 @@ begin
           Free;
         end;
     except
-      addErrLog(AExecutable, RS_ERROR_RUN_EXECUTABLE);
+      addErrLog(AExecutable, RS_ERROR_RUN_EXECUTABLE, showFormIfErr);
     end;
   finally
     FreeAndNil(p);
@@ -137,6 +138,18 @@ begin
   deldir(mountpoint, False);
   addLog(RS_UNMOUNTED_SUCCESSFULLY, mountpoint);
   Result := True;
+end;
+
+function getDirSize(const path: string): string;
+var
+  p: TProcessRec;
+
+begin
+  p := procStart('d00u', '-sh' + LineEnding + path, '', False);
+  if p.Completed then
+    Result := Trim(StringReplace(p.Output, path, '', [rfReplaceAll]))
+  else
+    Result := '0b';
 end;
 
 function dirExists(const dir: string): boolean;

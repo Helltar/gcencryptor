@@ -591,6 +591,7 @@ object frmLog: TfrmLog
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'
+    Enabled = False
     CommentAttri.Style = [fsBold]
     KeyAttri.Foreground = clBtnText
     KeyAttri.Style = []
