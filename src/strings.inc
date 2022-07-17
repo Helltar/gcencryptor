@@ -15,6 +15,8 @@ RS_FAILED_TO_RETRIEVE_RECOVERY_KEY = 'Vault was successfully created, but could 
 RS_FAILED_TO_SAVE_LOG_FILE = 'Failed to save log file';
 RS_PASSWORD_EMPTY = 'Password Empty';
 RS_PASSWORD_INCORRECT = 'Password Incorrect';
+RS_BIN_NOT_INSTALLED = 'Maybe %s is not installed';
+RS_GOCRYPTFS_XRAY_FAILED_RUN_HINT = 'This is not critical, but you will not be able to get the master key when you create a new vault';
 
 RS_FSCK_NO_PROBLEMS_FOUND = 'fsck summary: no problems found';
 RS_KEY_SAVED = 'Key successfully saved';
@@ -24,3 +26,4 @@ RS_PLEASE_WAIT_UNTIL_THE_PROCESS = 'Please wait until the process is completed i
 RS_SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
 RS_UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
 RS_VAULTPATH_HINT = 'Open in File Manager ...';
+

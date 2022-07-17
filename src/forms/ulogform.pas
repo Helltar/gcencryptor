@@ -29,6 +29,8 @@ type
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
     procedure timerTimer(Sender: TObject);
+  private
+    function isNotBinInstalled(const executable: string): boolean;
   public
     procedure addSynLog(const msg: string; const err: boolean = False);
     procedure waitOnThreadFinish();
@@ -40,7 +42,7 @@ var
 implementation
 
 uses
-  uMainForm, ugocryptfsFsck, uUtils, uConsts;
+  uMainForm, ugocryptfsFsck, uUtils, uConsts, uLogger;
 
 {$R *.lfm}
 
@@ -54,6 +56,11 @@ end;
 procedure TfrmLog.btnClearClick(Sender: TObject);
 begin
   synLog.Clear;
+end;
+
+function TfrmLog.isNotBinInstalled(const executable: string): boolean;
+begin
+  Result := not procStart(executable, '').Completed;
 end;
 
 procedure TfrmLog.btnSaveLogClick(Sender: TObject);
@@ -81,6 +88,19 @@ begin
   Height := frmMain.config.frmLogHeight;
   Width := frmMain.config.frmLogWidth;
   saveDialog.InitialDir := GetUserDir;
+
+  if isNotBinInstalled(GOCRYPTFS_BIN) then
+    addErrLog(Format(RS_BIN_NOT_INSTALLED, [GOCRYPTFS_BIN]), URL_GOCRYPTFS);
+
+  if isNotBinInstalled(FUSERMOUNT_BIN) then
+    addErrLog(Format(RS_BIN_NOT_INSTALLED, [FUSERMOUNT_BIN]));
+
+  if isNotBinInstalled(FUSER_BIN) then
+    addErrLog(Format(RS_BIN_NOT_INSTALLED, [FUSER_BIN]));
+
+  if isNotBinInstalled(GOCRYPTFS_XRAY_BIN) then
+    addErrLog(Format(RS_BIN_NOT_INSTALLED, [GOCRYPTFS_XRAY_BIN]),
+      URL_GOCRYPTFS + LineEnding + RS_GOCRYPTFS_XRAY_FAILED_RUN_HINT);
 end;
 
 procedure TfrmLog.FormDestroy(Sender: TObject);
