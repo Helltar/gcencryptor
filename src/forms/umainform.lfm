@@ -753,6 +753,7 @@ object frmMain: TfrmMain
     end
     object miLockAllTray: TMenuItem
       Action = actLockAll
+      Caption = '&Lock All Vaults'
     end
     object Separator4: TMenuItem
       Caption = '-'
