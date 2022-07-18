@@ -85,6 +85,7 @@ end;
 
 procedure TfrmLog.FormCreate(Sender: TObject);
 begin
+  Caption := APP_NAME + ' - ' + Caption;
   Height := frmMain.config.frmLogHeight;
   Width := frmMain.config.frmLogWidth;
   saveDialog.InitialDir := GetUserDir;
