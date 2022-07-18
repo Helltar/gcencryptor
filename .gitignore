@@ -6,7 +6,5 @@
 
 backup/
 lib/
+debug_bin/
 release_bin/
-
-gcencryptor
-gcencryptor.dbg
