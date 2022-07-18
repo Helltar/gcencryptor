@@ -456,18 +456,18 @@ begin
   if isSelectedVaultPathExists() then
   begin
     stVaultPath.Enabled := True;
-    gbCurrentVault.Caption := ExtractFileName(getSelectedVaultPath());
+    gbCurrentVault.Caption := ExtractFileName(getSelectedVaultPath()) + ' ' + getDirSize(getSelectedVaultPath());
 
     if getSelectedMountPoint().IsEmpty then
     begin
       cbReadOnlyMount.Visible := True;
-      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' (' + getDirSize(getSelectedVaultPath()) + ')';
+      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
       stVaultPath.Hint := RS_VAULTPATH_HINT;
     end
     else
     begin
       stVaultPath.Font.Color := clGreen;
-      stVaultPath.Caption := ExtractFileName(getSelectedMountPoint()) + ' (' + getDirSize(getSelectedMountPoint()) + ')';
+      stVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
       stVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' ...';
     end;
   end
