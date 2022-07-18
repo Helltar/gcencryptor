@@ -198,6 +198,15 @@ msgstr "В&ийти"
 msgid "&Language"
 msgstr "&Мова"
 
+#: tfrmmain.milockalltray.caption
+msgid "&Lock All Vaults"
+msgstr "&Заблокувати всі сховища"
+
+#: tfrmmain.miquittray.caption
+msgctxt "tfrmmain.miquittray.caption"
+msgid "&Quit"
+msgstr "&Вийти"
+
 #: tfrmmain.mirussian.caption
 msgid "&Russian"
 msgstr "&Російська"
@@ -205,6 +214,11 @@ msgstr "&Російська"
 #: tfrmmain.misettings.caption
 msgid "&Settings"
 msgstr "&Налаштування"
+
+#: tfrmmain.mishowformtray.caption
+msgctxt "tfrmmain.mishowformtray.caption"
+msgid "&Toggle window"
+msgstr "&Переключити вікно"
 
 #: tfrmmain.miukrainian.caption
 msgid "&Ukrainian"
@@ -317,6 +331,10 @@ msgstr "Генерувати коротку назву для точки мон�
 #: tfrmsettings.cbshortnames.hint
 msgid "Only 8 random char after name"
 msgstr "Тільки 8 випадкових символів після імені"
+
+#: tfrmsettings.cbtray.caption
+msgid "Hide window to system tray when close"
+msgstr "Приховувати вікно в системній трей під час закриття"
 
 #: tfrmsettings.edtmountpoint.texthint
 msgctxt "tfrmsettings.edtmountpoint.texthint"
@@ -459,4 +477,3 @@ msgstr "Успішно відключено"
 msgctxt "uconsts.rs_vaultpath_hint"
 msgid "Open in File Manager ..."
 msgstr "Відкрити в менеджері файлів ..."
-

@@ -194,12 +194,26 @@ msgstr ""
 msgid "&Language"
 msgstr ""
 
+#: tfrmmain.milockalltray.caption
+msgid "&Lock All Vaults"
+msgstr ""
+
+#: tfrmmain.miquittray.caption
+msgctxt "tfrmmain.miquittray.caption"
+msgid "&Quit"
+msgstr ""
+
 #: tfrmmain.mirussian.caption
 msgid "&Russian"
 msgstr ""
 
 #: tfrmmain.misettings.caption
 msgid "&Settings"
+msgstr ""
+
+#: tfrmmain.mishowformtray.caption
+msgctxt "tfrmmain.mishowformtray.caption"
+msgid "&Toggle window"
 msgstr ""
 
 #: tfrmmain.miukrainian.caption
@@ -309,6 +323,10 @@ msgstr ""
 
 #: tfrmsettings.cbshortnames.hint
 msgid "Only 8 random char after name"
+msgstr ""
+
+#: tfrmsettings.cbtray.caption
+msgid "Hide window to system tray when close"
 msgstr ""
 
 #: tfrmsettings.edtmountpoint.texthint
