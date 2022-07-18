@@ -595,7 +595,8 @@ end;
 
 procedure TfrmMain.actLockAllExecute(Sender: TObject);
 begin
-  umountAll();
+  if umountAll() then
+    actLockAll.Enabled := False;
 end;
 
 procedure TfrmMain.actLockAllUpdate(Sender: TObject);
