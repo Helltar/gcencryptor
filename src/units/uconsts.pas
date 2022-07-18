@@ -12,9 +12,9 @@ const
   GOCRYPTFS_BIN = 'gocryptfs';
   GOCRYPTFS_XRAY_BIN = 'gocryptfs-xray';
 
-  MAIN_CONF_FILE = 'config';
-  VAULTLIST_CONF_FILE = 'vaultlist';
-  GOCRYPTFS_CONF_FILE = 'gocryptfs.conf';
+  MAIN_CONF_FILENAME = 'config';
+  VAULTLIST_CONF_FILENAME = 'vaultlist';
+  GOCRYPTFS_CONF_FILENAME = 'gocryptfs.conf';
 
   URL_HOMEPAGE = 'https://helltar.com';
   URL_GCENCRYPTOR = 'https://github.com/Helltar/gcencryptor';
