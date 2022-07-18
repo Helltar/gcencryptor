@@ -163,9 +163,11 @@ begin
   config := TConfig.Create();
   fileList := TStringList.Create;
   mountList := TMountList.Create;
-  vaultListConfigFile := GetAppConfigDir(False) + VAULTLIST_CONF_FILE;
+
+  vaultListConfigFile := GetAppConfigDir(False) + VAULTLIST_CONF_FILENAME;
   showTrayIcon := config.showTrayIcon;
   trayIcon.Visible := showTrayIcon;
+
   initControls();
 end;
 
@@ -372,7 +374,9 @@ begin
     frmLog.addSynLog(msg, err);
     if showForm then
       frmLog.Show;
-  end;
+  end
+  else
+    WriteLn(msg);
 end;
 
 procedure TfrmMain.updateVaultListIcons;
