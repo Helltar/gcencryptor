@@ -79,7 +79,7 @@ begin
   if not DirectoryExists(configDir) then
     mkDir(configDir);
 
-  inherited Create(configDir + MAIN_CONF_FILE);
+  inherited Create(configDir + MAIN_CONF_FILENAME);
 end;
 
 function TConfig.GetMountPoint: string;

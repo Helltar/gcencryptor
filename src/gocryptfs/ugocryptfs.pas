@@ -37,7 +37,7 @@ var
 begin
   Result.Completed := False;
 
-  path := path + DirectorySeparator + GOCRYPTFS_CONF_FILE;
+  path := path + DirectorySeparator + GOCRYPTFS_CONF_FILENAME;
 
   p := procStart(GOCRYPTFS_XRAY_BIN, '-dumpmasterkey' + LineEnding + path, pass);
   pass := '';
