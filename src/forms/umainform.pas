@@ -456,7 +456,7 @@ begin
   if isSelectedVaultPathExists() then
   begin
     stVaultPath.Enabled := True;
-    gbCurrentVault.Caption := ExtractFileName(getSelectedVaultPath()) + ' ' + getDirSize(getSelectedVaultPath());
+    gbCurrentVault.Caption := getDirSize(getSelectedVaultPath());
 
     if getSelectedMountPoint().IsEmpty then
     begin
