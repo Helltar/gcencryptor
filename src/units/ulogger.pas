@@ -34,6 +34,8 @@ begin
     title := title + LineEnding + msg;
 
   frmMain.addSynLog('''! ' + title, True, showForm);
+
+  WriteLn('! ' + title);
 end;
 
 procedure addLog(title: string; const msg: string; const showForm: boolean; const isSimpleText: boolean);
@@ -48,6 +50,9 @@ begin
     prefix := LineEnding;
 
   frmMain.addSynLog(prefix + title, False, showForm);
+
+  if not showForm then
+    WriteLn(title);
 end;
 
 end.
