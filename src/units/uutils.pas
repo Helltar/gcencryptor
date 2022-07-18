@@ -28,6 +28,7 @@ function procStart(const AExecutable: string; const AParameters: TProcessStrings
 function procStart(const executable, parameters: string; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
 function umount(const mountpoint: string): boolean;
 function getDirSize(const path: string): string;
+function getAppPath: string;
 
 implementation
 
@@ -150,6 +151,11 @@ begin
     Result := Trim(StringReplace(p.Output, path, '', [rfReplaceAll]))
   else
     Result := '0b';
+end;
+
+function getAppPath: string;
+begin
+  Result := ExtractFilePath(ParamStr(0));
 end;
 
 function dirExists(const dir: string): boolean;
