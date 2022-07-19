@@ -87,7 +87,7 @@ object frmSettings: TfrmSettings
       ParentFont = False
       TabOrder = 0
     end
-    object cbShortNames: TCheckBox
+    object cbLongNames: TCheckBox
       AnchorSideLeft.Control = gbMain
       AnchorSideTop.Control = edtMountPoint
       AnchorSideTop.Side = asrBottom
@@ -95,19 +95,19 @@ object frmSettings: TfrmSettings
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 23
-      Hint = 'Only 8 random char after name'
+      Hint = 'VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF'
       Top = 139
       Width = 574
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
-      Caption = 'Generate short name for mount point'
+      Caption = 'Generate long name for mount point'
       ParentShowHint = False
       ShowHint = True
       TabOrder = 3
     end
     object cbAutorun: TCheckBox
       AnchorSideLeft.Control = gbMain
-      AnchorSideTop.Control = cbShortNames
+      AnchorSideTop.Control = cbLongNames
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbMain
       AnchorSideRight.Side = asrBottom

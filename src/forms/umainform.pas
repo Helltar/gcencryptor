@@ -450,14 +450,14 @@ begin
     if getSelectedMountPoint().IsEmpty then
     begin
       cbReadOnlyMount.Visible := True;
-      stVaultPath.Caption := StringReplace(getSelectedVaultPath(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
+      stVaultPath.Caption := replaceHomeSymbol(getSelectedVaultPath());
       stVaultPath.Hint := RS_VAULTPATH_HINT;
     end
     else
     begin
       stVaultPath.Font.Color := clGreen;
       stVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
-      stVaultPath.Hint := StringReplace(getSelectedMountPoint(), GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]) + ' ...';
+      stVaultPath.Hint := replaceHomeSymbol(getSelectedMountPoint()) + ' ...';
     end;
   end
   else
@@ -559,7 +559,7 @@ begin
   if vaultPassword.IsEmpty then
     Exit;
 
-  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword, cbReadOnlyMount.Checked, config.mountPointShortName);
+  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword, cbReadOnlyMount.Checked, config.mountPointLongName);
   vaultPassword := '';
 
   if m.Completed then

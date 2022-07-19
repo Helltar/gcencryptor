@@ -16,7 +16,7 @@ type
     btnSave: TButton;
     cbAutorun: TCheckBox;
     cbTray: TCheckBox;
-    cbShortNames: TCheckBox;
+    cbLongNames: TCheckBox;
     edtMountPoint: TEdit;
     gbMain: TGroupBox;
     lblMountDirectory: TLabel;
@@ -49,7 +49,7 @@ end;
 
 procedure TfrmSettings.edtMountPointChange(Sender: TObject);
 begin
-  stMountPointHint.Caption := RS_MOUNTPOINT_HINT + ' ' + edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_GUID';
+  stMountPointHint.Caption := RS_MOUNTPOINT_HINT + ' ' + replaceHomeSymbol(edtMountPoint.Text + DirectorySeparator + 'VAULTNAME_6F9619FF');
 end;
 
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
@@ -57,7 +57,7 @@ begin
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
   frmMain.config.mountPoint := edtMountPoint.Text;
-  frmMain.config.mountPointShortName := cbShortNames.Checked;
+  frmMain.config.mountPointLongName := cbLongNames.Checked;
   frmMain.config.showTrayIcon := cbTray.Checked;
   frmMain.showTrayIcon := cbTray.Checked;
   frmMain.trayIcon.Visible := cbTray.Checked;
@@ -68,7 +68,7 @@ end;
 procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   cbAutorun.Checked := frmMain.config.autorunState;
-  cbShortNames.Checked := frmMain.config.mountPointShortName;
+  cbLongNames.Checked := frmMain.config.mountPointLongName;
   cbTray.Checked := frmMain.config.showTrayIcon;
   cbTray.Visible := getCurrentDesktop() = KDE_DESKTOP;
   edtMountPoint.Text := frmMain.config.mountPoint;
