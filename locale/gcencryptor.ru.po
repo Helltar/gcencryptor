@@ -308,6 +308,10 @@ msgstr "Показать пароль"
 msgid "Password:"
 msgstr "Пароль:"
 
+#: tfrmsettings.btncreatedesktopentry.caption
+msgid "&Create Desktop Entry"
+msgstr "Создать &ярлык приложения"
+
 #: tfrmsettings.btnsave.caption
 msgid "&Save"
 msgstr "&Сохранить"
@@ -364,6 +368,10 @@ msgstr "Предупреждение"
 msgctxt "uconsts.rs_created_successfully"
 msgid "The gocryptfs filesystem has been created successfully"
 msgstr "Файловая система gocryptfs была успешно создана"
+
+#: uconsts.rs_desktop_entry_created
+msgid "Desktop entry created"
+msgstr "Ярлык успешно создан"
 
 #: uconsts.rs_directory_exists
 msgctxt "uconsts.rs_directory_exists"

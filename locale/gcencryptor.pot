@@ -300,6 +300,10 @@ msgstr ""
 msgid "Password:"
 msgstr ""
 
+#: tfrmsettings.btncreatedesktopentry.caption
+msgid "&Create Desktop Entry"
+msgstr ""
+
 #: tfrmsettings.btnsave.caption
 msgid "&Save"
 msgstr ""
@@ -355,6 +359,10 @@ msgstr ""
 #: uconsts.rs_created_successfully
 msgctxt "uconsts.rs_created_successfully"
 msgid "The gocryptfs filesystem has been created successfully"
+msgstr ""
+
+#: uconsts.rs_desktop_entry_created
+msgid "Desktop entry created"
 msgstr ""
 
 #: uconsts.rs_directory_exists
