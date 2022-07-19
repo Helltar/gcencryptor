@@ -5,7 +5,7 @@ unit uUtils;
 interface
 
 uses
-  Classes, SysUtils, process, FileUtil, fileinfo;
+  Classes, SysUtils, process, FileUtil, fileinfo, LResources;
 
 type
   TProcessRec = record
@@ -14,6 +14,7 @@ type
     ExitStatus: integer;
   end;
 
+function createDesktopEntry(): boolean;
 function delDir(const dir: string; const showErr: boolean = True): boolean;
 function dirExists(const dir: string): boolean;
 function fuserCheck(const mountpoint: string): boolean;
@@ -173,6 +174,69 @@ begin
     Result := True
   else
     addErrLog(RS_ERROR_CREATING_DIRECTORY, dir);
+end;
+
+function createDesktopEntry: boolean;
+
+  procedure saveIcon(const dir, filename: string);
+  var
+    S: TResourceStream;
+    F: TFileStream;
+
+  begin
+    S := TResourceStream.Create(HInstance, 'APP_ICON', RT_RCDATA);
+
+    try
+      CreateDir(dir);
+      F := TFileStream.Create(dir + filename, fmCreate);
+      try
+        F.CopyFrom(S, S.Size);
+      finally
+        FreeAndNil(F);
+      end;
+    finally
+      FreeAndNil(S);
+    end;
+  end;
+
+const
+  iconName = APP_NAME + '.png';
+
+var
+  iconPath: string;
+  dotDesktopFile: string;
+
+begin
+  Result := False;
+
+  iconPath := GetAppConfigDir(False) + 'icons' + DirectorySeparator;
+
+  with TStringList.Create do
+    try
+      Add('[Desktop Entry]');
+      Add('Type=Application');
+      Add('Name=' + APP_NAME);
+      Add('Comment=Encrypted Vaults');
+      Add('Comment[uk]=Зашифровані сховища');
+      Add('Comment[ru]=Зашифрованные хранилища');
+      Add('Icon=' + iconPath + iconName);
+      Add('Exec=' + getAppPath + APP_NAME);
+      Add('Terminal=false');
+      Add('Categories=Utility;Security;Qt;');
+      Add('StartupWMClass=' + APP_NAME);
+      Add('SingleMainWindow=true');
+
+      try
+        saveIcon(iconPath, iconName);
+        dotDesktopFile := GetUserDir + '.local/share/applications/' + APP_NAME + '.desktop';
+        SaveToFile(dotDesktopFile);
+        Result := True;
+      except
+        addErrLog(dotDesktopFile);
+      end;
+    finally
+      Free;
+    end;
 end;
 
 function delDir(const dir: string; const showErr: boolean): boolean;

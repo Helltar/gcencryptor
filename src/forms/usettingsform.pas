@@ -12,6 +12,7 @@ type
   { TfrmSettings }
 
   TfrmSettings = class(TForm)
+    btnCreateDesktopEntry: TButton;
     btnSelectMountPoint: TButton;
     btnSave: TButton;
     cbAutorun: TCheckBox;
@@ -24,6 +25,7 @@ type
     sddMountPoint: TSelectDirectoryDialog;
     seFontSize: TSpinEdit;
     stMountPointHint: TStaticText;
+    procedure btnCreateDesktopEntryClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
     procedure btnSelectMountPointClick(Sender: TObject);
     procedure edtMountPointChange(Sender: TObject);
@@ -63,6 +65,12 @@ begin
   frmMain.trayIcon.Visible := cbTray.Checked;
 
   Close;
+end;
+
+procedure TfrmSettings.btnCreateDesktopEntryClick(Sender: TObject);
+begin
+  if createDesktopEntry() then
+    ShowMessage('Shortcut successfully created');
 end;
 
 procedure TfrmSettings.FormCreate(Sender: TObject);
