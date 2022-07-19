@@ -135,7 +135,6 @@ type
     procedure updateVaultListIcons();
     procedure showHideForm();
     procedure setLang(const langCode: string);
-    procedure closeApp(out CanClose: boolean);
   public
     config: TConfig;
     vaultPassword: string;
@@ -406,41 +405,6 @@ procedure TfrmMain.setLang(const langCode: string);
 begin
   SetDefaultLang(langCode);
   config.lang := langCode;
-end;
-
-procedure TfrmMain.closeApp(out CanClose: boolean);
-var
-  i: integer;
-
-begin
-  CanClose := False;
-
-  if isUnlockedVaultsExists() then
-    with TfrmCloseQuery.Create(Self) do
-      try
-        for i := 0 to mountList.getSize() do
-          stVaultList.Caption := stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
-
-        ShowModal;
-
-        if CloseQueryResult then
-        begin
-          if not umountAll() then
-            Exit;
-        end
-        else
-          Exit;
-      finally
-        Free;
-      end;
-
-  if not isFsckThreadStopped then
-  begin
-    frmLog.Show;
-    Exit;
-  end;
-
-  CanClose := True;
 end;
 
 procedure TfrmMain.updateControls;
