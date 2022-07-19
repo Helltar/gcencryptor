@@ -24,7 +24,7 @@ type
     function GetLatestVaultIndex: integer;
     function GetLogFontSize: integer;
     function GetMountPoint: string;
-    function GetMountPointShortName: boolean;
+    function GetMountPointLongName: boolean;
     function GetShowMenubar: boolean;
     function GetShowTrayIcon: boolean;
     function GetSplLeft: integer;
@@ -39,7 +39,7 @@ type
     procedure SetLatestVaultIndex(AValue: integer);
     procedure SetLogFontSize(AValue: integer);
     procedure SetMountPoint(AValue: string);
-    procedure SetMountPointShortName(AValue: boolean);
+    procedure SetMountPointLongName(AValue: boolean);
     procedure SetShowMenubar(AValue: boolean);
     procedure SetShowTrayIcon(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
@@ -56,7 +56,7 @@ type
     property latestVaultIndex: integer read GetLatestVaultIndex write SetLatestVaultIndex;
     property logFontSize: integer read GetLogFontSize write SetLogFontSize;
     property mountPoint: string read GetMountPoint write SetMountPoint;
-    property mountPointShortName: boolean read GetMountPointShortName write SetMountPointShortName;
+    property mountPointLongName: boolean read GetMountPointLongName write SetMountPointLongName;
     property showMenubar: boolean read GetShowMenubar write SetShowMenubar;
     property showTrayIcon: boolean read GetShowTrayIcon write SetShowTrayIcon;
     property splLeft: integer read GetSplLeft write SetSplLeft;
@@ -87,9 +87,9 @@ begin
   Result := ReadString('MAIN', 'mountPoint', GetAppConfigDir(False) + 'mnt');
 end;
 
-function TConfig.GetMountPointShortName: boolean;
+function TConfig.GetMountPointLongName: boolean;
 begin
-  Result := ReadBool('MAIN', 'mountPointShortName', False);
+  Result := ReadBool('MAIN', 'mountPointLongName', False);
 end;
 
 function TConfig.GetShowMenubar: boolean;
@@ -212,9 +212,9 @@ begin
   WriteString('MAIN', 'mountPoint', AValue);
 end;
 
-procedure TConfig.SetMountPointShortName(AValue: boolean);
+procedure TConfig.SetMountPointLongName(AValue: boolean);
 begin
-  WriteBool('MAIN', 'mountPointShortName', AValue);
+  WriteBool('MAIN', 'mountPointLongName', AValue);
 end;
 
 procedure TConfig.SetShowMenubar(AValue: boolean);
