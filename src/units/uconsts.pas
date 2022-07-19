@@ -23,6 +23,8 @@ const
 
   KDE_DESKTOP = 'KDE';
   GNOME_DESKTOP = 'GNOME';
+  UBUNTU_GNOME_DESKTOP = 'ubuntu:GNOME';
+  XFCE_DESKTOP = 'XFCE';
 
 resourcestring
   {$I strings.inc}

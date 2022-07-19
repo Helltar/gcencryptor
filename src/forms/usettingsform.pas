@@ -78,7 +78,7 @@ begin
   cbAutorun.Checked := frmMain.config.autorunState;
   cbLongNames.Checked := frmMain.config.mountPointLongName;
   cbTray.Checked := frmMain.config.showTrayIcon;
-  cbTray.Visible := getCurrentDesktop() = KDE_DESKTOP;
+  cbTray.Visible := (getCurrentDesktop() = KDE_DESKTOP) or (getCurrentDesktop() = UBUNTU_GNOME_DESKTOP) or (getCurrentDesktop() = XFCE_DESKTOP);
   edtMountPoint.Text := frmMain.config.mountPoint;
   sddMountPoint.InitialDir := GetUserDir;
   seFontSize.Value := frmMain.config.logFontSize;
