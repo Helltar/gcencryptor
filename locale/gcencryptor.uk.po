@@ -324,13 +324,13 @@ msgstr "Налаштування"
 msgid "Open in File Manager after unlocking"
 msgstr "Відкривати у менеджері файлів після розблокування"
 
-#: tfrmsettings.cbshortnames.caption
-msgid "Generate short name for mount point"
-msgstr "Генерувати коротку назву для точки монтування"
+#: tfrmsettings.cblongnames.caption
+msgid "Generate long name for mount point"
+msgstr "Генерувати довгу назву для точки монтування"
 
-#: tfrmsettings.cbshortnames.hint
-msgid "Only 8 random char after name"
-msgstr "Тільки 8 випадкових символів після імені"
+#: tfrmsettings.cblongnames.hint
+msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
+msgstr ""
 
 #: tfrmsettings.cbtray.caption
 msgid "Hide window to system tray when close"
