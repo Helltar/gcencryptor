@@ -8,12 +8,11 @@
 
 gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs) so it needs a working gocryptfs [setup](https://github.com/rfjakob/gocryptfs#installation).
 
-- https://youtu.be/A5GicX8CsmQ
-
 Download
 --------
 
-- [gcencryptor-1.4.5_linux-qt-x86_64.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/v1.4.5/gcencryptor-1.4.5_linux-qt-x86_64.tar.gz) (1.57 MB)
+- [gcencryptor-1.5.0.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.0/gcencryptor-1.5.0.tar.gz) (1.65 MB)
+- [gcencryptor-1.5.0.tar.gz.sha256sum](https://helltar.com/projects/gcencryptor/bin/sha256sums/gcencryptor-1.5.0.tar.gz.sha256sum)
 
 Install the **qt5pas** library to run it:
 
