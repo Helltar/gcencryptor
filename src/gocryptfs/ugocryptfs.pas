@@ -21,7 +21,7 @@ type
 
 function dumpMasterKey(path, pass: string): TInitRec;
 function init(const path: string; pass: string): boolean;
-function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const shortName: boolean = False): TMountRec;
+function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const longName: boolean = False): TMountRec;
 procedure fsck(const ACipherdir: string; pass: string);
 procedure getVaultInfo(const cipherdir: string);
 
@@ -79,7 +79,7 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean; const shortName: boolean): TMountRec;
+function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean; const longName: boolean): TMountRec;
 var
   p: TProcessRec;
   guid, genMountPoint: string;
@@ -91,7 +91,7 @@ begin
 
   guid := TGUID.NewGuid.ToString(True);
 
-  if shortName then
+  if not longName then
   begin
     shortGuid := guid.Split('-');
     guid := shortGuid[0];
