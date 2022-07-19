@@ -21,15 +21,16 @@ var
 begin
   p := procStart('pgrep', APP_NAME);
 
-  with TStringList.Create do
-    try
-      Text := p.Output;
-      if Count > 1 then
-        Exit;
-      WriteLn(Text);
-    finally
-      Free;
-    end;
+  if p.Completed and (p.ExitStatus = 0) then
+    with TStringList.Create do
+      try
+        Text := p.Output;
+        if Count > 1 then
+          Exit;
+        WriteLn(Text);
+      finally
+        Free;
+      end;
 
   RequireDerivedFormResource := True;
   Application.Scaled := True;
