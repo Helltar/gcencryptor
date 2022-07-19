@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://helltar.com/projects/gcencryptor/screenshots/128x128.png" alt="gcencryptor_icon"/>
+    <img src="https://helltar.com/projects/gcencryptor/screenshots/icon.png" alt="gcencryptor_icon"/>
     <br>
     gcencryptor
     <br><br>
