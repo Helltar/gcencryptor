@@ -1,13 +1,14 @@
-gcencryptor
-===========
+<h1 align="center">
+    <img src="https://helltar.com/projects/gcencryptor/screenshots/128x128.png" alt="gcencryptor_icon"/>
+    <br>
+    gcencryptor
+    <br><br>
+    <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_19072022_160027.png" alt="gcencryptor_main"/>
+</h1>
 
 gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs) so it needs a working gocryptfs [setup](https://github.com/rfjakob/gocryptfs#installation).
 
 - https://youtu.be/A5GicX8CsmQ
-
-<p align="center">
-  <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_15072022_111659.png" alt="gcencryptor_linux_qt"/>
-</p>
 
 Download
 --------
