@@ -34,7 +34,6 @@ begin
     title := title + LineEnding + msg;
 
   frmMain.addSynLog('''! ' + title, True, showForm);
-
   WriteLn('! ' + title);
 end;
 
@@ -49,9 +48,9 @@ begin
   if isSimpleText then
     prefix := LineEnding;
 
-  frmMain.addSynLog(prefix + title, False, showForm);
-
-  if not showForm then
+  if showForm then
+    frmMain.addSynLog(prefix + title, False, showForm)
+  else
     WriteLn(title);
 end;
 

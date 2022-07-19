@@ -478,20 +478,16 @@ end;
 function TfrmMain.umountAll: boolean;
 var
   i: integer;
+  isFail: boolean = False;
 
 begin
   for i := mountList.getSize() downto 0 do
     if umount(mountList.getMountPoint(i)) then
-    begin
-      mountList.del(i);
-      Result := True;
-    end
+      mountList.del(i)
     else
-    begin
-      Result := False;
-      Break;
-    end;
+      isFail := True;
 
+  Result := not isFail;
   updateControls();
 end;
 

@@ -129,8 +129,6 @@ begin
     btnClose.Enabled := True;
     btnSaveLog.Enabled := True;
     Cursor := crDefault;
-    FormStyle := fsNormal;
-    synLog.Enabled := True;
     synLog.Enabled := True;
     timer.Enabled := False;
   end;
@@ -183,7 +181,6 @@ begin
   btnSaveLog.Enabled := False;
   Cursor := crAppStart;
   synLog.Enabled := False;
-
   timer.Enabled := True;
 end;
 

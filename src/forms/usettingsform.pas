@@ -70,7 +70,7 @@ end;
 procedure TfrmSettings.btnCreateDesktopEntryClick(Sender: TObject);
 begin
   if createDesktopEntry() then
-    ShowMessage('Shortcut successfully created');
+    ShowMessage(RS_DESKTOP_ENTRY_CREATED);
 end;
 
 procedure TfrmSettings.FormCreate(Sender: TObject);

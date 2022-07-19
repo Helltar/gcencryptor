@@ -601,7 +601,6 @@ object frmLog: TfrmLog
   end
   object timer: TTimer
     Enabled = False
-    Interval = 200
     OnTimer = timerTimer
     Left = 472
     Top = 96

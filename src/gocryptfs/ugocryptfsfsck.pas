@@ -55,20 +55,18 @@ begin
   p := procStart(GOCRYPTFS_BIN, '-q' + LineEnding + '-fsck' + LineEnding + FCipherdir, FPassword);
   FPassword := '';
 
-  if not p.Completed then
-    Exit;
-
-  if p.ExitStatus = 0 then
-    Synchronize(@addOkLog)
-  else
-    Synchronize(@addErrorLog);
+  if p.Completed then
+    if p.ExitStatus = 0 then
+      Synchronize(@addOkLog)
+    else
+      Synchronize(@addErrorLog);
 
   isFsckThreadStopped := True;
 end;
 
 procedure TFsckThread.addOkLog;
 begin
-  addLog(RS_FSCK_NO_PROBLEMS_FOUND);
+  addLog(RS_FSCK_NO_PROBLEMS_FOUND, '', True);
 end;
 
 procedure TFsckThread.addWaitText;

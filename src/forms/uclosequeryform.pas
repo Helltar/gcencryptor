@@ -22,6 +22,7 @@ type
     procedure btnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormShow(Sender: TObject);
+
   public
     CloseQueryResult: boolean;
   end;
@@ -39,7 +40,7 @@ end;
 
 procedure TfrmCloseQuery.FormCreate(Sender: TObject);
 begin
-    CloseQueryResult := False;
+  CloseQueryResult := False;
 end;
 
 procedure TfrmCloseQuery.FormShow(Sender: TObject);
