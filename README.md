@@ -15,10 +15,7 @@ Download
 
 - [gcencryptor-1.4.5_linux-qt-x86_64.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/v1.4.5/gcencryptor-1.4.5_linux-qt-x86_64.tar.gz) (1.57 MB)
 
-Install
--------
-
-*GUI* gcencryptor uses **Qt**, install the **qt5pas** library to run it:
+Install the **qt5pas** library to run it:
 
 **Arch Linux**:
 
@@ -35,7 +32,7 @@ sudo dnf install qt5pas
 **Ubuntu**:
 
 ```
-sudo apt install libqt5pas-dev
+sudo apt install libqt5pas1
 ```
 
 Usage
