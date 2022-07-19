@@ -35,7 +35,7 @@ type
 implementation
 
 uses
-  uMainForm, uConsts;
+  uMainForm, uConsts, uUtils;
 
 {$R *.lfm}
 
@@ -58,9 +58,14 @@ begin
   frmMain.config.mountPointShortName := cbShortNames.Checked;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
-  frmMain.config.showTrayIcon := cbTray.Checked;
-  frmMain.showTrayIcon := cbTray.Checked;
-  frmMain.trayIcon.Visible := cbTray.Checked;
+
+  if cbTray.Visible then
+  begin
+    frmMain.config.showTrayIcon := cbTray.Checked;
+    frmMain.showTrayIcon := cbTray.Checked;
+    frmMain.trayIcon.Visible := cbTray.Checked;
+  end;
+
   Close;
 end;
 
@@ -70,8 +75,12 @@ begin
   edtMountPoint.Text := frmMain.config.mountPoint;
   cbShortNames.Checked := frmMain.config.mountPointShortName;
   seFontSize.Value := frmMain.config.logFontSize;
-  cbTray.Checked := frmMain.config.showTrayIcon;
   sddMountPoint.InitialDir := GetUserDir;
+
+  cbTray.Visible := getCurrentDesktop() = KDE_DESKTOP;
+
+  if cbTray.Visible then
+    cbTray.Checked := frmMain.config.showTrayIcon;
 end;
 
 procedure TfrmSettings.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
