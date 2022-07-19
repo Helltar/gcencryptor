@@ -29,6 +29,7 @@ function procStart(const executable, parameters: string; stdin: string = ''; con
 function umount(const mountpoint: string): boolean;
 function getDirSize(const path: string): string;
 function getAppPath: string;
+function getCurrentDesktop(): string;
 
 implementation
 
@@ -156,6 +157,11 @@ end;
 function getAppPath: string;
 begin
   Result := ExtractFilePath(ParamStr(0));
+end;
+
+function getCurrentDesktop: string;
+begin
+  Result := Trim(procStart('printenv', 'XDG_CURRENT_DESKTOP').Output);
 end;
 
 function dirExists(const dir: string): boolean;

@@ -21,6 +21,9 @@ const
   URL_GOCRYPTFS = 'https://github.com/rfjakob/gocryptfs';
   URL_PAPIRUS = 'https://github.com/PapirusDevelopmentTeam/papirus-icon-theme';
 
+  KDE_DESKTOP = 'KDE';
+  GNOME_DESKTOP = 'GNOME';
+
 resourcestring
   {$I strings.inc}
 
