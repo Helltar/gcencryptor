@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="https://helltar.com/projects/gcencryptor/screenshots/icon.png" alt="gcencryptor_icon"/>
+    <img src="icons/128x128.png" alt="gcencryptor_icon"/>
     <br>
     gcencryptor
     <br><br>
@@ -68,3 +68,7 @@ Build from source
 -----------------
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
+
+Third-party components:
+
+- [UniqueInstance](https://github.com/blikblum/luipack/releases/tag/uniqueinstance-1.1)
