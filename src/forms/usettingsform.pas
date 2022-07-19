@@ -54,16 +54,13 @@ end;
 
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
 begin
-  frmMain.config.mountPoint := edtMountPoint.Text;
-  frmMain.config.mountPointShortName := cbShortNames.Checked;
   frmMain.config.autorunState := cbAutorun.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
-
-  if cbTray.Visible then
-  begin
-    frmMain.config.showTrayIcon := cbTray.Checked;
-    frmMain.showTrayIcon := cbTray.Checked;
-  end;
+  frmMain.config.mountPoint := edtMountPoint.Text;
+  frmMain.config.mountPointShortName := cbShortNames.Checked;
+  frmMain.config.showTrayIcon := cbTray.Checked;
+  frmMain.showTrayIcon := cbTray.Checked;
+  frmMain.trayIcon.Visible := cbTray.Checked;
 
   Close;
 end;
@@ -71,15 +68,12 @@ end;
 procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   cbAutorun.Checked := frmMain.config.autorunState;
-  edtMountPoint.Text := frmMain.config.mountPoint;
   cbShortNames.Checked := frmMain.config.mountPointShortName;
-  seFontSize.Value := frmMain.config.logFontSize;
-  sddMountPoint.InitialDir := GetUserDir;
-
+  cbTray.Checked := frmMain.config.showTrayIcon;
   cbTray.Visible := getCurrentDesktop() = KDE_DESKTOP;
-
-  if cbTray.Visible then
-    cbTray.Checked := frmMain.config.showTrayIcon;
+  edtMountPoint.Text := frmMain.config.mountPoint;
+  sddMountPoint.InitialDir := GetUserDir;
+  seFontSize.Value := frmMain.config.logFontSize;
 end;
 
 procedure TfrmSettings.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);

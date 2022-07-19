@@ -102,6 +102,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure FormDropFiles(Sender: TObject; const FileNames: array of string);
+    procedure FormShow(Sender: TObject);
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
     procedure miShowFormTrayClick(Sender: TObject);
@@ -415,8 +416,6 @@ end;
 
 procedure TfrmMain.showHideForm;
 begin
-  trayIcon.Visible := showTrayIcon;
-
   if Visible then
     Hide
   else
@@ -691,6 +690,11 @@ begin
       addVaultToList(dir);
 end;
 
+procedure TfrmMain.FormShow(Sender: TObject);
+begin
+  trayIcon.Visible := config.showTrayIcon;
+end;
+
 procedure TfrmMain.FormCloseQuery(Sender: TObject; var CanClose: boolean);
 var
   i: integer;
@@ -703,6 +707,8 @@ begin
     showHideForm();
     Exit;
   end;
+
+  showTrayIcon := config.showTrayIcon;
 
   if isUnlockedVaultsExists() then
     with TfrmCloseQuery.Create(Self) do
@@ -719,8 +725,6 @@ begin
         end
         else
         begin
-          if trayIcon.Visible then
-            showTrayIcon := True;
           Exit;
         end;
       finally

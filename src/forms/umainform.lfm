@@ -13,6 +13,7 @@ object frmMain: TfrmMain
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
+  OnShow = FormShow
   LCLVersion = '2.2.2.0'
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
