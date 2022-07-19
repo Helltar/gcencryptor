@@ -14,22 +14,22 @@ type
     ExitStatus: integer;
   end;
 
-//function findmnt(const path: string): boolean;
 function delDir(const dir: string; const showErr: boolean = True): boolean;
 function dirExists(const dir: string): boolean;
 function fuserCheck(const mountpoint: string): boolean;
 function getAppFileVersion(): string;
 function getAppInfo(const AType: string): string;
 function getAppOriginalFilename(): string;
+function getAppPath: string;
+function getCurrentDesktop(): string;
+function getDirSize(const path: string): string;
 function getFuserOutput(const mountpoint: string): string;
 function isDirEmpty(const dir: string): boolean;
 function mkDir(const dir: string): boolean;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
 function procStart(const executable, parameters: string; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
+function replaceHomeSymbol(const path: string): string;
 function umount(const mountpoint: string): boolean;
-function getDirSize(const path: string): string;
-function getAppPath: string;
-function getCurrentDesktop(): string;
 
 implementation
 
@@ -101,20 +101,6 @@ begin
   end;
 end;
 
-{
-function findmnt(const path: string): boolean;
-var
-  p: TProcessRec;
-
-begin
-  p := procStart('findmnt', path);
-
-  if p.Completed and (p.ExitStatus = 0) then
-    Result := True
-  else
-    Result := False;
-end;
-}
 function umount(const mountpoint: string): boolean;
 var
   p: TProcessRec;
@@ -162,6 +148,11 @@ end;
 function getCurrentDesktop: string;
 begin
   Result := Trim(procStart('printenv', 'XDG_CURRENT_DESKTOP').Output);
+end;
+
+function replaceHomeSymbol(const path: string): string;
+begin
+  Result := StringReplace(path, GetUserDir, '~' + DirectorySeparator, [rfReplaceAll]);
 end;
 
 function dirExists(const dir: string): boolean;
