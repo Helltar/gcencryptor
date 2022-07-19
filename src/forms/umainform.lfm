@@ -1,11 +1,11 @@
 object frmMain: TfrmMain
-  Left = 461
-  Height = 559
-  Top = 247
-  Width = 824
+  Left = 422
+  Height = 564
+  Top = 244
+  Width = 899
   AllowDropFiles = True
-  ClientHeight = 528
-  ClientWidth = 824
+  ClientHeight = 533
+  ClientWidth = 899
   Constraints.MinHeight = 350
   Constraints.MinWidth = 400
   Menu = mmMain
@@ -19,8 +19,8 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 313
-    Height = 528
+    Left = 312
+    Height = 533
     Top = 0
     Width = 5
     Align = alNone
@@ -34,10 +34,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 324
-    Height = 480
+    Left = 323
+    Height = 485
     Top = 24
-    Width = 476
+    Width = 552
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Left = 6
@@ -45,8 +45,8 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 449
-    ClientWidth = 472
+    ClientHeight = 454
+    ClientWidth = 548
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
@@ -72,19 +72,18 @@ object frmMain: TfrmMain
       Left = 24
       Height = 34
       Top = 114
-      Width = 424
+      Width = 500
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
       ClientHeight = 34
-      ClientWidth = 424
+      ClientWidth = 500
       TabOrder = 2
       object bbtnUnlock: TBitBtn
         AnchorSideLeft.Control = pnlButtons
         AnchorSideTop.Control = pnlButtons
         AnchorSideBottom.Side = asrBottom
-        Cursor = crHandPoint
         Left = 0
         Height = 34
         Top = 0
@@ -139,8 +138,7 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlButtons
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Side = asrBottom
-        Cursor = crHandPoint
-        Left = 342
+        Left = 418
         Height = 34
         Top = 0
         Width = 82
@@ -198,7 +196,7 @@ object frmMain: TfrmMain
       Left = 24
       Height = 19
       Top = 24
-      Width = 424
+      Width = 500
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Left = 24
@@ -224,11 +222,10 @@ object frmMain: TfrmMain
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Control = gbCurrentVault
       AnchorSideBottom.Side = asrBottom
-      Cursor = crHandPoint
       Left = 24
       Height = 34
-      Top = 391
-      Width = 424
+      Top = 396
+      Width = 500
       Action = actLockAll
       Anchors = [akLeft, akRight, akBottom]
       AutoSize = True
@@ -282,9 +279,9 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 480
+    Height = 485
     Top = 24
-    Width = 283
+    Width = 282
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Left = 24
@@ -295,7 +292,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 279
+        Width = 278
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -344,7 +341,7 @@ object frmMain: TfrmMain
   end
   object mmMain: TMainMenu
     Images = ilMainmenu
-    Left = 224
+    Left = 208
     Top = 48
     object miVault: TMenuItem
       Caption = '&Vault'
@@ -540,7 +537,7 @@ object frmMain: TfrmMain
     end
   end
   object ilMainmenu: TImageList
-    Left = 224
+    Left = 208
     Top = 224
     Bitmap = {
       4C7A0500000010000000100000004C0300000000000078DAED96DF4B536118C7

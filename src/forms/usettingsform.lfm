@@ -1,11 +1,11 @@
 object frmSettings: TfrmSettings
-  Left = 688
-  Height = 580
+  Left = 584
+  Height = 496
   Top = 227
   Width = 674
   AutoSize = True
   Caption = 'Settings'
-  ClientHeight = 580
+  ClientHeight = 496
   ClientWidth = 674
   Constraints.MinWidth = 600
   KeyPreview = True
@@ -36,7 +36,6 @@ object frmSettings: TfrmSettings
       AnchorSideTop.Side = asrCenter
       AnchorSideRight.Control = gbMain
       AnchorSideRight.Side = asrBottom
-      Cursor = crHandPoint
       Left = 571
       Height = 29
       Top = 84
@@ -198,7 +197,6 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 588
     Height = 33
     Top = 389

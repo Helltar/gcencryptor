@@ -534,7 +534,6 @@ object frmLog: TfrmLog
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 24
     Height = 33
     Top = 385
@@ -554,7 +553,6 @@ object frmLog: TfrmLog
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 153
     Height = 33
     Top = 385
@@ -576,7 +574,6 @@ object frmLog: TfrmLog
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 660
     Height = 33
     Top = 385

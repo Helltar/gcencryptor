@@ -77,7 +77,6 @@ object frmNewVault: TfrmNewVault
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Cursor = crHandPoint
     Left = 501
     Height = 33
     Top = 252
@@ -115,7 +114,6 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
-    Cursor = crHandPoint
     Left = 589
     Height = 29
     Top = 26

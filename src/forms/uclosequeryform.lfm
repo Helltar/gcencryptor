@@ -1,11 +1,11 @@
 object frmCloseQuery: TfrmCloseQuery
   Left = 765
-  Height = 283
+  Height = 301
   Top = 276
   Width = 407
   AutoSize = True
   Caption = 'Please confirm'
-  ClientHeight = 283
+  ClientHeight = 301
   ClientWidth = 407
   OnCreate = FormCreate
   OnShow = FormShow
@@ -20,7 +20,7 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideBottom.Control = btnYes
     Left = 24
     Height = 19
-    Top = 98
+    Top = 86
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -36,10 +36,9 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Control = btnCancel
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 228
     Height = 33
-    Top = 197
+    Top = 185
     Width = 54
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -57,10 +56,9 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Cursor = crHandPoint
     Left = 306
     Height = 33
-    Top = 197
+    Top = 185
     Width = 77
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -80,7 +78,7 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideBottom.Control = lblQ
     Left = 24
     Height = 19
-    Top = 55
+    Top = 43
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -105,7 +103,6 @@ object frmCloseQuery: TfrmCloseQuery
     BorderSpacing.Left = 24
     BorderSpacing.Top = 24
     BorderSpacing.Right = 24
-    BorderSpacing.Bottom = 12
     Caption = 'There are unlocked vaults:'
     ParentColor = False
     ParentFont = False
@@ -119,7 +116,7 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideBottom.Control = btnYes
     Left = 24
     Height = 32
-    Top = 141
+    Top = 129
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
