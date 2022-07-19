@@ -5,11 +5,11 @@ unit uMainForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ActnList,
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  LCLTranslator,
+  ActnList, LCLTranslator, uniqueInstance,
   //------------------
-  uConfig, uMountList, uniqueInstance;
+  uConfig, uMountList;
 
 type
 
@@ -169,6 +169,20 @@ begin
   showTrayIcon := config.showTrayIcon;
 
   initControls();
+end;
+
+procedure TfrmMain.FormDestroy(Sender: TObject);
+begin
+  saveConfig();
+
+  FreeAndNil(config);
+  FreeAndNil(mountList);
+
+  try
+    fileList.SaveToFile(vaultListConfigFile);
+  finally
+    FreeAndNil(fileList);
+  end;
 end;
 
 procedure TfrmMain.lvVaultsDblClick(Sender: TObject);
@@ -720,20 +734,6 @@ begin
   end;
 
   CanClose := True;
-end;
-
-procedure TfrmMain.FormDestroy(Sender: TObject);
-begin
-  saveConfig();
-
-  FreeAndNil(config);
-  FreeAndNil(mountList);
-
-  try
-    fileList.SaveToFile(vaultListConfigFile);
-  finally
-    FreeAndNil(fileList);
-  end;
 end;
 
 end.

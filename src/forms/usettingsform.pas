@@ -63,7 +63,6 @@ begin
   begin
     frmMain.config.showTrayIcon := cbTray.Checked;
     frmMain.showTrayIcon := cbTray.Checked;
-    frmMain.trayIcon.Visible := cbTray.Checked;
   end;
 
   Close;
