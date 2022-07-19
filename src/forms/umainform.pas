@@ -9,7 +9,7 @@ uses
   ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
   LCLTranslator,
   //------------------
-  uConfig, uMountList;
+  uConfig, uMountList, uniqueInstance;
 
 type
 
@@ -77,6 +77,7 @@ type
     splLeft: TSplitter;
     stVaultPath: TStaticText;
     trayIcon: TTrayIcon;
+    uniqueInstance: TUniqueInstance;
     procedure actConfigureExecute(Sender: TObject);
     procedure actCreateVaultExecute(Sender: TObject);
     procedure actDelFromListExecute(Sender: TObject);
@@ -114,6 +115,7 @@ type
     procedure stVaultPathMouseEnter(Sender: TObject);
     procedure stVaultPathMouseLeave(Sender: TObject);
     procedure trayIconClick(Sender: TObject);
+    procedure uniqueInstanceOtherInstance(Sender: TObject; ParamCount: integer; const Parameters: array of string);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -165,7 +167,6 @@ begin
 
   vaultListConfigFile := GetAppConfigDir(False) + VAULTLIST_CONF_FILENAME;
   showTrayIcon := config.showTrayIcon;
-  trayIcon.Visible := showTrayIcon;
 
   initControls();
 end;
@@ -248,6 +249,11 @@ end;
 procedure TfrmMain.trayIconClick(Sender: TObject);
 begin
   showHideForm();
+end;
+
+procedure TfrmMain.uniqueInstanceOtherInstance(Sender: TObject; ParamCount: integer; const Parameters: array of string);
+begin
+  Show;
 end;
 
 procedure TfrmMain.initControls;
@@ -395,6 +401,8 @@ end;
 
 procedure TfrmMain.showHideForm;
 begin
+  trayIcon.Visible := showTrayIcon;
+
   if Visible then
     Hide
   else

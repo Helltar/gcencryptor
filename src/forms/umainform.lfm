@@ -1,10 +1,10 @@
 object frmMain: TfrmMain
-  Left = 426
-  Height = 587
-  Top = 244
+  Left = 461
+  Height = 559
+  Top = 247
   Width = 824
   AllowDropFiles = True
-  ClientHeight = 556
+  ClientHeight = 528
   ClientWidth = 824
   Constraints.MinHeight = 350
   Constraints.MinWidth = 400
@@ -19,7 +19,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 313
-    Height = 556
+    Height = 528
     Top = 0
     Width = 5
     Align = alNone
@@ -34,7 +34,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 324
-    Height = 508
+    Height = 480
     Top = 24
     Width = 476
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -44,7 +44,7 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 477
+    ClientHeight = 449
     ClientWidth = 472
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
@@ -199,6 +199,7 @@ object frmMain: TfrmMain
       Top = 24
       Width = 424
       Anchors = [akTop, akLeft, akRight]
+      AutoSize = True
       BorderSpacing.Left = 24
       BorderSpacing.Top = 24
       BorderSpacing.Right = 24
@@ -225,7 +226,7 @@ object frmMain: TfrmMain
       Cursor = crHandPoint
       Left = 24
       Height = 34
-      Top = 419
+      Top = 391
       Width = 424
       Action = actLockAll
       Anchors = [akLeft, akRight, akBottom]
@@ -280,7 +281,7 @@ object frmMain: TfrmMain
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 508
+    Height = 480
     Top = 24
     Width = 283
     Anchors = [akTop, akLeft, akRight, akBottom]
@@ -763,5 +764,12 @@ object frmMain: TfrmMain
       ImageIndex = 2
       OnClick = miQuitTrayClick
     end
+  end
+  object uniqueInstance: TUniqueInstance
+    Enabled = True
+    UpdateInterval = 100
+    OnOtherInstance = uniqueInstanceOtherInstance
+    Left = 712
+    Top = 336
   end
 end
