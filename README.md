@@ -82,3 +82,9 @@ Build from source
 Third-party components:
 
 - [UniqueInstance](https://github.com/blikblum/luipack/releases/tag/uniqueinstance-1.1)
+
+Wiki
+----
+
+- [Tips & Tricks](https://github.com/Helltar/gcencryptor/wiki/Tips-&-Tricks)
+- [Keyboard Shortcuts](https://github.com/Helltar/gcencryptor/wiki/Keyboard-Shortcuts)
