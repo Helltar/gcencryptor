@@ -65,7 +65,3 @@ Build from source
 -----------------
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
-
-Third-party components:
-
-- [UniqueInstance](https://github.com/blikblum/luipack/releases/tag/uniqueinstance-1.1)
