@@ -78,16 +78,9 @@ Build from source
 -----------------
 
 [![LazarusIDE](http://wiki.lazarus.freepascal.org/images/9/94/built_with_lazarus_logo.png)](http://www.lazarus-ide.org)
-<<<<<<< HEAD
-=======
-
-Third-party components:
-
-- [UniqueInstance](https://github.com/blikblum/luipack/releases/tag/uniqueinstance-1.1)
 
 Wiki
 ----
 
 - [Tips & Tricks](https://github.com/Helltar/gcencryptor/wiki/Tips-&-Tricks)
 - [Keyboard Shortcuts](https://github.com/Helltar/gcencryptor/wiki/Keyboard-Shortcuts)
->>>>>>> 020ffff93ace3d6e511a6a2464321a25dbdba473
