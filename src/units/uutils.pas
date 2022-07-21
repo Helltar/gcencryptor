@@ -26,6 +26,7 @@ function getCurrentDesktop(): string;
 function getDirSize(const path: string): string;
 function getFuserOutput(const mountpoint: string): string;
 function isDirEmpty(const dir: string): boolean;
+function isUniqueInstance(): boolean;
 function mkDir(const dir: string): boolean;
 function procStart(const AExecutable: string; const AParameters: TProcessStrings; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
 function procStart(const executable, parameters: string; stdin: string = ''; const showFormIfErr: boolean = True): TProcessRec;
@@ -127,6 +128,26 @@ begin
   deldir(mountpoint, False);
   addLog(RS_UNMOUNTED_SUCCESSFULLY, mountpoint);
   Result := True;
+end;
+
+function isUniqueInstance(): boolean;
+var
+  p: TProcessRec;
+
+begin
+  Result := True;
+
+  p := procStart('pgrep', APP_NAME);
+
+  if p.Completed and (p.ExitStatus = 0) then
+    with TStringList.Create do
+      try
+        Text := p.Output;
+        if Count > 1 then
+          Result := False;
+      finally
+        Free;
+      end;
 end;
 
 function getDirSize(const path: string): string;

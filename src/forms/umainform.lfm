@@ -15,6 +15,7 @@ object frmMain: TfrmMain
   OnDropFiles = FormDropFiles
   OnShow = FormShow
   LCLVersion = '2.2.2.0'
+  Visible = True
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = Owner
@@ -758,11 +759,9 @@ object frmMain: TfrmMain
       OnClick = miQuitTrayClick
     end
   end
-  object uniqueInstance: TUniqueInstance
-    Enabled = True
-    UpdateInterval = 100
-    OnOtherInstance = uniqueInstanceOtherInstance
-    Left = 712
-    Top = 336
+  object tmCheckLockFile: TTimer
+    OnTimer = tmCheckLockFileTimer
+    Left = 8
+    Top = 8
   end
 end

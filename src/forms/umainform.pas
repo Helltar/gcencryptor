@@ -7,7 +7,7 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls,
   ExtCtrls, LCLIntf, Menus, LCLType, Clipbrd, ComCtrls, Buttons,
-  ActnList, LCLTranslator, uniqueInstance,
+  ActnList, LCLTranslator,
   //------------------
   uConfig, uMountList;
 
@@ -76,8 +76,8 @@ type
     pmMain: TPopupMenu;
     splLeft: TSplitter;
     stVaultPath: TStaticText;
+    tmCheckLockFile: TTimer;
     trayIcon: TTrayIcon;
-    uniqueInstance: TUniqueInstance;
     procedure actConfigureExecute(Sender: TObject);
     procedure actCreateVaultExecute(Sender: TObject);
     procedure actDelFromListExecute(Sender: TObject);
@@ -115,8 +115,8 @@ type
     procedure stVaultPathClick(Sender: TObject);
     procedure stVaultPathMouseEnter(Sender: TObject);
     procedure stVaultPathMouseLeave(Sender: TObject);
+    procedure tmCheckLockFileTimer(Sender: TObject);
     procedure trayIconClick(Sender: TObject);
-    procedure uniqueInstanceOtherInstance(Sender: TObject; ParamCount: integer; const Parameters: array of string);
   private
     fileList: TStringList;
     mountList: TMountList;
@@ -140,6 +140,7 @@ type
     procedure setLang(const langCode: string);
   public
     config: TConfig;
+    primaryLockFilename: string;
     vaultPassword: string;
     showTrayIcon: boolean;
     procedure addVaultToList(const path: string);
@@ -162,7 +163,7 @@ uses
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  config := TConfig.Create();
+  config := TConfig.Create(GetAppConfigDir(False) + MAIN_CONF_FILENAME);
   fileList := TStringList.Create;
   mountList := TMountList.Create;
 
@@ -261,14 +262,23 @@ begin
   TStaticText(Sender).Font.Style := [fsBold];
 end;
 
+procedure TfrmMain.tmCheckLockFileTimer(Sender: TObject);
+var
+  secondaryLockFilename: string;
+
+begin
+  secondaryLockFilename := primaryLockFilename + '1';
+
+  if FileExists(secondaryLockFilename) then
+  begin
+    DeleteFile(secondaryLockFilename);
+    Show;
+  end;
+end;
+
 procedure TfrmMain.trayIconClick(Sender: TObject);
 begin
   showHideForm();
-end;
-
-procedure TfrmMain.uniqueInstanceOtherInstance(Sender: TObject; ParamCount: integer; const Parameters: array of string);
-begin
-  Show;
 end;
 
 procedure TfrmMain.initControls;

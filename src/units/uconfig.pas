@@ -44,7 +44,6 @@ type
     procedure SetShowTrayIcon(AValue: boolean);
     procedure SetSplLeft(AValue: integer);
   public
-    constructor Create();
     property autorunState: boolean read GetAutorunState write SetAutorunState;
     property frmHeight: integer read GetFrmHeight write SetFrmHeight;
     property frmLeft: integer read GetFrmLeft write SetFrmLeft;
@@ -64,23 +63,7 @@ type
 
 implementation
 
-uses
-  uConsts;
-
 { TConfig }
-
-constructor TConfig.Create;
-var
-  configDir: string;
-
-begin
-  configDir := GetAppConfigDir(False);
-
-  if not DirectoryExists(configDir) then
-    mkDir(configDir);
-
-  inherited Create(configDir + MAIN_CONF_FILENAME);
-end;
 
 function TConfig.GetMountPoint: string;
 begin
