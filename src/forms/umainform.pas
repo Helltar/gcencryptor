@@ -113,8 +113,6 @@ type
     procedure miRussianClick(Sender: TObject);
     procedure miUkrainianClick(Sender: TObject);
     procedure stVaultPathClick(Sender: TObject);
-    procedure stVaultPathMouseEnter(Sender: TObject);
-    procedure stVaultPathMouseLeave(Sender: TObject);
     procedure tmCheckLockFileTimer(Sender: TObject);
     procedure trayIconClick(Sender: TObject);
   private
@@ -252,16 +250,6 @@ begin
     OpenURL(getSelectedMountPoint());
 end;
 
-procedure TfrmMain.stVaultPathMouseEnter(Sender: TObject);
-begin
-  TStaticText(Sender).Font.Style := [fsBold, fsUnderline];
-end;
-
-procedure TfrmMain.stVaultPathMouseLeave(Sender: TObject);
-begin
-  TStaticText(Sender).Font.Style := [fsBold];
-end;
-
 procedure TfrmMain.tmCheckLockFileTimer(Sender: TObject);
 var
   secondaryLockFilename: string;
@@ -375,12 +363,12 @@ end;
 
 procedure TfrmMain.hideMenubar;
 begin
-  if Assigned(Menu) then
+  if Menu <> nil then
     Menu := nil
   else
     Menu := mmMain;
 
-  config.showMenubar := Assigned(Menu);
+  config.showMenubar := Menu <> nil;
 end;
 
 procedure TfrmMain.addVaultToList(const path: string);
