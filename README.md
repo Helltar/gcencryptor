@@ -46,7 +46,7 @@ Unpack and run:
 cd ~/Downloads/
 ```
 ```
-tar -xvzf gcencryptor-1.5.0.tar.gz
+tar -xvzf gcencryptor-1.5.1.tar.gz
 ```
 ```bash
 sudo mv gcencryptor/ /opt/ # you can use any other directory
