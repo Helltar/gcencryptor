@@ -23,6 +23,7 @@ type
     procedure edtPasswordKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
   private
     procedure okClose();
   end;
@@ -63,14 +64,17 @@ end;
 procedure TfrmPassword.FormCreate(Sender: TObject);
 begin
   Caption := APP_NAME;
-  Constraints.MinHeight := Height;
-  Constraints.MinWidth := Width;
 end;
 
 procedure TfrmPassword.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
 begin
   if (Key = VK_Q) and (ssCtrl in Shift) then
     Close;
+end;
+
+procedure TfrmPassword.FormShow(Sender: TObject);
+begin
+  Constraints.MinHeight := Height;
 end;
 
 procedure TfrmPassword.okClose;
