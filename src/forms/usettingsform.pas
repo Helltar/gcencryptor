@@ -75,6 +75,7 @@ end;
 
 procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
+  Caption := APP_NAME;
   cbAutorun.Checked := frmMain.config.autorunState;
   cbLongNames.Checked := frmMain.config.mountPointLongName;
   cbTray.Checked := frmMain.config.showTrayIcon;

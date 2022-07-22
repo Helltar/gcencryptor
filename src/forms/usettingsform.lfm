@@ -4,7 +4,6 @@ object frmSettings: TfrmSettings
   Top = 224
   Width = 600
   AutoSize = True
-  Caption = 'Settings'
   ClientHeight = 507
   ClientWidth = 600
   Constraints.MinWidth = 600
@@ -20,12 +19,13 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 341
+    Height = 368
     Top = 24
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
+    Caption = 'Settings'
     ClientHeight = 337
     ClientWidth = 548
     ParentFont = False
@@ -199,7 +199,7 @@ object frmSettings: TfrmSettings
     AnchorSideBottom.Side = asrBottom
     Left = 514
     Height = 33
-    Top = 389
+    Top = 416
     Width = 62
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -218,7 +218,7 @@ object frmSettings: TfrmSettings
     AnchorSideBottom.Side = asrBottom
     Left = 24
     Height = 33
-    Top = 389
+    Top = 416
     Width = 177
     AutoSize = True
     BorderSpacing.Around = 24
