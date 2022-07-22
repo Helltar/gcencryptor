@@ -320,10 +320,6 @@ msgctxt "tfrmsettings.btnselectmountpoint.caption"
 msgid "..."
 msgstr ""
 
-#: tfrmsettings.caption
-msgid "Settings"
-msgstr "Налаштування"
-
 #: tfrmsettings.cbautorun.caption
 msgid "Open in File Manager after unlocking"
 msgstr "Відкривати у менеджері файлів після розблокування"
@@ -344,6 +340,11 @@ msgstr "Приховувати вікно в системній трей під 
 msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
 msgstr "шлях"
+
+#: tfrmsettings.gbmain.caption
+msgctxt "tfrmsettings.gbmain.caption"
+msgid "Settings"
+msgstr "Налаштування"
 
 #: tfrmsettings.lblfontsize.caption
 msgid "Font size (messages)"

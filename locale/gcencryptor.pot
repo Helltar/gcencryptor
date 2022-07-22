@@ -313,10 +313,6 @@ msgctxt "tfrmsettings.btnselectmountpoint.caption"
 msgid "..."
 msgstr ""
 
-#: tfrmsettings.caption
-msgid "Settings"
-msgstr ""
-
 #: tfrmsettings.cbautorun.caption
 msgid "Open in File Manager after unlocking"
 msgstr ""
@@ -336,6 +332,11 @@ msgstr ""
 #: tfrmsettings.edtmountpoint.texthint
 msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
+msgstr ""
+
+#: tfrmsettings.gbmain.caption
+msgctxt "tfrmsettings.gbmain.caption"
+msgid "Settings"
 msgstr ""
 
 #: tfrmsettings.lblfontsize.caption

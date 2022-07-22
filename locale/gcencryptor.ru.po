@@ -321,10 +321,6 @@ msgctxt "tfrmsettings.btnselectmountpoint.caption"
 msgid "..."
 msgstr ""
 
-#: tfrmsettings.caption
-msgid "Settings"
-msgstr "Настройки"
-
 #: tfrmsettings.cbautorun.caption
 msgid "Open in File Manager after unlocking"
 msgstr "Открыть в диспетчере файлов после разблокировки"
@@ -345,6 +341,11 @@ msgstr "Скрывать окно в системный трей при закр
 msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
 msgstr "путь"
+
+#: tfrmsettings.gbmain.caption
+msgctxt "tfrmsettings.gbmain.caption"
+msgid "Settings"
+msgstr "Настройки"
 
 #: tfrmsettings.lblfontsize.caption
 msgid "Font size (messages)"

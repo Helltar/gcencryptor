@@ -46,7 +46,7 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 454
+    ClientHeight = 440
     ClientWidth = 548
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
@@ -224,7 +224,7 @@ object frmMain: TfrmMain
       AnchorSideBottom.Side = asrBottom
       Left = 24
       Height = 34
-      Top = 396
+      Top = 382
       Width = 500
       Action = actLockAll
       Anchors = [akLeft, akRight, akBottom]
