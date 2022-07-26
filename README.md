@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img src="icons/128x128.png" alt="gcencryptor_icon"/>
+    <img src="icons/512x512.png" width="128" height="128" alt="gcencryptor_icon"/>
     <br>
     gcencryptor
     <br><br>
