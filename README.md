@@ -13,6 +13,7 @@ Download
 
 - [gcencryptor-1.5.1.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.1/gcencryptor-1.5.1.tar.gz) (1.66 MB)
 - [gcencryptor-1.5.1.tar.gz.sha256sum](https://helltar.com/projects/gcencryptor/bin/sha256sums/gcencryptor-1.5.1.tar.gz.sha256sum)
+- AUR: [gcencryptor](https://aur.archlinux.org/packages/gcencryptor)
 
 Install
 -------
