@@ -9,4 +9,4 @@ lib/
 debug_bin/
 release_bin/
 icons/16x16/
-pkg/
+aur/
