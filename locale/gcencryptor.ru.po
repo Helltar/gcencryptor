@@ -194,6 +194,10 @@ msgctxt "tfrmmain.miexit.caption"
 msgid "&Quit"
 msgstr "&Выйти"
 
+#: tfrmmain.mihelp.caption
+msgid "&Help"
+msgstr "&Справка"
+
 #: tfrmmain.milanguage.caption
 msgid "&Language"
 msgstr "&Язык"

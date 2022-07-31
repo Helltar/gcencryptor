@@ -190,6 +190,10 @@ msgctxt "tfrmmain.miexit.caption"
 msgid "&Quit"
 msgstr ""
 
+#: tfrmmain.mihelp.caption
+msgid "&Help"
+msgstr ""
+
 #: tfrmmain.milanguage.caption
 msgid "&Language"
 msgstr ""
