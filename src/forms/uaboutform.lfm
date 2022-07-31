@@ -1,7 +1,7 @@
 object frmAbout: TfrmAbout
-  Left = 694
+  Left = 698
   Height = 336
-  Top = 280
+  Top = 297
   Width = 400
   AutoSize = True
   Caption = 'About'
@@ -32,7 +32,6 @@ object frmAbout: TfrmAbout
     Font.Style = [fsUnderline]
     ParentColor = False
     ParentFont = False
-    OnClick = lblHomepageClick
   end
   object lblGcencryptor: TLabel
     AnchorSideLeft.Control = Owner
@@ -88,7 +87,6 @@ object frmAbout: TfrmAbout
     Width = 2000
     Anchors = [akTop]
     AutoSize = True
-    OnClick = lblHomepageClick
     Picture.Data = {
       1754506F727461626C654E6574776F726B477261706869633B10000089504E47
       0D0A1A0A0000000D49484452000007D000000040080600000042F9ECB4000001

@@ -43,6 +43,7 @@ type
     ilMainmenu: TImageList;
     ilPopupmenu: TImageList;
     lvVaults: TListView;
+    miAbout: TMenuItem;
     miShowFormTray: TMenuItem;
     miLockAllTray: TMenuItem;
     miQuitTray: TMenuItem;
@@ -60,7 +61,7 @@ type
     miVaultInfo: TMenuItem;
     mmMain: TMainMenu;
     miSettings: TMenuItem;
-    miAbout: TMenuItem;
+    miHelp: TMenuItem;
     miVault: TMenuItem;
     miOpenVault: TMenuItem;
     miDelFromList: TMenuItem;
@@ -105,10 +106,10 @@ type
     procedure FormShow(Sender: TObject);
     procedure lvVaultsDblClick(Sender: TObject);
     procedure lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+    procedure miAboutClick(Sender: TObject);
     procedure miShowFormTrayClick(Sender: TObject);
     procedure miQuitTrayClick(Sender: TObject);
     procedure miEnglishClick(Sender: TObject);
-    procedure miAboutClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miRussianClick(Sender: TObject);
     procedure miUkrainianClick(Sender: TObject);
@@ -142,7 +143,8 @@ type
     vaultPassword: string;
     showTrayIcon: boolean;
     procedure addVaultToList(const path: string);
-    procedure addSynLog(const msg: string; const err: boolean = False; const showForm: boolean = False);
+    procedure addSynLog(const msg: string; const err: boolean = False;
+      const showForm: boolean = False);
   end;
 
 var
@@ -191,9 +193,20 @@ begin
     OpenURL(getSelectedMountPoint());
 end;
 
-procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
+procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem;
+  Selected: boolean);
 begin
   updateControls();
+end;
+
+procedure TfrmMain.miAboutClick(Sender: TObject);
+begin
+  with TfrmAbout.Create(Self) do
+    try
+      ShowModal;
+    finally
+      Free;
+    end;
 end;
 
 procedure TfrmMain.miShowFormTrayClick(Sender: TObject);
@@ -211,16 +224,6 @@ end;
 procedure TfrmMain.miEnglishClick(Sender: TObject);
 begin
   setLang('en');
-end;
-
-procedure TfrmMain.miAboutClick(Sender: TObject);
-begin
-  with TfrmAbout.Create(Self) do
-    try
-      ShowModal;
-    finally
-      Free;
-    end;
 end;
 
 procedure TfrmMain.miExitClick(Sender: TObject);
@@ -385,7 +388,8 @@ begin
   lvVaults.ItemIndex := fileList.Count - 1;
 end;
 
-procedure TfrmMain.addSynLog(const msg: string; const err: boolean; const showForm: boolean);
+procedure TfrmMain.addSynLog(const msg: string; const err: boolean;
+  const showForm: boolean);
 begin
   if Assigned(frmLog) then
   begin
@@ -518,7 +522,8 @@ end;
 
 procedure TfrmMain.actOpenMountDirUpdate(Sender: TObject);
 begin
-  actOpenMountDir.Enabled := isItemSelected() and isSelectedVaultUnlock() and isSelectedVaultPathExists();
+  actOpenMountDir.Enabled := isItemSelected() and isSelectedVaultUnlock() and
+    isSelectedVaultPathExists();
 end;
 
 procedure TfrmMain.actOpenVaultDirExecute(Sender: TObject);
@@ -553,7 +558,8 @@ begin
   if vaultPassword.IsEmpty then
     Exit;
 
-  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword, cbReadOnlyMount.Checked, config.mountPointLongName);
+  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword,
+    cbReadOnlyMount.Checked, config.mountPointLongName);
   vaultPassword := '';
 
   if m.Completed then
@@ -568,7 +574,8 @@ end;
 
 procedure TfrmMain.actUnlockUpdate(Sender: TObject);
 begin
-  actUnlock.Enabled := isItemSelected() and isSelectedVaultPathExists() and not isSelectedVaultUnlock();
+  actUnlock.Enabled := isItemSelected() and isSelectedVaultPathExists() and
+    not isSelectedVaultUnlock();
 end;
 
 procedure TfrmMain.actVaultInfoExecute(Sender: TObject);
@@ -609,7 +616,8 @@ end;
 
 procedure TfrmMain.actFsckUpdate(Sender: TObject);
 begin
-  actFsck.Enabled := isItemSelected() and not isSelectedVaultUnlock() and isSelectedVaultPathExists() and isFsckThreadStopped;
+  actFsck.Enabled := isItemSelected() and not isSelectedVaultUnlock() and
+    isSelectedVaultPathExists() and isFsckThreadStopped;
 end;
 
 procedure TfrmMain.actCreateVaultExecute(Sender: TObject);
@@ -708,7 +716,8 @@ begin
     with TfrmCloseQuery.Create(Self) do
       try
         for i := 0 to mountList.getSize() do
-          stVaultList.Caption := stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
+          stVaultList.Caption :=
+            stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
 
         ShowModal;
 

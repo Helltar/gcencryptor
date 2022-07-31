@@ -1,10 +1,10 @@
 object frmLicense: TfrmLicense
-  Left = 532
-  Height = 400
-  Top = 355
+  Left = 536
+  Height = 600
+  Top = 234
   Width = 800
   Caption = 'GNU GENERAL PUBLIC LICENSE'
-  ClientHeight = 400
+  ClientHeight = 600
   ClientWidth = 800
   Constraints.MinHeight = 400
   Constraints.MinWidth = 800
@@ -18,7 +18,7 @@ object frmLicense: TfrmLicense
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 352
+    Height = 552
     Top = 24
     Width = 752
     Anchors = [akTop, akLeft, akRight, akBottom]

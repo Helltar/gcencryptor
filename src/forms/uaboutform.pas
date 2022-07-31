@@ -25,7 +25,6 @@ type
     procedure lblPapirusClick(Sender: TObject);
     procedure lblGcencryptorClick(Sender: TObject);
     procedure lblGocryptfsClick(Sender: TObject);
-    procedure lblHomepageClick(Sender: TObject);
     procedure lblLicenseClick(Sender: TObject);
   end;
 
@@ -57,11 +56,6 @@ end;
 procedure TfrmAbout.lblGocryptfsClick(Sender: TObject);
 begin
   OpenURL(URL_GOCRYPTFS);
-end;
-
-procedure TfrmAbout.lblHomepageClick(Sender: TObject);
-begin
-  OpenURL(URL_HOMEPAGE);
 end;
 
 procedure TfrmAbout.FormCreate(Sender: TObject);

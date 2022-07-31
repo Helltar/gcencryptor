@@ -1,7 +1,7 @@
 object frmCloseQuery: TfrmCloseQuery
-  Left = 765
+  Left = 721
   Height = 301
-  Top = 276
+  Top = 306
   Width = 407
   AutoSize = True
   Caption = 'Please confirm'

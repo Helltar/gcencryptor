@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 429
+  Left = 443
   Height = 564
-  Top = 206
+  Top = 184
   Width = 899
   AllowDropFiles = True
   ClientHeight = 533
@@ -46,7 +46,7 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 440
+    ClientHeight = 454
     ClientWidth = 548
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
@@ -224,7 +224,7 @@ object frmMain: TfrmMain
       AnchorSideBottom.Side = asrBottom
       Left = 24
       Height = 34
-      Top = 382
+      Top = 396
       Width = 500
       Action = actLockAll
       Anchors = [akLeft, akRight, akBottom]
@@ -391,9 +391,12 @@ object frmMain: TfrmMain
         Action = actConfigure
       end
     end
-    object miAbout: TMenuItem
-      Caption = '&About'
-      OnClick = miAboutClick
+    object miHelp: TMenuItem
+      Caption = '&Help'
+      object miAbout: TMenuItem
+        Caption = '&About'
+        OnClick = miAboutClick
+      end
     end
   end
   object ilVaultState: TImageList

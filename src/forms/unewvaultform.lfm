@@ -1,5 +1,5 @@
 object frmNewVault: TfrmNewVault
-  Left = 657
+  Left = 619
   Height = 381
   Top = 297
   Width = 640
