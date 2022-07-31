@@ -6,24 +6,29 @@
     <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_26072022_125437.png" alt="gcencryptor_main"/>
 </h1>
 
-gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs) so it needs a working gocryptfs [setup](https://github.com/rfjakob/gocryptfs#installation).
+gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs).
 
 Download
 --------
 
 - [gcencryptor-1.5.1.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.1/gcencryptor-1.5.1.tar.gz) (1.66 MB)
 - [gcencryptor-1.5.1.tar.gz.sha256sum](https://helltar.com/projects/gcencryptor/bin/sha256sums/gcencryptor-1.5.1.tar.gz.sha256sum)
-- AUR: [gcencryptor](https://aur.archlinux.org/packages/gcencryptor)
 
 Install
 -------
 
 Dependencies:
 
-**Arch Linux**:
+**Arch Linux** (or you can install from **AUR**: [gcencryptor](https://aur.archlinux.org/packages/gcencryptor)):
 
 ```
-sudo pacman -S qt5pas
+sudo pacman -S gocryptfs qt5pas
+```
+
+**Ubuntu**:
+
+```
+sudo apt install gocryptfs libqt5pas1
 ```
 
 **Fedora**:
@@ -32,11 +37,7 @@ sudo pacman -S qt5pas
 sudo dnf install qt5pas
 ```
 
-**Ubuntu**:
-
-```
-sudo apt install libqt5pas1
-```
+In Fedora 36 **gocryptfs** not available on repos, please install [binaries](https://github.com/rfjakob/gocryptfs/releases) manually.
 
 Usage
 -----
@@ -49,11 +50,8 @@ cd ~/Downloads/
 ```
 tar -xvzf gcencryptor-1.5.1.tar.gz
 ```
-```bash
-sudo mv gcencryptor/ /opt/ # you can use any other directory
 ```
-```
-/opt/gcencryptor/gcencryptor
+cd gcencryptor/ && ./gcencryptor
 ```
 
 To make available in your list of applications, got to **Settings** > **Create Desktop Entry**.
