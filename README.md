@@ -1,12 +1,10 @@
-<h1 align="center">
+<h3 align="center">
     <img src="icons/512x512.png" width="128" height="128" alt="gcencryptor_icon"/>
-    <br>
-    gcencryptor
     <br><br>
-    <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_26072022_125437.png" alt="gcencryptor_main"/>
-</h1>
-
-gcencryptor is a GUI for [gocryptfs](https://github.com/rfjakob/gocryptfs).
+    gcencryptor is a GUI for <a href="https://github.com/rfjakob/gocryptfs">gocryptfs</a>
+    <br><br>
+    <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_26072022_125437.png" alt="gcencryptor_main_window"/>
+</h3>
 
 Download
 --------
