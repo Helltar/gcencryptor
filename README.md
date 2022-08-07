@@ -15,7 +15,7 @@ Download
 Install
 -------
 
-NOTE: **Arch** users can just install **gcencryptor** from the **AUR**: ([gcencryptor](https://aur.archlinux.org/packages/gcencryptor)) and skip to the next section.
+NOTE: **Arch** users can just install **gcencryptor** from the **AUR**: ([gcencryptor](https://aur.archlinux.org/packages/gcencryptor)) and skip next section.
 
 Dependencies:
 
