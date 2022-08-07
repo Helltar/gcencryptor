@@ -15,9 +15,11 @@ Download
 Install
 -------
 
+NOTE: **Arch** users can just install **gcencryptor** from the **AUR**: ([gcencryptor](https://aur.archlinux.org/packages/gcencryptor)) and skip to the next section.
+
 Dependencies:
 
-**Arch Linux** (or you can install from **AUR**: [gcencryptor](https://aur.archlinux.org/packages/gcencryptor)):
+**Arch Linux**:
 
 ```
 sudo pacman -S gocryptfs qt5pas
