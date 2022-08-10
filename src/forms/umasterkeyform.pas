@@ -37,7 +37,7 @@ uses
 
 procedure TfrmMasterKey.btnSaveClick(Sender: TObject);
 begin
-  saveDialog.FileName := LowerCase(vaultName) + '.masterkey';
+  saveDialog.FileName := LowerCase(vaultName) + '_gocryptfs-masterkey';
 
   if saveDialog.Execute then
     with TStringList.Create do
