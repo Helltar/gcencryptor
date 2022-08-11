@@ -4,6 +4,8 @@
     gcencryptor is a GUI for <a href="https://github.com/rfjakob/gocryptfs">gocryptfs</a>
     <br><br>
     <img src="https://helltar.com/projects/gcencryptor/screenshots/screenshot_26072022_125437.png" alt="gcencryptor_main_window"/>
+    <br>
+    <a href="https://youtu.be/TZnUgkd3Ki0">youtu.be/TZnUgkd3Ki0</a>
 </h3>
 
 Download
