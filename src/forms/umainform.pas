@@ -143,8 +143,7 @@ type
     vaultPassword: string;
     showTrayIcon: boolean;
     procedure addVaultToList(const path: string);
-    procedure addSynLog(const msg: string; const err: boolean = False;
-      const showForm: boolean = False);
+    procedure addSynLog(const msg: string; const err: boolean = False; const showForm: boolean = False);
   end;
 
 var
@@ -193,8 +192,7 @@ begin
     OpenURL(getSelectedMountPoint());
 end;
 
-procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem;
-  Selected: boolean);
+procedure TfrmMain.lvVaultsSelectItem(Sender: TObject; Item: TListItem; Selected: boolean);
 begin
   updateControls();
 end;
@@ -388,8 +386,7 @@ begin
   lvVaults.ItemIndex := fileList.Count - 1;
 end;
 
-procedure TfrmMain.addSynLog(const msg: string; const err: boolean;
-  const showForm: boolean);
+procedure TfrmMain.addSynLog(const msg: string; const err: boolean; const showForm: boolean);
 begin
   if Assigned(frmLog) then
   begin
@@ -558,8 +555,7 @@ begin
   if vaultPassword.IsEmpty then
     Exit;
 
-  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword,
-    cbReadOnlyMount.Checked, config.mountPointLongName);
+  m := mount(getSelectedVaultPath(), config.mountPoint, vaultPassword, cbReadOnlyMount.Checked, config.mountPointLongName);
   vaultPassword := '';
 
   if m.Completed then
@@ -574,8 +570,7 @@ end;
 
 procedure TfrmMain.actUnlockUpdate(Sender: TObject);
 begin
-  actUnlock.Enabled := isItemSelected() and isSelectedVaultPathExists() and
-    not isSelectedVaultUnlock();
+  actUnlock.Enabled := isItemSelected() and isSelectedVaultPathExists() and not isSelectedVaultUnlock();
 end;
 
 procedure TfrmMain.actVaultInfoExecute(Sender: TObject);
@@ -716,8 +711,7 @@ begin
     with TfrmCloseQuery.Create(Self) do
       try
         for i := 0 to mountList.getSize() do
-          stVaultList.Caption :=
-            stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
+          stVaultList.Caption := stVaultList.Caption + LineEnding + mountList.getVaultDir(i);
 
         ShowModal;
 
