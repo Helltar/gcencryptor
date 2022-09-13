@@ -14,7 +14,7 @@
       </XPManifest>
       <Icon Value="0"/>
       <Resources Count="1">
-        <Resource_0 FileName="../icons/256x256.png" Type="RCDATA" ResourceName="APP_ICON"/>
+        <Resource_0 FileName="../icons/gcencryptor.svg" Type="RCDATA" ResourceName="APP_ICON"/>
       </Resources>
     </General>
     <i18n>
@@ -27,7 +27,7 @@
       <MajorVersionNr Value="1"/>
       <MinorVersionNr Value="5"/>
       <RevisionNr Value="1"/>
-      <BuildNr Value="191"/>
+      <BuildNr Value="192"/>
       <StringTable Comments="https://github.com/helltar/gcencryptor" CompanyName="helltar.com" FileDescription="GUI for gocryptfs" LegalCopyright="2022 Helltar" OriginalFilename="gcencryptor" ProductName="gcencryptor" ProductVersion="1.5"/>
     </VersionInfo>
     <BuildModes>

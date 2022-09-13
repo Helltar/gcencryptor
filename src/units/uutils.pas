@@ -221,7 +221,7 @@ function createDesktopEntry: boolean;
   end;
 
 const
-  iconName = APP_NAME + '.png';
+  iconName = APP_NAME + '.svg';
 
 var
   iconPath: string;
