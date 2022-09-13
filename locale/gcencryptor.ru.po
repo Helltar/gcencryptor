@@ -37,62 +37,6 @@ msgstr ""
 msgid "github.com/papirus-icon-theme"
 msgstr ""
 
-#: tfrmclosequery.btncancel.caption
-msgctxt "tfrmclosequery.btncancel.caption"
-msgid "&Cancel"
-msgstr "&Отмена"
-
-#: tfrmclosequery.btnyes.caption
-msgctxt "tfrmclosequery.btnyes.caption"
-msgid "&Yes"
-msgstr "&Да"
-
-#: tfrmclosequery.caption
-msgctxt "tfrmclosequery.caption"
-msgid "Please confirm"
-msgstr "Пожалуйста, подтвердите"
-
-#: tfrmclosequery.lblinfo.caption
-msgctxt "tfrmclosequery.lblinfo.caption"
-msgid ""
-"This action not have any risk corrupted the data,\n"
-"if the vault is busy you will get a message."
-msgstr ""
-"Это действие не несет никакого риска повреждения данных,\n"
-"если хранилище занято, вы получите сообщение."
-
-#: tfrmclosequery.lblq.caption
-msgctxt "tfrmclosequery.lblq.caption"
-msgid "Unmount all and quit application?"
-msgstr "Размонтировать все и выйти из приложения?"
-
-#: tfrmclosequery.lblunlockedvaults.caption
-msgctxt "tfrmclosequery.lblunlockedvaults.caption"
-msgid "There are unlocked vaults:"
-msgstr "Есть незапертые хранилища:"
-
-#: tfrmlicense.caption
-msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr ""
-
-#: tfrmlog.btnclear.caption
-msgctxt "tfrmlog.btnclear.caption"
-msgid "C&lear"
-msgstr "&Очистить"
-
-#: tfrmlog.btnclose.caption
-msgid "&Close"
-msgstr "&Закрыть"
-
-#: tfrmlog.btnsavelog.caption
-msgctxt "tfrmlog.btnsavelog.caption"
-msgid "&Save to file"
-msgstr "&Сохранить в файл"
-
-#: tfrmlog.caption
-msgid "Messages"
-msgstr "Сообщения"
-
 #: tfrmmain.actconfigure.caption
 msgctxt "tfrmmain.actconfigure.caption"
 msgid "&Configure gcencryptor ..."
@@ -236,35 +180,6 @@ msgstr "&Хранилище"
 msgid "Select An Encrypted Vault Directory"
 msgstr "Выберите зашифрованный каталог"
 
-#: tfrmmasterkey.btnok.caption
-msgctxt "tfrmmasterkey.btnok.caption"
-msgid "&OK"
-msgstr ""
-
-#: tfrmmasterkey.btnsave.caption
-msgctxt "tfrmmasterkey.btnsave.caption"
-msgid "&Save to file"
-msgstr "&Сохранить в файл"
-
-#: tfrmmasterkey.caption
-msgid "Recovery Master Key"
-msgstr "Мастер-ключ для восстановления"
-
-#: tfrmmasterkey.lblyourkey.caption
-msgid "Your master key is:"
-msgstr "Ваш мастер-ключ:"
-
-#: tfrmmasterkey.sttext.caption
-msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
-"there is only one hope for recovery: The master key. Print it to a piece of\n"
-"paper and store it in a drawer. This message is only printed once."
-msgstr ""
-"Если файл gocryptfs.conf поврежден или вы забыли пароль,\n"
-"есть только одна надежда на восстановление: Главный ключ.\n"
-"Распечатайте его на листе бумаги и храните в ящике.\n"
-"Это сообщение печатается только один раз."
-
 #: tfrmnewvault.btncreate.caption
 msgid "&Create Vault"
 msgstr "&Создать хранилище"
@@ -277,6 +192,14 @@ msgstr ""
 #: tfrmnewvault.caption
 msgid "New Vault"
 msgstr "Новое хранилище"
+
+#: tfrmnewvault.cbadvancedsettings.caption
+msgid "Advanced Settings"
+msgstr "Расширенные настройки"
+
+#: tfrmnewvault.cbplaintextnames.caption
+msgid "-plaintextnames"
+msgstr ""
 
 #: tfrmnewvault.edtpassword.texthint
 msgid "password"
@@ -295,69 +218,9 @@ msgstr "подтвердите пароль"
 msgid "vault name"
 msgstr "название"
 
-#: tfrmpassword.btnok.caption
-msgctxt "tfrmpassword.btnok.caption"
-msgid "&OK"
+#: tfrmnewvault.lbllongnamesmax.caption
+msgid "-longnamemax:"
 msgstr ""
-
-#: tfrmpassword.btnshowpass.caption
-msgid "👁"
-msgstr ""
-
-#: tfrmpassword.btnshowpass.hint
-msgid "Show Password"
-msgstr "Показать пароль"
-
-#: tfrmpassword.lblpassword.caption
-msgid "Password:"
-msgstr "Пароль:"
-
-#: tfrmsettings.btncreatedesktopentry.caption
-msgid "&Create Desktop Entry"
-msgstr "Создать &ярлык приложения"
-
-#: tfrmsettings.btnsave.caption
-msgid "&Save"
-msgstr "&Сохранить"
-
-#: tfrmsettings.btnselectmountpoint.caption
-msgctxt "tfrmsettings.btnselectmountpoint.caption"
-msgid "..."
-msgstr ""
-
-#: tfrmsettings.cbautorun.caption
-msgid "Open in File Manager after unlocking"
-msgstr "Открыть в диспетчере файлов после разблокировки"
-
-#: tfrmsettings.cblongnames.caption
-msgid "Generate long name for mount point"
-msgstr "Генерировать длинное название для точки монтирования"
-
-#: tfrmsettings.cblongnames.hint
-msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
-msgstr ""
-
-#: tfrmsettings.cbtray.caption
-msgid "Hide window to system tray when close"
-msgstr "Скрывать окно в системный трей при закрытии"
-
-#: tfrmsettings.edtmountpoint.texthint
-msgctxt "tfrmsettings.edtmountpoint.texthint"
-msgid "path"
-msgstr "путь"
-
-#: tfrmsettings.gbmain.caption
-msgctxt "tfrmsettings.gbmain.caption"
-msgid "Settings"
-msgstr "Настройки"
-
-#: tfrmsettings.lblfontsize.caption
-msgid "Font size (messages)"
-msgstr "Размер шрифта (сообщения)"
-
-#: tfrmsettings.lblmountdirectory.caption
-msgid "Mount Directory:"
-msgstr "Каталог монтирования:"
 
 #: uconsts.rs_bin_not_installed
 #, object-pascal-format
