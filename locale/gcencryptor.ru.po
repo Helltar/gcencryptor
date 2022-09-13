@@ -9,7 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
@@ -36,6 +37,55 @@ msgstr ""
 #: tfrmabout.lblpapirus.caption
 msgid "github.com/papirus-icon-theme"
 msgstr ""
+
+#: tfrmclosequery.btncancel.caption
+msgid "&Cancel"
+msgstr "&Отмена"
+
+#: tfrmclosequery.btnyes.caption
+msgid "&Yes"
+msgstr "&Да"
+
+#: tfrmclosequery.caption
+msgid "Please confirm"
+msgstr "Пожалуйста, подтвердите"
+
+#: tfrmclosequery.lblinfo.caption
+msgid ""
+"This action not have any risk corrupted the data,\n"
+"if the vault is busy you will get a message."
+msgstr ""
+"Это действие не несет никакого риска повреждения данных,\n"
+"если хранилище занято, вы получите сообщение."
+
+#: tfrmclosequery.lblq.caption
+msgid "Unmount all and quit application?"
+msgstr "Размонтировать все и выйти из приложения?"
+
+#: tfrmclosequery.lblunlockedvaults.caption
+msgid "There are unlocked vaults:"
+msgstr "Есть незапертые хранилища:"
+
+#: tfrmlicense.caption
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr ""
+
+#: tfrmlog.btnclear.caption
+msgid "C&lear"
+msgstr "&Очистить"
+
+#: tfrmlog.btnclose.caption
+msgid "&Close"
+msgstr "&Закрыть"
+
+#: tfrmlog.btnsavelog.caption
+msgctxt "tfrmlog.btnsavelog.caption"
+msgid "&Save to file"
+msgstr "&Сохранить в файл"
+
+#: tfrmlog.caption
+msgid "Messages"
+msgstr "Сообщения"
 
 #: tfrmmain.actconfigure.caption
 msgctxt "tfrmmain.actconfigure.caption"
@@ -180,6 +230,36 @@ msgstr "&Хранилище"
 msgid "Select An Encrypted Vault Directory"
 msgstr "Выберите зашифрованный каталог"
 
+#: tfrmmasterkey.btnok.caption
+msgctxt "tfrmmasterkey.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
+msgid "&Save to file"
+msgstr "&Сохранить в файл"
+
+#: tfrmmasterkey.caption
+msgid "Recovery Master Key"
+msgstr "Мастер-ключ для восстановления"
+
+#: tfrmmasterkey.lblyourkey.caption
+msgid "Your master key is:"
+msgstr "Ваш мастер-ключ:"
+
+#: tfrmmasterkey.sttext.caption
+msgid ""
+"If the gocryptfs.conf file becomes corrupted or you ever forget your "
+"password,\n"
+"there is only one hope for recovery: The master key. Print it to a piece of\n"
+"paper and store it in a drawer. This message is only printed once."
+msgstr ""
+"Если файл gocryptfs.conf поврежден или вы забыли пароль,\n"
+"есть только одна надежда на восстановление: Главный ключ.\n"
+"Распечатайте его на листе бумаги и храните в ящике.\n"
+"Это сообщение печатается только один раз."
+
 #: tfrmnewvault.btncreate.caption
 msgid "&Create Vault"
 msgstr "&Создать хранилище"
@@ -221,6 +301,69 @@ msgstr "название"
 #: tfrmnewvault.lbllongnamesmax.caption
 msgid "-longnamemax:"
 msgstr ""
+
+#: tfrmpassword.btnok.caption
+msgctxt "tfrmpassword.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.caption
+msgid "👁"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
+msgstr "Показать пароль"
+
+#: tfrmpassword.lblpassword.caption
+msgid "Password:"
+msgstr "Пароль:"
+
+#: tfrmsettings.btncreatedesktopentry.caption
+msgid "&Create Desktop Entry"
+msgstr "Создать &ярлык приложения"
+
+#: tfrmsettings.btnsave.caption
+msgid "&Save"
+msgstr "&Сохранить"
+
+#: tfrmsettings.btnselectmountpoint.caption
+msgctxt "tfrmsettings.btnselectmountpoint.caption"
+msgid "..."
+msgstr ""
+
+#: tfrmsettings.cbautorun.caption
+msgid "Open in File Manager after unlocking"
+msgstr "Открыть в диспетчере файлов после разблокировки"
+
+#: tfrmsettings.cblongnames.caption
+msgid "Generate long name for mount point"
+msgstr "Генерировать длинное название для точки монтирования"
+
+#: tfrmsettings.cblongnames.hint
+msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
+msgstr ""
+
+#: tfrmsettings.cbtray.caption
+msgid "Hide window to system tray when close"
+msgstr "Скрывать окно в системный трей при закрытии"
+
+#: tfrmsettings.edtmountpoint.texthint
+msgctxt "tfrmsettings.edtmountpoint.texthint"
+msgid "path"
+msgstr "путь"
+
+#: tfrmsettings.gbmain.caption
+msgid "Settings"
+msgstr "Настройки"
+
+#: tfrmsettings.lblfontsize.caption
+msgid "Font size (messages)"
+msgstr "Размер шрифта (сообщения)"
+
+#: tfrmsettings.lblmountdirectory.caption
+msgid "Mount Directory:"
+msgstr "Каталог монтирования:"
 
 #: uconsts.rs_bin_not_installed
 #, object-pascal-format
@@ -284,7 +427,8 @@ msgstr "Ошибка при сохранении ключа"
 #: uconsts.rs_failed_to_retrieve_recovery_key
 msgctxt "uconsts.rs_failed_to_retrieve_recovery_key"
 msgid "Vault was successfully created, but could not retrieve the recovery key"
-msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
+msgstr ""
+"Хранилище было успешно создано, но не удалось получить ключ восстановления"
 
 #: uconsts.rs_failed_to_save_log_file
 msgctxt "uconsts.rs_failed_to_save_log_file"
@@ -302,8 +446,12 @@ msgid "Vault"
 msgstr "Хранилище"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
-msgstr "Это не критично, но вы не сможете получить мастер-ключ при создании нового хранилища"
+msgid ""
+"This is not critical, but you will not be able to get the master key when "
+"you create a new vault"
+msgstr ""
+"Это не критично, но вы не сможете получить мастер-ключ при создании нового "
+"хранилища"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
@@ -317,8 +465,12 @@ msgstr "Заблокировать все и закрыть?"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
+msgid ""
+"During the mount, directories with the storage name will be temporarily "
+"created in this directory, for example:"
+msgstr ""
+"Во время монтирования в этом каталоге будут временно созданы каталоги с "
+"именем хранилища, например:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"
@@ -338,7 +490,9 @@ msgstr "Неверный пароль"
 #: uconsts.rs_please_wait_until_the_process
 msgctxt "uconsts.rs_please_wait_until_the_process"
 msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
+msgstr ""
+"Пожалуйста, подождите пока процесс завершится, это может занять некоторое "
+"время ..."
 
 #: uconsts.rs_successfully_mounted
 msgctxt "uconsts.rs_successfully_mounted"

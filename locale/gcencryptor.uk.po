@@ -9,7 +9,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
@@ -36,6 +37,55 @@ msgstr ""
 #: tfrmabout.lblpapirus.caption
 msgid "github.com/papirus-icon-theme"
 msgstr ""
+
+#: tfrmclosequery.btncancel.caption
+msgid "&Cancel"
+msgstr "&Скасувати"
+
+#: tfrmclosequery.btnyes.caption
+msgid "&Yes"
+msgstr "&Так"
+
+#: tfrmclosequery.caption
+msgid "Please confirm"
+msgstr "Будь-ласка підтвердіть"
+
+#: tfrmclosequery.lblinfo.caption
+msgid ""
+"This action not have any risk corrupted the data,\n"
+"if the vault is busy you will get a message."
+msgstr ""
+"Ця дія не має ризику пошкодження даних,\n"
+"якщо сховище зайняте, ви отримаєте повідомлення."
+
+#: tfrmclosequery.lblq.caption
+msgid "Unmount all and quit application?"
+msgstr "Відмонтувати все та вийти з програми?"
+
+#: tfrmclosequery.lblunlockedvaults.caption
+msgid "There are unlocked vaults:"
+msgstr "Є розблоковані сховища:"
+
+#: tfrmlicense.caption
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr ""
+
+#: tfrmlog.btnclear.caption
+msgid "C&lear"
+msgstr "&Очистити"
+
+#: tfrmlog.btnclose.caption
+msgid "&Close"
+msgstr "&Закрити"
+
+#: tfrmlog.btnsavelog.caption
+msgctxt "tfrmlog.btnsavelog.caption"
+msgid "&Save to file"
+msgstr "З&берегти у файл"
+
+#: tfrmlog.caption
+msgid "Messages"
+msgstr "Повідомлення"
 
 #: tfrmmain.actconfigure.caption
 msgctxt "tfrmmain.actconfigure.caption"
@@ -180,6 +230,35 @@ msgstr "&Сховище"
 msgid "Select An Encrypted Vault Directory"
 msgstr "Виберіть Зашифрований каталог сховища"
 
+#: tfrmmasterkey.btnok.caption
+msgctxt "tfrmmasterkey.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
+msgid "&Save to file"
+msgstr "&Зберегти у файл"
+
+#: tfrmmasterkey.caption
+msgid "Recovery Master Key"
+msgstr "Майстер-ключ відновлення"
+
+#: tfrmmasterkey.lblyourkey.caption
+msgid "Your master key is:"
+msgstr "Ваш головний ключ:"
+
+#: tfrmmasterkey.sttext.caption
+msgid ""
+"If the gocryptfs.conf file becomes corrupted or you ever forget your "
+"password,\n"
+"there is only one hope for recovery: The master key. Print it to a piece of\n"
+"paper and store it in a drawer. This message is only printed once."
+msgstr ""
+"Якщо файл gocryptfs.conf буде пошкоджено або ви забудете свій пароль,\n"
+"є лише одна надія на відновлення: майстер-ключ. Роздрукуйте його на папері\n"
+"і зберігайте в шухляді. Це повідомлення друкується лише один раз."
+
 #: tfrmnewvault.btncreate.caption
 msgid "&Create Vault"
 msgstr "&Створити сховище"
@@ -221,6 +300,69 @@ msgstr "назва сховища"
 #: tfrmnewvault.lbllongnamesmax.caption
 msgid "-longnamemax:"
 msgstr ""
+
+#: tfrmpassword.btnok.caption
+msgctxt "tfrmpassword.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.caption
+msgid "👁"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
+msgstr "Показати пароль"
+
+#: tfrmpassword.lblpassword.caption
+msgid "Password:"
+msgstr "Пароль:"
+
+#: tfrmsettings.btncreatedesktopentry.caption
+msgid "&Create Desktop Entry"
+msgstr "&Створити ярлик програми"
+
+#: tfrmsettings.btnsave.caption
+msgid "&Save"
+msgstr "&Зберегти"
+
+#: tfrmsettings.btnselectmountpoint.caption
+msgctxt "tfrmsettings.btnselectmountpoint.caption"
+msgid "..."
+msgstr ""
+
+#: tfrmsettings.cbautorun.caption
+msgid "Open in File Manager after unlocking"
+msgstr "Відкривати у менеджері файлів після розблокування"
+
+#: tfrmsettings.cblongnames.caption
+msgid "Generate long name for mount point"
+msgstr "Генерувати довгу назву для точки монтування"
+
+#: tfrmsettings.cblongnames.hint
+msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
+msgstr ""
+
+#: tfrmsettings.cbtray.caption
+msgid "Hide window to system tray when close"
+msgstr "Приховувати вікно в системній трей під час закриття"
+
+#: tfrmsettings.edtmountpoint.texthint
+msgctxt "tfrmsettings.edtmountpoint.texthint"
+msgid "path"
+msgstr "шлях"
+
+#: tfrmsettings.gbmain.caption
+msgid "Settings"
+msgstr "Налаштування"
+
+#: tfrmsettings.lblfontsize.caption
+msgid "Font size (messages)"
+msgstr "Розмір шрифту (повідомлення)"
+
+#: tfrmsettings.lblmountdirectory.caption
+msgid "Mount Directory:"
+msgstr "Каталог монтування:"
 
 #: uconsts.rs_bin_not_installed
 #, object-pascal-format
@@ -302,8 +444,12 @@ msgid "Vault"
 msgstr "Сховище"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
-msgstr "Це не критично, але ви не зможете отримати головний ключ під час створення нового сховища"
+msgid ""
+"This is not critical, but you will not be able to get the master key when "
+"you create a new vault"
+msgstr ""
+"Це не критично, але ви не зможете отримати головний ключ під час створення "
+"нового сховища"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
@@ -317,8 +463,12 @@ msgstr "Заблокувати все і закрити?"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
+msgid ""
+"During the mount, directories with the storage name will be temporarily "
+"created in this directory, for example:"
+msgstr ""
+"Під час монтування в цьому каталозі буде тимчасово створено каталоги з "
+"назвою сховища, наприклад:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"

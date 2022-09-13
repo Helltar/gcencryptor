@@ -35,6 +35,53 @@ msgstr ""
 msgid "github.com/papirus-icon-theme"
 msgstr ""
 
+#: tfrmclosequery.btncancel.caption
+msgid "&Cancel"
+msgstr ""
+
+#: tfrmclosequery.btnyes.caption
+msgid "&Yes"
+msgstr ""
+
+#: tfrmclosequery.caption
+msgid "Please confirm"
+msgstr ""
+
+#: tfrmclosequery.lblinfo.caption
+msgid ""
+"This action not have any risk corrupted the data,\n"
+"if the vault is busy you will get a message."
+msgstr ""
+
+#: tfrmclosequery.lblq.caption
+msgid "Unmount all and quit application?"
+msgstr ""
+
+#: tfrmclosequery.lblunlockedvaults.caption
+msgid "There are unlocked vaults:"
+msgstr ""
+
+#: tfrmlicense.caption
+msgid "GNU GENERAL PUBLIC LICENSE"
+msgstr ""
+
+#: tfrmlog.btnclear.caption
+msgid "C&lear"
+msgstr ""
+
+#: tfrmlog.btnclose.caption
+msgid "&Close"
+msgstr ""
+
+#: tfrmlog.btnsavelog.caption
+msgctxt "tfrmlog.btnsavelog.caption"
+msgid "&Save to file"
+msgstr ""
+
+#: tfrmlog.caption
+msgid "Messages"
+msgstr ""
+
 #: tfrmmain.actconfigure.caption
 msgctxt "tfrmmain.actconfigure.caption"
 msgid "&Configure gcencryptor ..."
@@ -178,6 +225,31 @@ msgstr ""
 msgid "Select An Encrypted Vault Directory"
 msgstr ""
 
+#: tfrmmasterkey.btnok.caption
+msgctxt "tfrmmasterkey.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmmasterkey.btnsave.caption
+msgctxt "tfrmmasterkey.btnsave.caption"
+msgid "&Save to file"
+msgstr ""
+
+#: tfrmmasterkey.caption
+msgid "Recovery Master Key"
+msgstr ""
+
+#: tfrmmasterkey.lblyourkey.caption
+msgid "Your master key is:"
+msgstr ""
+
+#: tfrmmasterkey.sttext.caption
+msgid ""
+"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
+"there is only one hope for recovery: The master key. Print it to a piece of\n"
+"paper and store it in a drawer. This message is only printed once."
+msgstr ""
+
 #: tfrmnewvault.btncreate.caption
 msgid "&Create Vault"
 msgstr ""
@@ -218,6 +290,69 @@ msgstr ""
 
 #: tfrmnewvault.lbllongnamesmax.caption
 msgid "-longnamemax:"
+msgstr ""
+
+#: tfrmpassword.btnok.caption
+msgctxt "tfrmpassword.btnok.caption"
+msgid "&OK"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.caption
+msgid "👁"
+msgstr ""
+
+#: tfrmpassword.btnshowpass.hint
+msgid "Show Password"
+msgstr ""
+
+#: tfrmpassword.lblpassword.caption
+msgid "Password:"
+msgstr ""
+
+#: tfrmsettings.btncreatedesktopentry.caption
+msgid "&Create Desktop Entry"
+msgstr ""
+
+#: tfrmsettings.btnsave.caption
+msgid "&Save"
+msgstr ""
+
+#: tfrmsettings.btnselectmountpoint.caption
+msgctxt "tfrmsettings.btnselectmountpoint.caption"
+msgid "..."
+msgstr ""
+
+#: tfrmsettings.cbautorun.caption
+msgid "Open in File Manager after unlocking"
+msgstr ""
+
+#: tfrmsettings.cblongnames.caption
+msgid "Generate long name for mount point"
+msgstr ""
+
+#: tfrmsettings.cblongnames.hint
+msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
+msgstr ""
+
+#: tfrmsettings.cbtray.caption
+msgid "Hide window to system tray when close"
+msgstr ""
+
+#: tfrmsettings.edtmountpoint.texthint
+msgctxt "tfrmsettings.edtmountpoint.texthint"
+msgid "path"
+msgstr ""
+
+#: tfrmsettings.gbmain.caption
+msgid "Settings"
+msgstr ""
+
+#: tfrmsettings.lblfontsize.caption
+msgid "Font size (messages)"
+msgstr ""
+
+#: tfrmsettings.lblmountdirectory.caption
+msgid "Mount Directory:"
 msgstr ""
 
 #: uconsts.rs_bin_not_installed
