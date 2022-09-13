@@ -5,7 +5,8 @@ unit uNewVaultForm;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, LCLType;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, LCLType,
+  ExtCtrls, Spin;
 
 type
 
@@ -14,13 +15,19 @@ type
   TfrmNewVault = class(TForm)
     btnCreate: TButton;
     btnSelectPath: TButton;
+    cbAdvancedSettings: TCheckBox;
+    cbPlainTextNames: TCheckBox;
     edtPath: TEdit;
     edtVaultName: TEdit;
     edtPassword: TEdit;
     edtRepeatPassword: TEdit;
+    lblLongNamesMax: TLabel;
+    pnlAdvancedSettings: TPanel;
     sddSelectPath: TSelectDirectoryDialog;
+    seLongNamesMax: TSpinEdit;
     procedure btnCreateClick(Sender: TObject);
     procedure btnSelectPathClick(Sender: TObject);
+    procedure cbAdvancedSettingsChange(Sender: TObject);
     procedure edtPathChange(Sender: TObject);
     procedure edtPasswordChange(Sender: TObject);
     procedure edtRepeatPasswordChange(Sender: TObject);
@@ -79,6 +86,14 @@ begin
   end;
 end;
 
+procedure TfrmNewVault.cbAdvancedSettingsChange(Sender: TObject);
+begin
+  if cbAdvancedSettings.Checked then
+    pnlAdvancedSettings.Visible := True
+  else
+    pnlAdvancedSettings.Visible := False;
+end;
+
 procedure TfrmNewVault.edtPathChange(Sender: TObject);
 begin
   updateControls();
@@ -87,11 +102,17 @@ end;
 procedure TfrmNewVault.createVault(const path: string);
 var
   xRay: TInitRec;
+  initResult: boolean;
 
 begin
   edtRepeatPassword.Clear;
 
-  if init(path, edtPassword.Text) then
+  if not cbAdvancedSettings.Checked then
+    initResult := init(path, edtPassword.Text)
+  else
+    initResult := init(path, edtPassword.Text, seLongNamesMax.Value, cbPlainTextNames.Checked);
+
+  if initResult then
   begin
     frmMain.addVaultToList(path);
 

@@ -20,7 +20,7 @@ type
   end;
 
 function dumpMasterKey(path, pass: string): TInitRec;
-function init(const path: string; pass: string): boolean;
+function init(const path: string; pass: string; const longNameMax: integer = -1; const plainTextNames: boolean = False): boolean;
 function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const longName: boolean = False): TMountRec;
 procedure fsck(const ACipherdir: string; pass: string);
 procedure getVaultInfo(const cipherdir: string);
@@ -54,9 +54,11 @@ begin
     addGoCryptFsLog(p.Output, p.ExitStatus);
 end;
 
-function init(const path: string; pass: string): boolean;
+function init(const path: string; pass: string; const longNameMax: integer; const plainTextNames: boolean): boolean;
 var
   p: TProcessRec;
+  argLongNameMax: string = '';
+  argPlainTextNames: string = '';
 
 begin
   Result := False;
@@ -64,7 +66,13 @@ begin
   if not mkDir(path) then
     Exit;
 
-  p := procStart(GOCRYPTFS_BIN, '-init' + LineEnding + path, pass);
+  if (longNameMax >= 62) and (longNameMax <= 255) then
+    argLongNameMax := '-longnamemax' + LineEnding + IntToStr(longNameMax) + LineEnding;
+
+  if plainTextNames then
+    argPlainTextNames := '-plaintextnames' + LineEnding;
+
+  p := procStart(GOCRYPTFS_BIN, '-init' + LineEnding + argLongNameMax + argPlainTextNames + path, pass);
   pass := '';
 
   if not p.Completed then
