@@ -52,6 +52,7 @@ uses
 procedure TfrmNewVault.FormCreate(Sender: TObject);
 begin
   sddSelectPath.InitialDir := GetUserDir;
+  seLongNamesMax.Hint := lblLongNamesMax.Hint;
 end;
 
 procedure TfrmNewVault.FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);

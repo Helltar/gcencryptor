@@ -1,11 +1,11 @@
 object frmNewVault: TfrmNewVault
-  Left = 775
-  Height = 550
-  Top = 270
+  Left = 653
+  Height = 503
+  Top = 282
   Width = 600
   AutoSize = True
   Caption = 'New Vault'
-  ClientHeight = 550
+  ClientHeight = 503
   ClientWidth = 600
   Constraints.MinWidth = 600
   KeyPreview = True
@@ -163,23 +163,30 @@ object frmNewVault: TfrmNewVault
       AnchorSideTop.Control = pnlAdvancedSettings
       Left = 0
       Height = 19
+      Hint = 'Hash file names that (in encrypted form) exceed this length.'#10#10'The default is 255, which aligns with the usual name'#10'length limit on Linux and provides best performance.'#10#10'However, online storage may impose lower limits on'#10'file name and/or path length.'#10'In this case, setting -longnamemax to a lower value can be helpful.'#10#10'The lower the value, the more extra .name files must be created,'#10'which slows down directory listings.'#10#10'Values below 62 are not allowed as then the hashed name'#10'would be longer than the original name.'
       Top = 0
-      Width = 110
-      Caption = '-longnamemax:'
+      Width = 106
+      Caption = 'longnamemax:'
       ParentColor = False
+      ParentShowHint = False
+      ShowHint = True
     end
     object seLongNamesMax: TSpinEdit
       AnchorSideLeft.Control = lblLongNamesMax
-      AnchorSideLeft.Side = asrCenter
       AnchorSideTop.Control = lblLongNamesMax
       AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = lblLongNamesMax
+      AnchorSideRight.Side = asrBottom
       Left = 0
       Height = 33
       Top = 31
-      Width = 110
+      Width = 106
+      Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 12
       MaxValue = 255
       MinValue = 62
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 0
       Value = 255
     end
@@ -189,11 +196,14 @@ object frmNewVault: TfrmNewVault
       AnchorSideTop.Side = asrBottom
       Left = 0
       Height = 23
+      Hint = 'Do not encrypt file names and symlink targets'
       Top = 76
-      Width = 142
+      Width = 138
       BorderSpacing.Top = 12
-      Caption = '-plaintextnames'
+      Caption = 'plaintextnames'
       OnChange = cbAdvancedSettingsChange
+      ParentShowHint = False
+      ShowHint = True
       TabOrder = 1
     end
   end
