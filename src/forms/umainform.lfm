@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 443
+  Left = 483
   Height = 564
-  Top = 184
+  Top = 227
   Width = 899
   AllowDropFiles = True
   ClientHeight = 533
@@ -351,7 +351,7 @@ object frmMain: TfrmMain
       object miOpenVault: TMenuItem
         Action = actOpenVault
       end
-      object Separator1: TMenuItem
+      object sp3: TMenuItem
         Caption = '-'
       end
       object miExit: TMenuItem
@@ -365,7 +365,7 @@ object frmMain: TfrmMain
       object miShowMenubar: TMenuItem
         Action = actHideMenubar
       end
-      object Separator2: TMenuItem
+      object sp4: TMenuItem
         Caption = '-'
       end
       object miLanguage: TMenuItem
@@ -384,7 +384,7 @@ object frmMain: TfrmMain
           OnClick = miRussianClick
         end
       end
-      object Separator3: TMenuItem
+      object sp5: TMenuItem
         Caption = '-'
       end
       object miConfig: TMenuItem
@@ -750,7 +750,7 @@ object frmMain: TfrmMain
       Action = actLockAll
       Caption = '&Lock All Vaults'
     end
-    object Separator4: TMenuItem
+    object sp6: TMenuItem
       Caption = '-'
     end
     object miQuitTray: TMenuItem
