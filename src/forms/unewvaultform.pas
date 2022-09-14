@@ -109,17 +109,21 @@ end;
 procedure TfrmNewVault.createVault(const path: string);
 var
   xRay: TInitRec;
-  initResult: boolean;
+  longNamesMaxValue: integer = -1;
+  plainTextNames: boolean = False;
 
 begin
   edtRepeatPassword.Clear;
 
-  if not cbAdvancedSettings.Checked then
-    initResult := init(path, edtPassword.Text)
-  else
-    initResult := init(path, edtPassword.Text, seLongNamesMax.Value, cbPlainTextNames.Checked);
+  if cbAdvancedSettings.Checked then
+  begin
+    plainTextNames := cbPlainTextNames.Checked;
 
-  if initResult then
+    if seLongNamesMax.Enabled then
+      longNamesMaxValue := seLongNamesMax.Value;
+  end;
+
+  if init(path, edtPassword.Text, longNamesMaxValue, plainTextNames) then
   begin
     frmMain.addVaultToList(path);
 
