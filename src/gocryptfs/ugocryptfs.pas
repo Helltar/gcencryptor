@@ -141,12 +141,13 @@ end;
 
 function getVersion: double;
 begin
+  Result := 0;
+
   with TRegExpr.Create do
     try
       Expression := 'gocryptfs v(.*?);';
       if Exec(procStart(GOCRYPTFS_BIN, '-version').Output) then
-        if not TryStrToFloat(Copy(Match[1], 1, 3), Result) then
-          Result := 0;
+        TryStrToFloat(Copy(Match[1], 1, 3), Result);
     finally
       Free;
     end;
