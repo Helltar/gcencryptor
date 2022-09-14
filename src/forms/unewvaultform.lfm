@@ -183,6 +183,7 @@ object frmNewVault: TfrmNewVault
       Width = 106
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 12
+      Enabled = False
       MaxValue = 255
       MinValue = 62
       ParentShowHint = False

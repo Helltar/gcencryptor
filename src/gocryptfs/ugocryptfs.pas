@@ -5,7 +5,7 @@ unit ugocryptfs;
 interface
 
 uses
-  Classes, SysUtils, Controls;
+  Classes, SysUtils, Controls, RegExpr, Math;
 
 type
 
@@ -22,6 +22,8 @@ type
 function dumpMasterKey(path, pass: string): TInitRec;
 function init(const path: string; pass: string; const longNameMax: integer = -1; const plainTextNames: boolean = False): boolean;
 function mount(const cipherdir, mountpoint: string; pass: string; const ReadOnly: boolean = False; const longName: boolean = False): TMountRec;
+function getVersion(): double;
+function longNameMaxFlagAvailable(): boolean;
 procedure fsck(const ACipherdir: string; pass: string);
 procedure getVaultInfo(const cipherdir: string);
 
@@ -135,6 +137,25 @@ begin
     deldir(genMountPoint);
     addGoCryptFsLog(p.Output, p.ExitStatus);
   end;
+end;
+
+function getVersion: double;
+begin
+  with TRegExpr.Create do
+    try
+      Expression := 'gocryptfs v(.*?);';
+      if Exec(procStart(GOCRYPTFS_BIN, '-version').Output) then
+        if not TryStrToFloat(Copy(Match[1], 1, 3), Result) then
+          Result := 0;
+    finally
+      Free;
+    end;
+end;
+
+function longNameMaxFlagAvailable: boolean;
+begin
+  // -longnamemax -> gocryptfs v2.3, 2022-08-28
+  Result := CompareValue(getVersion(), 2.3, 0) >= 0; // -1 if A < B; 0 if A = B; 1 if A > B
 end;
 
 procedure fsck(const ACipherdir: string; pass: string);

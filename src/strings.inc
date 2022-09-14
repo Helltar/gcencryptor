@@ -17,6 +17,7 @@ RS_GB_VAULT_CAPTION = 'Vault';
 RS_GOCRYPTFS_XRAY_FAILED_RUN_HINT = 'This is not critical, but you will not be able to get the master key when you create a new vault';
 RS_KEY_SAVED = 'Key successfully saved';
 RS_LOCK_ALL_AND_CLOSE = 'Lock all and close?';
+RS_LONGNAMEMAXFLAG_AVAILABLE = 'Available only on gocryptfs >= v2.3';
 RS_MOUNTPOINT_HINT = 'During the mount, directories with the storage name will be temporarily created in this directory, for example:';
 RS_PASSWORDS_DO_NOT_MATCH = 'Passwords do not match';
 RS_PASSWORD_EMPTY = 'Password Empty';
@@ -25,3 +26,4 @@ RS_PLEASE_WAIT_UNTIL_THE_PROCESS = 'Please wait until the process is completed i
 RS_SUCCESSFULLY_MOUNTED = 'Filesystem mounted and ready';
 RS_UNMOUNTED_SUCCESSFULLY = 'Unmounted successfully';
 RS_VAULTPATH_HINT = 'Open in File Manager ...';
+

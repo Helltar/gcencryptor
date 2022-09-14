@@ -52,6 +52,12 @@ uses
 procedure TfrmNewVault.FormCreate(Sender: TObject);
 begin
   sddSelectPath.InitialDir := GetUserDir;
+
+  if longNameMaxFlagAvailable() then
+    seLongNamesMax.Enabled := True
+  else
+    lblLongNamesMax.Hint := RS_LONGNAMEMAXFLAG_AVAILABLE;
+
   seLongNamesMax.Hint := lblLongNamesMax.Hint;
 end;
 
