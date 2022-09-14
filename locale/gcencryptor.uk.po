@@ -491,6 +491,10 @@ msgctxt "uconsts.rs_lock_all_and_close"
 msgid "Lock all and close?"
 msgstr "Заблокувати все і закрити?"
 
+#: uconsts.rs_longnamemaxflag_available
+msgid "Available only on gocryptfs >= v2.3"
+msgstr "Доступно тільки на gocryptfs версії >= 2.3"
+
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
 msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
