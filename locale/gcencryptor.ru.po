@@ -9,8 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
@@ -250,8 +249,7 @@ msgstr "Ваш мастер-ключ:"
 
 #: tfrmmasterkey.sttext.caption
 msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your "
-"password,\n"
+"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
 "there is only one hope for recovery: The master key. Print it to a piece of\n"
 "paper and store it in a drawer. This message is only printed once."
 msgstr ""
@@ -278,8 +276,12 @@ msgid "Advanced Settings"
 msgstr "Расширенные настройки"
 
 #: tfrmnewvault.cbplaintextnames.caption
-msgid "-plaintextnames"
+msgid "plaintextnames"
 msgstr ""
+
+#: tfrmnewvault.cbplaintextnames.hint
+msgid "Do not encrypt file names and symlink targets"
+msgstr "Не шифровать имена файлов и симлинков"
 
 #: tfrmnewvault.edtpassword.texthint
 msgid "password"
@@ -299,8 +301,41 @@ msgid "vault name"
 msgstr "название"
 
 #: tfrmnewvault.lbllongnamesmax.caption
-msgid "-longnamemax:"
+msgid "longnamemax:"
 msgstr ""
+
+#: tfrmnewvault.lbllongnamesmax.hint
+msgid ""
+"Hash file names that (in encrypted form) exceed this length.\n"
+"\n"
+"The default is 255, which aligns with the usual name\n"
+"length limit on Linux and provides best performance.\n"
+"\n"
+"However, online storage may impose lower limits on\n"
+"file name and/or path length.\n"
+"In this case, setting -longnamemax to a lower value can be helpful.\n"
+"\n"
+"The lower the value, the more extra .name files must be created,\n"
+"which slows down directory listings.\n"
+"\n"
+"Values below 62 are not allowed as then the hashed name\n"
+"would be longer than the original name."
+msgstr ""
+"Хеширование имен файлов, которые (в зашифрованном виде) превышают эту длину.\n"
+"\n"
+"По умолчанию установлено значение 255,\n"
+"что соответствует обычному ограничению длины имени в Linux\n"
+"и обеспечивает наилучшую производительность.\n"
+"\n"
+"Однако облачные хранилища могут устанавливать более низкие ограничения\n"
+"на длины имени файла и/или пути.\n"
+"В этом случае может быть полезно установить -longnamemax на более низкое значение.\n"
+"\n"
+"Чем меньше значение, тем больше дополнительных файлов .name должно быть создано,\n"
+"что замедляет листинг каталогов.\n"
+"\n"
+"Значения ниже 62 не допускаются, так как в этом случае хэшированное имя\n"
+"будет длиннее, чем оригинальное имя."
 
 #: tfrmpassword.btnok.caption
 msgctxt "tfrmpassword.btnok.caption"
@@ -427,8 +462,7 @@ msgstr "Ошибка при сохранении ключа"
 #: uconsts.rs_failed_to_retrieve_recovery_key
 msgctxt "uconsts.rs_failed_to_retrieve_recovery_key"
 msgid "Vault was successfully created, but could not retrieve the recovery key"
-msgstr ""
-"Хранилище было успешно создано, но не удалось получить ключ восстановления"
+msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
 
 #: uconsts.rs_failed_to_save_log_file
 msgctxt "uconsts.rs_failed_to_save_log_file"
@@ -446,12 +480,8 @@ msgid "Vault"
 msgstr "Хранилище"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid ""
-"This is not critical, but you will not be able to get the master key when "
-"you create a new vault"
-msgstr ""
-"Это не критично, но вы не сможете получить мастер-ключ при создании нового "
-"хранилища"
+msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
+msgstr "Это не критично, но вы не сможете получить мастер-ключ при создании нового хранилища"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
@@ -465,12 +495,8 @@ msgstr "Заблокировать все и закрыть?"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid ""
-"During the mount, directories with the storage name will be temporarily "
-"created in this directory, for example:"
-msgstr ""
-"Во время монтирования в этом каталоге будут временно созданы каталоги с "
-"именем хранилища, например:"
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"
@@ -490,9 +516,7 @@ msgstr "Неверный пароль"
 #: uconsts.rs_please_wait_until_the_process
 msgctxt "uconsts.rs_please_wait_until_the_process"
 msgid "Please wait until the process is completed it may take some time ..."
-msgstr ""
-"Пожалуйста, подождите пока процесс завершится, это может занять некоторое "
-"время ..."
+msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
 
 #: uconsts.rs_successfully_mounted
 msgctxt "uconsts.rs_successfully_mounted"

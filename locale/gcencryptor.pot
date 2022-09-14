@@ -268,7 +268,11 @@ msgid "Advanced Settings"
 msgstr ""
 
 #: tfrmnewvault.cbplaintextnames.caption
-msgid "-plaintextnames"
+msgid "plaintextnames"
+msgstr ""
+
+#: tfrmnewvault.cbplaintextnames.hint
+msgid "Do not encrypt file names and symlink targets"
 msgstr ""
 
 #: tfrmnewvault.edtpassword.texthint
@@ -289,7 +293,25 @@ msgid "vault name"
 msgstr ""
 
 #: tfrmnewvault.lbllongnamesmax.caption
-msgid "-longnamemax:"
+msgid "longnamemax:"
+msgstr ""
+
+#: tfrmnewvault.lbllongnamesmax.hint
+msgid ""
+"Hash file names that (in encrypted form) exceed this length.\n"
+"\n"
+"The default is 255, which aligns with the usual name\n"
+"length limit on Linux and provides best performance.\n"
+"\n"
+"However, online storage may impose lower limits on\n"
+"file name and/or path length.\n"
+"In this case, setting -longnamemax to a lower value can be helpful.\n"
+"\n"
+"The lower the value, the more extra .name files must be created,\n"
+"which slows down directory listings.\n"
+"\n"
+"Values below 62 are not allowed as then the hashed name\n"
+"would be longer than the original name."
 msgstr ""
 
 #: tfrmpassword.btnok.caption

@@ -9,8 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.1\n"
 
 #: tfrmabout.caption
@@ -250,8 +249,7 @@ msgstr "Ваш головний ключ:"
 
 #: tfrmmasterkey.sttext.caption
 msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your "
-"password,\n"
+"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
 "there is only one hope for recovery: The master key. Print it to a piece of\n"
 "paper and store it in a drawer. This message is only printed once."
 msgstr ""
@@ -277,8 +275,12 @@ msgid "Advanced Settings"
 msgstr "Розширені параметри"
 
 #: tfrmnewvault.cbplaintextnames.caption
-msgid "-plaintextnames"
+msgid "plaintextnames"
 msgstr ""
+
+#: tfrmnewvault.cbplaintextnames.hint
+msgid "Do not encrypt file names and symlink targets"
+msgstr "Не шифрувати імена файлів та сімлінків"
 
 #: tfrmnewvault.edtpassword.texthint
 msgid "password"
@@ -298,8 +300,40 @@ msgid "vault name"
 msgstr "назва сховища"
 
 #: tfrmnewvault.lbllongnamesmax.caption
-msgid "-longnamemax:"
+msgid "longnamemax:"
 msgstr ""
+
+#: tfrmnewvault.lbllongnamesmax.hint
+msgid ""
+"Hash file names that (in encrypted form) exceed this length.\n"
+"\n"
+"The default is 255, which aligns with the usual name\n"
+"length limit on Linux and provides best performance.\n"
+"\n"
+"However, online storage may impose lower limits on\n"
+"file name and/or path length.\n"
+"In this case, setting -longnamemax to a lower value can be helpful.\n"
+"\n"
+"The lower the value, the more extra .name files must be created,\n"
+"which slows down directory listings.\n"
+"\n"
+"Values below 62 are not allowed as then the hashed name\n"
+"would be longer than the original name."
+msgstr ""
+"Хешування імен файлів, які (в зашифрованому вигляді) перевищують цю довжину.\n"
+"\n"
+"За замовчуванням встановлено значення 255, що відповідає\n"
+"обмеженням довжини імені в Linux і забезпечує найкращу продуктивність.\n"
+"\n"
+"Однак онлайн-сховище може накладати нижчі обмеження на\n"
+"на довжину імені файлу та/або шляху до нього.\n"
+"У цьому випадку може бути корисним встановлення параметра -longnamemax на менше значення.\n"
+"\n"
+"Чим менше значення, тим більше додаткових файлів .name має бути створено,\n"
+"що уповільнює роботу зі списками каталогів.\n"
+"\n"
+"Значення нижче 62 не допускаються, оскільки тоді хешоване ім'я\n"
+"буде довшим за оригінальну назву."
 
 #: tfrmpassword.btnok.caption
 msgctxt "tfrmpassword.btnok.caption"
@@ -444,12 +478,8 @@ msgid "Vault"
 msgstr "Сховище"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid ""
-"This is not critical, but you will not be able to get the master key when "
-"you create a new vault"
-msgstr ""
-"Це не критично, але ви не зможете отримати головний ключ під час створення "
-"нового сховища"
+msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
+msgstr "Це не критично, але ви не зможете отримати головний ключ під час створення нового сховища"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
@@ -463,12 +493,8 @@ msgstr "Заблокувати все і закрити?"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid ""
-"During the mount, directories with the storage name will be temporarily "
-"created in this directory, for example:"
-msgstr ""
-"Під час монтування в цьому каталозі буде тимчасово створено каталоги з "
-"назвою сховища, наприклад:"
+msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
+msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"
