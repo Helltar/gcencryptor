@@ -1,7 +1,7 @@
 object frmLicense: TfrmLicense
-  Left = 536
+  Left = 565
   Height = 600
-  Top = 234
+  Top = 249
   Width = 800
   Caption = 'GNU GENERAL PUBLIC LICENSE'
   ClientHeight = 600

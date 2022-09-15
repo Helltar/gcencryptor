@@ -1,7 +1,7 @@
 object frmAbout: TfrmAbout
-  Left = 698
+  Left = 715
   Height = 336
-  Top = 297
+  Top = 323
   Width = 400
   AutoSize = True
   Caption = 'About'

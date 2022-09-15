@@ -1,7 +1,7 @@
 object frmSettings: TfrmSettings
-  Left = 709
+  Left = 681
   Height = 507
-  Top = 228
+  Top = 239
   Width = 600
   AutoSize = True
   ClientHeight = 507

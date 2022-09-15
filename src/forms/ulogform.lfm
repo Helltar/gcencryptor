@@ -1,7 +1,7 @@
 object frmLog: TfrmLog
-  Left = 531
+  Left = 552
   Height = 442
-  Top = 250
+  Top = 273
   Width = 752
   Caption = 'Messages'
   ClientHeight = 442
@@ -537,7 +537,7 @@ object frmLog: TfrmLog
     Left = 24
     Height = 33
     Top = 385
-    Width = 105
+    Width = 106
     Anchors = [akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
@@ -553,7 +553,7 @@ object frmLog: TfrmLog
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 153
+    Left = 154
     Height = 33
     Top = 385
     Width = 65
