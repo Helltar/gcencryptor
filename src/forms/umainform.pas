@@ -618,6 +618,7 @@ begin
   with TfrmNewVault.Create(Self) do
     try
       ShowModal;
+      updateControls();
     finally
       Free;
     end;
