@@ -1,7 +1,7 @@
 object frmSettings: TfrmSettings
-  Left = 675
+  Left = 649
   Height = 576
-  Top = 241
+  Top = 245
   Width = 600
   AutoSize = True
   ClientHeight = 576
@@ -203,7 +203,7 @@ object frmSettings: TfrmSettings
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
-      Caption = 'Clear clipboard after unlock'
+      Caption = 'Clear clipboard after unlocking'
       TabOrder = 7
     end
   end
