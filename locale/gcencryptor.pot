@@ -348,6 +348,10 @@ msgstr ""
 msgid "Open in File Manager after unlocking"
 msgstr ""
 
+#: tfrmsettings.cbclipboard.caption
+msgid "Clear clipboard after unlocking"
+msgstr ""
+
 #: tfrmsettings.cblongnames.caption
 msgid "Generate long name for mount point"
 msgstr ""

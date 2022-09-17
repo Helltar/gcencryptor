@@ -371,6 +371,10 @@ msgstr ""
 msgid "Open in File Manager after unlocking"
 msgstr "Открыть в диспетчере файлов после разблокировки"
 
+#: tfrmsettings.cbclipboard.caption
+msgid "Clear clipboard after unlocking"
+msgstr "Очистить буфер обмена после разблокировки"
+
 #: tfrmsettings.cblongnames.caption
 msgid "Generate long name for mount point"
 msgstr "Генерировать длинное название для точки монтирования"
