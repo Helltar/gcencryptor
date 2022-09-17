@@ -18,6 +18,7 @@ type
     cbAutorun: TCheckBox;
     cbTray: TCheckBox;
     cbLongNames: TCheckBox;
+    cbClipboard: TCheckBox;
     edtMountPoint: TEdit;
     gbMain: TGroupBox;
     lblMountDirectory: TLabel;
@@ -57,6 +58,7 @@ end;
 procedure TfrmSettings.btnSaveClick(Sender: TObject);
 begin
   frmMain.config.autorunState := cbAutorun.Checked;
+  frmMain.config.clearClipboard := cbClipboard.Checked;
   frmMain.config.logFontSize := seFontSize.Value;
   frmMain.config.mountPoint := edtMountPoint.Text;
   frmMain.config.mountPointLongName := cbLongNames.Checked;
@@ -77,6 +79,7 @@ procedure TfrmSettings.FormCreate(Sender: TObject);
 begin
   Caption := APP_NAME;
   cbAutorun.Checked := frmMain.config.autorunState;
+  cbClipboard.Checked := frmMain.config.clearClipboard;
   cbLongNames.Checked := frmMain.config.mountPointLongName;
   cbTray.Checked := frmMain.config.showTrayIcon;
   //cbTray.Visible := (getCurrentDesktop() = KDE_DESKTOP) or (getCurrentDesktop() = UBUNTU_GNOME_DESKTOP) or (getCurrentDesktop() = XFCE_DESKTOP);

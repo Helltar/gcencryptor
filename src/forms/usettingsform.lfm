@@ -1,10 +1,10 @@
 object frmSettings: TfrmSettings
-  Left = 681
-  Height = 507
-  Top = 239
+  Left = 675
+  Height = 576
+  Top = 241
   Width = 600
   AutoSize = True
-  ClientHeight = 507
+  ClientHeight = 576
   ClientWidth = 600
   Constraints.MinWidth = 600
   KeyPreview = True
@@ -19,14 +19,14 @@ object frmSettings: TfrmSettings
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 368
+    Height = 415
     Top = 24
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     Caption = 'Settings'
-    ClientHeight = 337
+    ClientHeight = 384
     ClientWidth = 548
     ParentFont = False
     TabOrder = 0
@@ -88,14 +88,14 @@ object frmSettings: TfrmSettings
     end
     object cbLongNames: TCheckBox
       AnchorSideLeft.Control = gbMain
-      AnchorSideTop.Control = edtMountPoint
+      AnchorSideTop.Control = seFontSize
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbMain
       AnchorSideRight.Side = asrBottom
       Left = 24
       Height = 23
       Hint = 'VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF'
-      Top = 139
+      Top = 196
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
@@ -113,7 +113,7 @@ object frmSettings: TfrmSettings
       AnchorSideBottom.Side = asrBottom
       Left = 24
       Height = 23
-      Top = 186
+      Top = 243
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
@@ -124,14 +124,15 @@ object frmSettings: TfrmSettings
     end
     object seFontSize: TSpinEdit
       AnchorSideLeft.Control = gbMain
-      AnchorSideTop.Control = cbAutorun
+      AnchorSideTop.Control = edtMountPoint
       AnchorSideTop.Side = asrBottom
       Left = 24
       Height = 33
-      Top = 233
+      Top = 139
       Width = 50
       AutoSize = False
       BorderSpacing.Left = 24
+      BorderSpacing.Top = 24
       BorderSpacing.Right = 12
       BorderSpacing.Bottom = 24
       MaxValue = 48
@@ -148,7 +149,7 @@ object frmSettings: TfrmSettings
       AnchorSideRight.Side = asrBottom
       Left = 86
       Height = 19
-      Top = 240
+      Top = 146
       Width = 438
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
@@ -174,14 +175,14 @@ object frmSettings: TfrmSettings
     end
     object cbTray: TCheckBox
       AnchorSideLeft.Control = gbMain
-      AnchorSideTop.Control = seFontSize
+      AnchorSideTop.Control = cbClipboard
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbMain
       AnchorSideRight.Side = asrBottom
       AnchorSideBottom.Side = asrBottom
       Left = 24
       Height = 23
-      Top = 290
+      Top = 337
       Width = 500
       Anchors = [akTop, akLeft, akRight]
       AutoSize = False
@@ -189,6 +190,21 @@ object frmSettings: TfrmSettings
       Caption = 'Hide window to system tray when close'
       ParentFont = False
       TabOrder = 6
+    end
+    object cbClipboard: TCheckBox
+      AnchorSideLeft.Control = gbMain
+      AnchorSideTop.Control = cbAutorun
+      AnchorSideTop.Side = asrBottom
+      AnchorSideRight.Control = gbMain
+      AnchorSideRight.Side = asrBottom
+      Left = 24
+      Height = 23
+      Top = 290
+      Width = 500
+      Anchors = [akTop, akLeft, akRight]
+      BorderSpacing.Around = 24
+      Caption = 'Clear clipboard after unlock'
+      TabOrder = 7
     end
   end
   object btnSave: TButton
@@ -199,7 +215,7 @@ object frmSettings: TfrmSettings
     AnchorSideBottom.Side = asrBottom
     Left = 514
     Height = 33
-    Top = 416
+    Top = 463
     Width = 62
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -218,7 +234,7 @@ object frmSettings: TfrmSettings
     AnchorSideBottom.Side = asrBottom
     Left = 24
     Height = 33
-    Top = 416
+    Top = 463
     Width = 177
     AutoSize = True
     BorderSpacing.Around = 24

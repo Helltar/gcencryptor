@@ -559,8 +559,11 @@ begin
   if m.Completed then
   begin
     mountList.add(getSelectedVaultPath(), m.Point);
-    Clipboard.AsText := '';
     updateControls();
+
+    if config.clearClipboard then
+      Clipboard.AsText := '';
+
     if config.autorunState then
       OpenURL(m.Point);
   end;

@@ -14,6 +14,7 @@ type
   TConfig = class(TIniFile)
   private
     function GetAutorunState: boolean;
+    function GetClearClipboard: boolean;
     function GetFrmHeight: integer;
     function GetFrmLeft: integer;
     function GetFrmLogHeight: integer;
@@ -29,6 +30,7 @@ type
     function GetShowTrayIcon: boolean;
     function GetSplLeft: integer;
     procedure SetAutorunState(AValue: boolean);
+    procedure SetClearClipboard(AValue: boolean);
     procedure SetFrmHeight(AValue: integer);
     procedure SetFrmLeft(AValue: integer);
     procedure SetFrmLogHeight(AValue: integer);
@@ -45,6 +47,7 @@ type
     procedure SetSplLeft(AValue: integer);
   public
     property autorunState: boolean read GetAutorunState write SetAutorunState;
+    property clearClipboard: boolean read GetClearClipboard write SetClearClipboard;
     property frmHeight: integer read GetFrmHeight write SetFrmHeight;
     property frmLeft: integer read GetFrmLeft write SetFrmLeft;
     property frmLogHeight: integer read GetFrmLogHeight write SetFrmLogHeight;
@@ -88,6 +91,11 @@ end;
 function TConfig.GetAutorunState: boolean;
 begin
   Result := ReadBool('MAIN', 'autorunState', True);
+end;
+
+function TConfig.GetClearClipboard: boolean;
+begin
+  Result := ReadBool('MAIN', 'clearClipboard', True);
 end;
 
 function TConfig.GetFrmHeight: integer;
@@ -143,6 +151,11 @@ end;
 procedure TConfig.SetAutorunState(AValue: boolean);
 begin
   WriteBool('MAIN', 'autorunState', AValue);
+end;
+
+procedure TConfig.SetClearClipboard(AValue: boolean);
+begin
+  WriteBool('MAIN', 'clearClipboard', AValue);
 end;
 
 procedure TConfig.SetFrmHeight(AValue: integer);
