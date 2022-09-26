@@ -1,5 +1,5 @@
 <h3 align="center">
-    <img src="icons/gcencryptor.png" width="128" height="128" alt="gcencryptor_icon"/>
+    <img src="icons/gcencryptor.svg" height="96" alt="gcencryptor_icon"/>
     <br><br>
     gcencryptor is a GUI for <a href="https://github.com/rfjakob/gocryptfs">gocryptfs</a>
     <br><br>
