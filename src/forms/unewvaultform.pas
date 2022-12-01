@@ -134,7 +134,7 @@ begin
     begin
       with TfrmMasterKey.Create(Self) do
         try
-          edtKey.Text := xRay.Output;
+          edtKey.Text := xRay.Output.Trim;
           vaultName := edtVaultName.Text;
           xRay.Output := '';
           ShowModal;
