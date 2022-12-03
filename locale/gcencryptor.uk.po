@@ -9,8 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
-"X-Generator: Poedit 3.1\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2.1\n"
 
 #: tfrmabout.caption
 msgid "About"
@@ -123,7 +124,7 @@ msgstr "Заблокувати вибране сховище"
 #: tfrmmain.actlockall.caption
 msgctxt "tfrmmain.actlockall.caption"
 msgid "Lock All"
-msgstr "Заблокувати все"
+msgstr "Заблокувати всі"
 
 #: tfrmmain.actlockall.hint
 msgid "Lock All Unlocked Vaults"
@@ -249,7 +250,8 @@ msgstr "Ваш головний ключ:"
 
 #: tfrmmasterkey.sttext.caption
 msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
+"If the gocryptfs.conf file becomes corrupted or you ever forget your "
+"password,\n"
 "there is only one hope for recovery: The master key. Print it to a piece of\n"
 "paper and store it in a drawer. This message is only printed once."
 msgstr ""
@@ -320,14 +322,16 @@ msgid ""
 "Values below 62 are not allowed as then the hashed name\n"
 "would be longer than the original name."
 msgstr ""
-"Хешування імен файлів, які (в зашифрованому вигляді) перевищують цю довжину.\n"
+"Хешування імен файлів, які (в зашифрованому вигляді) перевищують цю "
+"довжину.\n"
 "\n"
 "За замовчуванням встановлено значення 255, що відповідає\n"
 "обмеженням довжини імені в Linux і забезпечує найкращу продуктивність.\n"
 "\n"
 "Однак онлайн-сховище може накладати нижчі обмеження на\n"
 "на довжину імені файлу та/або шляху до нього.\n"
-"У цьому випадку може бути корисним встановлення параметра -longnamemax на менше значення.\n"
+"У цьому випадку може бути корисним встановлення параметра -longnamemax на "
+"менше значення.\n"
 "\n"
 "Чим менше значення, тим більше додаткових файлів .name має бути створено,\n"
 "що уповільнює роботу зі списками каталогів.\n"
@@ -337,8 +341,8 @@ msgstr ""
 
 #: tfrmpassword.btnok.caption
 msgctxt "tfrmpassword.btnok.caption"
-msgid "&OK"
-msgstr ""
+msgid "&Unlock"
+msgstr "&Розблокувати"
 
 #: tfrmpassword.btnshowpass.caption
 msgid "👁"
@@ -482,8 +486,12 @@ msgid "Vault"
 msgstr "Сховище"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
-msgstr "Це не критично, але ви не зможете отримати головний ключ під час створення нового сховища"
+msgid ""
+"This is not critical, but you will not be able to get the master key when "
+"you create a new vault"
+msgstr ""
+"Це не критично, але ви не зможете отримати головний ключ під час створення "
+"нового сховища"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
@@ -501,8 +509,12 @@ msgstr "Доступно тільки на gocryptfs версії >= 2.3"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Під час монтування в цьому каталозі буде тимчасово створено каталоги з назвою сховища, наприклад:"
+msgid ""
+"During the mount, directories with the storage name will be temporarily "
+"created in this directory, for example:"
+msgstr ""
+"Під час монтування в цьому каталозі буде тимчасово створено каталоги з "
+"назвою сховища, наприклад:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"
