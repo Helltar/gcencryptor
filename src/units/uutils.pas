@@ -246,6 +246,7 @@ begin
       Add('Categories=Utility;Security;Qt;');
       Add('StartupWMClass=' + APP_NAME);
       Add('SingleMainWindow=true');
+      Add('StartupNotify=true');
 
       try
         saveIcon(iconPath, iconName);
