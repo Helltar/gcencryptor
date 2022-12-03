@@ -1,7 +1,7 @@
 object frmMasterKey: TfrmMasterKey
-  Left = 629
+  Left = 646
   Height = 403
-  Top = 319
+  Top = 332
   Width = 640
   AutoSize = True
   Caption = 'Recovery Master Key'
@@ -11,7 +11,7 @@ object frmMasterKey: TfrmMasterKey
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object edtKey: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = lblYourKey
@@ -19,8 +19,8 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 67
+    Height = 36
+    Top = 70
     Width = 592
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -33,8 +33,8 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 114
-    Top = 124
+    Height = 127
+    Top = 130
     Width = 592
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -49,8 +49,8 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 262
+    Height = 36
+    Top = 281
     Width = 106
     AutoSize = True
     BorderSpacing.Around = 24
@@ -67,8 +67,8 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 567
-    Height = 33
-    Top = 262
+    Height = 36
+    Top = 281
     Width = 49
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -84,7 +84,7 @@ object frmMasterKey: TfrmMasterKey
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 19
+    Height = 22
     Top = 24
     Width = 592
     Anchors = [akTop, akLeft, akRight]

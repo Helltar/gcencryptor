@@ -1,7 +1,7 @@
 object frmCloseQuery: TfrmCloseQuery
-  Left = 718
+  Left = 750
   Height = 301
-  Top = 334
+  Top = 339
   Width = 407
   AutoSize = True
   Caption = 'Please confirm'
@@ -10,7 +10,7 @@ object frmCloseQuery: TfrmCloseQuery
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object lblQ: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = stVaultList
@@ -19,8 +19,8 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnYes
     Left = 24
-    Height = 19
-    Top = 86
+    Height = 22
+    Top = 91
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -37,8 +37,8 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 228
-    Height = 33
-    Top = 185
+    Height = 36
+    Top = 196
     Width = 54
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -57,8 +57,8 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 306
-    Height = 33
-    Top = 185
+    Height = 36
+    Top = 196
     Width = 77
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -77,8 +77,8 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = lblQ
     Left = 24
-    Height = 19
-    Top = 43
+    Height = 21
+    Top = 46
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
@@ -96,7 +96,7 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 19
+    Height = 22
     Top = 24
     Width = 359
     Anchors = [akTop, akLeft, akRight]
@@ -115,8 +115,8 @@ object frmCloseQuery: TfrmCloseQuery
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnYes
     Left = 24
-    Height = 32
-    Top = 129
+    Height = 35
+    Top = 137
     Width = 359
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24

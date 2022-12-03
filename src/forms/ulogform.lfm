@@ -1,7 +1,7 @@
 object frmLog: TfrmLog
-  Left = 552
+  Left = 600
   Height = 442
-  Top = 273
+  Top = 293
   Width = 752
   Caption = 'Messages'
   ClientHeight = 442
@@ -14,7 +14,7 @@ object frmLog: TfrmLog
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   inline synLog: TSynEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -22,7 +22,7 @@ object frmLog: TfrmLog
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnSaveLog
     Left = 24
-    Height = 337
+    Height = 334
     Top = 24
     Width = 704
     BorderSpacing.Around = 24
@@ -535,8 +535,8 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 385
+    Height = 36
+    Top = 382
     Width = 106
     Anchors = [akLeft, akBottom]
     AutoSize = True
@@ -554,8 +554,8 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 154
-    Height = 33
-    Top = 385
+    Height = 36
+    Top = 382
     Width = 65
     Anchors = [akLeft, akBottom]
     AutoSize = True
@@ -575,8 +575,8 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 660
-    Height = 33
-    Top = 385
+    Height = 36
+    Top = 382
     Width = 68
     Anchors = [akRight, akBottom]
     AutoSize = True

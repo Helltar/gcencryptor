@@ -1,7 +1,7 @@
 object frmLicense: TfrmLicense
-  Left = 565
+  Left = 573
   Height = 600
-  Top = 249
+  Top = 271
   Width = 800
   Caption = 'GNU GENERAL PUBLIC LICENSE'
   ClientHeight = 600
@@ -9,7 +9,7 @@ object frmLicense: TfrmLicense
   Constraints.MinHeight = 400
   Constraints.MinWidth = 800
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object memLicense: TMemo
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner

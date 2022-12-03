@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
-  Left = 495
-  Height = 564
-  Top = 249
-  Width = 899
+  Left = 648
+  Height = 559
+  Top = 253
+  Width = 853
   AllowDropFiles = True
-  ClientHeight = 533
-  ClientWidth = 899
-  Constraints.MinHeight = 350
+  ClientHeight = 525
+  ClientWidth = 853
+  Constraints.MinHeight = 400
   Constraints.MinWidth = 400
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
@@ -14,14 +14,13 @@ object frmMain: TfrmMain
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   OnShow = FormShow
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   Visible = True
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 312
-    Height = 533
+    AnchorSideBottom.Control = bbtnLockAll
+    Left = 327
+    Height = 440
     Top = 0
     Width = 5
     Align = alNone
@@ -33,12 +32,11 @@ object frmMain: TfrmMain
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
-    Left = 323
-    Height = 485
+    AnchorSideBottom.Control = bbtnLockAll
+    Left = 338
+    Height = 416
     Top = 24
-    Width = 552
+    Width = 491
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Left = 6
@@ -46,8 +44,8 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 454
-    ClientWidth = 548
+    ClientHeight = 382
+    ClientWidth = 487
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
@@ -55,8 +53,8 @@ object frmMain: TfrmMain
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Side = asrBottom
       Left = 24
-      Height = 23
-      Top = 67
+      Height = 26
+      Top = 70
       Width = 144
       BorderSpacing.Left = 24
       BorderSpacing.Top = 24
@@ -70,23 +68,27 @@ object frmMain: TfrmMain
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Control = gbCurrentVault
       AnchorSideRight.Side = asrBottom
+      AnchorSideBottom.Control = gbCurrentVault
+      AnchorSideBottom.Side = asrBottom
       Left = 24
-      Height = 34
-      Top = 114
-      Width = 500
+      Height = 37
+      Top = 120
+      Width = 439
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
-      ClientHeight = 34
-      ClientWidth = 500
+      ClientHeight = 37
+      ClientWidth = 439
       TabOrder = 2
       object bbtnUnlock: TBitBtn
         AnchorSideLeft.Control = pnlButtons
         AnchorSideTop.Control = pnlButtons
+        AnchorSideRight.Control = pnlButtons
+        AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 34
+        Height = 37
         Top = 0
         Width = 96
         Action = actUnlock
@@ -133,20 +135,18 @@ object frmMain: TfrmMain
         TabOrder = 0
       end
       object bbtnLock: TBitBtn
-        AnchorSideLeft.Control = bbtnUnlock
-        AnchorSideLeft.Side = asrBottom
+        AnchorSideLeft.Control = pnlButtons
         AnchorSideTop.Control = pnlButtons
         AnchorSideRight.Control = pnlButtons
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Side = asrBottom
-        Left = 418
-        Height = 34
+        Left = 357
+        Height = 37
         Top = 0
         Width = 82
         Action = actLock
         Anchors = [akTop, akRight]
         AutoSize = True
-        BorderSpacing.Left = 24
         BorderSpacing.InnerBorder = 2
         Glyph.Data = {
           36040000424D3604000000000000360000002800000010000000100000000100
@@ -196,92 +196,29 @@ object frmMain: TfrmMain
       AnchorSideRight.Side = asrBottom
       Cursor = crHandPoint
       Left = 24
-      Height = 19
+      Height = 22
       Top = 24
-      Width = 500
+      Width = 439
       Anchors = [akTop, akLeft, akRight]
-      AutoSize = True
-      BorderSpacing.Left = 24
-      BorderSpacing.Top = 24
-      BorderSpacing.Right = 24
-      Color = clDefault
-      Font.Color = clGreen
+      BorderSpacing.Around = 24
       Font.Style = [fsBold]
       OnClick = stVaultPathClick
       ParentFont = False
-      ParentColor = False
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
-    end
-    object bbtnLockAll: TBitBtn
-      AnchorSideLeft.Control = gbCurrentVault
-      AnchorSideTop.Control = pnlButtons
-      AnchorSideTop.Side = asrBottom
-      AnchorSideRight.Control = gbCurrentVault
-      AnchorSideRight.Side = asrBottom
-      AnchorSideBottom.Control = gbCurrentVault
-      AnchorSideBottom.Side = asrBottom
-      Left = 24
-      Height = 34
-      Top = 396
-      Width = 500
-      Action = actLockAll
-      Anchors = [akLeft, akRight, akBottom]
-      AutoSize = True
-      BorderSpacing.Around = 24
-      BorderSpacing.InnerBorder = 2
-      Glyph.Data = {
-        36040000424D3604000000000000360000002800000010000000100000000100
-        2000000000000004000064000000640000000000000000000000000000000000
-        0000000000000000000000000000444444084444441B4444441D4444441D4444
-        441D4444441D4444441D4444441D4444441D4444441A44444408000000000000
-        00000000000000000000000000004444444B444444EF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444EE4444444B000000000000
-        000000000000000000000000000044444458444444FF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444FF44444458444444084444
-        441B4444441D4444441D4444441D4444446B444444FF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444FF444444584444444B4444
-        44EF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444FF44444458444444584444
-        44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444FF44444458444444584444
-        44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44FF444444FF444444FF444444FF444444FF444444F34444444E444444584444
-        44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44FF4444448544444445444444F8444444DB4444443E44444412444444584444
-        44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44FF4444445800000000444444F5444444CE00000000000000004444444E4444
-        44F3444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
-        44F5444444514545452C444444F7444444B60000000000000000454545124444
-        443E444444DB444444F8444444454444444544444445444444FA444444FE4444
-        44CC44444485444444BD444444F6444444560000000000000000000000000000
-        0000444444CE444444F5000000000000000000000000444444F5444444E34444
-        44D6444444F7444444D64444446E454545070000000000000000000000000000
-        0000444444B7444444F74242422B414141054545452C444444F7444444B74343
-        43164444441C4444441645454505000000000000000000000000000000000000
-        000044444458444444F6444444BC4444447C444444BD444444F6444444560000
-        0000000000000000000000000000000000000000000000000000000000000000
-        0000424242084444446E444444D6444444F7444444D64444446E454545070000
-        0000000000000000000000000000000000000000000000000000000000000000
-        00000000000043434305434343164444441C4444441645454505000000000000
-        0000000000000000000000000000000000000000000000000000
-      }
-      ParentShowHint = False
-      ShowHint = True
-      TabOrder = 3
+      TabStop = True
     end
   end
   object lvVaults: TListView
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = splLeft
-    AnchorSideBottom.Control = Owner
-    AnchorSideBottom.Side = asrBottom
+    AnchorSideBottom.Control = bbtnLockAll
     Left = 24
-    Height = 485
+    Height = 416
     Top = 24
-    Width = 282
+    Width = 297
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Left = 24
@@ -292,7 +229,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 278
+        Width = 293
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -306,6 +243,61 @@ object frmMain: TfrmMain
     ViewStyle = vsReport
     OnDblClick = lvVaultsDblClick
     OnSelectItem = lvVaultsSelectItem
+  end
+  object bbtnLockAll: TBitBtn
+    AnchorSideLeft.Control = gbCurrentVault
+    AnchorSideRight.Control = Owner
+    AnchorSideRight.Side = asrBottom
+    AnchorSideBottom.Control = Owner
+    AnchorSideBottom.Side = asrBottom
+    Left = 726
+    Height = 37
+    Top = 464
+    Width = 103
+    Action = actLockAll
+    Anchors = [akRight, akBottom]
+    AutoSize = True
+    BorderSpacing.Around = 24
+    BorderSpacing.InnerBorder = 2
+    Glyph.Data = {
+      36040000424D3604000000000000360000002800000010000000100000000100
+      2000000000000004000064000000640000000000000000000000000000000000
+      0000000000000000000000000000444444084444441B4444441D4444441D4444
+      441D4444441D4444441D4444441D4444441D4444441A44444408000000000000
+      00000000000000000000000000004444444B444444EF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444EE4444444B000000000000
+      000000000000000000000000000044444458444444FF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444FF44444458444444084444
+      441B4444441D4444441D4444441D4444446B444444FF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444FF444444584444444B4444
+      44EF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444FF44444458444444584444
+      44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444FF44444458444444584444
+      44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44FF444444FF444444FF444444FF444444FF444444F34444444E444444584444
+      44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44FF4444448544444445444444F8444444DB4444443E44444412444444584444
+      44FF444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44FF4444445800000000444444F5444444CE00000000000000004444444E4444
+      44F3444444FF444444FF444444FF444444FF444444FF444444FF444444FF4444
+      44F5444444514545452C444444F7444444B60000000000000000454545124444
+      443E444444DB444444F8444444454444444544444445444444FA444444FE4444
+      44CC44444485444444BD444444F6444444560000000000000000000000000000
+      0000444444CE444444F5000000000000000000000000444444F5444444E34444
+      44D6444444F7444444D64444446E454545070000000000000000000000000000
+      0000444444B7444444F74242422B414141054545452C444444F7444444B74343
+      43164444441C4444441645454505000000000000000000000000000000000000
+      000044444458444444F6444444BC4444447C444444BD444444F6444444560000
+      0000000000000000000000000000000000000000000000000000000000000000
+      0000424242084444446E444444D6444444F7444444D64444446E454545070000
+      0000000000000000000000000000000000000000000000000000000000000000
+      00000000000043434305434343164444441C4444441645454505000000000000
+      0000000000000000000000000000000000000000000000000000
+    }
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 2
   end
   object pmMain: TPopupMenu
     Images = ilPopupmenu

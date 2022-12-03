@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 653
+  Left = 680
   Height = 503
-  Top = 282
+  Top = 290
   Width = 600
   AutoSize = True
   Caption = 'New Vault'
@@ -13,7 +13,7 @@ object frmNewVault: TfrmNewVault
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.2.0'
+  LCLVersion = '2.2.4.0'
   object edtVaultName: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = edtPath
@@ -21,8 +21,8 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 81
+    Height = 36
+    Top = 84
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -40,8 +40,8 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 138
+    Height = 36
+    Top = 144
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -59,8 +59,8 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 33
-    Top = 195
+    Height = 36
+    Top = 204
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
@@ -78,8 +78,8 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 461
-    Height = 33
-    Top = 252
+    Height = 36
+    Top = 264
     Width = 115
     Anchors = [akTop, akRight]
     AutoSize = True
@@ -95,7 +95,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = btnSelectPath
     Left = 24
-    Height = 33
+    Height = 36
     Top = 24
     Width = 513
     Anchors = [akTop, akLeft, akRight]
@@ -115,7 +115,7 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
     Left = 549
-    Height = 29
+    Height = 32
     Top = 26
     Width = 27
     Anchors = [akTop, akRight]
@@ -130,8 +130,8 @@ object frmNewVault: TfrmNewVault
     AnchorSideTop.Control = btnCreate
     AnchorSideTop.Side = asrCenter
     Left = 24
-    Height = 23
-    Top = 257
+    Height = 26
+    Top = 269
     Width = 161
     BorderSpacing.Around = 24
     Caption = 'Advanced Settings'
@@ -147,14 +147,14 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 99
-    Top = 309
+    Height = 108
+    Top = 324
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     BevelOuter = bvNone
-    ClientHeight = 99
+    ClientHeight = 108
     ClientWidth = 552
     TabOrder = 7
     Visible = False
@@ -162,7 +162,7 @@ object frmNewVault: TfrmNewVault
       AnchorSideLeft.Control = pnlAdvancedSettings
       AnchorSideTop.Control = pnlAdvancedSettings
       Left = 0
-      Height = 19
+      Height = 22
       Hint = 'Hash file names that (in encrypted form) exceed this length.'#10#10'The default is 255, which aligns with the usual name'#10'length limit on Linux and provides best performance.'#10#10'However, online storage may impose lower limits on'#10'file name and/or path length.'#10'In this case, setting -longnamemax to a lower value can be helpful.'#10#10'The lower the value, the more extra .name files must be created,'#10'which slows down directory listings.'#10#10'Values below 62 are not allowed as then the hashed name'#10'would be longer than the original name.'
       Top = 0
       Width = 106
@@ -178,8 +178,8 @@ object frmNewVault: TfrmNewVault
       AnchorSideRight.Control = lblLongNamesMax
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 33
-      Top = 31
+      Height = 36
+      Top = 34
       Width = 106
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 12
@@ -196,9 +196,9 @@ object frmNewVault: TfrmNewVault
       AnchorSideTop.Control = seLongNamesMax
       AnchorSideTop.Side = asrBottom
       Left = 0
-      Height = 23
+      Height = 26
       Hint = 'Do not encrypt file names and symlink targets'
-      Top = 76
+      Top = 82
       Width = 138
       BorderSpacing.Top = 12
       Caption = 'plaintextnames'

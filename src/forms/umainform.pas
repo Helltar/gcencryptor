@@ -456,6 +456,9 @@ begin
       stVaultPath.Caption := ExtractFileName(getSelectedMountPoint());
       stVaultPath.Hint := replaceHomeSymbol(getSelectedMountPoint()) + ' ...';
     end;
+
+    if Length(stVaultPath.Caption) > 32 then
+      stVaultPath.Caption := Copy(stVaultPath.Caption, 1, 32) + ' ...';
   end
   else
   begin
@@ -517,8 +520,7 @@ end;
 
 procedure TfrmMain.actOpenMountDirUpdate(Sender: TObject);
 begin
-  actOpenMountDir.Enabled := isItemSelected() and isSelectedVaultUnlock() and
-    isSelectedVaultPathExists();
+  actOpenMountDir.Enabled := isItemSelected() and isSelectedVaultUnlock() and isSelectedVaultPathExists();
 end;
 
 procedure TfrmMain.actOpenVaultDirExecute(Sender: TObject);
