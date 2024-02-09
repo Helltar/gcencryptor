@@ -11,8 +11,7 @@
 Download
 --------
 
-- [gcencryptor-1.5.4.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.4/gcencryptor-1.5.4.tar.gz) (1.64 MB)
-- [gcencryptor-1.5.4.tar.gz.sha256sum](https://helltar.com/projects/gcencryptor/bin/sha256sums/gcencryptor-1.5.4.tar.gz.sha256sum)
+- [gcencryptor-1.5.4.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.5/gcencryptor-1.5.5.tar.gz) (1.64 MB)
 
 Installation
 ------------
@@ -33,14 +32,6 @@ sudo pacman -S gocryptfs qt5pas
 sudo apt install gocryptfs libqt5pas1
 ```
 
-**Fedora**:
-
-```
-sudo dnf install qt5pas
-```
-
-In Fedora 36 **gocryptfs** not available on repos, please install [binaries](https://github.com/rfjakob/gocryptfs/releases) manually.
-
 Usage
 -----
 
@@ -50,7 +41,7 @@ Unpack and run:
 cd ~/Downloads/
 ```
 ```
-tar -xvf gcencryptor-1.5.4.tar.gz
+tar -xvf gcencryptor-1.5.5.tar.gz
 ```
 ```
 cd gcencryptor/ && ./gcencryptor
@@ -71,6 +62,7 @@ Available languages
 - English
 - Ukrainian
 - Russian
+- Spanish
 
 You can help translate:
 - https://github.com/Helltar/gcencryptor/tree/master/locale
