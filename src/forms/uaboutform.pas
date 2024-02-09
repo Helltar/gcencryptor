@@ -22,6 +22,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormKeyDown(Sender: TObject; var Key: word; Shift: TShiftState);
     procedure FormShow(Sender: TObject);
+    procedure lblHomepageClick(Sender: TObject);
     procedure lblPapirusClick(Sender: TObject);
     procedure lblGcencryptorClick(Sender: TObject);
     procedure lblGocryptfsClick(Sender: TObject);
@@ -41,6 +42,11 @@ procedure TfrmAbout.FormShow(Sender: TObject);
 begin
   Constraints.MinHeight := Height;
   Constraints.MinWidth := Width;
+end;
+
+procedure TfrmAbout.lblHomepageClick(Sender: TObject);
+begin
+  OpenURL(URL_HOMEPAGE);
 end;
 
 procedure TfrmAbout.lblPapirusClick(Sender: TObject);

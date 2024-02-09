@@ -41,6 +41,7 @@ type
     ilPopupmenu: TImageList;
     ilVaultState: TImageList;
     lvVaults: TListView;
+    miSpanish: TMenuItem;
     miAbout: TMenuItem;
     miConfig: TMenuItem;
     miCreateNewVault: TMenuItem;
@@ -110,6 +111,7 @@ type
     procedure miEnglishClick(Sender: TObject);
     procedure miExitClick(Sender: TObject);
     procedure miRussianClick(Sender: TObject);
+    procedure miSpanishClick(Sender: TObject);
     procedure miUkrainianClick(Sender: TObject);
     procedure stVaultPathClick(Sender: TObject);
     procedure tmCheckLockFileTimer(Sender: TObject);
@@ -231,6 +233,11 @@ end;
 procedure TfrmMain.miRussianClick(Sender: TObject);
 begin
   setLang('ru');
+end;
+
+procedure TfrmMain.miSpanishClick(Sender: TObject);
+begin
+  setLang('es');
 end;
 
 procedure TfrmMain.miUkrainianClick(Sender: TObject);

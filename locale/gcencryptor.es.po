@@ -5,308 +5,311 @@ msgstr ""
 "PO-Revision-Date: \n"
 "Last-Translator: Helltar <iam@helltar.com>\n"
 "Language-Team: \n"
-"Language: ru\n"
+"Language: es_ES\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
 "X-Generator: Poedit 3.4.2\n"
 
 #: tfrmabout.caption
 msgid "About"
-msgstr "О Программе"
+msgstr "Acerca de"
 
 #: tfrmabout.lblgcencryptor.caption
 msgid "github.com/gcencryptor"
-msgstr ""
+msgstr "github.com/gcencryptor"
 
 #: tfrmabout.lblgocryptfs.caption
 msgid "github.com/gocryptfs"
-msgstr ""
+msgstr "github.com/gocryptfs"
 
 #: tfrmabout.lblhomepage.caption
 msgid "helltar.com"
-msgstr ""
+msgstr "helltar.com"
 
 #: tfrmabout.lbllicense.caption
 msgctxt "tfrmabout.lbllicense.caption"
 msgid "License: GNU General Public License v3.0"
-msgstr ""
+msgstr "Licencia: GNU General Public License v3.0"
 
 #: tfrmabout.lblpapirus.caption
 msgid "github.com/papirus-icon-theme"
-msgstr ""
+msgstr "github.com/papirus-icon-theme"
 
 #: tfrmclosequery.btncancel.caption
 msgid "&Cancel"
-msgstr "&Отмена"
+msgstr "&Cancelar"
 
 #: tfrmclosequery.btnyes.caption
 msgid "&Yes"
-msgstr "&Да"
+msgstr "&Sí"
 
 #: tfrmclosequery.caption
 msgid "Please confirm"
-msgstr "Пожалуйста, подтвердите"
+msgstr "Por favor, confirme"
 
 #: tfrmclosequery.lblinfo.caption
 msgid ""
 "This action not have any risk corrupted the data,\n"
 "if the vault is busy you will get a message."
 msgstr ""
-"Это действие не несет никакого риска повреждения данных,\n"
-"если хранилище занято, вы получите сообщение."
+"Esta acción no tiene ningún riesgo de corrupción de los datos,\n"
+"si el almacén está ocupado, recibirá un mensaje."
 
 #: tfrmclosequery.lblq.caption
 msgid "Unmount all and quit application?"
-msgstr "Размонтировать все и выйти из приложения?"
+msgstr "¿Desmontar todo y salir de la aplicación?"
 
 #: tfrmclosequery.lblunlockedvaults.caption
 msgid "There are unlocked vaults:"
-msgstr "Есть незапертые хранилища:"
+msgstr "Hay almacenes desbloqueados:"
 
 #: tfrmlicense.caption
 msgid "GNU GENERAL PUBLIC LICENSE"
-msgstr ""
+msgstr "LICENCIA PÚBLICA GENERAL DE GNU"
 
 #: tfrmlog.btnclear.caption
 msgid "C&lear"
-msgstr "&Очистить"
+msgstr "B&orrar"
 
 #: tfrmlog.btnclose.caption
 msgid "&Close"
-msgstr "&Закрыть"
+msgstr "&Cerrar"
 
 #: tfrmlog.btnsavelog.caption
 msgctxt "tfrmlog.btnsavelog.caption"
 msgid "&Save to file"
-msgstr "&Сохранить в файл"
+msgstr "&Guardar en archivo"
 
 #: tfrmlog.caption
 msgid "Messages"
-msgstr "Сообщения"
+msgstr "Mensajes"
 
 #: tfrmmain.actconfigure.caption
 msgctxt "tfrmmain.actconfigure.caption"
 msgid "&Configure gcencryptor ..."
-msgstr "&Настроить gcencryptor ..."
+msgstr "&Configurar gcencryptor ..."
 
 #: tfrmmain.actcreatevault.caption
 msgctxt "tfrmmain.actcreatevault.caption"
 msgid "Create &New Vault ..."
-msgstr "Создать &новое хранилище ..."
+msgstr "Crear &Nuevo Almacén ..."
 
 #: tfrmmain.actdelfromlist.caption
 msgctxt "tfrmmain.actdelfromlist.caption"
 msgid "&Delete From List"
-msgstr "&Удалить из списка"
+msgstr "&Eliminar de la Lista"
 
 #: tfrmmain.actfsck.caption
 msgctxt "tfrmmain.actfsck.caption"
 msgid "&Check Integrity ..."
-msgstr "&Проверить целостность ..."
+msgstr "&Comprobar Integridad ..."
 
 #: tfrmmain.acthidemenubar.caption
 msgctxt "tfrmmain.acthidemenubar.caption"
 msgid "Show &Menubar"
-msgstr "Показывать &меню"
+msgstr "Mostrar &Barra de Menú"
 
 #: tfrmmain.actlock.caption
 msgctxt "tfrmmain.actlock.caption"
 msgid "Lock"
-msgstr "Заблокировать"
+msgstr "Bloquear"
 
 #: tfrmmain.actlock.hint
 msgid "Lock Selected Vault"
-msgstr "Заблокировать выбранное хранилище"
+msgstr "Bloquear Almacén Seleccionado"
 
 #: tfrmmain.actlockall.caption
 msgctxt "tfrmmain.actlockall.caption"
 msgid "Lock All"
-msgstr "Заблокировать все"
+msgstr "Bloquear Todo"
 
 #: tfrmmain.actlockall.hint
 msgid "Lock All Unlocked Vaults"
-msgstr "Заблокировать все незапертые хранилища"
+msgstr "Bloquear Todos los Almacenes Desbloqueados"
 
 #: tfrmmain.actopenmountdir.caption
 msgid "&Open Mounted Directory ..."
-msgstr "&Открыть смонтированный каталог ..."
+msgstr "Abrir Directorio Montado ..."
 
 #: tfrmmain.actopenmountdir.hint
 msgid "Decrypted Directory"
-msgstr "Расшифрованный каталог"
+msgstr "Directorio Desencriptado"
 
 #: tfrmmain.actopenvault.caption
 msgctxt "tfrmmain.actopenvault.caption"
 msgid "&Open Existing Vault ..."
-msgstr "&Открыть существующие хранилище ..."
+msgstr "Abrir Almacén &Existente ..."
 
 #: tfrmmain.actopenvaultdir.caption
 msgid "Open &Vault Directory ..."
-msgstr "Открыть каталог &хранилища ..."
+msgstr "Abrir Directorio del Almacén ..."
 
 #: tfrmmain.actopenvaultdir.hint
 msgid "Encrypted Directory"
-msgstr "Зашифрованный каталог"
+msgstr "Directorio Encriptado"
 
 #: tfrmmain.actunlock.caption
 msgctxt "tfrmmain.actunlock.caption"
 msgid "Unlock"
-msgstr "Разблокировать"
+msgstr "Desbloquear"
 
 #: tfrmmain.actunlock.hint
 msgid "Unlock Selected Vault"
-msgstr "Разблокировать выбранное хранилище"
+msgstr "Desbloquear Almacén Seleccionado"
 
 #: tfrmmain.actvaultinfo.caption
 msgctxt "tfrmmain.actvaultinfo.caption"
 msgid "&Information"
-msgstr "&Информация"
+msgstr "&Información"
 
 #: tfrmmain.cbreadonlymount.caption
 msgctxt "tfrmmain.cbreadonlymount.caption"
 msgid "Mount read-only"
-msgstr "Смонтировать только для чтения"
+msgstr "Montar solo lectura"
 
 #: tfrmmain.gbcurrentvault.caption
 msgctxt "tfrmmain.gbcurrentvault.caption"
 msgid "Vault"
-msgstr "Хранилище"
+msgstr "Almacén"
 
 #: tfrmmain.miabout.caption
 msgid "&About"
-msgstr "О &Программе"
+msgstr "Acerca de"
 
 #: tfrmmain.mienglish.caption
 msgid "&English"
-msgstr "&Английский"
+msgstr "Inglés"
 
 #: tfrmmain.miexit.caption
 msgctxt "tfrmmain.miexit.caption"
 msgid "&Quit"
-msgstr "&Выйти"
+msgstr "Salir"
 
 #: tfrmmain.mihelp.caption
 msgid "&Help"
-msgstr "&Справка"
+msgstr "Ayuda"
 
 #: tfrmmain.milanguage.caption
 msgid "&Language"
-msgstr "&Язык"
+msgstr "Idioma"
 
 #: tfrmmain.milockalltray.caption
 msgid "&Lock All Vaults"
-msgstr "&Заблокировать все хранилища"
+msgstr "Bloquear Todos los Almacenes"
 
 #: tfrmmain.miquittray.caption
 msgctxt "tfrmmain.miquittray.caption"
 msgid "&Quit"
-msgstr "&Выйти"
+msgstr "Salir"
 
 #: tfrmmain.mirussian.caption
 msgid "&Russian"
-msgstr "&Русский"
+msgstr "Ruso"
 
 #: tfrmmain.misettings.caption
 msgid "&Settings"
-msgstr "&Настройки"
+msgstr "Configuración"
 
 #: tfrmmain.mishowformtray.caption
 msgctxt "tfrmmain.mishowformtray.caption"
 msgid "&Toggle window"
-msgstr "&Переключить окно"
+msgstr "Alternar ventana"
 
 #: tfrmmain.mispanish.caption
 msgid "&Spanish"
-msgstr "&Испанский"
+msgstr "&Español"
 
 #: tfrmmain.miukrainian.caption
 msgid "&Ukrainian"
-msgstr "&Украинский"
+msgstr "Ucraniano"
 
 #: tfrmmain.mivault.caption
 msgid "&Vault"
-msgstr "&Хранилище"
+msgstr "Almacén"
 
 #: tfrmmain.sddopenvault.title
 msgid "Select An Encrypted Vault Directory"
-msgstr "Выберите зашифрованный каталог"
+msgstr "Seleccionar un Directorio de Almacén Encriptado"
 
 #: tfrmmasterkey.btnok.caption
 msgctxt "tfrmmasterkey.btnok.caption"
 msgid "&OK"
-msgstr ""
+msgstr "&Aceptar"
 
 #: tfrmmasterkey.btnsave.caption
 msgctxt "tfrmmasterkey.btnsave.caption"
 msgid "&Save to file"
-msgstr "&Сохранить в файл"
+msgstr "&Guardar en archivo"
 
 #: tfrmmasterkey.caption
 msgid "Recovery Master Key"
-msgstr "Мастер-ключ для восстановления"
+msgstr "Clave Maestra de Recuperación"
 
 #: tfrmmasterkey.lblyourkey.caption
 msgid "Your master key is:"
-msgstr "Ваш мастер-ключ:"
+msgstr "Tu clave maestra es:"
 
 #: tfrmmasterkey.sttext.caption
 msgid ""
-"If the gocryptfs.conf file becomes corrupted or you ever forget your password,\n"
+"If the gocryptfs.conf file becomes corrupted or you ever forget your "
+"password,\n"
 "there is only one hope for recovery: The master key. Print it to a piece of\n"
 "paper and store it in a drawer. This message is only printed once."
 msgstr ""
-"Если файл gocryptfs.conf поврежден или вы забыли пароль,\n"
-"есть только одна надежда на восстановление: Главный ключ.\n"
-"Распечатайте его на листе бумаги и храните в ящике.\n"
-"Это сообщение печатается только один раз."
+"Si el archivo gocryptfs.conf se corrompe o alguna vez olvidas tu "
+"contraseña,\n"
+"solo hay una esperanza de recuperación: la clave maestra. Imprímela en un "
+"papel\n"
+"y guárdala en un cajón. Este mensaje solo se imprime una vez."
 
 #: tfrmnewvault.btncreate.caption
 msgid "&Create Vault"
-msgstr "&Создать хранилище"
+msgstr "Crear Almacén"
 
 #: tfrmnewvault.btnselectpath.caption
 msgctxt "tfrmnewvault.btnselectpath.caption"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: tfrmnewvault.caption
 msgid "New Vault"
-msgstr "Новое хранилище"
+msgstr "Nuevo Almacén"
 
 #: tfrmnewvault.cbadvancedsettings.caption
 msgid "Advanced Settings"
-msgstr "Расширенные настройки"
+msgstr "Configuración Avanzada"
 
 #: tfrmnewvault.cbplaintextnames.caption
 msgid "plaintextnames"
-msgstr ""
+msgstr "plaintextnames"
 
 #: tfrmnewvault.cbplaintextnames.hint
 msgid "Do not encrypt file names and symlink targets"
-msgstr "Не шифровать имена файлов и симлинков"
+msgstr "No encriptar nombres de archivo y objetivos de enlace simbólico"
 
 #: tfrmnewvault.edtpassword.texthint
 msgid "password"
-msgstr "пароль"
+msgstr "contraseña"
 
 #: tfrmnewvault.edtpath.texthint
 msgctxt "tfrmnewvault.edtpath.texthint"
 msgid "path"
-msgstr "путь"
+msgstr "ruta"
 
 #: tfrmnewvault.edtrepeatpassword.texthint
 msgid "confirm password"
-msgstr "подтвердите пароль"
+msgstr "confirmar contraseña"
 
 #: tfrmnewvault.edtvaultname.texthint
 msgid "vault name"
-msgstr "название"
+msgstr "nombre del almacén"
 
 #: tfrmnewvault.lbllongnamesmax.caption
 msgid "longnamemax:"
-msgstr ""
+msgstr "longnamemax:"
 
 #: tfrmnewvault.lbllongnamesmax.hint
 msgid ""
@@ -325,222 +328,236 @@ msgid ""
 "Values below 62 are not allowed as then the hashed name\n"
 "would be longer than the original name."
 msgstr ""
-"Хеширование имен файлов, которые (в зашифрованном виде) превышают эту длину.\n"
+"Hash los nombres de archivo que (en forma encriptada) superen esta "
+"longitud.\n"
 "\n"
-"По умолчанию установлено значение 255,\n"
-"что соответствует обычному ограничению длины имени в Linux\n"
-"и обеспечивает наилучшую производительность.\n"
+"El valor predeterminado es 255, que se alinea con el límite de longitud de "
+"nombre\n"
+"habitual en Linux y proporciona el mejor rendimiento.\n"
 "\n"
-"Однако облачные хранилища могут устанавливать более низкие ограничения\n"
-"на длины имени файла и/или пути.\n"
-"В этом случае может быть полезно установить -longnamemax на более низкое значение.\n"
+"Sin embargo, el almacenamiento en línea puede imponer límites más bajos en "
+"la\n"
+"longitud del nombre de archivo y/o la ruta.\n"
+"En este caso, establecer -longnamemax en un valor más bajo puede ser útil.\n"
 "\n"
-"Чем меньше значение, тем больше дополнительных файлов .name должно быть создано,\n"
-"что замедляет листинг каталогов.\n"
+"Cuanto menor sea el valor, más archivos .name adicionales se deben crear,\n"
+"lo que ralentiza las listas de directorios.\n"
 "\n"
-"Значения ниже 62 не допускаются, так как в этом случае хэшированное имя\n"
-"будет длиннее, чем оригинальное имя."
+"No se permiten valores inferiores a 62, ya que el nombre hash\n"
+"sería más largo que el nombre original."
 
 #: tfrmpassword.btnok.caption
 msgctxt "tfrmpassword.btnok.caption"
 msgid "&Unlock"
-msgstr "&Разблокировать"
+msgstr "&Desbloquear"
 
 #: tfrmpassword.btnshowpass.caption
 msgid "👁"
-msgstr ""
+msgstr "👁"
 
 #: tfrmpassword.btnshowpass.hint
 msgid "Show Password"
-msgstr "Показать пароль"
+msgstr "Mostrar Contraseña"
 
 #: tfrmpassword.lblpassword.caption
 msgid "Password:"
-msgstr "Пароль:"
+msgstr "Contraseña:"
 
 #: tfrmsettings.btncreatedesktopentry.caption
 msgid "&Create Desktop Entry"
-msgstr "Создать &ярлык приложения"
+msgstr "Crear Acceso Directo al Escritorio"
 
 #: tfrmsettings.btnsave.caption
 msgid "&Save"
-msgstr "&Сохранить"
+msgstr "Guardar"
 
 #: tfrmsettings.btnselectmountpoint.caption
 msgctxt "tfrmsettings.btnselectmountpoint.caption"
 msgid "..."
-msgstr ""
+msgstr "..."
 
 #: tfrmsettings.cbautorun.caption
 msgid "Open in File Manager after unlocking"
-msgstr "Открыть в диспетчере файлов после разблокировки"
+msgstr "Abrir en el Administrador de Archivos después de desbloquear"
 
 #: tfrmsettings.cbclipboard.caption
 msgid "Clear clipboard after unlocking"
-msgstr "Очистить буфер обмена после разблокировки"
+msgstr "Borrar portapapeles después de desbloquear"
 
 #: tfrmsettings.cblongnames.caption
 msgid "Generate long name for mount point"
-msgstr "Генерировать длинное название для точки монтирования"
+msgstr "Generar nombre largo para el punto de montaje"
 
 #: tfrmsettings.cblongnames.hint
 msgid "VAULTNAME_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
-msgstr ""
+msgstr "NOMBREDEALMACÉN_6F9619FF-8B86-D011-B42D-00CF4FC964FF"
 
 #: tfrmsettings.cbtray.caption
 msgid "Hide window to system tray when close"
-msgstr "Скрывать окно в системный трей при закрытии"
+msgstr "Ocultar ventana en la bandeja del sistema al cerrar"
 
 #: tfrmsettings.edtmountpoint.texthint
 msgctxt "tfrmsettings.edtmountpoint.texthint"
 msgid "path"
-msgstr "путь"
+msgstr "ruta"
 
 #: tfrmsettings.gbmain.caption
 msgid "Settings"
-msgstr "Настройки"
+msgstr "Configuración"
 
 #: tfrmsettings.lblfontsize.caption
 msgid "Font size (messages)"
-msgstr "Размер шрифта (сообщения)"
+msgstr "Tamaño de fuente (mensajes)"
 
 #: tfrmsettings.lblmountdirectory.caption
 msgid "Mount Directory:"
-msgstr "Каталог монтирования:"
+msgstr "Directorio de Montaje:"
 
 #: uconsts.rs_bin_not_installed
 #, object-pascal-format
 msgid "Maybe %s is not installed"
-msgstr "Возможно, %s не установлен"
+msgstr "Tal vez %s no está instalado"
 
 #: uconsts.rs_caption_warning
 msgctxt "uconsts.rs_caption_warning"
 msgid "Warning"
-msgstr "Предупреждение"
+msgstr "Advertencia"
 
 #: uconsts.rs_created_successfully
 msgctxt "uconsts.rs_created_successfully"
 msgid "The gocryptfs filesystem has been created successfully"
-msgstr "Файловая система gocryptfs была успешно создана"
+msgstr "El sistema de archivos gocryptfs se ha creado correctamente"
 
 #: uconsts.rs_desktop_entry_created
 msgid "Desktop entry created"
-msgstr "Ярлык успешно создан"
+msgstr "Acceso directo al escritorio creado"
 
 #: uconsts.rs_directory_exists
 msgctxt "uconsts.rs_directory_exists"
 msgid "Directory already exists"
-msgstr "Каталог уже существует"
+msgstr "El directorio ya existe"
 
 #: uconsts.rs_directory_not_exists
 msgctxt "uconsts.rs_directory_not_exists"
 msgid "Directory not exists"
-msgstr "Каталога не существует"
+msgstr "El directorio no existe"
 
 #: uconsts.rs_error_creating_directory
 msgctxt "uconsts.rs_error_creating_directory"
 msgid "Error creating the directory"
-msgstr "Ошибка при создании каталога"
+msgstr "Error al crear el directorio"
 
 #: uconsts.rs_error_del_directory
 msgctxt "uconsts.rs_error_del_directory"
 msgid "Error deleting the directory"
-msgstr "Ошибка при удалении каталога"
+msgstr "Error al eliminar el directorio"
 
 #: uconsts.rs_error_load_config
 msgctxt "uconsts.rs_error_load_config"
 msgid "Error load config"
-msgstr "Ошибка при загрузке конфигурации"
+msgstr "Error al cargar la configuración"
 
 #: uconsts.rs_error_run_executable
 msgctxt "uconsts.rs_error_run_executable"
 msgid "failed to run"
-msgstr "не удалось запустить"
+msgstr "no se pudo ejecutar"
 
 #: uconsts.rs_error_wrong_password
 msgctxt "uconsts.rs_error_wrong_password"
 msgid "Error, something went wrong reading the password"
-msgstr "Ошибка, что-то пошло не так при чтении пароля"
+msgstr "Error, algo salió mal al leer la contraseña"
 
 #: uconsts.rs_err_save_key
 msgctxt "uconsts.rs_err_save_key"
 msgid "Error when saving key"
-msgstr "Ошибка при сохранении ключа"
+msgstr "Error al guardar la clave"
 
 #: uconsts.rs_failed_to_retrieve_recovery_key
 msgctxt "uconsts.rs_failed_to_retrieve_recovery_key"
 msgid "Vault was successfully created, but could not retrieve the recovery key"
-msgstr "Хранилище было успешно создано, но не удалось получить ключ восстановления"
+msgstr ""
+"El almacén se creó correctamente, pero no se pudo recuperar la clave de "
+"recuperación"
 
 #: uconsts.rs_failed_to_save_log_file
 msgctxt "uconsts.rs_failed_to_save_log_file"
 msgid "Failed to save log file"
-msgstr "Не удалось сохранить файл журнала"
+msgstr "Error al guardar el archivo de registro"
 
 #: uconsts.rs_fsck_no_problems_found
 msgctxt "uconsts.rs_fsck_no_problems_found"
 msgid "fsck summary: no problems found"
-msgstr "fsck: проблем не обнаружено"
+msgstr "Resumen de fsck: no se encontraron problemas"
 
 #: uconsts.rs_gb_vault_caption
 msgctxt "uconsts.rs_gb_vault_caption"
 msgid "Vault"
-msgstr "Хранилище"
+msgstr "Almacén"
 
 #: uconsts.rs_gocryptfs_xray_failed_run_hint
-msgid "This is not critical, but you will not be able to get the master key when you create a new vault"
-msgstr "Это не критично, но вы не сможете получить мастер-ключ при создании нового хранилища"
+msgid ""
+"This is not critical, but you will not be able to get the master key when "
+"you create a new vault"
+msgstr ""
+"Esto no es crítico, pero no podrás obtener la clave maestra al crear un "
+"nuevo almacén"
 
 #: uconsts.rs_key_saved
 msgctxt "uconsts.rs_key_saved"
 msgid "Key successfully saved"
-msgstr "Ключ успешно сохранен"
+msgstr "Clave guardada correctamente"
 
 #: uconsts.rs_lock_all_and_close
 msgctxt "uconsts.rs_lock_all_and_close"
 msgid "Lock all and close?"
-msgstr "Заблокировать все и закрыть?"
+msgstr "¿Bloquear todo y cerrar?"
 
 #: uconsts.rs_longnamemaxflag_available
 msgid "Available only on gocryptfs >= v2.3"
-msgstr "Доступно только на gocryptfs версии >= 2.3"
+msgstr "Disponible solo en gocryptfs >= v2.3"
 
 #: uconsts.rs_mountpoint_hint
 msgctxt "uconsts.rs_mountpoint_hint"
-msgid "During the mount, directories with the storage name will be temporarily created in this directory, for example:"
-msgstr "Во время монтирования в этом каталоге будут временно созданы каталоги с именем хранилища, например:"
+msgid ""
+"During the mount, directories with the storage name will be temporarily "
+"created in this directory, for example:"
+msgstr ""
+"Durante el montaje, se crearán temporalmente directorios con el nombre de "
+"almacenamiento en este directorio, por ejemplo:"
 
 #: uconsts.rs_passwords_do_not_match
 msgctxt "uconsts.rs_passwords_do_not_match"
 msgid "Passwords do not match"
-msgstr "Пароли не совпадают"
+msgstr "Las contraseñas no coinciden"
 
 #: uconsts.rs_password_empty
 msgctxt "uconsts.rs_password_empty"
 msgid "Password Empty"
-msgstr "Пустой пароль"
+msgstr "Contraseña Vacía"
 
 #: uconsts.rs_password_incorrect
 msgctxt "uconsts.rs_password_incorrect"
 msgid "Password Incorrect"
-msgstr "Неверный пароль"
+msgstr "Contraseña Incorrecta"
 
 #: uconsts.rs_please_wait_until_the_process
 msgctxt "uconsts.rs_please_wait_until_the_process"
 msgid "Please wait until the process is completed it may take some time ..."
-msgstr "Пожалуйста, подождите пока процесс завершится, это может занять некоторое время ..."
+msgstr ""
+"Por favor, espere hasta que se complete el proceso, puede llevar algún "
+"tiempo ..."
 
 #: uconsts.rs_successfully_mounted
 msgctxt "uconsts.rs_successfully_mounted"
 msgid "Filesystem mounted and ready"
-msgstr "Файловая система смонтирована и готова к использованию"
+msgstr "Sistema de archivos montado y listo"
 
 #: uconsts.rs_unmounted_successfully
 msgctxt "uconsts.rs_unmounted_successfully"
 msgid "Unmounted successfully"
-msgstr "Успешно отсоединено"
+msgstr "Desmontado correctamente"
 
 #: uconsts.rs_vaultpath_hint
 msgctxt "uconsts.rs_vaultpath_hint"
 msgid "Open in File Manager ..."
-msgstr "Открыть в диспетчере файлов ..."
+msgstr "Abrir en el Administrador de Archivos ..."

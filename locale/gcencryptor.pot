@@ -213,6 +213,10 @@ msgctxt "tfrmmain.mishowformtray.caption"
 msgid "&Toggle window"
 msgstr ""
 
+#: tfrmmain.mispanish.caption
+msgid "&Spanish"
+msgstr ""
+
 #: tfrmmain.miukrainian.caption
 msgid "&Ukrainian"
 msgstr ""
