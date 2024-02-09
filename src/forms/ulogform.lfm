@@ -1,7 +1,7 @@
 object frmLog: TfrmLog
-  Left = 600
+  Left = 3184
   Height = 442
-  Top = 293
+  Top = 738
   Width = 752
   Caption = 'Messages'
   ClientHeight = 442
@@ -14,7 +14,7 @@ object frmLog: TfrmLog
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poMainFormCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.0.0.3'
   inline synLog: TSynEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
@@ -22,7 +22,7 @@ object frmLog: TfrmLog
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = btnSaveLog
     Left = 24
-    Height = 334
+    Height = 335
     Top = 24
     Width = 704
     BorderSpacing.Around = 24
@@ -535,16 +535,16 @@ object frmLog: TfrmLog
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 36
-    Top = 382
-    Width = 106
+    Height = 35
+    Top = 383
+    Width = 111
     Anchors = [akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
     Caption = '&Save to file'
-    OnClick = btnSaveLogClick
     TabOrder = 3
+    OnClick = btnSaveLogClick
   end
   object btnClear: TButton
     AnchorSideLeft.Control = btnSaveLog
@@ -553,17 +553,17 @@ object frmLog: TfrmLog
     AnchorSideTop.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 154
-    Height = 36
-    Top = 382
-    Width = 65
+    Left = 159
+    Height = 35
+    Top = 383
+    Width = 68
     Anchors = [akLeft, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
     Caption = 'C&lear'
-    OnClick = btnClearClick
     TabOrder = 2
+    OnClick = btnClearClick
   end
   object btnClose: TButton
     AnchorSideLeft.Control = btnClear
@@ -574,17 +574,17 @@ object frmLog: TfrmLog
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 660
-    Height = 36
-    Top = 382
-    Width = 68
+    Left = 657
+    Height = 35
+    Top = 383
+    Width = 71
     Anchors = [akRight, akBottom]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
     Caption = '&Close'
-    OnClick = btnCloseClick
     TabOrder = 1
+    OnClick = btnCloseClick
   end
   object synUNIXShellScriptSyn: TSynUNIXShellScriptSyn
     DefaultFilter = 'UNIX Shell Scripts (*.sh)|*.sh'

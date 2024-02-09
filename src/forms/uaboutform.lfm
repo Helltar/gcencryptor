@@ -1,7 +1,7 @@
 object frmAbout: TfrmAbout
-  Left = 762
+  Left = 3387
   Height = 336
-  Top = 323
+  Top = 744
   Width = 400
   AutoSize = True
   Caption = 'About'
@@ -11,7 +11,7 @@ object frmAbout: TfrmAbout
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.0.0.3'
   object lblHomepage: TLabel
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = stAbout
@@ -20,8 +20,8 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 22
-    Top = 133
+    Height = 21
+    Top = 132
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -32,6 +32,7 @@ object frmAbout: TfrmAbout
     Font.Style = [fsUnderline]
     ParentColor = False
     ParentFont = False
+    OnClick = lblHomepageClick
   end
   object lblGcencryptor: TLabel
     AnchorSideLeft.Control = Owner
@@ -42,8 +43,8 @@ object frmAbout: TfrmAbout
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 22
-    Top = 201
+    Height = 21
+    Top = 198
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -63,8 +64,8 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 22
-    Top = 167
+    Height = 21
+    Top = 165
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24
@@ -394,7 +395,7 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 21
+    Height = 20
     Top = 88
     Width = 352
     Anchors = [akTop, akLeft, akRight]
@@ -410,8 +411,8 @@ object frmAbout: TfrmAbout
     AnchorSideRight.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 22
-    Top = 281
+    Height = 21
+    Top = 276
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Bottom = 24
@@ -432,8 +433,8 @@ object frmAbout: TfrmAbout
     AnchorSideBottom.Side = asrBottom
     Cursor = crHandPoint
     Left = 24
-    Height = 22
-    Top = 235
+    Height = 21
+    Top = 231
     Width = 352
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Left = 24

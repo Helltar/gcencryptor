@@ -1,26 +1,27 @@
 object frmMain: TfrmMain
-  Left = 503
-  Height = 559
-  Top = 250
-  Width = 853
+  Left = 3111
+  Height = 658
+  Top = 640
+  Width = 933
   AllowDropFiles = True
-  ClientHeight = 525
-  ClientWidth = 853
+  ClientHeight = 658
+  ClientWidth = 933
   Constraints.MinHeight = 400
   Constraints.MinWidth = 400
+  FormStyle = fsStayOnTop
   Menu = mmMain
   OnCloseQuery = FormCloseQuery
   OnCreate = FormCreate
   OnDestroy = FormDestroy
   OnDropFiles = FormDropFiles
   OnShow = FormShow
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.0.0.3'
   Visible = True
   object splLeft: TSplitter
     AnchorSideTop.Control = Owner
     AnchorSideBottom.Control = bbtnLockAll
-    Left = 327
-    Height = 440
+    Left = 312
+    Height = 574
     Top = 0
     Width = 5
     Align = alNone
@@ -33,10 +34,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = bbtnLockAll
-    Left = 338
-    Height = 416
+    Left = 323
+    Height = 550
     Top = 24
-    Width = 491
+    Width = 586
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoSize = True
     BorderSpacing.Left = 6
@@ -44,8 +45,8 @@ object frmMain: TfrmMain
     BorderSpacing.Right = 24
     BorderSpacing.Bottom = 24
     Caption = 'Vault'
-    ClientHeight = 382
-    ClientWidth = 487
+    ClientHeight = 517
+    ClientWidth = 582
     TabOrder = 1
     object cbReadOnlyMount: TCheckBox
       AnchorSideLeft.Control = gbCurrentVault
@@ -53,9 +54,9 @@ object frmMain: TfrmMain
       AnchorSideTop.Side = asrBottom
       AnchorSideRight.Side = asrBottom
       Left = 24
-      Height = 26
+      Height = 25
       Top = 70
-      Width = 144
+      Width = 151
       BorderSpacing.Left = 24
       BorderSpacing.Top = 24
       Caption = 'Mount read-only'
@@ -71,15 +72,15 @@ object frmMain: TfrmMain
       AnchorSideBottom.Control = gbCurrentVault
       AnchorSideBottom.Side = asrBottom
       Left = 24
-      Height = 37
-      Top = 120
-      Width = 439
+      Height = 36
+      Top = 119
+      Width = 534
       Anchors = [akTop, akLeft, akRight]
       AutoSize = True
       BorderSpacing.Around = 24
       BevelOuter = bvNone
-      ClientHeight = 37
-      ClientWidth = 439
+      ClientHeight = 36
+      ClientWidth = 534
       TabOrder = 2
       object bbtnUnlock: TBitBtn
         AnchorSideLeft.Control = pnlButtons
@@ -88,9 +89,9 @@ object frmMain: TfrmMain
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Side = asrBottom
         Left = 0
-        Height = 37
+        Height = 36
         Top = 0
-        Width = 96
+        Width = 98
         Action = actUnlock
         AutoSize = True
         BorderSpacing.InnerBorder = 2
@@ -140,10 +141,10 @@ object frmMain: TfrmMain
         AnchorSideRight.Control = pnlButtons
         AnchorSideRight.Side = asrBottom
         AnchorSideBottom.Side = asrBottom
-        Left = 357
-        Height = 37
+        Left = 451
+        Height = 36
         Top = 0
-        Width = 82
+        Width = 83
         Action = actLock
         Anchors = [akTop, akRight]
         AutoSize = True
@@ -198,16 +199,16 @@ object frmMain: TfrmMain
       Left = 24
       Height = 22
       Top = 24
-      Width = 439
+      Width = 534
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Around = 24
       Font.Style = [fsBold]
-      OnClick = stVaultPathClick
       ParentFont = False
       ParentShowHint = False
       ShowHint = True
       TabOrder = 0
       TabStop = True
+      OnClick = stVaultPathClick
     end
   end
   object lvVaults: TListView
@@ -216,9 +217,9 @@ object frmMain: TfrmMain
     AnchorSideRight.Control = splLeft
     AnchorSideBottom.Control = bbtnLockAll
     Left = 24
-    Height = 416
+    Height = 550
     Top = 24
-    Width = 297
+    Width = 282
     Anchors = [akTop, akLeft, akRight, akBottom]
     AutoWidthLastColumn = True
     BorderSpacing.Left = 24
@@ -229,7 +230,7 @@ object frmMain: TfrmMain
     Color = clForm
     Columns = <    
       item
-        Width = 293
+        Width = 278
       end>
     Font.Style = [fsBold]
     ParentFont = False
@@ -250,10 +251,10 @@ object frmMain: TfrmMain
     AnchorSideRight.Side = asrBottom
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
-    Left = 726
-    Height = 37
-    Top = 464
-    Width = 103
+    Left = 803
+    Height = 36
+    Top = 598
+    Width = 106
     Action = actLockAll
     Anchors = [akRight, akBottom]
     AutoSize = True
@@ -374,6 +375,10 @@ object frmMain: TfrmMain
         object miRussian: TMenuItem
           Caption = '&Russian'
           OnClick = miRussianClick
+        end
+        object miSpanish: TMenuItem
+          Caption = '&Spanish'
+          OnClick = miSpanishClick
         end
       end
       object sp5: TMenuItem

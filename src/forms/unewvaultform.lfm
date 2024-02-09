@@ -1,7 +1,7 @@
 object frmNewVault: TfrmNewVault
-  Left = 680
+  Left = 3396
   Height = 503
-  Top = 290
+  Top = 659
   Width = 600
   AutoSize = True
   Caption = 'New Vault'
@@ -13,7 +13,7 @@ object frmNewVault: TfrmNewVault
   OnKeyDown = FormKeyDown
   OnShow = FormShow
   Position = poOwnerFormCenter
-  LCLVersion = '2.2.4.0'
+  LCLVersion = '3.0.0.3'
   object edtVaultName: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = edtPath
@@ -21,17 +21,17 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 36
-    Top = 84
+    Height = 35
+    Top = 83
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     Enabled = False
-    OnChange = edtVaultNameChange
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
     TextHint = 'vault name'
+    OnChange = edtVaultNameChange
   end
   object edtPassword: TEdit
     AnchorSideLeft.Control = Owner
@@ -40,17 +40,17 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 36
-    Top = 144
+    Height = 35
+    Top = 142
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
     Enabled = False
-    OnChange = edtPasswordChange
     PasswordChar = '*'
     TabOrder = 2
     TextHint = 'password'
+    OnChange = edtPasswordChange
   end
   object edtRepeatPassword: TEdit
     AnchorSideLeft.Control = Owner
@@ -59,17 +59,17 @@ object frmNewVault: TfrmNewVault
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
     Left = 24
-    Height = 36
-    Top = 204
+    Height = 35
+    Top = 201
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     BorderSpacing.Around = 24
     EchoMode = emPassword
     Enabled = False
-    OnChange = edtRepeatPasswordChange
     PasswordChar = '*'
     TabOrder = 3
     TextHint = 'confirm password'
+    OnChange = edtRepeatPasswordChange
   end
   object btnCreate: TButton
     AnchorSideLeft.Control = Owner
@@ -77,25 +77,25 @@ object frmNewVault: TfrmNewVault
     AnchorSideTop.Side = asrBottom
     AnchorSideRight.Control = Owner
     AnchorSideRight.Side = asrBottom
-    Left = 461
-    Height = 36
-    Top = 264
-    Width = 115
+    Left = 455
+    Height = 35
+    Top = 260
+    Width = 121
     Anchors = [akTop, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     BorderSpacing.InnerBorder = 2
     Caption = '&Create Vault'
     Enabled = False
-    OnClick = btnCreateClick
     TabOrder = 4
+    OnClick = btnCreateClick
   end
   object edtPath: TEdit
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = Owner
     AnchorSideRight.Control = btnSelectPath
     Left = 24
-    Height = 36
+    Height = 35
     Top = 24
     Width = 513
     Anchors = [akTop, akLeft, akRight]
@@ -115,28 +115,28 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = edtPath
     AnchorSideBottom.Side = asrCenter
     Left = 549
-    Height = 32
+    Height = 31
     Top = 26
     Width = 27
     Anchors = [akTop, akRight]
     AutoSize = True
     BorderSpacing.Right = 24
     Caption = '...'
-    OnClick = btnSelectPathClick
     TabOrder = 0
+    OnClick = btnSelectPathClick
   end
   object cbAdvancedSettings: TCheckBox
     AnchorSideLeft.Control = Owner
     AnchorSideTop.Control = btnCreate
     AnchorSideTop.Side = asrCenter
     Left = 24
-    Height = 26
-    Top = 269
-    Width = 161
+    Height = 25
+    Top = 265
+    Width = 170
     BorderSpacing.Around = 24
     Caption = 'Advanced Settings'
-    OnChange = cbAdvancedSettingsChange
     TabOrder = 6
+    OnChange = cbAdvancedSettingsChange
   end
   object pnlAdvancedSettings: TPanel
     AnchorSideLeft.Control = Owner
@@ -147,14 +147,14 @@ object frmNewVault: TfrmNewVault
     AnchorSideBottom.Control = Owner
     AnchorSideBottom.Side = asrBottom
     Left = 24
-    Height = 108
-    Top = 324
+    Height = 105
+    Top = 319
     Width = 552
     Anchors = [akTop, akLeft, akRight]
     AutoSize = True
     BorderSpacing.Around = 24
     BevelOuter = bvNone
-    ClientHeight = 108
+    ClientHeight = 105
     ClientWidth = 552
     TabOrder = 7
     Visible = False
@@ -162,10 +162,10 @@ object frmNewVault: TfrmNewVault
       AnchorSideLeft.Control = pnlAdvancedSettings
       AnchorSideTop.Control = pnlAdvancedSettings
       Left = 0
-      Height = 22
+      Height = 21
       Hint = 'Hash file names that (in encrypted form) exceed this length.'#10#10'The default is 255, which aligns with the usual name'#10'length limit on Linux and provides best performance.'#10#10'However, online storage may impose lower limits on'#10'file name and/or path length.'#10'In this case, setting -longnamemax to a lower value can be helpful.'#10#10'The lower the value, the more extra .name files must be created,'#10'which slows down directory listings.'#10#10'Values below 62 are not allowed as then the hashed name'#10'would be longer than the original name.'
       Top = 0
-      Width = 106
+      Width = 112
       Caption = 'longnamemax:'
       ParentColor = False
       ParentShowHint = False
@@ -178,9 +178,9 @@ object frmNewVault: TfrmNewVault
       AnchorSideRight.Control = lblLongNamesMax
       AnchorSideRight.Side = asrBottom
       Left = 0
-      Height = 36
-      Top = 34
-      Width = 106
+      Height = 35
+      Top = 33
+      Width = 112
       Anchors = [akTop, akLeft, akRight]
       BorderSpacing.Top = 12
       Enabled = False
@@ -196,16 +196,16 @@ object frmNewVault: TfrmNewVault
       AnchorSideTop.Control = seLongNamesMax
       AnchorSideTop.Side = asrBottom
       Left = 0
-      Height = 26
+      Height = 25
       Hint = 'Do not encrypt file names and symlink targets'
-      Top = 82
-      Width = 138
+      Top = 80
+      Width = 145
       BorderSpacing.Top = 12
       Caption = 'plaintextnames'
-      OnChange = cbAdvancedSettingsChange
       ParentShowHint = False
       ShowHint = True
       TabOrder = 1
+      OnChange = cbAdvancedSettingsChange
     end
   end
   object sddSelectPath: TSelectDirectoryDialog
