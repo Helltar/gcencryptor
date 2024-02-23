@@ -11,7 +11,7 @@
 Download
 --------
 
-- [gcencryptor-1.5.5.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.5/gcencryptor-1.5.5.tar.gz) (1.67 MB)
+- [gcencryptor-1.5.6.tar.gz](https://github.com/Helltar/gcencryptor/releases/download/1.5.6/gcencryptor-1.5.6.tar.gz) (1.63 MB)
 
 Installation
 ------------
@@ -41,7 +41,7 @@ Unpack and run:
 cd ~/Downloads/
 ```
 ```
-tar -xvf gcencryptor-1.5.5.tar.gz
+tar -xvf gcencryptor-1.5.6.tar.gz
 ```
 ```
 cd gcencryptor/ && ./gcencryptor
